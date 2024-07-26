@@ -22,6 +22,8 @@ use App\Http\Controllers\BlogAuthorsController;
 use App\Http\Controllers\BlogTagsController;
 use App\Http\Controllers\AgentListsController;
 use App\Http\Controllers\EmployeeListsController;
+use App\Http\Controllers\CustomerListsController;
+
 
 
 use App\Http\Middleware\CheckSession;
@@ -112,6 +114,7 @@ Route::prefix('countries')->group(function () {
 
   Route::resource('agentlists', AgentListsController::class);
   Route::resource('employeelists', EmployeeListsController::class);
+  Route::resource('customerlists', CustomerListsController::class);
 
   Route::get('/get-states/{countryId}', [StatesController::class, 'getStates']);
   Route::resource('roles-rights', RolesRightsController::class);
