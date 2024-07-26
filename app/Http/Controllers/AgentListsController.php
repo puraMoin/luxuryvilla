@@ -38,15 +38,17 @@ class AgentListsController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'name' => 'required|string|max:255',
-            'username' => 'required|string|max:255',
-            'email' => 'required|email|max:255',
-            'contact' => 'required|string|max:15',
-            'active' => 'required|boolean',
-            'created_at' => 'required|date',
-            'updated_at' => 'required|date',
-        ]);
+
+        // dd($request); 
+        // $request->validate([
+        //     'name' => 'required|string|max:255',
+        //     'username' => 'required|email|max:255',
+        //     'email' => 'required|email|max:255',
+        //     'contact' => 'required|string|max:15',
+        //     'active' => 'required|boolean',
+        //     'created_at' => 'required|date',
+        //     'updated_at' => 'required|date',
+        // ]);
     
         AgentList::create($request->all());
     
@@ -61,7 +63,11 @@ class AgentListsController extends Controller
      */
     public function show($id)
     {
-        //
+
+    $agentList = AgentList::findOrFail($id);
+    $pageTitle = 'Agent Details';
+
+    return view('agentlists.show', compact('agentList', 'pageTitle'));
     }
 
     /**
@@ -72,7 +78,11 @@ class AgentListsController extends Controller
      */
     public function edit($id)
     {
-        //
+    
+    $agentList = AgentList::findOrFail($id);
+    $pageTitle = 'Edit Agent';
+
+    return view('agentlists.edit', compact('agentList', 'pageTitle'));
     }
 
     /**
@@ -84,7 +94,22 @@ class AgentListsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validatedData = $request->validate([
+            'name' => 'required|string|max:255',
+            'username' => 'required|string|max:255',
+            'email' => 'required|email|max:255|unique:agentlists,email,' . $id,
+            'contact' => 'required|string|max:15',
+            'active' => 'required|boolean',
+        ]);
+
+        // Find the agent by ID
+        $agentList = AgentList::findOrFail($id);
+
+        // Update the agent with the validated data
+        $agentList->update($validatedData);
+
+        // Redirect back with a success message
+        return redirect()->route('agentlists.index')->with('success', 'Agent updated successfully!');
     }
 
     /**

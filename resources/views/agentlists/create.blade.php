@@ -14,7 +14,7 @@
   </div>
   <div class="container-fluid">
     <div class="card-style mt-20">
-      <h3>Add New Agent</h3>
+      
       <form action="{{ route('agentlists.store') }}" method="POST">
         @csrf
         <div class="row">

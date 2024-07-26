@@ -23,7 +23,7 @@
               <th><h6>Name</h6></th>
               {{-- <th><h6>Username</h6></th> --}}
               <th><h6>Email</h6></th>
-              <th><h6>Contact No</h6></th>
+              <th><h6>Contact</h6></th>
               <th class="text-center"><h6>Active</h6></th> 
               {{-- <th><h6>Created At</h6></th>
               <th><h6>Updated At</h6></th> --}}
@@ -37,15 +37,15 @@
               <td><p>{{ $agent->name }}</p></td>
               {{-- <td><p>{{ $agent->username }}</p></td> --}}
               <td><p>{{ $agent->email }}</p></td>
-              <td><p>{{ $agent->contact_no }}</p></td>
+              <td><p>{{ $agent->contact }}</p></td>
               <td class="text-center">
                 @php
                   if($agent->active == '1'){
                     $class = 'activelabel';
-                    $data = 'Active';
+                    $data = 'Yes';
                   } else {
                     $class = 'inactivelabel';
-                    $data = 'Inactive';
+                    $data = 'No';
                   }
                 @endphp
                 <div class="{{ $class }}">{{ $data }}</div>
