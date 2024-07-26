@@ -20,6 +20,10 @@ use App\Http\Controllers\BlogsController;
 use App\Http\Controllers\BlogCategoriesController;
 use App\Http\Controllers\BlogAuthorsController;
 use App\Http\Controllers\BlogTagsController;
+use App\Http\Controllers\AgentListsController;
+use App\Http\Controllers\EmployeeListsController;
+
+
 use App\Http\Middleware\CheckSession;
 
 
@@ -105,6 +109,9 @@ Route::prefix('countries')->group(function () {
   Route::resource('blogcategories', BlogCategoriesController::class);
   Route::resource('blogauthors', BlogAuthorsController::class);
   Route::resource('blogtags', BlogTagsController::class);
+
+  Route::resource('agentlists', AgentListsController::class);
+  Route::resource('employeelists', EmployeeListsController::class);
 
   Route::get('/get-states/{countryId}', [StatesController::class, 'getStates']);
   Route::resource('roles-rights', RolesRightsController::class);
