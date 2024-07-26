@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\AgentList;
 use Illuminate\Http\Request;
 
 class AgentListsController extends Controller
@@ -13,7 +14,9 @@ class AgentListsController extends Controller
      */
     public function index()
     {
-        //
+        $agentlists = AgentList::all();
+        $pageTitle = 'Agent Lists';
+        return view('agentlists.index', compact('agentlists', 'pageTitle'));;  
     }
 
     /**
@@ -23,7 +26,8 @@ class AgentListsController extends Controller
      */
     public function create()
     {
-        //
+        $pageTitle = 'Create Agent';
+        return view('agentlists.create', compact('pageTitle'));
     }
 
     /**
@@ -34,7 +38,19 @@ class AgentListsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'username' => 'required|string|max:255',
+            'email' => 'required|email|max:255',
+            'contact' => 'required|string|max:15',
+            'active' => 'required|boolean',
+            'created_at' => 'required|date',
+            'updated_at' => 'required|date',
+        ]);
+    
+        AgentList::create($request->all());
+    
+        return redirect()->route('agentlists.index')->with('success', 'Agent created successfully.');
     }
 
     /**
