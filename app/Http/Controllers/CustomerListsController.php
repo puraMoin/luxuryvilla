@@ -27,7 +27,8 @@ class CustomerListsController extends Controller
      */
     public function create()
     {
-        //
+        $pageTitle = 'Add';
+        return view('customerlists.create',compact('pageTitle'));
     }
 
     /**
@@ -38,7 +39,21 @@ class CustomerListsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([   
+            'name'=>['required'],   
+        ]);
+
+        $customerlist = CustomerList::create([
+            'name' => $request->input('name'),
+            'email' => $request->input('email'),
+            'contact' => $request->input('contact'),
+            'active' => $request->input('active'),
+            'created_at' => now(), // Set the created timestamp
+            'updated_at' => now(),
+        ]);
+
+
+        return redirect()->route('customerlists.index');
     }
 
     /**
@@ -49,7 +64,18 @@ class CustomerListsController extends Controller
      */
     public function show($id)
     {
-        //
+        $customerlist = CustomerList::find($id);
+
+        if (!$customerlist) {
+            return redirect()->route('customerlists.index')->with('error', 'customerlists not found.');
+        }
+
+        // Retrieve additional details if needed
+        $pageTitle = 'View';
+        $parentMenu = 'Customer Lists';
+
+        // You can pass the data to a view and display it
+        return view('customerlists.show', compact('customerlist','pageTitle','parentMenu'));
     }
 
     /**
@@ -60,7 +86,12 @@ class CustomerListsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $customerlist = CustomerList::findOrFail($id);
+
+        $parentMenu = 'Blog';
+    
+        $pageTitle = "Edit";
+        return view('customerlists.edit',compact('parentMenu','pageTitle','customerlist'));
     }
 
     /**
@@ -72,7 +103,22 @@ class CustomerListsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $customerlist = CustomerList::find($id);
+
+        if (!$customerlist) {
+            return redirect()->route('customerlists.index')->with('error', 'customerlists not found.');
+         }
+
+        $customerlist->update([
+            'name' => $request->input('name'),
+            'email' => $request->input('email'),
+            'contact' => $request->input('contact'),
+            'active' => $request->input('active'),
+            'created_at' => now(), // Set the created timestamp
+            'updated_at' => now(),
+        ]);
+
+        return redirect()->route('customerlists.index');
     }
 
     /**
