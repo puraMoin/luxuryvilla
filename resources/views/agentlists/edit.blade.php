@@ -56,29 +56,16 @@
                             <label for="contact">Contact <span class="mandatory"> *</span></label>
                             <input type="text" class="numeric" id="contact" name="contact" placeholder="Contact" value="{{ old('contact', $agentList->contact) }}" />
                         </div>
-                        {{-- <script>
-                            $(document).ready(function() {
-                                $('input[name="contact"]').keypress(function(event) {
-                                var charCode = (event.which) ? event.which : event.keyCode;
-                                var inputValue = event.target.value + String.fromCharCode(charCode);
-                                                    
-                                // Allow only digits (0-9), decimal point (.), and backspace (8)
-                                if (!/^\d*\.?\d*$/.test(inputValue) && charCode !== 8) {
-                                    event.preventDefault();
-                                }
-                            });
-                          });
-                          </script> --}}
                     </div>
 
                     <!-- Active -->
                     <div class="col-sm-4">
                         <label>Active</label><br> 
                         <label class="radio-inline">
-                            <input type="radio" name="active" class="radio-inline" value="1" {{ old('active', $agentList->active) == 1 ? 'checked' : '' }}> Active
+                            <input type="radio" name="active" class="radio-inline" value="1" {{ old('active', $agentList->active) == 1 ? 'checked' : '' }}> Yes
                         </label>
                         <label class="radio-inline">
-                            <input type="radio" name="active" class="radio-inline" value="0" {{ old('active', $agentList->active) == 0 ? 'checked' : '' }}> Inactive
+                            <input type="radio" name="active" class="radio-inline" value="0" {{ old('active', $agentList->active) == 0 ? 'checked' : '' }}> No
                         </label>
                     </div>
 

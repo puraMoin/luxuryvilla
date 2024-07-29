@@ -43,19 +43,6 @@
               <label for="contact">Contact <span class="mandatory"> *</span></label>
               <input type="text" class="numeric" id="contact" name="contact" class="form-control" required>
             </div>
-            {{-- <script>
-              $(document).ready(function() {
-                  $('input[name="contact"]').keypress(function(event) {
-                  var charCode = (event.which) ? event.which : event.keyCode;
-                  var inputValue = event.target.value + String.fromCharCode(charCode);
-                                      
-                  // Allow only digits (0-9), decimal point (.), and backspace (8)
-                  if (!/^\d*\.?\d*$/.test(inputValue) && charCode !== 8) {
-                      event.preventDefault();
-                  }
-              });
-            });
-            </script> --}}
           </div>
 
         </div>
@@ -63,10 +50,10 @@
             <!-- Active Code --> 
              <label>Active</label><br> 
              <label class="radio-inline">
-             <input type="radio" name="active" class="radio-inline" value="1"> Active
+             <input type="radio" name="active" class="radio-inline" value="1"> Yes
              </label>
             <label class="radio-inline">
-            <input type="radio" name="active" class="radio-inline" value="0" checked> Inactive
+            <input type="radio" name="active" class="radio-inline" value="0" checked> No
             </label>
          </div>
         <div class="row">

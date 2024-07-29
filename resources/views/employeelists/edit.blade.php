@@ -63,10 +63,10 @@
                      <div class="col-sm-4">
                          <label>Active</label><br> 
                          <label class="radio-inline">
-                             <input type="radio" name="active" class="radio-inline" value="1" {{ old('active', $employeelists->active) == 1 ? 'checked' : '' }}> Active
+                             <input type="radio" name="active" class="radio-inline" value="1" {{ old('active', $employeelists->active) == 1 ? 'checked' : '' }}> Yes
                          </label>
                          <label class="radio-inline">
-                             <input type="radio" name="active" class="radio-inline" value="0" {{ old('active', $employeelists->active) == 0 ? 'checked' : '' }}> Inactive
+                             <input type="radio" name="active" class="radio-inline" value="0" {{ old('active', $employeelists->active) == 0 ? 'checked' : '' }}> No
                          </label>
                      </div>
  

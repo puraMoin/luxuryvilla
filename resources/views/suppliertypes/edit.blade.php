@@ -30,24 +30,13 @@
                     <div class="col-sm-6">
                         <label>Active</label><br>
                         <label class="radio-inline">
-                            <input type="radio" name="active" value="1" {{ old('active', $supplierstype->active) == 1 ? 'checked' : '' }}> Active
+                            <input type="radio" name="active" value="1" {{ old('active', $supplierstype->active) == 1 ? 'checked' : '' }}> Yes
                         </label>
                         <label class="radio-inline">
-                            <input type="radio" name="active" value="0" {{ old('active', $supplierstype->active) == 0 ? 'checked' : '' }}> Inactive
+                            <input type="radio" name="active" value="0" {{ old('active', $supplierstype->active) == 0 ? 'checked' : '' }}> No
                         </label>
                     </div>  
                     </div>
-
-                    <!-- Active -->
-                    {{-- <div class="col-sm-6">
-                        <label>Active</label><br>
-                        <label class="radio-inline">
-                            <input type="radio" name="active" value="1" {{ old('active', $supplierstype->active) == 1 ? 'checked' : '' }}> Active
-                        </label>
-                        <label class="radio-inline">
-                            <input type="radio" name="active" value="0" {{ old('active', $supplierstype->active) == 0 ? 'checked' : '' }}> Inactive
-                        </label>
-                    </div>                     --}}
                 </div>
 
                 <div class="row mt-15">
