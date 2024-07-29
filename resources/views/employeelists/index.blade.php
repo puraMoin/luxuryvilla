@@ -42,10 +42,10 @@
                 @php
                   if($employee->active == '1'){
                     $class = 'activelabel';
-                    $data = 'Yes';
+                    $data = 'Active';
                   } else {
                     $class = 'inactivelabel';
-                    $data = 'No';
+                    $data = 'Inactive';
                   }
                 @endphp
                 <div class="{{ $class }}">{{ $data }}</div>

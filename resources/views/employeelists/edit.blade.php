@@ -24,7 +24,7 @@
                      <!-- Name -->
                      <div class="col-sm-4">
                          <div class="input-style-1">
-                             <label for="name">Name<span class="mandatory">*</span></label>
+                             <label for="name">Name <span class="mandatory"> * </span></label>
                              <input type="text" id="name" name="name" placeholder="Name" value="{{ old('name', $employeelists->name) }}" />
                          </div>
                      </div>
@@ -32,7 +32,7 @@
                      <!-- Username -->
                      <div class="col-sm-4">
                          <div class="input-style-1">
-                             <label for="username">Username<span class="mandatory">*</span></label>
+                             <label for="username">Username <span class="mandatory"> * </span></label>
                              <input type="text" id="username" name="username" placeholder="Username" value="{{ old('username', $employeelists->username) }}" />
                          </div>
                      </div>
@@ -40,7 +40,7 @@
                      <!-- Email -->
                      <div class="col-sm-4">
                          <div class="input-style-1">
-                             <label for="email">Email<span class="mandatory">*</span></label>
+                             <label for="email">Email <span class="mandatory"> * </span></label>
                              <input type="email" id="email" name="email" placeholder="Email" value="{{ old('email', $employeelists->email) }}" />
                          </div>
                      </div>
@@ -50,8 +50,8 @@
                      <!-- Contact -->
                      <div class="col-sm-4">
                          <div class="input-style-1">
-                             <label for="contact">Contact<span class="mandatory">*</span></label>
-                             <input type="text" id="contact" name="contact" placeholder="Contact" value="{{ old('contact', $employeelists->contact) }}" />
+                             <label for="contact">Contact <span class="mandatory"> * </span></label>
+                             <input type="text" class="numeric" name="contact" placeholder="Contact" value="{{ old('contact', $employeelists->contact) }}" />
                          </div>
                      </div>
  
@@ -59,10 +59,10 @@
                      <div class="col-sm-4">
                          <label>Active</label><br> 
                          <label class="radio-inline">
-                             <input type="radio" name="active" class="radio-inline" value="1" {{ old('active', $employeelists->active) == 1 ? 'checked' : '' }}> Yes
+                             <input type="radio" name="active" class="radio-inline" value="1" {{ old('active', $employeelists->active) == 1 ? 'checked' : '' }}> Active
                          </label>
                          <label class="radio-inline">
-                             <input type="radio" name="active" class="radio-inline" value="0" {{ old('active', $employeelists->active) == 0 ? 'checked' : '' }}> No
+                             <input type="radio" name="active" class="radio-inline" value="0" {{ old('active', $employeelists->active) == 0 ? 'checked' : '' }}> Inactive
                          </label>
                      </div>
  
