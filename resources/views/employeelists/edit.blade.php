@@ -1,34 +1,83 @@
-<!-- resources/views/employeelists/edit.blade.php -->
+ @extends('layouts.app')
 
-<!DOCTYPE html>
-<html>
-<head>
-    <title>{{ $pageTitle }}</title>
-</head>
-<body>
-    <h1>{{ $pageTitle }}</h1>
-
-    <!-- Form for editing the agent -->
-    <form action="{{ route('employeelists.update', $employeeList->id) }}" method="POST">
-        @csrf
-        @method('PUT')
-
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" value="{{ old('name', $employeeList->name) }}">
-
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username" value="{{ old('username', $employeeList->username) }}">
-
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" value="{{ old('email', $employeeList->email) }}">
-
-        <label for="contact">Contact:</label>
-        <input type="text" id="contact" name="contact" value="{{ old('contact', $employeeList->contact) }}">
-
-        <label for="active">Active:</label>
-        <input type="checkbox" id="active" name="active" value="1" {{ $employeeList->active ? 'checked' : '' }}>
-
-        <button type="submit">Update</button>
-    </form>
-</body>
-</html>
+ @section('content')
+ <section class="section">
+     <div class="container-fluid">
+         <!-- Breadcrumb -->
+         @include('partials.breadcrumb')
+ 
+         <!-- Display success message if any -->
+         @if (session('success'))
+             <div class="alert alert-success">
+                 {{ session('success') }}
+             </div>
+         @endif
+ 
+         <!-- Form to Edit Employee Details -->
+         <form method="POST" action="{{ route('employeelists.update', $employeeList->id) }}" enctype="multipart/form-data">
+             @csrf
+             @method('PATCH')
+ 
+             <div class="card-style mt-20">
+                 <!-- Form Start Here -->
+                 <div class="row mt-15">
+                     <!-- Name -->
+                     <div class="col-sm-4">
+                         <div class="input-style-1">
+                             <label for="name">Name<span class="mandatory">*</span></label>
+                             <input type="text" id="name" name="name" placeholder="Name" value="{{ old('name', $employeeList->name) }}" />
+                         </div>
+                     </div>
+ 
+                     <!-- Username -->
+                     <div class="col-sm-4">
+                         <div class="input-style-1">
+                             <label for="username">Username<span class="mandatory">*</span></label>
+                             <input type="text" id="username" name="username" placeholder="Username" value="{{ old('username', $employeeList->username) }}" />
+                         </div>
+                     </div>
+ 
+                     <!-- Email -->
+                     <div class="col-sm-4">
+                         <div class="input-style-1">
+                             <label for="email">Email<span class="mandatory">*</span></label>
+                             <input type="email" id="email" name="email" placeholder="Email" value="{{ old('email', $employeeList->email) }}" />
+                         </div>
+                     </div>
+                 </div>
+ 
+                 <div class="row mt-15">
+                     <!-- Contact -->
+                     <div class="col-sm-4">
+                         <div class="input-style-1">
+                             <label for="contact">Contact<span class="mandatory">*</span></label>
+                             <input type="text" id="contact" name="contact" placeholder="Contact" value="{{ old('contact', $employeeList->contact) }}" />
+                         </div>
+                     </div>
+ 
+                     <!-- Active -->
+                     <div class="col-sm-4">
+                         <label>Active</label><br> 
+                         <label class="radio-inline">
+                             <input type="radio" name="active" class="radio-inline" value="1" {{ old('active', $employeeList->active) == 1 ? 'checked' : '' }}> Yes
+                         </label>
+                         <label class="radio-inline">
+                             <input type="radio" name="active" class="radio-inline" value="0" {{ old('active', $employeeList->active) == 0 ? 'checked' : '' }}> No
+                         </label>
+                     </div>
+ 
+                 </div>
+ 
+                 <div class="row mt-15">
+                     <div class="col-sm-12 text-left">
+                         <button type="submit" class="main-btn primary-btn btn-hover btn-sm">Update</button>
+                         <button type="reset" class="main-btn primary-btn-outline btn-hover btn-sm">Reset</button>
+                     </div>
+                 </div>
+             </div>
+         </form>
+     </div>
+ </section>
+ @endsection
+ 
+ 
