@@ -15,7 +15,7 @@ class CustomerListsController extends Controller
     public function index()
     {
         $customers = CustomerList::all();
-        $pageTitle = 'CustomerList';
+        $pageTitle = 'Customer List';
         $parentMenu = 'Users'; 
         return view('customerlists.index',compact('customers','pageTitle','parentMenu'));
     }
