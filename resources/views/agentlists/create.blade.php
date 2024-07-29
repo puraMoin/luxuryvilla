@@ -27,7 +27,7 @@
           <div class="col-md-4">
             <div class="input-style-1">
               <label for="username">Username <span class="mandatory"> *</span></label>
-              <input type="text" id="username" name="username" class="form-control" required>
+              <input type="email" id="username" name="username" class="form-control" required>
             </div>
           </div>
           <div class="col-md-4">

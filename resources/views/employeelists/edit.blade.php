@@ -37,7 +37,7 @@
                      <div class="col-sm-4">
                          <div class="input-style-1">
                              <label for="username">Username <span class="mandatory"> * </span></label>
-                             <input type="text" id="username" name="username" placeholder="Username" value="{{ old('username', $employeelists->username) }}" />
+                             <input type="email" id="username" name="username" placeholder="Username" value="{{ old('username', $employeelists->username) }}" />
                          </div>
                      </div>
  

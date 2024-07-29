@@ -36,7 +36,7 @@
                     <div class="col-sm-4">
                         <div class="input-style-1">
                             <label for="username">Username <span class="mandatory"> *</span></label>
-                            <input type="text" id="username" name="username" placeholder="Username" value="{{ old('username', $agentList->username) }}" />
+                            <input type="email" id="username" name="username" placeholder="Username" value="{{ old('username', $agentList->username) }}" />
                         </div>
                     </div>
 
