@@ -166,9 +166,17 @@ $(document).ready(function() {
               window.location.href = url;
         }); 
     });
-
- 
-
+</script>
+<script type="text/javascript">
+    $(document).on('keypress','.numeric',(function (event) {
+    var charCode = (event.which) ? event.which : event.keyCode
+    if (
+         (charCode != 45 || $(this).val().indexOf('-') != -1) &&      // “-” CHECK MINUS, AND ONLY ONE.
+         (charCode != 46 || $(this).val().indexOf('.') != -1) &&      // “.” CHECK DOT, AND ONLY ONE.
+         (charCode < 48 || charCode > 57))
+        return false;
+    return true;
+}));
 </script>
 <!-- Toggle end here-->
 </body>

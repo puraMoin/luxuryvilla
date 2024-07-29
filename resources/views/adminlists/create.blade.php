@@ -40,7 +40,7 @@
           <div class="col-md-4">
             <div class="input-style-1">
               <label for="contact">Contact</label>
-              <input type="text" id="contact" name="contact" class="form-control" required>
+              <input type="text" id="contact" name="contact" class="form-control numeric" required>
             </div>
           </div>
           <div class="col-sm-4">

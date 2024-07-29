@@ -51,7 +51,7 @@
                     <div class="col-sm-4">
                         <div class="input-style-1">
                             <label for="contact">Contact<span class="mandatory">*</span></label>
-                            <input type="text" id="contact" name="contact" placeholder="Contact" value="{{ old('contact', $adminlist->contact) }}" />
+                            <input type="text" id="contact" class="numeric" name="contact" placeholder="Contact" value="{{ old('contact', $adminlist->contact) }}" />
                         </div>
                     </div>
 

@@ -13,4 +13,6 @@ class AdminList extends Model
         'name','username','email','contact','active','created_at','updated_at'
         // add all other fields
     ];
+
+    protected $table = 'admin_lists';
 }
