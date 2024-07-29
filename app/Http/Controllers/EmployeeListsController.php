@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\EmployeeList;
 use Illuminate\Http\Request;
 
 class EmployeeListsController extends Controller
@@ -13,7 +14,9 @@ class EmployeeListsController extends Controller
      */
     public function index()
     {
-        //
+        $employeelists = EmployeeList::all();
+        $pageTitle = 'Employee Lists';
+        return view('employeelists.index', compact('employeelists', 'pageTitle'));
     }
 
     /**
@@ -23,7 +26,8 @@ class EmployeeListsController extends Controller
      */
     public function create()
     {
-        //
+        $pageTitle = 'Create Employee';
+        return view('employeelists.create', compact('pageTitle'));
     }
 
     /**
@@ -34,7 +38,18 @@ class EmployeeListsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // dd($request);
+        $request->validate([
+            'name' => 'string|max:255',
+            'username' => 'string|max:255',
+            'email' => 'email|max:255|unique:employee_lists',
+            'contact' => 'string|max:15',
+            'active' => 'boolean',
+        ]);
+
+        EmployeeList::create($request->all());
+
+        return redirect()->route('employeelists.index')->with('success', 'Employee created!');
     }
 
     /**
@@ -45,7 +60,10 @@ class EmployeeListsController extends Controller
      */
     public function show($id)
     {
-        //
+        $employeelists = EmployeeList::findOrFail($id);
+        $pageTitle = 'Employee Details';
+
+        return view('employeelists.show', compact('employeelists', 'pageTitle'));
     }
 
     /**
@@ -56,7 +74,10 @@ class EmployeeListsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $employeelists = EmployeeList::findOrFail($id);
+        $pageTitle = 'Edit Employee';
+
+        return view('employeelists.edit', compact('employeelists', 'pageTitle'));
     }
 
     /**
@@ -68,7 +89,18 @@ class EmployeeListsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validatedData = $request->validate([
+            'name' => 'string|max:255',
+            'username' => 'string|max:255',
+            'email' => 'email|max:255|unique:employee_lists,email,' . $id,
+            'contact' => 'string|max:15',
+            'active' => 'boolean',
+        ]);
+
+        $employeelists = EmployeeList::findOrFail($id);
+        $employeelists->update($validatedData);
+
+        return redirect()->route('employeelists.index')->with('success', 'Employee updated');
     }
 
     /**

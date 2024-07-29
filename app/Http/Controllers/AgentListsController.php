@@ -38,6 +38,7 @@ class AgentListsController extends Controller
      */
     public function store(Request $request)
     {
+        // dd($request);
         $request->validate([
             'name' => 'string|max:255',
             'username' => 'string|max:255',

@@ -10,6 +10,6 @@ class EmployeeList extends Model
     use HasFactory;
     
     protected $fillable = [
-        'name', 'username', 'email','contact_no','active','created_at','updated_at'
+        'name', 'username', 'email','contact','active','created_at','updated_at'
     ];
 }
