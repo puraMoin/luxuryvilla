@@ -15,7 +15,7 @@ class EmployeeListsController extends Controller
     public function index()
     {
         $employeelists = EmployeeList::all();
-        $pageTitle = 'Employee Lists';
+        $pageTitle = 'Employee List';
         return view('employeelists.index', compact('employeelists', 'pageTitle'));
     }
 
@@ -26,7 +26,7 @@ class EmployeeListsController extends Controller
      */
     public function create()
     {
-        $pageTitle = 'Create Employee';
+        $pageTitle = 'Add';
         return view('employeelists.create', compact('pageTitle'));
     }
 
@@ -61,7 +61,7 @@ class EmployeeListsController extends Controller
     public function show($id)
     {
         $employeelists = EmployeeList::findOrFail($id);
-        $pageTitle = 'Employee Details';
+        $pageTitle = 'View';
 
         return view('employeelists.show', compact('employeelists', 'pageTitle'));
     }
@@ -75,7 +75,7 @@ class EmployeeListsController extends Controller
     public function edit($id)
     {
         $employeelists = EmployeeList::findOrFail($id);
-        $pageTitle = 'Edit Employee';
+        $pageTitle = 'Edit';
 
         return view('employeelists.edit', compact('employeelists', 'pageTitle'));
     }

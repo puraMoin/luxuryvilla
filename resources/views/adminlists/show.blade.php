@@ -7,7 +7,7 @@
      @include('partials.breadcrumb')
 
     <!--Add new section start here-->
-<div class="card-style mt-20">
+            <div class="card-style mt-20">
             <div class="table-wrapper table-responsive mt-10">
                 <table class="table striped-table">
                     <tbody>

@@ -12,7 +12,11 @@
                  {{ session('success') }}
              </div>
          @endif
- 
+         {{-- <div class="right-mob-left">
+            <a href="{{ route('employeelists.index') }}">
+              <button type="button" class="main-btn primary-btn-outline btn-hover btn-xs">Back</button>
+            </a>
+          </div> --}}
          <!-- Form to Edit Employee Details -->
          <form method="POST" action="{{ route('employeelists.update', $employeelists->id) }}" enctype="multipart/form-data">
              @csrf

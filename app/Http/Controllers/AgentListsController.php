@@ -15,7 +15,7 @@ class AgentListsController extends Controller
     public function index()
     {
         $agentlists = AgentList::all();
-        $pageTitle = 'Agent Lists';
+        $pageTitle = 'Agent List';
         return view('agentlists.index', compact('agentlists', 'pageTitle'));
     }
 
@@ -26,7 +26,7 @@ class AgentListsController extends Controller
      */
     public function create()
     {
-        $pageTitle = 'Create Agent';
+        $pageTitle = 'Add';
         return view('agentlists.create', compact('pageTitle'));
     }
 
@@ -61,7 +61,7 @@ class AgentListsController extends Controller
     public function show($id)
     {
         $agentList = AgentList::findOrFail($id);
-        $pageTitle = 'Agent Details';
+        $pageTitle = 'View';
 
         return view('agentlists.show', compact('agentList', 'pageTitle'));
     }
@@ -75,7 +75,7 @@ class AgentListsController extends Controller
     public function edit($id)
     {
         $agentList = AgentList::findOrFail($id);
-        $pageTitle = 'Edit Agent';
+        $pageTitle = 'Edit';
 
         return view('agentlists.edit', compact('agentList', 'pageTitle'));
     }

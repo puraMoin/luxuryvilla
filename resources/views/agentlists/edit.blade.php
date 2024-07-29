@@ -12,12 +12,15 @@
                 {{ session('success') }}
             </div>
         @endif
-
+        {{-- <div class="right-mob-left">
+            <a href="{{ route('agentlists.index') }}">
+              <button type="button" class="main-btn primary-btn-outline btn-hover btn-xs">Back</button>
+            </a>
+          </div> --}}
         <!-- Form to Edit Agent Details -->
         <form method="POST" action="{{ route('agentlists.update', $agentList->id) }}" enctype="multipart/form-data">
             @csrf
             @method('PATCH')
-
             <div class="card-style mt-20">
                 <!-- Form Start Here -->
                 <div class="row mt-15">

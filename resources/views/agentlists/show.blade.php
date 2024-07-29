@@ -12,7 +12,11 @@
                 {{ session('success') }}
             </div>
         @endif
-
+        {{-- <div class="right-mob-left">
+            <a href="{{ route('agentlists.index') }}">
+              <button type="button" class="main-btn primary-btn-outline btn-hover btn-xs">Back</button>
+            </a>
+          </div> --}}
         <!-- Agent Details Section -->
         <div class="card-style mt-20">
             <div class="table-wrapper table-responsive mt-10">
@@ -53,6 +57,17 @@
                             </td>
                         </tr>
                         <tr>
+                            <th><h6>Created</h6></th>
+                            <td>
+                                <p>{{ $agentList->created_at }}</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th><h6>Updated</h6></th>
+                            <td>
+                                <p>{{ $agentList->updated_at }}</p>
+                            </td>
+                        </tr>
                         </tr>
                     </tbody>
                 </table>
