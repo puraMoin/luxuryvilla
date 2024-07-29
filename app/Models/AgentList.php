@@ -12,4 +12,6 @@ class AgentList extends Model
     protected $fillable = [
         'name', 'username', 'email','contact','active','created_at','updated_at'
     ];
+
+    // protected $table = 'agent_lists';
 }

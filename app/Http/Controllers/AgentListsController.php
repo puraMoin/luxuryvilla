@@ -16,7 +16,7 @@ class AgentListsController extends Controller
     {
         $agentlists = AgentList::all();
         $pageTitle = 'Agent Lists';
-        return view('agentlists.index', compact('agentlists', 'pageTitle'));;  
+        return view('agentlists.index', compact('agentlists', 'pageTitle'));
     }
 
     /**
@@ -38,21 +38,17 @@ class AgentListsController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'name' => 'string|max:255',
+            'username' => 'string|max:255',
+            'email' => 'email|max:255|unique:agent_lists',
+            'contact' => 'string|max:15',
+            'active' => 'boolean',
+        ]);
 
-        // dd($request); 
-        // $request->validate([
-        //     'name' => 'required|string|max:255',
-        //     'username' => 'required|email|max:255',
-        //     'email' => 'required|email|max:255',
-        //     'contact' => 'required|string|max:15',
-        //     'active' => 'required|boolean',
-        //     'created_at' => 'required|date',
-        //     'updated_at' => 'required|date',
-        // ]);
-    
         AgentList::create($request->all());
-    
-        return redirect()->route('agentlists.index')->with('success', 'Agent created successfully.');
+
+        return redirect()->route('agentlists.index')->with('success', 'Agent created!');
     }
 
     /**
@@ -63,11 +59,10 @@ class AgentListsController extends Controller
      */
     public function show($id)
     {
+        $agentList = AgentList::findOrFail($id);
+        $pageTitle = 'Agent Details';
 
-    $agentList = AgentList::findOrFail($id);
-    $pageTitle = 'Agent Details';
-
-    return view('agentlists.show', compact('agentList', 'pageTitle'));
+        return view('agentlists.show', compact('agentList', 'pageTitle'));
     }
 
     /**
@@ -78,11 +73,10 @@ class AgentListsController extends Controller
      */
     public function edit($id)
     {
-    
-    $agentList = AgentList::findOrFail($id);
-    $pageTitle = 'Edit Agent';
+        $agentList = AgentList::findOrFail($id);
+        $pageTitle = 'Edit Agent';
 
-    return view('agentlists.edit', compact('agentList', 'pageTitle'));
+        return view('agentlists.edit', compact('agentList', 'pageTitle'));
     }
 
     /**
@@ -95,21 +89,17 @@ class AgentListsController extends Controller
     public function update(Request $request, $id)
     {
         $validatedData = $request->validate([
-            'name' => 'required|string|max:255',
-            'username' => 'required|string|max:255',
-            'email' => 'required|email|max:255|unique:agentlists,email,' . $id,
-            'contact' => 'required|string|max:15',
-            'active' => 'required|boolean',
+            'name' => 'string|max:255',
+            'username' => 'string|max:255',
+            'email' => 'email|max:255|unique:agent_lists,email,' . $id,
+            'contact' => 'string|max:15',
+            'active' => 'boolean',
         ]);
 
-        // Find the agent by ID
         $agentList = AgentList::findOrFail($id);
-
-        // Update the agent with the validated data
         $agentList->update($validatedData);
 
-        // Redirect back with a success message
-        return redirect()->route('agentlists.index')->with('success', 'Agent updated successfully!');
+        return redirect()->route('agentlists.index')->with('success', 'Agent updated');
     }
 
     /**
