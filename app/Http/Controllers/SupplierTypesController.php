@@ -14,9 +14,9 @@ class SupplierTypesController extends Controller
      */
     public function index()
     {
-        $supplierstype = SupplierType::all();
+        $supplierstype = SupplierType::all(); // Change to plural form
         $pageTitle = 'Supplier List';
-        return view('supplierstype.index', compact('supplierstype', 'pageTitle'));
+        return view('suppliertypes.index', compact('supplierstype', 'pageTitle'));
     }
 
     /**
@@ -27,7 +27,7 @@ class SupplierTypesController extends Controller
     public function create()
     {
         $pageTitle = 'Add';
-        return view('supplierstype.create', compact('pageTitle'));
+        return view('suppliertypes.create', compact('pageTitle'));
     }
 
     /**
@@ -46,7 +46,7 @@ class SupplierTypesController extends Controller
 
         SupplierType::create($request->all());
 
-        return redirect()->route('supplierstype.index')->with('success', 'supplierstype created!');
+        return redirect()->route('suppliertypes.index')->with('success', 'Supplier type created!');
     }
 
     /**
@@ -60,7 +60,7 @@ class SupplierTypesController extends Controller
         $supplierstype = SupplierType::findOrFail($id);
         $pageTitle = 'View';
 
-        return view('supplierstype.show', compact('supplierstype', 'pageTitle'));
+        return view('suppliertypes.show', compact('supplierstype', 'pageTitle'));
     }
 
     /**
@@ -74,7 +74,7 @@ class SupplierTypesController extends Controller
         $supplierstype = SupplierType::findOrFail($id);
         $pageTitle = 'Edit';
 
-        return view('supplierstype.edit', compact('supplierstype', 'pageTitle'));
+        return view('suppliertypes.edit', compact('supplierstype', 'pageTitle'));
     }
 
     /**
@@ -94,7 +94,7 @@ class SupplierTypesController extends Controller
         $supplierstype = SupplierType::findOrFail($id);
         $supplierstype->update($validatedData);
 
-        return redirect()->route('supplierstype.index')->with('success', 'supplierstype updated');
+        return redirect()->route('suppliertypes.index')->with('success', 'Supplier type updated');
     }
 
     /**
