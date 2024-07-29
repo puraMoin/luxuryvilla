@@ -25,7 +25,7 @@ use App\Http\Controllers\EmployeeListsController;
 use App\Http\Controllers\AdminListsController;
 use App\Http\Controllers\CustomerListsController;
 use App\Http\Controllers\SupplierTypesController;
-
+use App\Http\Controllers\SupplierRegionTypesController;
 
 use App\Http\Middleware\CheckSession;
 
@@ -118,6 +118,7 @@ Route::prefix('countries')->group(function () {
   Route::resource('adminlists', AdminListsController::class);
   Route::resource('customerlists', CustomerListsController::class);
   Route::resource('suppliertypes', SupplierTypesController::class);
+  Route::resource('supplierregiontypes', SupplierRegionTypesController::class);
 
   Route::get('/get-states/{countryId}', [StatesController::class, 'getStates']);
   Route::resource('roles-rights', RolesRightsController::class);
