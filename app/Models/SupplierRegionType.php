@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class SupplierRegionType extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'name','active','created_at','updated_at'
+    ];
+
+    protected $table = 'supplier_region_types';
 }

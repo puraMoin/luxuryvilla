@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\SupplierRegionType;
 
 class SupplierRegionTypesController extends Controller
 {
@@ -13,7 +14,11 @@ class SupplierRegionTypesController extends Controller
      */
     public function index()
     {
-        //
+        $pageTitle = 'Supplier Region';
+        $parentMenu = 'Super Master';
+        $supplierregion = SupplierRegionType::all();
+
+        return view('supplierregiontypes.index',compact('parentMenu','pageTitle','supplierregion'));
     }
 
     /**
@@ -23,7 +28,8 @@ class SupplierRegionTypesController extends Controller
      */
     public function create()
     {
-        //
+        $pageTitle = 'Add';
+        return view('supplierregiontypes.create', compact('pageTitle'));
     }
 
     /**
@@ -34,7 +40,19 @@ class SupplierRegionTypesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'string|max:255',
+            'active' => 'boolean',
+        ]);
+
+        $admintype = SupplierRegionType::create([
+            'name' => $request->input('name'),
+            'active' => $request->input('active'),
+            'created_at' => now(), // Set the created timestamp
+            'updated_at' => now(),
+        ]);
+
+        return redirect()->route('supplierregiontypes.index')->with('success', 'supplierregiontypes created!');
     }
 
     /**
@@ -45,7 +63,19 @@ class SupplierRegionTypesController extends Controller
      */
     public function show($id)
     {
-        //
+        $supplierregion = SupplierRegionType::find($id);
+
+        if (!$supplierregion) {
+            return redirect()->route('supplierregiontypes.index')->with('error', 'Role not found.');
+        }
+
+        // Retrieve additional details if needed
+
+        $pageTitle = 'Supplier Region';
+        $parentMenu = 'Super Master';
+
+        // You can pass the data to a view and display it
+        return view('supplierregiontypes.show', compact('supplierregion','pageTitle','parentMenu'));
     }
 
     /**
@@ -56,7 +86,13 @@ class SupplierRegionTypesController extends Controller
      */
     public function edit($id)
     {
-        //
+        $supplierregion = SupplierRegionType::findOrFail($id);
+        /*dd($role);*/
+        //dd($menuLinks);
+        $parentMenu = 'Super Master';
+     
+        $pageTitle = "Edit";
+        return view('supplierregiontypes.edit',compact('parentMenu','pageTitle','supplierregion'));
     }
 
     /**
@@ -68,7 +104,21 @@ class SupplierRegionTypesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $supplierregion = SupplierRegionType::find($id);
+
+        if (!$supplierregion) {
+            return redirect()->route('supplierregiontypes.index')->with('error', 'Role not found.');
+         }
+
+       // Update the role information
+        $supplierregion->update([
+            'name' => $request->input('name'),
+            'active' => $request->input('active'),
+            'created_at' => now(), // Set the created timestamp
+            'updated_at' => now(),
+        ]);
+
+    return redirect()->route('supplierregiontypes.index');
     }
 
     /**
