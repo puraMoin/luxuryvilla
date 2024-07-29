@@ -21,33 +21,33 @@
                         <tr>
                             <th class='col-md-2'><h6>Name</h6></th>
                             <td>
-                                <p>{{ $employeeList->name }}</p>
+                                <p>{{ $employeelists->name }}</p>
                             </td>
                         </tr>
                         <tr>
                             <th><h6>Username</h6></th>
                             <td>
-                                <p>{{ $employeeList->username }}</p>
+                                <p>{{ $employeelists->username }}</p>
                             </td>
                         </tr>
                         <tr>
                             <th><h6>Email</h6></th>
                             <td>
-                                <p>{{ $employeeList->email }}</p>
+                                <p>{{ $employeelists->email }}</p>
                             </td>
                         </tr>
                         <tr>
                             <th><h6>Contact</h6></th>
                             <td>
-                                <p>{{ $employeeList->contact }}</p>
+                                <p>{{ $employeelists->contact }}</p>
                             </td>
                         </tr>
                         <tr>
                             <th><h6>Status</h6></th>
                             <td>
                                 @php
-                                    $statusClass = $employeeList->active ? 'activelabel' : 'inactivelabel';
-                                    $statusText = $employeeList->active ? 'Yes' : 'No';
+                                    $statusClass = $employeelists->active ? 'activelabel' : 'inactivelabel';
+                                    $statusText = $employeelists->active ? 'Yes' : 'No';
                                 @endphp
                                 <div class="{{ $statusClass }}">{{ $statusText }}</div>
                             </td>
