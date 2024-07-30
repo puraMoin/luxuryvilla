@@ -78,15 +78,8 @@ Route::get('/dashboard', [DashboardsController::class, 'index'])->name('dashboar
 
 
 /*Countries Master*/
-Route::prefix('countries')->group(function () {
-    Route::get('/index', [CountriesController::class, 'index'])->name('countries.index');
-    Route::get('/add', [CountriesController::class, 'add'])->name('countries.add');
-    Route::post('/store', [CountriesController::class, 'store'])->name('store');
-    Route::get('/edit/{id}', [CountriesController::class, 'edit'])->name('countries.edit');
-    Route::post('/update/{id}', [CountriesController::class, 'update'])->name('update'); 
-    Route::get('/show/{id}', [CountriesController::class, 'show'])->name('countries.show');
-});
 
+  Route::resource('countries', CountriesController::class);
   Route::resource('states', StatesController::class);
   Route::resource('cities', CitiesController::class);
   Route::resource('users', UsersController::class);

@@ -10,7 +10,7 @@
 <!--         <a href="{{ route('countries.index') }}">
         <button type="button" class="main-btn primary-btn-outline btn-hover btn-xs">Import</button> 
         </a> -->
-        <a href="{{ route('countries.add') }}">
+        <a href="{{ route('countries.create') }}">
         <button type="button" class="main-btn primary-btn btn-hover btn-xs">Create</button>
         </a>
     </div>
@@ -19,50 +19,7 @@
 <div class="card-style mt-20">
 <div class="row">
 <div class="col-sm-12">
-<form method="GET" action="{{ route('countries.index') }}" enctype="multipart/form-data" id="filterForm" controller='countries'>
-<div class="row">
-  <!-- Countries -->
-  <div class="col-sm-3">
-   <div class="select-style-1">
-       <label>Country</label>
-       <div class="select-position select-sm">
-       <select class="jSelectbox" id="actionDropdown" name="country_id" required>
-          <option value="">Select</option>  
-           <?php 
-              foreach ($countryList as $countryId => $country){
-               $selected = ($selectedCountryId == $countryId) ? 'selected' : '';
-           ?>  
-             <option value="{{ $countryId }}" {{$selected}}>{{ $country }}</option>
-           <?php } ?>   
-       </select>
-       </div>
-    </div>
-  </div>
-  <!-- Country Status -->
-  <div class="col-sm-3">
-   <div class="select-style-1">
-       <label>Status</label>
-       <div class="select-position select-sm">
-       <select class="jSelectbox" id="status" name="active" required>
-          <option value="">Select</option>  
-          <?php 
-             foreach ($countryStatus as $display => $value) { 
-              $checked = ($statusValue == $value) ? 'selected' : '';
-           ?>
-           <option value="{{ $value }}" {{$checked}}>{{ $display }}</option>
-           <?php } ?>   
-       </select>
-       </div>
-    </div>
-  </div>
-  <!-- Resate -->
-  <div class="col-sm-2">
-   <a href="{{ route('countries.index') }}">
-    <button type="button" class="main-btn dark-btn btn-hover btn-xs" style="margin-top:28px">Reset</button>
-   </a>
-  </div>
-</div> 
-</form>
+
 <!-- <div class="searchfield">
 <input type="text" placeholder="Search...">
 <button><i class="lni lni-search-alt"></i></button>
@@ -98,13 +55,13 @@
 
 <tr>
 <td><div class="check-input-primary"><input class="form-check-input" type="checkbox" id="checkbox-1" ></div></td>
-<td><p> @if ($country->countryDetails->isNotEmpty())
+<td><p> @if (!empty($country->image_file))
   @php
-      $firstImage = $country->countryDetails->first()->icon_image;
+      $firstImage = $country->image_file;
 
-      $id = $country->countryDetails->first()->id;
+      $id = $country->id;
 
-      $imagePath = $firstImage ? asset("images/country_details/icon_image/{$id}/{$firstImage}") : null;
+      $imagePath = $firstImage ? asset("images/country/image_file/{$id}/{$firstImage}") : null;
       
       //dd($imagePath);
 
