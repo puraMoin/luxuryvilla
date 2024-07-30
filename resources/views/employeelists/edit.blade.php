@@ -44,7 +44,7 @@
                      <!-- Email -->
                      <div class="col-sm-4">
                          <div class="input-style-1">
-                             <label for="email">Email <span class="mandatory"> * </span></label>
+                             <label for="email">mail <span class="mandatory"> * </span></label>
                              <input type="email" id="email" name="email" placeholder="Email" value="{{ old('email', $employeelists->email) }}" />
                          </div>
                      </div>
