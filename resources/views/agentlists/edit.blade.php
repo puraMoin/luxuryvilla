@@ -27,8 +27,8 @@
                     <!-- Name -->
                     <div class="col-sm-4">
                         <div class="input-style-1">
-                            <label for="name">Name <span class="mandatory"> *</span></label>
-                            <input type="text" id="name" name="name" placeholder="Name" value="{{ old('name', $agentList->name) }}" />
+                    <label for="name">Name <span class="mandatory"> *</span></label>
+                    <input type="text" id="name" name="name" placeholder="Name" value="{{ old('name', $agentList->name) }}" />
                         </div>
                     </div>
 
