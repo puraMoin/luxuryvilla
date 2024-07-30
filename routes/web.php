@@ -74,14 +74,7 @@ Route::get('/dashboard', [DashboardsController::class, 'index'])->name('dashboar
 
 
 /*Segment Master*/
-Route::prefix('segments')->group(function () {
-    Route::get('/index', [SegmentsController::class, 'index'])->name('segments.index');
-    Route::get('/add', [SegmentsController::class, 'add'])->name('segments.add');
-    Route::post('/store', [SegmentsController::class, 'store'])->name('segments.store');
-    Route::get('/edit/{id}', [SegmentsController::class, 'edit'])->name('segments.edit');
-    Route::post('/update/{id}', [SegmentsController::class, 'update'])->name('segments.update');
-    Route::get('/view/{id}', [SegmentsController::class, 'view'])->name('segments.view');
-});
+
 
 /*Countries Master*/
 Route::prefix('countries')->group(function () {
@@ -119,6 +112,7 @@ Route::prefix('countries')->group(function () {
   Route::resource('customerlists', CustomerListsController::class);
   Route::resource('suppliertypes', SupplierTypesController::class);
   Route::resource('supplierregiontypes', SupplierRegionTypesController::class);
+  Route::resource('segments', SegmentsController::class);
 
   Route::get('/get-states/{countryId}', [StatesController::class, 'getStates']);
   Route::resource('roles-rights', RolesRightsController::class);
