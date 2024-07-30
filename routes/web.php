@@ -114,7 +114,7 @@ Route::prefix('countries')->group(function () {
   Route::resource('suppliertypes', SupplierTypesController::class);
   Route::resource('supplierregiontypes', SupplierRegionTypesController::class);
   Route::resource('segments', SegmentsController::class);
-  Route::resource('currencies', CurrencyController::class);
+  Route::resource('currency', CurrencyController::class);
 
   Route::get('/get-states/{countryId}', [StatesController::class, 'getStates']);
   Route::resource('roles-rights', RolesRightsController::class);
