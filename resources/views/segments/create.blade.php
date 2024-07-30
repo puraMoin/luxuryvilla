@@ -37,13 +37,9 @@
           </div>
           <!-- Active Code -->
         <div class="col-sm-4">  
-             <label>Active</label><br> 
-             <label class="radio-inline">
-             <input type="radio" name="active" class="radio-inline" value="1"> Yes
-             </label>
-            <label class="radio-inline">
-            <input type="radio" name="active" class="radio-inline" value="0" checked> No
-            </label>
+             <label>Active</label><br>
+             <label class="radio-inline"><input type="radio" name="active" class="radio-inline" value="1"> Yes</label>
+            <label class="radio-inline"><input type="radio" name="active" class="radio-inline" value="0" checked> No</label>
          </div>
 
         <div class="row">
