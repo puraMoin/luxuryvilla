@@ -23,12 +23,13 @@ use App\Http\Controllers\BlogTagsController;
 use App\Http\Controllers\AgentListsController;
 use App\Http\Controllers\EmployeeListsController;
 use App\Http\Controllers\AdminListsController;
+use App\Http\Controllers\CurrencyController;
 use App\Http\Controllers\CustomerListsController;
 use App\Http\Controllers\SupplierTypesController;
 use App\Http\Controllers\SupplierRegionTypesController;
 
 use App\Http\Middleware\CheckSession;
-
+use App\Models\Currency;
 
 /*
 |--------------------------------------------------------------------------
@@ -113,6 +114,7 @@ Route::prefix('countries')->group(function () {
   Route::resource('suppliertypes', SupplierTypesController::class);
   Route::resource('supplierregiontypes', SupplierRegionTypesController::class);
   Route::resource('segments', SegmentsController::class);
+  Route::resource('currency', CurrencyController::class);
 
   Route::get('/get-states/{countryId}', [StatesController::class, 'getStates']);
   Route::resource('roles-rights', RolesRightsController::class);

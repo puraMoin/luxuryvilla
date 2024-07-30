@@ -20,7 +20,7 @@ class SegmentsController extends Controller
 
         $segment = Segment::all();
 
-        return view('segments.index',compact('parentMenu','pageTitle','segment'));
+        return view('segments.index', compact('parentMenu', 'pageTitle', 'segment'));
     }
 
     /**
@@ -32,7 +32,7 @@ class SegmentsController extends Controller
     {
         $pageTitle = 'Add';
         $userId = Auth::id();
-        return view('segments.create', compact('pageTitle','userId'));
+        return view('segments.create', compact('pageTitle', 'userId'));
     }
 
     /**
@@ -53,9 +53,9 @@ class SegmentsController extends Controller
             'name' => $request->input('name'),
             'code' => $request->input('code'),
             'active' => $request->input('active'),
-            'created_by'=> $request->input('created_by'),
-            'modified_by'=> $request->input('modified_by'),
-            'created_at' => now(), // Set the created timestamp
+            'created_by' => $request->input('created_by'),
+            'modified_by' => $request->input('modified_by'),
+            'created_at' => now(),
             'updated_at' => now(),
         ]);
 
@@ -88,10 +88,10 @@ class SegmentsController extends Controller
         /*dd($role);*/
         //dd($menuLinks);
         $parentMenu = 'Super Master';
-     
+
         $pageTitle = "Edit";
         $userId = Auth::id();
-        return view('segments.edit',compact('parentMenu','pageTitle','segment','userId'));
+        return view('segments.edit', compact('parentMenu', 'pageTitle', 'segment', 'userId'));
     }
 
     /**
@@ -107,14 +107,14 @@ class SegmentsController extends Controller
 
         if (!$segment) {
             return redirect()->route('segments.index')->with('error', 'segments not found.');
-         }
+        }
 
-       // Update the role information
+        // Update the role information
         $segment->update([
             'name' => $request->input('name'),
             'code' => $request->input('code'),
             'active' => $request->input('active'),
-            'modified_by'=> $request->input('modified_by'),
+            'modified_by' => $request->input('modified_by'),
             'created_at' => now(), // Set the created timestamp
             'updated_at' => now(),
         ]);

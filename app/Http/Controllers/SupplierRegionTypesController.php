@@ -48,7 +48,7 @@ class SupplierRegionTypesController extends Controller
         $admintype = SupplierRegionType::create([
             'name' => $request->input('name'),
             'active' => $request->input('active'),
-            'created_at' => now(), // Set the created timestamp
+            'created_at' => now(),
             'updated_at' => now(),
         ]);
 
@@ -69,12 +69,10 @@ class SupplierRegionTypesController extends Controller
             return redirect()->route('supplierregiontypes.index')->with('error', 'Role not found.');
         }
 
-        // Retrieve additional details if needed
 
         $pageTitle = 'Supplier Region';
         $parentMenu = 'Super Master';
 
-        // You can pass the data to a view and display it
         return view('supplierregiontypes.show', compact('supplierregion','pageTitle','parentMenu'));
     }
 
@@ -114,7 +112,7 @@ class SupplierRegionTypesController extends Controller
         $supplierregion->update([
             'name' => $request->input('name'),
             'active' => $request->input('active'),
-            'created_at' => now(), // Set the created timestamp
+            'created_at' => now(), 
             'updated_at' => now(),
         ]);
 
