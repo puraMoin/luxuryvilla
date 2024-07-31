@@ -37,6 +37,7 @@ class CountriesController extends Controller
             'name' => 'string|max:255',
             'is_domestic_country' => 'nullable|boolean',
             'is_state_allowed' => 'nullable|boolean',
+            'is_publish_on_website' => 'boolean',
             'alpha_2_code' => 'string|max:2',
             'alpha_3_code' => 'nullable|string|max:3',
             'calling_code' => 'integer',
@@ -50,7 +51,6 @@ class CountriesController extends Controller
             'small_description' => 'nullable|string',
             'latitude' => 'nullable|string|max:45',
             'longitude' => 'nullable|string|max:45',
-            'is_publish_on_website' => 'boolean',
             'image_file' => 'nullable|string|max:150',
             'active' => 'boolean',
             'fast_facts' => 'nullable|string',
@@ -65,6 +65,7 @@ class CountriesController extends Controller
             'name' => $request->input('name'),
             'is_domestic_country' => $request->input('is_domestic_country'),
             'is_state_allowed' => $request->input('is_state_allowed'),
+            'is_publish_on_website' => $request->input('is_publish_on_website'),
             'alpha_2_code' => $request->input('alpha_2_code'),
             'alpha_3_code' => $request->input('alpha_3_code'),
             'calling_code' => $request->input('calling_code'),
@@ -78,7 +79,6 @@ class CountriesController extends Controller
             'small_description' => $request->input('small_description'),
             'latitude' => $request->input('latitude'),
             'longitude' => $request->input('longitude'),
-            'is_publish_on_website' => $request->input('is_publish_on_website'),
             'image_file' => $request->input('image_file'),
             'active' => $request->input('active'),
             'fast_facts' => $request->input('fast_facts'),
@@ -114,14 +114,15 @@ class CountriesController extends Controller
 
     public function update(Request $request, $id)
     {
+        // dd($request->all());
         $country = Country::findOrFail($id);
         $country->update([
-            'segment_id' => $request->input('segment_id'),
             'passport_validity_in_yrs_adult' => $request->input('passport_validity_in_yrs_adult'),
             'passport_validity_in_yrs_child' => $request->input('passport_validity_in_yrs_child'),
             'name' => $request->input('name'),
             'is_domestic_country' => $request->input('is_domestic_country'),
             'is_state_allowed' => $request->input('is_state_allowed'),
+            'is_publish_on_website' => $request->input('is_publish_on_website'),
             'alpha_2_code' => $request->input('alpha_2_code'),
             'alpha_3_code' => $request->input('alpha_3_code'),
             'calling_code' => $request->input('calling_code'),
@@ -135,20 +136,12 @@ class CountriesController extends Controller
             'small_description' => $request->input('small_description'),
             'latitude' => $request->input('latitude'),
             'longitude' => $request->input('longitude'),
-            'is_publish_on_website' => $request->input('is_publish_on_website'),
             'image_file' => $request->input('image_file'),
             'active' => $request->input('active'),
             'fast_facts' => $request->input('fast_facts'),
-            // 'created_by' => $request->input('created_by'),
-            // 'modified_by' => $request->input('modified_by'),
             'updated_at' => now(),
         ]);
 
         return redirect()->route('countries.index');
-    }
-
-    public function destroy($id)
-    {
-        //
     }
 }
