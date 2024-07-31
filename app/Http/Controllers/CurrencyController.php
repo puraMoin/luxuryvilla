@@ -86,12 +86,6 @@ class CurrencyController extends Controller
    
     public function update(Request $request, $id)
     {
-        // dd($request);exit;
-        // $request->validate([
-        //     'name' => 'string|max:255',
-        //     'active' => 'boolean',
-        // ]);
-    
         $currency = Currency::findOrFail($id);
         $currency->update([
             'name' => $request->input('name'),

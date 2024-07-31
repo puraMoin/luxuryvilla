@@ -45,7 +45,12 @@
                                     <h6>Sign</h6>
                                 </th>
                                 <td>
-                                    <p>{{ $currency->sign }}</p>
+                                    @php
+                                        $signClass = $currency->decimals ? 'activelabel' : 'inactivelabel';
+                                        $signText = $currency->decimals ? 'Yes' : 'No';
+                                    @endphp
+                                    <div class="{{ $signClass }}">{{ $signText }}</div>
+                                    {{-- <p>{{ $currency->sign }}</p> --}}
                                 </td>
                             </tr>
                             <tr>
@@ -53,7 +58,11 @@
                                     <h6>Blank</h6>
                                 </th>
                                 <td>
-                                    <p>{{ $currency->blank }}</p>
+                                    @php
+                                        $blankClass = $currency->blank ? 'activelabel' : 'inactivelabel';
+                                        $blankText = $currency->blank ? 'Yes' : 'No';
+                                    @endphp
+                                    <div class="{{ $blankClass }}">{{ $blankText }}</div>
                                 </td>
                             </tr>
                             <tr>
@@ -61,7 +70,12 @@
                                     <h6>Format</h6>
                                 </th>
                                 <td>
-                                    <p>{{ $currency->format }}</p>
+                                    @php
+                                        $formatClass = $currency->decimals ? 'activelabel' : 'inactivelabel';
+                                        $formatText = $currency->decimals ? 'Yes' : 'No';
+                                    @endphp
+                                    <div class="{{ $formatClass }}">{{ $formatText }}</div>
+                                    {{-- <p>{{ $currency->format }}</p> --}}
                                 </td>
                             </tr>
                             <tr>
@@ -69,7 +83,11 @@
                                     <h6>Decimals</h6>
                                 </th>
                                 <td>
-                                    <p>{{ $currency->decimals }}</p>
+                                    @php
+                                        $decimalsClass = $currency->decimals ? 'activelabel' : 'inactivelabel';
+                                        $decimalsText = $currency->decimals ? 'Yes' : 'No';
+                                    @endphp
+                                    <div class="{{ $decimalsClass }}">{{ $decimalsText }}</div>
                                 </td>
                             </tr>
                             <tr>
@@ -85,9 +103,15 @@
                                     <h6>Display on Frontend</h6>
                                 </th>
                                 <td>
-                                    <p>{{ $currency->display_on_frontend }}</p>
+                                    @php
+                                        $dispClass = $currency->decimals ? 'activelabel' : 'inactivelabel';
+                                        $dispText = $currency->decimals ? 'Yes' : 'No';
+                                    @endphp
+                                    <div class="{{ $dispClass }}">{{ $dispText }}</div>
+                                    {{-- <p>{{ $currency->display_on_frontend }}</p> --}}
                                 </td>
                             </tr>
+
                             <tr>
                                 <th>
                                     <h6>Status</h6>
@@ -100,6 +124,7 @@
                                     <div class="{{ $statusClass }}">{{ $statusText }}</div>
                                 </td>
                             </tr>
+
                             <tr>
                             <tr>
                                 <th>

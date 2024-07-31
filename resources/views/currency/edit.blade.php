@@ -119,11 +119,11 @@
                             <label>Disp Frontend <span class="mandatory"> *</span></label><br>
                             <label class="radio-inline">
                                 <input type="radio" id="display_on_frontend_yes" name="display_on_frontend" required
-                                    value="1" {{ $currency->displayonfrontend == '1' ? 'checked' : '' }}> Yes
+                                    value="1" {{ $currency->display_on_frontend == '1' ? 'checked' : '' }}> Yes
                             </label>
                             <label class="radio-inline">
                                 <input type="radio" id="display_on_frontend_no" name="display_on_frontend"
-                                    value="0" {{ $currency->displayonfrontend == '0' ? 'checked' : '' }}> No
+                                    value="0" {{ $currency->display_on_frontend == '0' ? 'checked' : '' }}> No
                             </label>
                         </div>
 
