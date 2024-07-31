@@ -108,6 +108,7 @@ Route::get('/dashboard', [DashboardsController::class, 'index'])->name('dashboar
   Route::resource('supplierregiontypes', SupplierRegionTypesController::class);
   Route::resource('segments', SegmentsController::class);
   Route::resource('currency', CurrencyController::class);
+  Route::resource('countries', CountriesController::class);
 
   Route::get('/get-states/{countryId}', [StatesController::class, 'getStates']);
   Route::resource('roles-rights', RolesRightsController::class);

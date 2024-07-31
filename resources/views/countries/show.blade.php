@@ -17,42 +17,42 @@
                     <tr>
                         <th class='col-md-2 hide'><h6>Id</h6></th>
                         <td class='hide'>
-                            <p>{{ $country->id }}</p>
+                            <p>{{ $countries->id }}</p>
                         </td>
                     </tr>
                     <tr>
                         <th class='col-md-2'><h6>Country</h6></th>
                         <td class=''>
-                            <p>{{ $country->name }}</p>
+                            <p>{{ $countries->name }}</p>
                         </td>
                     </tr>
                     <tr>
                        <th><h6>Alpha 2 Code </h6></th>
                        <td>
-                           <p>{{ $country->alpha_2_code }}</p>
+                           <p>{{ $countries->alpha_2_code }}</p>
                        </td>
                     </tr>
                     <tr>
                        <th><h6>Alpha 3 Code </h6></th>
                        <td>
-                          <p>{{ $country->alpha_3_code }}</p>
+                          <p>{{ $countries->alpha_3_code }}</p>
                        </td>
                     </tr>
                     <tr>
                        <th><h6>Calling Code</h6></th>
                        <td>
-                          <p>{{ $country->calling_code }}</p>
+                          <p>{{ $countries->calling_code }}</p>
                        </td>
                     </tr>
                     <tr>
                       <th><h6>Icon Image</h6></th>
                        <td>
                           <p>
-                             @if ($country->countryDetails->isNotEmpty())
+                             @if ($countries->countryDetails->isNotEmpty())
                              @php
-                                $firstImage = $country->countryDetails->first()->icon_image;
+                                $firstImage = $countries->countryDetails->first()->icon_image;
 
-                                $id = $country->countryDetails->first()->id;
+                                $id = $countries->countryDetails->first()->id;
 
                                 $imagePath = $firstImage ? asset("images/country_details/icon_image/{$id}/{$firstImage}") : null;
                               
@@ -68,11 +68,11 @@
                     <tr>
                     <th><h6>Cover Image</h6></th>   
                     <td><p>
-                    @if ($country->countryDetails->isNotEmpty())
+                    @if ($countries->countryDetails->isNotEmpty())
                     @php
-                      $coverImage = $country->countryDetails->first()->cover_image;
+                      $coverImage = $countries->countryDetails->first()->cover_image;
 
-                      $id = $country->countryDetails->first()->id;
+                      $id = $countries->countryDetails->first()->id;
 
                         $imagePath = $coverImage ? asset("images/country_details/cover_image/{$id}/{$coverImage}") : null;
           
@@ -87,7 +87,7 @@
                     <tr>
                     <th><h6>Status</h6></th>    
                     <td>
-                      @php if($country->active == '1'){
+                      @php if($countries->active == '1'){
                         $class = 'activelabel';
                         $data = 'Active';
                         }
@@ -101,13 +101,13 @@
                     <tr>
                        <th><h6>Created</h6></th>
                        <td>
-                           <p>{{ $country->created }}</p>
+                           <p>{{ $countries->created }}</p>
                        </td>
                     </tr>  
                     <tr>
                        <th><h6>Modified</h6></th>
                        <td>
-                           <p>{{ $country->modified }}</p>
+                           <p>{{ $cocountriesuntry->modified }}</p>
                        </td>
                     </tr>
                     </tbody>

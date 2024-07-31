@@ -60,7 +60,7 @@ class CurrencyController extends Controller
             'updated_at' => now(),
         ]);
     
-        return redirect()->route('currency.index')->with('success', 'Currency created!');
+        return redirect()->route('currency.index');
     }
 
     

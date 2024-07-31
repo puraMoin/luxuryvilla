@@ -66,14 +66,17 @@
       //dd($imagePath);
 
   @endphp
+
   @if(!empty($imagePath))
   <img src="{{ $imagePath }}" class='countryIcon'>
+  
    @endif
-  @endif
-{{ $country->name }}</p></td>
-<td><p>{{ $country->alpha_2_code }}</p></td>
-<td><p>{{ $country->alpha_3_code }}</p></td>    
-<td><p>{{ $country->calling_code }}</p></td>
+        @endif
+          {{ $country->name }}</p></td>
+          <td><p>{{ $country->alpha_2_code }}</p></td>
+          <td><p>{{ $country->alpha_3_code }}</p></td>    
+          <td><p>{{ $country->calling_code }}</p></td>
+
 <td class="text-center">
   @php if($country->active == '1'){
     $class = 'activelabel';
