@@ -20,15 +20,12 @@ use App\Http\Controllers\BlogsController;
 use App\Http\Controllers\BlogCategoriesController;
 use App\Http\Controllers\BlogAuthorsController;
 use App\Http\Controllers\BlogTagsController;
-use App\Http\Controllers\AgentListsController;
 use App\Http\Controllers\EmployeeListsController;
-use App\Http\Controllers\AdminListsController;
 use App\Http\Controllers\CurrencyController;
 use App\Http\Controllers\CustomerListsController;
 use App\Http\Controllers\RolesController;
 use App\Http\Controllers\SupplierTypesController;
 use App\Http\Controllers\SupplierRegionTypesController;
-
 use App\Http\Middleware\CheckSession;
 use App\Models\Currency;
 
@@ -101,9 +98,9 @@ Route::get('/dashboard', [DashboardsController::class, 'index'])->name('dashboar
   Route::resource('blogauthors', BlogAuthorsController::class);
   Route::resource('blogtags', BlogTagsController::class);
 
-  Route::resource('agentlists', AgentListsController::class);
+
   Route::resource('employeelists', EmployeeListsController::class);
-  Route::resource('adminlists', AdminListsController::class);
+
   Route::resource('customerlists', CustomerListsController::class);
   Route::resource('suppliertypes', SupplierTypesController::class);
   Route::resource('supplierregiontypes', SupplierRegionTypesController::class);
