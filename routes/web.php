@@ -25,6 +25,7 @@ use App\Http\Controllers\EmployeeListsController;
 use App\Http\Controllers\AdminListsController;
 use App\Http\Controllers\CurrencyController;
 use App\Http\Controllers\CustomerListsController;
+use App\Http\Controllers\RolesController;
 use App\Http\Controllers\SupplierTypesController;
 use App\Http\Controllers\SupplierRegionTypesController;
 
@@ -109,6 +110,7 @@ Route::get('/dashboard', [DashboardsController::class, 'index'])->name('dashboar
   Route::resource('segments', SegmentsController::class);
   Route::resource('currency', CurrencyController::class);
   Route::resource('countries', CountriesController::class);
+  Route::resource('roles', RolesController::class);
 
   Route::get('/get-states/{countryId}', [StatesController::class, 'getStates']);
   Route::resource('roles-rights', RolesRightsController::class);
