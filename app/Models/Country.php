@@ -13,4 +13,17 @@ class Country extends Model
         'calling_code', 'mobile_number_min_length', 'mobile_number_max_length', 'mobile_number_series', 'page_url', 'canonical_url', 'country_description', 'country_description_website', 'small_description', 'latitude', 'longitude',
         'is_publish_on_website', 'image_file', 'active', 'fast_facts', 'created_by','modified_by', 'created_at', 'updated_at'
     ];
+
+    protected $table = 'countries';
+
+    // Define the hasMany relationship
+    public function segments()
+    {
+        return $this->belongsTo(Segment::class, 'segment_id', 'id');
+    }
+
+    public function states()
+    {
+        return $this->belongsTo(State::class, 'country_id', 'id');
+    }
 }

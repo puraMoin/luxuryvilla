@@ -168,6 +168,35 @@ $(document).ready(function() {
     });
 </script>
 <script type="text/javascript">
+    $(document).ready(function() {
+            function displayImage(input) {
+            var imageBox = document.getElementById('imageBox');
+            var selectedImage = document.getElementById('selectedImage');
+            var coverImageSpan = document.getElementById('coverImage'); // Get the span element
+
+            
+            var file = input.files[0];
+
+
+            if (file) {
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    selectedImage.src = e.target.result;
+                    // Update the text content of the span with the file name
+                    coverImageSpan.textContent = file.name;
+                    
+                   
+                };
+                reader.readAsDataURL(file);
+
+            } else {
+                // If no file is selected, you can handle it accordingly
+                selectedImage.src = "{{ asset('images/no-image.png') }}";
+            }
+        }
+    });        
+</script>
+<script type="text/javascript">
     $(document).on('keypress','.numeric',(function (event) {
     var charCode = (event.which) ? event.which : event.keyCode
     if (

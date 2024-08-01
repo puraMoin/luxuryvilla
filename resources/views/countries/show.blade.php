@@ -27,6 +27,15 @@
                                 <p>{{ $countries->name }}</p>
                             </td>
                         </tr>
+                        <!-- Segment -->
+                        <tr>
+                            <th class='col-md-2'>
+                                <h6>Segment</h6>
+                            </th>
+                            <td>
+                                <p>{{ $countries->segments->name }}</p>
+                            </td>
+                        </tr>                        
                         <!-- Alpha 2 Code -->
                         <tr>
                             <th class='col-md-2'>
@@ -208,21 +217,13 @@
                         <!-- Cover Image -->
                         <tr>
                             <th class='col-md-2'>
-                                <h6>Cover Image</h6>
+                                <h6>Image File</h6>
                             </th>
                             <td>
-                                <img src="{{ $countries->cover_image ? asset('storage/' . $countries->cover_image) : asset('images/no-image.png') }}" height="50px">
+                                <img src="{{ $countries->image_file ? asset('images/country/image_file/' . $countries->id . '/' . $countries->image_file) : asset('images/no-image.png') }}" height="50px">
                             </td>
                         </tr>
                         <!-- Icon Image -->
-                        <tr>
-                            <th class='col-md-2'>
-                                <h6>Icon Image</h6>
-                            </th>
-                            <td>
-                                <img src="{{ $countries->cover_image ? asset('storage/' . $countries->cover_image) : asset('images/no-image.png') }}" height="50px">
-                            </td>
-                        </tr>
                         <!-- Created At -->
                         <tr>
                             <th class='col-md-2'>
