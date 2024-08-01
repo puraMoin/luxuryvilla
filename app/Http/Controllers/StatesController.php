@@ -148,6 +148,8 @@ class StatesController extends Controller
     {
         $states = State::findOrFail($id);
 
+        $userId = Auth::id();
+
         $country = Country::where('id', $states->country_id)->first(); 
 
         $countries = Country::where('id', '!=', $country->id)->get();
@@ -155,7 +157,7 @@ class StatesController extends Controller
         $parentMenu = 'Segment & Currency Setup';
     
         $pageTitle = "Edit";
-        return view('states.edit',compact('parentMenu','pageTitle','states','countries','country'));
+        return view('states.edit',compact('parentMenu','pageTitle','states','countries','country','userId'));
     }
 
     /**

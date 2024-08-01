@@ -101,14 +101,14 @@
       </div> 
       <hr>
       <div class="row mt-15">
-         <!-- Description -->
+         <!--Small Description -->
          <div class="col-sm-6">
             <div class="input-style-1">
             <label>Small description <span class="mandatory">*</span></label> 
              <textarea name="description" class="rich-editor" placeholder="Small description"required  rows="3"></textarea>
             </div>   
          </div>
-         <!--Small Description -->
+         <!-- Description -->
          <div class="col-sm-6">
             <div class="input-style-1">
             <label>Description<span class="mandatory">*</span></label> 
