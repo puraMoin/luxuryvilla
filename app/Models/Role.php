@@ -17,7 +17,6 @@ class Role extends Model
         'full_delete',
         'super_config',
         'config',
-        'active',
         'created_by',
         'modified_by',
     ];

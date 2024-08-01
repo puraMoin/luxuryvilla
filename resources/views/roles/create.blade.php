@@ -97,16 +97,6 @@
                                 <input type="radio" id="config_no" name="config" value="0"> No
                             </label>
                         </div>
-
-                        <div class="col-sm-4">
-                            <label>Active</label><br>
-                            <label class="radio-inline">
-                                <input type="radio" name="active" value="1"> Yes
-                            </label>
-                            <label class="radio-inline">
-                                <input type="radio" name="active" value="0" checked> No
-                            </label>
-                        </div>
                     </div>
                     <hr>
                     <div class="row">

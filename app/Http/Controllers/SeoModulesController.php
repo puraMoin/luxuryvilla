@@ -7,11 +7,7 @@ use App\Models\SeoModule;
 
 class SeoModulesController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    
     public function index()
     {
         $pageTitle = 'Seo Modules';
@@ -22,11 +18,7 @@ class SeoModulesController extends Controller
         return view('seomodules.index',compact('parentMenu','pageTitle','seomodules'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    
     public function create()
     {
          $pageTitle = 'Add';
@@ -36,15 +28,10 @@ class SeoModulesController extends Controller
          return view('seomodules.create',compact('pageTitle','parentMenu','controllers'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+    
     public function store(Request $request)
     {
-     // Validate the request data
+     
             $request->validate([
             'page_name' => ['required'],
             'page_title' => ['required'],
@@ -67,37 +54,27 @@ class SeoModulesController extends Controller
         return redirect()->route('seomodules.index');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    
     public function show($id)
     {
         
-        // Find the country by ID
+       
         $seomodule = SeoModule::find($id);
 
         if (!$seomodule) {
             return redirect()->route('seomodules.index')->with('error', 'Seo not found.');
         }
 
-        // Retrieve additional details if needed
+        
 
         $pageTitle = 'Seo Modules';
         $parentMenu = 'Super Master';
 
-        // You can pass the data to a view and display it
+        
         return view('seomodules.show', compact('seomodule','pageTitle','parentMenu'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    
     public function edit($id)
     {
         $seomodule = SeoModule::findOrFail($id);   
@@ -113,13 +90,7 @@ class SeoModulesController extends Controller
         return view('seomodules.edit',compact('parentMenu','pageTitle','seomodule','menulinks','controllers'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    
     public function update(Request $request, $id)
     {
         $seomodule = SeoModule::find($id);
@@ -131,12 +102,7 @@ class SeoModulesController extends Controller
 
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    
     public function destroy($id)
     {
         //

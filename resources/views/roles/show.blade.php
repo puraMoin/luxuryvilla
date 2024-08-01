@@ -114,18 +114,6 @@
                                     <div class="{{ $configClass }}">{{ $configText }}</div>
                                 </td>
                             </tr>
-                            <tr>
-                                <th class='col-md-2'>
-                                    <h6>Active</h6>
-                                </th>
-                                <td>
-                                    @php
-                                        $activeClass = $role->active == '1' ? 'activelabel' : 'inactivelabel';
-                                        $activeText = $role->active == '1' ? 'Yes' : 'No';
-                                    @endphp
-                                    <div class="{{ $activeClass }}">{{ $activeText }}</div>
-                                </td>
-                            </tr>
                         </tbody>
                     </table>
                 </div>

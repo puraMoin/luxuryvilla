@@ -118,19 +118,6 @@
                                     {{ $role->config == '0' ? 'checked' : '' }}> No
                             </label>
                         </div>
-
-                        <!-- Active -->
-                        <div class="col-md-2">
-                            <label>Active <span class="mandatory"> *</span></label><br>
-                            <label class="radio-inline">
-                                <input type="radio" id="active_yes" name="active" value="1" required
-                                    {{ $role->active == '1' ? 'checked' : '' }}> Yes
-                            </label>
-                            <label class="radio-inline">
-                                <input type="radio" id="active_no" name="active" value="0"
-                                    {{ $role->active == '0' ? 'checked' : '' }}> No
-                            </label>
-                        </div>
                     </div>
 
                     <hr>

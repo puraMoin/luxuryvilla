@@ -43,9 +43,6 @@
                                     <h6>Config</h6>
                                 </th>
                                 <th class="text-center">
-                                    <h6>Active</h6>
-                                </th>
-                                <th class="text-center">
                                     <h6>Action</h6>
                                 </th>
                             </tr>
@@ -92,13 +89,6 @@
                                         @php
                                             $class = $role->super_config == 'yes' ? 'activelabel' : 'inactivelabel';
                                             $data = $role->super_config == 'yes' ? 'Yes' : 'No';
-                                        @endphp
-                                        <div class="{{ $class }}">{{ $data }}</div>
-                                    </td>
-                                    <td class="text-center">
-                                        @php
-                                            $class = $role->config == 'yes' ? 'activelabel' : 'inactivelabel';
-                                            $data = $role->config == 'yes' ? 'Yes' : 'No';
                                         @endphp
                                         <div class="{{ $class }}">{{ $data }}</div>
                                     </td>
