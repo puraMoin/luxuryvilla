@@ -11,7 +11,7 @@ use App\Http\Controllers\StatesController;
 use App\Http\Controllers\CitiesController;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\AdminTypesController;
-use App\Http\Controllers\AssignDashboardsController;
+
 use App\Http\Controllers\SeoModulesController;
 use App\Http\Controllers\SocialMediasController;
 use App\Http\Controllers\ContactsController;
@@ -109,7 +109,6 @@ Route::get('/dashboard', [DashboardsController::class, 'index'])->name('dashboar
   Route::resource('currency', CurrencyController::class);
   Route::resource('countries', CountriesController::class);
   Route::resource('roles', RolesController::class);
-  Route::resource('assign-dashboards', AssignDashboardsController::class);
 
   Route::get('/get-states/{countryId}', [StatesController::class, 'getStates']);
   Route::resource('roles-rights', RolesRightsController::class);
