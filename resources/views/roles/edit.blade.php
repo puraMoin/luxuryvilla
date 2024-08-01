@@ -85,11 +85,9 @@
                         <html></html>
                         <!-- Description -->
                         <div class="col-sm-12">
-                            <div class="row">
-                                <div class="input-style-1">
-                                    <label for="description">Description <span class="mandatory">*</span></label>
-                                    <textarea name="description" id="description" class="rich-editor" required placeholder="description" rows="3">{{ old('description', $role->description) }}</textarea>
-                                </div>
+                            <div class="input-style-1">
+                                <label>Description <span class="mandatory">*</span></label>
+                                <textarea name="description" class="rich-editor" placeholder="description" rows="3">{{ $role->description }}</textarea>
                             </div>
                         </div>
                         <hr>
