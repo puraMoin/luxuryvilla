@@ -19,7 +19,7 @@
                 <form action="{{ route('roles.update', $role->id) }}" method="POST">
                     @csrf
                     @method('PUT')
-                    <input type="hidden" name="modified_by" value="{{ auth()->id() }}">
+                    <input type="hidden" name="modified_by" value="{{ $userId }}">
                     <div class="row">
                         <!-- Name -->
                         <div class="col-md-4">
