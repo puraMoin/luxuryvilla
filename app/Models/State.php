@@ -9,8 +9,6 @@ class State extends Model
 {
     use HasFactory;
 
-    public $timestamps = false; // Disable Laravel's default timestamps
-
     protected $fillable = ['country_id', 'name', 'active','created','modified'];
 
     protected $table = 'states';
@@ -19,7 +17,7 @@ class State extends Model
     // Define the belongsTo relationship
     public function country()
     {
-        return $this->belongsTo(Countries::class);
+        return $this->belongsTo(Country::class);
     }
 }
 

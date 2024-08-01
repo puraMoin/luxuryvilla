@@ -14,12 +14,28 @@
                 <!-- Form Start Here -->
                 <div class="row mt-15">
                     <!-- Name -->
+                    <input type="hidden" name="modified_by" class="form-control" value= "{{$userId}}" required>     
                     <div class="col-sm-3">
                         <div class="input-style-1">
                             <label>Name <span class="mandatory">*</span></label>
                             <input type="text" name="name" value="{{ old('name', $countries->name) }}" placeholder="Country Name" />
                         </div>
                     </div>
+                    <!-- Segments -->
+                    <div  class="col-sm-3">
+                        <div class="select-style-1">
+                        <label>Segments <span class="mandatory"> *</span></label>
+                        <div class="select-position select-sm">
+                        <select class="jSelectbox" id="actionDropdown" name="segment_id" required>
+                            <option value="{{ $segment->id }}">{{ $segment->name }}</option>  
+                            <?php 
+                                foreach ($othersegments as $othersegment){  ?>  
+                            <option value="{{ $othersegment->id }}" >{{ $othersegment->name }}</option>
+                            <?php } ?>   
+                        </select>
+                        </div>
+                        </div>   
+                    </div>                    
                     <!-- Alpha 2 Code -->
                     <div class="col-sm-2">
                         <div class="input-style-1">
@@ -97,6 +113,23 @@
                         </div>
                     </div>
                 </div>
+                <hr>
+                <div class="row mt-15">
+                    <!-- Page Url -->
+                    <div class="col-sm-6">
+                        <div class="input-style-1">
+                        <label>Page Url<span class="mandatory">*</span></label>
+                        <input type="text"   name="page_url" placeholder="Page Url" value="{{ $countries->page_url }}" required/>
+                        </div>   
+                    </div>
+                    <!-- Canonical Url -->
+                    <div class="col-sm-6">
+                        <div class="input-style-1">
+                        <label> Canonical Url <span class="mandatory">*</span></label>
+                        <input type="text" name="canonical_url" placeholder="Canonical Url" value="{{ $countries->canonical_url }}" readonly required/>
+                        </div>   
+                    </div>
+                </div> 
                 <hr>
                 <div class="row mt-15">
                     <!-- Country description -->
@@ -180,18 +213,10 @@
                     <div class="col-sm-3">
                         <label>Cover Image <span class="mandatory">*</span></label>
                         <div id="imageBox">
-                            <img id="selectedImage" src="{{ $countries->cover_image ? asset('storage/' . $countries->cover_image) : asset('images/no-image.png') }}" alt="Selected Image">
+                            <img id="selectedImage" src="{{ $countries->image_file ? asset('images/country/image_file/' . $countries->id . '/' . $countries->image_file) : asset('images/no-image.png') }}" alt="Selected Image">
                         </div>
-                        <input type="file" name="cover_image" id="imageInput" onchange="displayImage(this)">
+                        <input type="file" name="image_file" id="imageInput" onchange="displayImage(this)">
                     </div>
-                    <!-- Icon Image -->
-                    {{-- <div class="col-sm-3">
-                        <label>Icon Image <span class="mandatory">*</span></label>
-                        <div id="iconBox">
-                            <img id="selectedIcon" src="{{ $countries->icon_image ? asset('storage/' . $countries->icon_image) : asset('images/no-image.png') }}" alt="Selected Icon">
-                        </div>
-                        <input type="file" name="icon_image" id="iconInput" onchange="displayIcon(this)">
-                    </div> --}}
                 </div>
                 <div class="row mt-15">
                     <div class="col-sm-3">

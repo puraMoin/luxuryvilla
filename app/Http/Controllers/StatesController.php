@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\State;
-use App\Models\Countries;
+use App\Models\Country;
+use Illuminate\Support\Facades\Auth;
 
 class StatesController extends Controller
 {
@@ -21,7 +22,7 @@ class StatesController extends Controller
         // $states = State::with('country');
         $statesQuery = State::with('country');
 
-        $countries = Countries::all()->where('active',true);
+        $countries = Country::all()->where('active',true);
         $countryList = $countries->pluck('name','id');
 
 
@@ -60,11 +61,12 @@ class StatesController extends Controller
     {
         $parentMenu = 'Segment & Currency Setup';
         $pageTitle = "Add";
+        $userId = Auth::id();
         /*Controller*/
         // ,['pageTitle' => $this->pageTitle]
-        $countries = Countries::all();
+        $countries = Country::all();
 
-        return view('states.create',compact('parentMenu','pageTitle','countries'));
+        return view('states.create',compact('parentMenu','pageTitle','countries','userId'));
     }
 
     /**
@@ -78,12 +80,13 @@ class StatesController extends Controller
 
         // Validate the request data
             $request->validate([
-            'country_id' => ['required']
+            'country_id' => ['required'],
+            'name'=>['required'],
              ]);
 
         $countryName = $request->input('country_id');
 
-        $country = Countries::where('name', $countryName)->first();
+        $country = Country::where('name', $countryName)->first();
         if(!empty($country))
         {
             $country_id = $country->id;
@@ -92,9 +95,19 @@ class StatesController extends Controller
         $state = State::create([
             'country_id' => $country_id,
             'name' => $request->input('name'),
+            'state_code' => $request->input('state_code'),            
+            'description' => $request->input('description'),    
+            'page_url' => $request->input('page_url'),         
+            'canonical_url' => $request->input('canonical_url'),     
+            'small_description' => $request->input('small_description'), 
+            'latitude' => $request->input('latitude'),
+            'longitude' => $request->input('longitude'),
             'active' => $request->input('active'),
-            'created' => now(), // Set the created timestamp
-            'modified' => now(),
+            'is_publish_on_website' => $request->input('is_publish_on_website'),
+            'created_by' => $request->input('created_by'),
+            'modified_by' => $request->input('modified_by'),
+            'created_at' => now(), // Set the created timestamp
+            'updated_at' => now(),
         ]);
 
         return redirect()->route('states.index');
@@ -135,9 +148,9 @@ class StatesController extends Controller
     {
         $states = State::findOrFail($id);
 
-        $country = Countries::where('id', $states->country_id)->first(); 
+        $country = Country::where('id', $states->country_id)->first(); 
 
-        $countries = Countries::where('id', '!=', $country->id)->get();
+        $countries = Country::where('id', '!=', $country->id)->get();
 
         $parentMenu = 'Segment & Currency Setup';
     
@@ -165,7 +178,7 @@ class StatesController extends Controller
 
         $countryName = $request->input('country_id');
 
-        $country = Countries::where('name', $countryName)->first();
+        $country = Country::where('name', $countryName)->first();
         if(!empty($country))
         {
             $country_id = $country->id;

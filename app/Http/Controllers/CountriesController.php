@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Country;
+use App\Models\Segment;
 
 class CountriesController extends Controller
 {
@@ -24,7 +25,10 @@ class CountriesController extends Controller
     {
         $parentMenu = 'Segment & Currency Setup';
         $pageTitle = "Add";
-        return view('countries.create', compact('parentMenu', 'pageTitle'));
+        $userId = Auth::id();
+        $segments = Segment::all();
+        $segmentsList = $segments->pluck('name','id');
+        return view('countries.create', compact('parentMenu', 'pageTitle','segments','segmentsList','userId'));
     }
 
 
@@ -56,8 +60,17 @@ class CountriesController extends Controller
             'fast_facts' => 'nullable|string',
         ]);
 
+        $segmentId = $request->input('segment_id');
+        $segment = Segment::find($segmentId);
+
+        if(!empty($segment))
+        {
+            $segmentId = $segment->id;
+        } 
+
+
         $country = Country::create([
-            // 'segment_id' => $request->input('segment_id'),
+            'segment_id' => $segmentId,
             'passport_validity_in_yrs_adult' => $request->input('passport_validity_in_yrs_adult'),
             'passport_validity_in_yrs_child' => $request->input('passport_validity_in_yrs_child'),
             'name' => $request->input('name'),
@@ -82,10 +95,25 @@ class CountriesController extends Controller
             'active' => $request->input('active'),
             'fast_facts' => $request->input('fast_facts'),
             'created_by' => $request->input('created_by'),
-            // 'modified_by' => $request->input('modified_by'),
+            'modified_by' => $request->input('modified_by'),
             'created_at' => now(),
             'updated_at' => now(),
         ]);
+
+        if ($request->hasFile('image_file')) {
+
+            $image = $request->file('image_file');   
+
+            $folder = 'images/country/image_file/'.$country->id;
+
+            // Save the image directly to the public folder
+            $image->move(public_path($folder), $image->getClientOriginalName());   
+            //dd($image1Path);
+            
+            $country->image_file = $image->getClientOriginalName();
+           }
+
+           $country->save();
 
         return redirect()->route('countries.index');
     }
@@ -103,11 +131,15 @@ class CountriesController extends Controller
     public function edit($id)
     {
         $countries = Country::findOrFail($id);
+
+        $segment = Segment::where('id', $countries->segment_id)->first(); 
+        $othersegments = Segment::where('id', '!=', $segment->id)->get();
         $parentMenu = 'Super Master';
 
         $pageTitle = "Edit";
         $userId = Auth::id();
-        return view('countries.edit', compact('parentMenu', 'pageTitle', 'countries', 'userId'));
+
+        return view('countries.edit', compact('parentMenu', 'pageTitle', 'countries', 'userId','segment','othersegments'));
     }
 
 
@@ -135,11 +167,26 @@ class CountriesController extends Controller
             'small_description' => $request->input('small_description'),
             'latitude' => $request->input('latitude'),
             'longitude' => $request->input('longitude'),
-            'image_file' => $request->input('image_file'),
+            //'image_file' => $request->input('image_file'),
             'active' => $request->input('active'),
             'fast_facts' => $request->input('fast_facts'),
+            'modified_by' => $request->input('modified_by'),
+            'created_at' => now(),
             'updated_at' => now(),
         ]);
+
+        if ($request->hasFile('image_file')) {
+
+            $image = $request->file('image_file');   
+
+            $folder = 'images/country/image_file/'.$country->id;
+
+            // Save the image directly to the public folder
+            $image->move(public_path($folder), $image->getClientOriginalName());   
+            //dd($image1Path);
+            
+            $country->image_file = $image->getClientOriginalName();
+           }
 
         return redirect()->route('countries.index');
     }

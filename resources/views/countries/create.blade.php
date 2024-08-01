@@ -15,11 +15,28 @@
       <!-- Form Start Here -->
        @csrf
       <div class="row mt-15">
+         <input type="hidden" name="created_by" class="form-control" value="{{$userId}}" required>
+         <input type="hidden" name="modified_by" class="form-control" value= "{{$userId}}" required>
          <!-- Name -->
          <div class="col-sm-3">
             <div class="input-style-1">
             <label>Name <span class="mandatory">*</span></label>
             <input type="text"  name="name" placeholder="Country Name" required />
+            </div>   
+         </div>
+         <!-- Segments -->
+          <div  class="col-sm-3">
+            <div class="select-style-1">
+            <label>Segments <span class="mandatory"> *</span></label>
+            <div class="select-position select-sm">
+             <select class="jSelectbox" id="actionDropdown" name="segment_id" required>
+                <option value="">Select Segments</option>  
+                 <?php 
+                    foreach ($segmentsList as $segmentsId => $segment){  ?>  
+                   <option value="{{ $segmentsId }}" >{{ $segment }}</option>
+                 <?php } ?>   
+             </select>
+             </div>
             </div>   
          </div>
          <!-- Alpha 2 Code -->
@@ -98,28 +115,38 @@
             <input type="text" maxlength="3"  name="longitude" placeholder="Latitude" required />
             </div>   
          </div>
-         <!-- Mobile No Min Length --> 
-         <div class="col-sm-3">
+      </div>
+      <hr>
+      <div class="row mt-15">
+         <!-- Page Url -->
+         <div class="col-sm-6">
             <div class="input-style-1">
-            <label >Mobile No Min Length <span class="mandatory">*</span></label>
-            <input type="text" maxlength="5"  name="mobile_number_max_length" placeholder="Mobile No Min Length" required />
+            <label>Page Url<span class="mandatory">*</span></label>
+            <input type="text"   name="page_url" placeholder="Page Url" required/>
             </div>   
          </div>
-      </div>
+         <!-- Canonical Url -->
+         <div class="col-sm-6">
+            <div class="input-style-1">
+            <label> Canonical Url <span class="mandatory">*</span></label>
+            <input type="text" name="canonical_url" placeholder="Canonical Url" readonly required/>
+            </div>   
+         </div>
+      </div>   
       <hr>
       <div class="row mt-15">
          <!-- Country description -->
          <div class="col-sm-6">
             <div class="input-style-1">
             <label>Country description <span class="mandatory">*</span></label> 
-             <textarea name="country_description" required placeholder="Country description" rows="3"></textarea> 
+             <textarea name="country_description" class="rich-editor"  required placeholder="Country description" rows="3"></textarea> 
             </div>   
          </div>
-         <!-- Country description -->
+         <!-- Country description Website-->
          <div class="col-sm-6">
             <div class="input-style-1">
-            <label>Country description Website <span class="mandatory">*</span></label> 
-             <textarea name="country_description_website" placeholder="Country description Website" required rows="3"></textarea>
+            <label >Country description Website <span class="mandatory">*</span></label> 
+             <textarea name="country_description_website" class="rich-editor" placeholder="Country description Website" required rows="3"></textarea>
             </div>   
          </div>
       </div>   
@@ -129,14 +156,14 @@
          <div class="col-sm-6">
             <div class="input-style-1">
             <label>Small description <span class="mandatory">*</span></label> 
-             <textarea name="small_description" placeholder="Small description"required  rows="3"></textarea>
+             <textarea name="small_description" class="rich-editor" placeholder="Small description"required  rows="3"></textarea>
             </div>   
          </div>
          <!-- Fast Facts -->
          <div class="col-sm-6">
             <div class="input-style-1">
             <label>Fast Facts <span class="mandatory">*</span></label> 
-             <textarea name="fast_facts" placeholder="Fast Facts"  required rows="3"></textarea>
+             <textarea name="fast_facts" class="rich-editor" placeholder="Fast Facts"  required rows="3"></textarea>
             </div>   
          </div>
       </div> 
@@ -187,20 +214,13 @@
       <div class="row mt-15">
           <!-- Cover Image -->
         <div class="col-sm-3">
-         <label>Cover Image <span class="mandatory">*</span></label>
+         <label>Image File<span class="mandatory">*</span></label>
           <div id="imageBox">
          <img id="selectedImage" src="{{ asset('images/no-image.png') }}" alt="Selected Image">
          </div>
-         <input type="file" name="cover_image" id="imageInput" onchange="displayImage(this)">
+         <input type="file" name="image_file" id="imageInput" onchange="displayImage(this)">
         </div> 
-                <!-- Icon Image -->
-       <div class="col-sm-3">
-         <label>Icon Image <span class="mandatory">*</span></label>
-          <div id="iconBox">
-         <img id="selectedIcon" src="{{ asset('images/no-image.png') }}" alt="Selected Image">
-         </div>
-         <input type="file" name="icon_image" id="imageInput" onchange="displayIcon(this)">
-        </div> 
+
       </div>  
       <div class="row mt-15">
        <div class="col-sm-3">  

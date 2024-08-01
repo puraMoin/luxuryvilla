@@ -3,8 +3,6 @@
 @section('content')
 <section class="section">
 	<div class="container-fluid">
-		 <!-- BreathCrum -->
-     @include('partials.breadcrumb')
      <!-- ========== Middle Content-wrapper start ========== -->    
      <!-- Add New Button -->
      <div class="right-mob-left">
