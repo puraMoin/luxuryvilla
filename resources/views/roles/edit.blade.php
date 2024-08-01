@@ -29,13 +29,7 @@
                             </div>
                         </div>
 
-                        <!-- Description -->
-                        <div class="col-md-4">
-                            <div class="input-style-1">
-                                <label for="description">Description <span class="mandatory"> *</span></label>
-                                <input type="text" id="description" name="description" class="form-control" value="{{ $role->description }}" required>
-                            </div>
-                        </div>
+                        {{-- desc --}}
 
                         <!-- Full View -->
                         <div class="col-md-2">
@@ -88,7 +82,17 @@
                                     {{ $role->full_delete == '0' ? 'checked' : '' }}> No
                             </label>
                         </div>
-
+                        <html></html>
+                        <!-- Description -->
+                        <div class="col-sm-12">
+                            <div class="row">
+                                <div class="input-style-1">
+                                    <label for="description">Description <span class="mandatory">*</span></label>
+                                    <textarea name="description" id="description" class="rich-editor" required placeholder="description" rows="3">{{ old('description', $role->description) }}</textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
                         <!-- Super Config -->
                         <div class="col-md-2">
                             <label>Super Config <span class="mandatory"> *</span></label><br>

@@ -11,22 +11,20 @@ class RolesController extends Controller
     public function index()
     {
         $pageTitle = 'Roles List';
-        $role = Role::all();
-        return view('roles.index', compact('role', 'pageTitle'));
+        $roles = Role::all();  // Changed variable name to $roles for consistency
+        
+        return view('roles.index', compact('roles', 'pageTitle'));
     }
 
     public function create()
     {
-        // $pageTitle = 'Add';
-        // $userId = Auth::id();
-        // return view('roles.create', compact('pageTitle', 'userId'));
+        $userId = Auth::id();
         $pageTitle = 'Create';
-        return view('roles.create', compact('pageTitle'));
+        return view('roles.create', compact('userId', 'pageTitle'));
     }
 
     public function store(Request $request)
 {
-    // Validate the incoming request data
     $request->validate([
         'name' => 'required|string|max:255',
         'description' => 'nullable|string',
@@ -36,11 +34,11 @@ class RolesController extends Controller
         'full_delete' => 'required|in:0,1',
         'super_config' => 'required|in:0,1',
         'config' => 'required|in:0,1',
-        'active' => 'required|in:0,1',
+        'created_by' => 'required|integer', 
+        'modified_by' => 'required|integer'
     ]);
 
-    
-    Role::create([
+    $role = Role::create([
         'name' => $request->input('name'),
         'description' => $request->input('description'),
         'full_view' => $request->input('full_view'),
@@ -49,15 +47,14 @@ class RolesController extends Controller
         'full_delete' => $request->input('full_delete'),
         'super_config' => $request->input('super_config'),
         'config' => $request->input('config'),
-        'active' => $request->input('active'),
-        'created_by' => auth()->id(), 
-        'modified_by' => auth()->id(), 
+        'created_by' => $request->input('created_by'),
+        'modified_by' => $request->input('modified_by'),
+        'created_at' => now(),
+        'updated_at' => now(),
     ]);
 
-    
     return redirect()->route('roles.index');
 }
-
 
     public function show($id)
     {
@@ -75,7 +72,7 @@ class RolesController extends Controller
         return view('roles.edit', compact('role', 'pageTitle', 'userId'));
     }
 
-    public function update(Request $request, Role $role)
+    public function update(Request $request, $id)
 {
     $request->validate([
         'name' => 'required|string|max:255',
@@ -86,9 +83,9 @@ class RolesController extends Controller
         'full_delete' => 'required|in:0,1',
         'super_config' => 'required|in:0,1',
         'config' => 'required|in:0,1',
-        'active' => 'required|in:0,1',
     ]);
 
+    $role = Role::findOrFail($id);
     $role->update([
         'name' => $request->input('name'),
         'description' => $request->input('description'),
@@ -98,10 +95,16 @@ class RolesController extends Controller
         'full_delete' => $request->input('full_delete'),
         'super_config' => $request->input('super_config'),
         'config' => $request->input('config'),
-        'active' => $request->input('active'),
-        'modified_by' => auth()->id(), 
+        'modified_by' => $request->input('modified_by'),
+        'created_at' => now(), 
+        'updated_at' => now(),
     ]);
 
     return redirect()->route('roles.index');
 }
+
+    public function destroy($id)
+    {
+        //
+    }
 }

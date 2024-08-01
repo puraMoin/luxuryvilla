@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Role extends Model
 {
     use HasFactory;
-    protected $fillable = [
+     protected $fillable = [
         'name',
         'description',
         'full_view',
@@ -17,7 +17,8 @@ class Role extends Model
         'full_delete',
         'super_config',
         'config',
-        // 'created_by',
-        // 'modified_by'
+        'active',
+        'created_by',
+        'modified_by',
     ];
 }

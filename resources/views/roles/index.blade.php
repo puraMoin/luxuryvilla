@@ -51,69 +51,69 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($role as $roles)
+                            @foreach ($roles as $role)
                                 @php
                                     $class = '';
                                     $data = '';
                                 @endphp
                                 <tr>
                                     <td>
-                                        <p>{{ $roles->name }}</p>
+                                        <p>{{ $role->name }}</p>
                                     </td>
                                     <td class="text-center">
                                         @php
-                                            $class = $roles->full_view == 'yes' ? 'activelabel' : 'inactivelabel';
-                                            $data = $roles->full_view == 'yes' ? 'Yes' : 'No';
+                                            $class = $role->full_view == 'yes' ? 'activelabel' : 'inactivelabel';
+                                            $data = $role->full_view == 'yes' ? 'Yes' : 'No';
                                         @endphp
                                         <div class="{{ $class }}">{{ $data }}</div>
                                     </td>
                                     <td class="text-center">
                                         @php
-                                            $class = $roles->full_add == 'yes' ? 'activelabel' : 'inactivelabel';
-                                            $data = $roles->full_add == 'yes' ? 'Yes' : 'No';
+                                            $class = $role->full_add == 'yes' ? 'activelabel' : 'inactivelabel';
+                                            $data = $role->full_add == 'yes' ? 'Yes' : 'No';
                                         @endphp
                                         <div class="{{ $class }}">{{ $data }}</div>
                                     </td>
                                     <td class="text-center">
                                         @php
-                                            $class = $roles->full_edit == 'yes' ? 'activelabel' : 'inactivelabel';
-                                            $data = $roles->full_edit == 'yes' ? 'Yes' : 'No';
+                                            $class = $role->full_edit == 'yes' ? 'activelabel' : 'inactivelabel';
+                                            $data = $role->full_edit == 'yes' ? 'Yes' : 'No';
                                         @endphp
                                         <div class="{{ $class }}">{{ $data }}</div>
                                     </td>
                                     <td class="text-center">
                                         @php
-                                            $class = $roles->full_delete == 'yes' ? 'activelabel' : 'inactivelabel';
-                                            $data = $roles->full_delete == 'yes' ? 'Yes' : 'No';
+                                            $class = $role->full_delete == 'yes' ? 'activelabel' : 'inactivelabel';
+                                            $data = $role->full_delete == 'yes' ? 'Yes' : 'No';
                                         @endphp
                                         <div class="{{ $class }}">{{ $data }}</div>
                                     </td>
                                     <td class="text-center">
                                         @php
-                                            $class = $roles->super_config == 'yes' ? 'activelabel' : 'inactivelabel';
-                                            $data = $roles->super_config == 'yes' ? 'Yes' : 'No';
+                                            $class = $role->super_config == 'yes' ? 'activelabel' : 'inactivelabel';
+                                            $data = $role->super_config == 'yes' ? 'Yes' : 'No';
                                         @endphp
                                         <div class="{{ $class }}">{{ $data }}</div>
                                     </td>
                                     <td class="text-center">
                                         @php
-                                            $class = $roles->config == 'yes' ? 'activelabel' : 'inactivelabel';
-                                            $data = $roles->config == 'yes' ? 'Yes' : 'No';
+                                            $class = $role->config == 'yes' ? 'activelabel' : 'inactivelabel';
+                                            $data = $role->config == 'yes' ? 'Yes' : 'No';
                                         @endphp
                                         <div class="{{ $class }}">{{ $data }}</div>
                                     </td>
                                     <td class="text-center">
                                         @php
-                                            $class = $roles->active == '1' ? 'activelabel' : 'inactivelabel';
-                                            $data = $roles->active == '1' ? 'Yes' : 'No';
+                                            $class = $role->active == '1' ? 'activelabel' : 'inactivelabel';
+                                            $data = $role->active == '1' ? 'Yes' : 'No';
                                         @endphp
                                         <div class="{{ $class }}">{{ $data }}</div>
                                     </td>
                                     <td class="text-center">
-                                        <a href="{{ route('roles.edit', $roles->id) }}">
+                                        <a href="{{ route('roles.edit', $role->id) }}">
                                             <i class="lni lni-pencil-alt"></i>
                                         </a>
-                                        <a href="{{ route('roles.show', $roles->id) }}">
+                                        <a href="{{ route('roles.show', $role->id) }}">
                                             <i class="lni lni-list"></i>
                                         </a>
                                     </td>
