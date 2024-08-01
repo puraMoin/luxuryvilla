@@ -9,7 +9,15 @@ class Role extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'name', 'description', 'full_view', 'full_add', 'full_edit', 'full_delete', 'super_config',
-        'config', 'created_by', 'modified_by', 'created_at', 'updated_at'
+        'name',
+        'description',
+        'full_view',
+        'full_add',
+        'full_edit',
+        'full_delete',
+        'super_config',
+        'config',
+        // 'created_by',
+        // 'modified_by'
     ];
 }

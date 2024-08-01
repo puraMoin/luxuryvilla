@@ -49,7 +49,7 @@ class EmployeeListsController extends Controller
 
         EmployeeList::create($request->all());
 
-        return redirect()->route('employeelists.index')->with('success', 'Employee created!');
+        return redirect()->route('employeelists.index');
     }
 
     /**
@@ -100,7 +100,7 @@ class EmployeeListsController extends Controller
         $employeelists = EmployeeList::findOrFail($id);
         $employeelists->update($validatedData);
 
-        return redirect()->route('employeelists.index')->with('success', 'Employee updated');
+        return redirect()->route('employeelists.index');
     }
 
     /**
