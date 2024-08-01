@@ -60,7 +60,7 @@
          <div class="col-sm-6">
                <div class="input-style-1">
                <label>Canonical Url<span class="mandatory">*</span></label>
-               <input type="text" name="canonical_url" readonly placeholder="Canonical Url" value="{{ $states->canonical_url }}" />
+               <input type="text" name="canonical_url"  placeholder="Canonical Url" value="{{ $states->canonical_url }}" />
                </div>   
          </div>
       </div>   
@@ -103,21 +103,20 @@
       </div> 
       <hr>         
    <div class="row mt-15">           
-      <!--Small Description -->
+   <!--Small Description -->
       <div class="col-sm-6">
             <div class="input-style-1">
-            <label>Small description <span class="mandatory">*</span></label> 
-             <textarea name="description" class="rich-editor" placeholder="Small description"required  rows="3"></textarea>
+            <label for="small_description">Small description <span class="mandatory">*</span></label> 
+             <textarea name="small_description" class="rich-editor" id="small_description" placeholder="Small description"  rows="3">{{ $states->small_description  }}</textarea>
             </div>   
       </div>
-      <!-- Description -->
+   <!-- Description -->
       <div class="col-sm-6">
             <div class="input-style-1">
-            <label>Description<span class="mandatory">*</span></label> 
-             <textarea name="small_description" class="rich-editor" placeholder="Description"  required rows="3"></textarea>
+            <label for="description">Description<span class="mandatory">*</span></label> 
+             <textarea name="description" class="rich-editor" id="description" placeholder="Description"  rows="3">{{ $states->description  }}</textarea>
             </div>   
       </div> 
-
    </div> 
       <hr>
       <div class="row mt-15">

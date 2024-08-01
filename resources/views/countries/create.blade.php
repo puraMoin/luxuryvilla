@@ -139,14 +139,14 @@
          <div class="col-sm-6">
             <div class="input-style-1">
             <label>Country description <span class="mandatory">*</span></label> 
-             <textarea name="country_description" class="rich-editor"  required placeholder="Country description" rows="3"></textarea> 
+             <textarea name="country_description" class="rich-editor" placeholder="Country description" rows="3"></textarea> 
             </div>   
          </div>
          <!-- Country description Website-->
          <div class="col-sm-6">
             <div class="input-style-1">
             <label >Country description Website <span class="mandatory">*</span></label> 
-             <textarea name="country_description_website" class="rich-editor" placeholder="Country description Website" required rows="3"></textarea>
+             <textarea name="country_description_website" class="rich-editor" placeholder="Country description Website"  rows="3"></textarea>
             </div>   
          </div>
       </div>   
@@ -156,14 +156,14 @@
          <div class="col-sm-6">
             <div class="input-style-1">
             <label>Small description <span class="mandatory">*</span></label> 
-             <textarea name="small_description" class="rich-editor" placeholder="Small description"required  rows="3"></textarea>
+             <textarea name="small_description" class="rich-editor" placeholder="Small description" rows="3"></textarea>
             </div>   
          </div>
          <!-- Fast Facts -->
          <div class="col-sm-6">
             <div class="input-style-1">
             <label>Fast Facts <span class="mandatory">*</span></label> 
-             <textarea name="fast_facts" class="rich-editor" placeholder="Fast Facts"  required rows="3"></textarea>
+             <textarea name="fast_facts" class="rich-editor" placeholder="Fast Facts"  rows="3"></textarea>
             </div>   
          </div>
       </div> 

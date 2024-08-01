@@ -105,14 +105,14 @@
          <div class="col-sm-6">
             <div class="input-style-1">
             <label>Small description <span class="mandatory">*</span></label> 
-             <textarea name="description" class="rich-editor" placeholder="Small description"required  rows="3"></textarea>
+             <textarea name="small_description" class="rich-editor" placeholder="Small description"  rows="3"></textarea>
             </div>   
          </div>
          <!-- Description -->
          <div class="col-sm-6">
             <div class="input-style-1">
             <label>Description<span class="mandatory">*</span></label> 
-             <textarea name="small_description" class="rich-editor" placeholder="Description"  required rows="3"></textarea>
+             <textarea name="description" class="rich-editor" placeholder="Description"   rows="3"></textarea>
             </div>   
          </div>
       </div>       

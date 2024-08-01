@@ -147,6 +147,8 @@ class StatesController extends Controller
     public function edit($id)
     {
         $states = State::findOrFail($id);
+       
+        //dd($states);
 
         $userId = Auth::id();
 
@@ -172,8 +174,6 @@ class StatesController extends Controller
 
        $state = State::find($id);
 
-        //dd($state);
-
         if (!$state) {
             return redirect()->route('states.index')->with('error', 'State not found.');
          }
@@ -189,9 +189,19 @@ class StatesController extends Controller
          $state->update([
             'country_id' => $country_id,
             'name' => $request->input('name'),
+            'state_code' => $request->input('state_code'),            
+            'description' => $request->input('description'),    
+            'page_url' => $request->input('page_url'),         
+            'canonical_url' => $request->input('canonical_url'),     
+            'small_description' => $request->input('small_description'), 
+            'latitude' => $request->input('latitude'),
+            'longitude' => $request->input('longitude'),
             'active' => $request->input('active'),
-            'created' => now(), // Set the created timestamp
-            'modified' => now(),
+            'is_publish_on_website' => $request->input('is_publish_on_website'),
+            'created_by' => $request->input('created_by'),
+            'modified_by' => $request->input('modified_by'),
+            'created_at' => now(), // Set the created timestamp
+            'updated_at' => now(),
         ]);
 
         return redirect()->route('states.index');

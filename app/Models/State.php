@@ -9,8 +9,7 @@ class State extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['country_id', 'name', 'active','created','modified'];
-
+    protected $fillable = ['country_id', 'name','state_code','description','page_url','canonical_url','small_description','latitude','longitude','active','is_publish_on_website','created_by','modified_by','created_at','updated_at'];
     protected $table = 'states';
 
 
