@@ -94,7 +94,7 @@ class SupplierTypesController extends Controller
         $supplierstype = SupplierType::findOrFail($id);
         $supplierstype->update($validatedData);
 
-        return redirect()->route('suppliertypes.index')->with('success', 'Supplier type updated');
+        return redirect()->route('suppliertypes.index');
     }
 
     /**

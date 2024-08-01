@@ -2,81 +2,71 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\AssignedDashboard;
 use Illuminate\Http\Request;
 
 class AssignedDashboardsController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    
     public function index()
     {
-        //
+        $assigneddashboards = AssignedDashboard::all(); 
+        $pageTitle = 'Assigned Dashboards';
+        return view('assigneddashboards.index', compact('assigneddashboards', 'pageTitle'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+   
     public function create()
     {
-        //
+        $pageTitle = 'Add';
+        return view('assigneddashboards.create', compact('pageTitle'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+    
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'string|max:255',
+            'active' => 'boolean',
+        ]);
+
+        AssignedDashboard::create($request->all());
+        return redirect()->route('assigneddashboards.index');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    
     public function show($id)
     {
-        //
+        $assigneddashboards = AssignedDashboard::findOrFail($id);
+        $pageTitle = 'View';
+
+        return view('assigneddashboards.show', compact('assigneddashboards', 'pageTitle'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    
     public function edit($id)
     {
-        //
+        $assigneddashboards = AssignedDashboard::findOrFail($id);
+        $pageTitle = 'Edit';
+
+        return view('assigneddashboards.edit', compact('assigneddashboards', 'pageTitle'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    
     public function update(Request $request, $id)
     {
-        //
+        $validatedData = $request->validate([
+            'name' => 'string|max:255',
+            'active' => 'boolean',
+        ]);
+
+        $assigneddashboards = AssignedDashboard::findOrFail($id);
+        $assigneddashboards->update($validatedData);
+
+        return redirect()->route('assigneddashboards.index');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+   
     public function destroy($id)
     {
         //
