@@ -113,7 +113,7 @@ class CountriesController extends Controller
 
     public function update(Request $request, $id)
     {
-        // dd($request->all());
+        
         $country = Country::findOrFail($id);
         $country->update([
             'passport_validity_in_yrs_adult' => $request->input('passport_validity_in_yrs_adult'),

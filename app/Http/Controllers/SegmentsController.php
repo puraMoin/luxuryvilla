@@ -61,7 +61,6 @@ class SegmentsController extends Controller
     {
         $segment = Segment::findOrFail($id);
         $parentMenu = 'Super Master';
-
         $pageTitle = "Edit";
         $userId = Auth::id();
         return view('segments.edit', compact('parentMenu', 'pageTitle', 'segment', 'userId'));
@@ -75,7 +74,6 @@ class SegmentsController extends Controller
             return redirect()->route('segments.index')->with('error', 'segments not found.');
         }
 
-        // Update the role information
         $segment->update([
             'name' => $request->input('name'),
             'code' => $request->input('code'),
