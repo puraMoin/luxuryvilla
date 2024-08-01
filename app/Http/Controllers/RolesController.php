@@ -96,8 +96,8 @@ class RolesController extends Controller
         'full_delete' => $request->input('full_delete'),
         'super_config' => $request->input('super_config'),
         'config' => $request->input('config'),
-        // 'modified_by' => $request->input('modified_by'),
-        'modified_by' => auth()->id(),
+        
+        // 'modified_by' => auth()->id(),
         'created_at' => now(), 
         'updated_at' => now(),
     ]);
