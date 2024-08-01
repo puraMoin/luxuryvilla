@@ -214,6 +214,15 @@
                                 <img src="{{ $countries->cover_image ? asset('storage/' . $countries->cover_image) : asset('images/no-image.png') }}" height="50px">
                             </td>
                         </tr>
+                        <!-- Icon Image -->
+                        <tr>
+                            <th class='col-md-2'>
+                                <h6>Icon Image</h6>
+                            </th>
+                            <td>
+                                <img src="{{ $countries->cover_image ? asset('storage/' . $countries->cover_image) : asset('images/no-image.png') }}" height="50px">
+                            </td>
+                        </tr>
                         <!-- Created At -->
                         <tr>
                             <th class='col-md-2'>

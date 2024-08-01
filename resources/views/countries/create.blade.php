@@ -19,28 +19,28 @@
          <div class="col-sm-3">
             <div class="input-style-1">
             <label>Name <span class="mandatory">*</span></label>
-            <input type="text"  name="name" placeholder="Country Name"  />
+            <input type="text"  name="name" placeholder="Country Name" required />
             </div>   
          </div>
          <!-- Alpha 2 Code -->
          <div class="col-sm-2">
             <div class="input-style-1">
             <label>Alpha 2 Code <span class="mandatory">*</span></label>
-            <input type="text" maxlength="2"  name="alpha_2_code" placeholder="Alpha 2 Code"  />
+            <input type="text" maxlength="2"  name="alpha_2_code" placeholder="Alpha 2 Code" required />
             </div>   
          </div>
          <!-- Alpha 3 Code -->
          <div class="col-sm-2">
             <div class="input-style-1">
             <label>Alpha 3 Code <span class="mandatory">*</span></label>
-            <input type="text" maxlength="3"  name="alpha_3_code" placeholder="Alpha 3 Code"  />
+            <input type="text" maxlength="3"  name="alpha_3_code" placeholder="Alpha 3 Code" required />
             </div>   
          </div>
          <!-- Calling Code --> 
          <div class="col-sm-2">
             <div class="input-style-1">
             <label >Calling Code <span class="mandatory">*</span></label>
-            <input type="text" maxlength="5" name="calling_code" placeholder="Calling Code"  />
+            <input type="text" maxlength="5" name="calling_code" placeholder="Calling Code"  required/>
             </div>   
          </div>
       </div>
@@ -50,28 +50,28 @@
          <div class="col-sm-3">
             <div class="input-style-1">
             <label>Passport Validity Yrs Adult <span class="mandatory">*</span></label>
-            <input type="text" class="numeric"  name="passport_validity_in_yrs_adult" placeholder="Passport Validity Yrs Adult"  />
+            <input type="text" class="numeric"  name="passport_validity_in_yrs_adult" placeholder="Passport Validity Yrs Adult"  required/>
             </div>   
          </div>
          <!-- Passport Validity Yrs Child -->
          <div class="col-sm-3">
             <div class="input-style-1">
             <label>Passport Validity Yrs Child <span class="mandatory">*</span></label>
-            <input type="text" maxlength="2" class="numeric" name="passport_validity_in_yrs_child" placeholder="Passport Validity Yrs Child"  />
+            <input type="text" maxlength="2" class="numeric" name="passport_validity_in_yrs_child" placeholder="Passport Validity Yrs Child" required />
             </div>   
          </div>
          <!-- Mobile No Min Length -->
          <div class="col-sm-3">
             <div class="input-style-1">
             <label>Mobile No Min Length <span class="mandatory">*</span></label>
-            <input type="text" maxlength="3" class="numeric"  name="mobile_number_min_length" placeholder="Mobile No Min Length"/>
+            <input type="text" maxlength="3" class="numeric"  name="mobile_number_min_length" placeholder="Mobile No Min Length" required />
             </div>   
          </div>
          <!-- Mobile No Min Length --> 
          <div class="col-sm-3">
             <div class="input-style-1">
             <label >Mobile No Min Length <span class="mandatory">*</span></label>
-            <input type="text" maxlength="5" class="numeric"  name="mobile_number_max_length" placeholder="Mobile No Min Length"  />
+            <input type="text" maxlength="5" class="numeric"  name="mobile_number_max_length" placeholder="Mobile No Min Length" required />
             </div>   
          </div>
       </div>         
@@ -81,28 +81,28 @@
          <div class="col-sm-3">
             <div class="input-style-1">
             <label>Mobile Number Series <span class="mandatory">*</span></label>
-            <input type="text" class="numeric"  name="mobile_number_series" placeholder="Mobile Number Series" />
+            <input type="text" class="numeric"  name="mobile_number_series" placeholder="Mobile Number Series" required/>
             </div>   
          </div>
          <!-- Latitude -->
          <div class="col-sm-3">
             <div class="input-style-1">
             <label>Latitude <span class="mandatory">*</span></label>
-            <input type="text" maxlength="2" name="latitude" placeholder="Latitude"  />
+            <input type="text" maxlength="2" name="latitude" placeholder="Latitude" required />
             </div>   
          </div>
          <!-- Longitude -->
          <div class="col-sm-3">
             <div class="input-style-1">
             <label>Latitude <span class="mandatory">*</span></label>
-            <input type="text" maxlength="3"  name="longitude" placeholder="Latitude"/>
+            <input type="text" maxlength="3"  name="longitude" placeholder="Latitude" required />
             </div>   
          </div>
          <!-- Mobile No Min Length --> 
          <div class="col-sm-3">
             <div class="input-style-1">
             <label >Mobile No Min Length <span class="mandatory">*</span></label>
-            <input type="text" maxlength="5"  name="mobile_number_max_length" placeholder="Mobile No Min Length"  />
+            <input type="text" maxlength="5"  name="mobile_number_max_length" placeholder="Mobile No Min Length" required />
             </div>   
          </div>
       </div>
@@ -112,14 +112,14 @@
          <div class="col-sm-6">
             <div class="input-style-1">
             <label>Country description <span class="mandatory">*</span></label> 
-             <textarea name="country_description" placeholder="Country description" rows="3"></textarea>
+             <textarea name="country_description" required placeholder="Country description" rows="3"></textarea> 
             </div>   
          </div>
          <!-- Country description -->
          <div class="col-sm-6">
             <div class="input-style-1">
             <label>Country description Website <span class="mandatory">*</span></label> 
-             <textarea name="country_description_website" placeholder="Country description Website" rows="3"></textarea>
+             <textarea name="country_description_website" placeholder="Country description Website" required rows="3"></textarea>
             </div>   
          </div>
       </div>   
@@ -129,14 +129,14 @@
          <div class="col-sm-6">
             <div class="input-style-1">
             <label>Small description <span class="mandatory">*</span></label> 
-             <textarea name="small_description" placeholder="Small description" rows="3"></textarea>
+             <textarea name="small_description" placeholder="Small description"required  rows="3"></textarea>
             </div>   
          </div>
          <!-- Fast Facts -->
          <div class="col-sm-6">
             <div class="input-style-1">
             <label>Fast Facts <span class="mandatory">*</span></label> 
-             <textarea name="fast_facts" placeholder="Fast Facts" rows="3"></textarea>
+             <textarea name="fast_facts" placeholder="Fast Facts"  required rows="3"></textarea>
             </div>   
          </div>
       </div> 
@@ -146,40 +146,40 @@
          <div class="col-sm-3">
              <label>Is Domestic Country <span class="mandatory">*</span></label><br> 
              <label class="radio-inline">
-             <input type="radio" name="is_domestic_country" class="radio-inline" value="1"> Yes
+             <input type="radio" name="is_domestic_country" required class="radio-inline" value="1"> Yes 
              </label>
             <label class="radio-inline">
-            <input type="radio" name="is_domestic_country" class="radio-inline" value="0" checked> No
+            <input type="radio" name="is_domestic_country" required class="radio-inline" value="0" checked> No
             </label>
          </div>
          <!-- Is State Allowed -->
          <div class="col-sm-3">
              <label>Is State Allowed <span class="mandatory">*</span></label><br> 
              <label class="radio-inline">
-             <input type="radio" name="is_state_allowed" class="radio-inline" value="1"> Yes
+             <input type="radio" name="is_state_allowed" requiredrequired class="radio-inline" value="1"> Yes
              </label>
             <label class="radio-inline">
-            <input type="radio" name="is_state_allowed" class="radio-inline" value="0" checked> No
+            <input type="radio" name="is_state_allowed" required class="radio-inline" value="0" checked> No
             </label>
          </div>   
          <!-- Is Publish on Website -->
          <div class="col-sm-3">
              <label>Is Publish Website <span class="mandatory">*</span></label><br> 
              <label class="radio-inline">
-             <input type="radio" name="is_publish_on_website" class="radio-inline" value="1"> Yes
+             <input type="radio" name="is_publish_on_website" required class="radio-inline" value="1"> Yes
              </label>
             <label class="radio-inline">
-            <input type="radio" name="is_publish_on_website" class="radio-inline" value="0" checked> No
+            <input type="radio" name="is_publish_on_website" required class="radio-inline" value="0" checked> No
             </label>
          </div>   
          <!-- Active Code --> 
          <div class="col-sm-3">
              <label>Active <span class="mandatory">*</span></label><br> 
              <label class="radio-inline">
-             <input type="radio" name="active" class="radio-inline" value="1"> Yes
+             <input type="radio" name="active" required class="radio-inline" value="1"> Yes
              </label>
             <label class="radio-inline">
-            <input type="radio" name="active" class="radio-inline" value="0" checked> No
+            <input type="radio" name="active" required class="radio-inline" value="0" checked> No
             </label>
          </div>      
       </div> 
@@ -213,4 +213,3 @@
 </form>
 </section>	
 @endsection
-

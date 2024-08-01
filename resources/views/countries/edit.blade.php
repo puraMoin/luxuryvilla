@@ -3,13 +3,11 @@
 @section('content')
 <section class="section">
     <div class="container-fluid">
-        <!-- BreadCrumb -->
+        <!-- Breadcrumb -->
         @include('partials.breadcrumb')
-        <!-- ========== Middle Content-wrapper start ========== -->    
-        <!-- Add New Button -->
-
-        <!-- Form Start Here -->
-        <form method="POST" action="{{ route('countries.update', $countries->id) }}" enctype="multipart/form-data">  
+        <!-- ========== Middle Content-wrapper start ========== -->
+        <!-- Edit Form -->
+        <form method="POST" action="{{ route('countries.update', $countries->id) }}" enctype="multipart/form-data">
             @csrf
             @method('PUT')
             <div class="card-style mt-20">
@@ -19,29 +17,29 @@
                     <div class="col-sm-3">
                         <div class="input-style-1">
                             <label>Name <span class="mandatory">*</span></label>
-                            <input type="text" name="name" placeholder="Country Name" value="{{ $countries->name }}" />
-                        </div>   
+                            <input type="text" name="name" value="{{ old('name', $countries->name) }}" placeholder="Country Name" />
+                        </div>
                     </div>
                     <!-- Alpha 2 Code -->
                     <div class="col-sm-2">
                         <div class="input-style-1">
                             <label>Alpha 2 Code <span class="mandatory">*</span></label>
-                            <input type="text" maxlength="2" name="alpha_2_code" placeholder="Alpha 2 Code" value="{{ $countries->alpha_2_code }}" />
-                        </div>   
+                            <input type="text" maxlength="2" name="alpha_2_code" value="{{ old('alpha_2_code', $countries->alpha_2_code) }}" placeholder="Alpha 2 Code" />
+                        </div>
                     </div>
                     <!-- Alpha 3 Code -->
                     <div class="col-sm-2">
                         <div class="input-style-1">
                             <label>Alpha 3 Code <span class="mandatory">*</span></label>
-                            <input type="text" maxlength="3" name="alpha_3_code" placeholder="Alpha 3 Code" value="{{ $countries->alpha_3_code }}" />
-                        </div>   
+                            <input type="text" maxlength="3" name="alpha_3_code" value="{{ old('alpha_3_code', $countries->alpha_3_code) }}" placeholder="Alpha 3 Code" />
+                        </div>
                     </div>
-                    <!-- Calling Code --> 
+                    <!-- Calling Code -->
                     <div class="col-sm-2">
                         <div class="input-style-1">
                             <label>Calling Code <span class="mandatory">*</span></label>
-                            <input type="text" maxlength="5" name="calling_code" placeholder="Calling Code" value="{{ $countries->calling_code }}" />
-                        </div>   
+                            <input type="text" maxlength="5" name="calling_code" value="{{ old('calling_code', $countries->calling_code) }}" placeholder="Calling Code" />
+                        </div>
                     </div>
                 </div>
                 <hr>
@@ -50,53 +48,53 @@
                     <div class="col-sm-3">
                         <div class="input-style-1">
                             <label>Passport Validity Yrs Adult <span class="mandatory">*</span></label>
-                            <input type="text" class="numeric" name="passport_validity_in_yrs_adult" placeholder="Passport Validity Yrs Adult" value="{{ $countries->passport_validity_in_yrs_adult }}" />
-                        </div>   
+                            <input type="text" class="numeric" name="passport_validity_in_yrs_adult" value="{{ old('passport_validity_in_yrs_adult', $countries->passport_validity_in_yrs_adult) }}" placeholder="Passport Validity Yrs Adult" />
+                        </div>
                     </div>
                     <!-- Passport Validity Yrs Child -->
                     <div class="col-sm-3">
                         <div class="input-style-1">
                             <label>Passport Validity Yrs Child <span class="mandatory">*</span></label>
-                            <input type="text" maxlength="2" class="numeric" name="passport_validity_in_yrs_child" placeholder="Passport Validity Yrs Child" value="{{ $countries->passport_validity_in_yrs_child }}" />
-                        </div>   
+                            <input type="text" maxlength="2" class="numeric" name="passport_validity_in_yrs_child" value="{{ old('passport_validity_in_yrs_child', $countries->passport_validity_in_yrs_child) }}" placeholder="Passport Validity Yrs Child" />
+                        </div>
                     </div>
                     <!-- Mobile No Min Length -->
                     <div class="col-sm-3">
                         <div class="input-style-1">
                             <label>Mobile No Min Length <span class="mandatory">*</span></label>
-                            <input type="text" maxlength="3" class="numeric" name="mobile_number_min_length" placeholder="Mobile No Min Length" value="{{ $countries->mobile_number_min_length }}" />
-                        </div>   
+                            <input type="text" maxlength="3" class="numeric" name="mobile_number_min_length" value="{{ old('mobile_number_min_length', $countries->mobile_number_min_length) }}" placeholder="Mobile No Min Length" />
+                        </div>
                     </div>
-                    <!-- Mobile No Max Length --> 
+                    <!-- Mobile No Max Length -->
                     <div class="col-sm-3">
                         <div class="input-style-1">
                             <label>Mobile No Max Length <span class="mandatory">*</span></label>
-                            <input type="text" maxlength="5" class="numeric" name="mobile_number_max_length" placeholder="Mobile No Max Length" value="{{ $countries->mobile_number_max_length }}" />
-                        </div>   
+                            <input type="text" maxlength="5" class="numeric" name="mobile_number_max_length" value="{{ old('mobile_number_max_length', $countries->mobile_number_max_length) }}" placeholder="Mobile No Max Length" />
+                        </div>
                     </div>
-                </div>         
+                </div>
                 <hr>
                 <div class="row mt-15">
                     <!-- Mobile Number Series -->
                     <div class="col-sm-3">
                         <div class="input-style-1">
                             <label>Mobile Number Series <span class="mandatory">*</span></label>
-                            <input type="text" class="numeric" name="mobile_number_series" placeholder="Mobile Number Series" value="{{ $countries->mobile_number_series }}" />
-                        </div>   
+                            <input type="text" class="numeric" name="mobile_number_series" value="{{ old('mobile_number_series', $countries->mobile_number_series) }}" placeholder="Mobile Number Series" />
+                        </div>
                     </div>
                     <!-- Latitude -->
                     <div class="col-sm-3">
                         <div class="input-style-1">
                             <label>Latitude <span class="mandatory">*</span></label>
-                            <input type="text" maxlength="2" name="latitude" placeholder="Latitude" value="{{ $countries->latitude }}" />
-                        </div>   
+                            <input type="text" maxlength="2" name="latitude" value="{{ old('latitude', $countries->latitude) }}" placeholder="Latitude" />
+                        </div>
                     </div>
                     <!-- Longitude -->
                     <div class="col-sm-3">
                         <div class="input-style-1">
                             <label>Longitude <span class="mandatory">*</span></label>
-                            <input type="text" maxlength="3" name="longitude" placeholder="Longitude" value="{{ $countries->longitude }}" />
-                        </div>   
+                            <input type="text" maxlength="3" name="longitude" value="{{ old('longitude', $countries->longitude) }}" placeholder="Longitude" />
+                        </div>
                     </div>
                 </div>
                 <hr>
@@ -104,78 +102,78 @@
                     <!-- Country description -->
                     <div class="col-sm-6">
                         <div class="input-style-1">
-                            <label>Country description <span class="mandatory">*</span></label> 
-                            <textarea name="country_description" placeholder="Country description" rows="3">{{ $countries->country_description }}</textarea>
-                        </div>   
+                            <label>Country description <span class="mandatory">*</span></label>
+                            <textarea name="country_description" placeholder="Country description" rows="3">{{ old('country_description', $countries->country_description) }}</textarea>
+                        </div>
                     </div>
                     <!-- Country description Website -->
                     <div class="col-sm-6">
                         <div class="input-style-1">
-                            <label>Country description Website <span class="mandatory">*</span></label> 
-                            <textarea name="country_description_website" placeholder="Country description Website" rows="3">{{ $countries->country_description_website }}</textarea>
-                        </div>   
+                            <label>Country description Website <span class="mandatory">*</span></label>
+                            <textarea name="country_description_website" placeholder="Country description Website" rows="3">{{ old('country_description_website', $countries->country_description_website) }}</textarea>
+                        </div>
                     </div>
-                </div>   
+                </div>
                 <hr>
                 <div class="row mt-15">
                     <!-- Small Description -->
                     <div class="col-sm-6">
                         <div class="input-style-1">
-                            <label>Small description <span class="mandatory">*</span></label> 
-                            <textarea name="small_description" placeholder="Small description" rows="3">{{ $countries->small_description }}</textarea>
-                        </div>   
+                            <label>Small description <span class="mandatory">*</span></label>
+                            <textarea name="small_description" placeholder="Small description" rows="3">{{ old('small_description', $countries->small_description) }}</textarea>
+                        </div>
                     </div>
                     <!-- Fast Facts -->
                     <div class="col-sm-6">
                         <div class="input-style-1">
-                            <label>Fast Facts <span class="mandatory">*</span></label> 
-                            <textarea name="fast_facts" placeholder="Fast Facts" rows="3">{{ $countries->fast_facts }}</textarea>
-                        </div>   
+                            <label>Fast Facts <span class="mandatory">*</span></label>
+                            <textarea name="fast_facts" placeholder="Fast Facts" rows="3">{{ old('fast_facts', $countries->fast_facts) }}</textarea>
+                        </div>
                     </div>
-                </div> 
+                </div>
                 <hr>
                 <div class="row mt-15">
                     <!-- Is Domestic Country -->
                     <div class="col-sm-3">
-                        <label>Is Domestic Country <span class="mandatory">*</span></label><br> 
+                        <label>Is Domestic Country <span class="mandatory">*</span></label><br>
                         <label class="radio-inline">
-                            <input type="radio" name="is_domestic_country" class="radio-inline" value="1" {{ $countries->is_domestic_country == 1 ? 'checked' : '' }}> Yes
+                            <input type="radio" name="is_domestic_country" class="radio-inline" value="1" {{ old('is_domestic_country', $countries->is_domestic_country) == 1 ? 'checked' : '' }}> Yes
                         </label>
                         <label class="radio-inline">
-                            <input type="radio" name="is_domestic_country" class="radio-inline" value="0" {{ $countries->is_domestic_country == 0 ? 'checked' : '' }}> No
+                            <input type="radio" name="is_domestic_country" class="radio-inline" value="0" {{ old('is_domestic_country', $countries->is_domestic_country) == 0 ? 'checked' : '' }}> No
                         </label>
                     </div>
                     <!-- Is State Allowed -->
                     <div class="col-sm-3">
-                        <label>Is State Allowed <span class="mandatory">*</span></label><br> 
+                        <label>Is State Allowed <span class="mandatory">*</span></label><br>
                         <label class="radio-inline">
-                            <input type="radio" name="is_state_allowed" class="radio-inline" value="1" {{ $countries->is_state_allowed == 1 ? 'checked' : '' }}> Yes
+                            <input type="radio" name="is_state_allowed" class="radio-inline" value="1" {{ old('is_state_allowed', $countries->is_state_allowed) == 1 ? 'checked' : '' }}> Yes
                         </label>
                         <label class="radio-inline">
-                            <input type="radio" name="is_state_allowed" class="radio-inline" value="0" {{ $countries->is_state_allowed == 0 ? 'checked' : '' }}> No
+                            <input type="radio" name="is_state_allowed" class="radio-inline" value="0" {{ old('is_state_allowed', $countries->is_state_allowed) == 0 ? 'checked' : '' }}> No
                         </label>
-                    </div>   
+                    </div>
                     <!-- Is Publish on Website -->
                     <div class="col-sm-3">
-                        <label>Is Publish Website <span class="mandatory">*</span></label><br> 
+                        <label>Is Publish Website <span class="mandatory">*</span></label><br>
                         <label class="radio-inline">
-                            <input type="radio" name="is_publish_on_website" class="radio-inline" value="1" {{ $countries->is_publish_on_website == 1 ? 'checked' : '' }}> Yes
+                            <input type="radio" name="is_publish_on_website" class="radio-inline" value="1" {{ old('is_publish_on_website', $countries->is_publish_on_website) == 1 ? 'checked' : '' }}> Yes
                         </label>
                         <label class="radio-inline">
-                            <input type="radio" name="is_publish_on_website" class="radio-inline" value="0" {{ $countries->is_publish_on_website == 0 ? 'checked' : '' }}> No
+                            <input type="radio" name="is_publish_on_website" class="radio-inline" value="0" {{ old('is_publish_on_website', $countries->is_publish_on_website) == 0 ? 'checked' : '' }}> No
                         </label>
-                    </div>   
-                    <!-- Active --> 
+                    </div>
+                    <!-- Active -->
                     <div class="col-sm-3">
-                        <label>Active <span class="mandatory">*</span></label><br> 
+                        <label>Active <span class="mandatory">*</span></label><br>
                         <label class="radio-inline">
-                            <input type="radio" name="active" class="radio-inline" value="1" {{ $countries->active == 1 ? 'checked' : '' }}> Yes
+                            <input type="radio" name="active" class="radio-inline" value="1" {{ old('active', $countries->active) == 1 ? 'checked' : '' }}> Yes
                         </label>
                         <label class="radio-inline">
-                            <input type="radio" name="active" class="radio-inline" value="0" {{ $countries->active == 0 ? 'checked' : '' }}> No
+                            <input type="radio" name="active" class="radio-inline" value="0" {{ old('active', $countries->active) == 0 ? 'checked' : '' }}> No
                         </label>
-                    </div>      
-                </div> 
+                    </div>
+                </div>
                 <hr>
                 <div class="row mt-15">
                     <!-- Cover Image -->
@@ -185,16 +183,44 @@
                             <img id="selectedImage" src="{{ $countries->cover_image ? asset('storage/' . $countries->cover_image) : asset('images/no-image.png') }}" alt="Selected Image">
                         </div>
                         <input type="file" name="cover_image" id="imageInput" onchange="displayImage(this)">
-                    </div> 
-                </div>  
+                    </div>
+                    <!-- Icon Image -->
+                    {{-- <div class="col-sm-3">
+                        <label>Icon Image <span class="mandatory">*</span></label>
+                        <div id="iconBox">
+                            <img id="selectedIcon" src="{{ $countries->icon_image ? asset('storage/' . $countries->icon_image) : asset('images/no-image.png') }}" alt="Selected Icon">
+                        </div>
+                        <input type="file" name="icon_image" id="iconInput" onchange="displayIcon(this)">
+                    </div> --}}
+                </div>
                 <div class="row mt-15">
-                    <div class="col-sm-3">  
-                        <button class="btn btn-info" type="submit">Save</button>
+                    <div class="col-sm-3">
+                        <button class="btn btn-info" type="submit">Update</button>
                         <button class="btn btn-warning" type="reset">Reset</button>
                     </div>
-                </div>  
+                </div>
             </div>
         </form>
     </div>
-</section>	
+</section>
 @endsection
+
+<script>
+    function displayImage(input) {
+        const file = input.files[0];
+        const reader = new FileReader();
+        reader.onload = function (e) {
+            document.getElementById('selectedImage').src = e.target.result;
+        }
+        reader.readAsDataURL(file);
+    }
+
+    function displayIcon(input) {
+        const file = input.files[0];
+        const reader = new FileReader();
+        reader.onload = function (e) {
+            document.getElementById('selectedIcon').src = e.target.result;
+        }
+        reader.readAsDataURL(file);
+    }
+</script>

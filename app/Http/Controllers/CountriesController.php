@@ -30,17 +30,17 @@ class CountriesController extends Controller
 
     public function store(Request $request)
     {
+        // dd($request);
         $request->validate([
-            // 'segment_id' => 'integer',
             'passport_validity_in_yrs_adult' => 'nullable|string|max:5',
             'passport_validity_in_yrs_child' => 'nullable|string|max:5',
-            'name' => 'string|max:255',
+            'name' => 'required|string|max:255',
             'is_domestic_country' => 'nullable|boolean',
             'is_state_allowed' => 'nullable|boolean',
             'is_publish_on_website' => 'boolean',
-            'alpha_2_code' => 'string|max:2',
+            'alpha_2_code' => 'required|string|max:2',
             'alpha_3_code' => 'nullable|string|max:3',
-            'calling_code' => 'integer',
+            'calling_code' => 'required|integer',
             'mobile_number_min_length' => 'nullable|string|max:3',
             'mobile_number_max_length' => 'nullable|string|max:3',
             'mobile_number_series' => 'nullable|string|max:50',
@@ -54,8 +54,6 @@ class CountriesController extends Controller
             'image_file' => 'nullable|string|max:150',
             'active' => 'boolean',
             'fast_facts' => 'nullable|string',
-            'created_by' => 'integer',
-            'modified_by' => 'integer',
         ]);
 
         $country = Country::create([
@@ -80,6 +78,7 @@ class CountriesController extends Controller
             'latitude' => $request->input('latitude'),
             'longitude' => $request->input('longitude'),
             'image_file' => $request->input('image_file'),
+            // 'image_name' => $request->input('image_name'),
             'active' => $request->input('active'),
             'fast_facts' => $request->input('fast_facts'),
             'created_by' => $request->input('created_by'),
