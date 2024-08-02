@@ -14,18 +14,6 @@
                 <table class="table striped-table">
                     <tbody>
                     <tr>
-                        <th class='col-md-2 hide'><h6>Id</h6></th>
-                        <td class='hide'>
-                            <p>{{ $city->id }}</p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th class='col-md-2'><h6>Timezone</h6></th>
-                        <td class=''>
-                            <p>{{ $city->timezone->name }}</p>
-                        </td>
-                    </tr>
-                    <tr>
                         <th class='col-md-2'><h6>Country</h6></th>
                         <td class=''>
                             <p>{{ $city->country->name }}</p>
@@ -34,7 +22,10 @@
                     <tr>
                         <th class='col-md-2'><h6>State</h6></th>
                         <td class=''>
+                            @if(!empty($city->state->name))
                             <p>{{ $city->state->name }}</p>
+                            @endif
+                           
                         </td>
                     </tr> 
                     <tr>
@@ -43,6 +34,68 @@
                             <p>{{ $city->name }}</p>
                         </td>
                     </tr> 
+                    <tr>
+                        <th class='col-md-2'><h6>City Code</h6></th>
+                        <td class=''>
+                            <p>{{ $city->city_code }}</p>
+                        </td>
+                    </tr> 
+                    <tr>
+                        <th class='col-md-2'><h6>Latitude</h6></th>
+                        <td class=''>
+                            <p>{{ $city->latitude }}</p>
+                        </td>
+                    </tr> 
+                    <tr>
+                        <th class='col-md-2'><h6>Longitude</h6></th>
+                        <td class=''>
+                            <p>{{ $city->longitude }}</p>
+                        </td>
+                    </tr>          
+                    <tr>
+                        <th class='col-md-2'><h6>Country Code</h6></th>
+                        <td class=''>
+                            <p>{{ $city->country_code }}</p>
+                        </td>
+                    </tr>   
+                    <tr>
+                        <th class='col-md-2'><h6>Country Name</h6></th>
+                        <td class=''>
+                            <p>{{ $city->country_name }}</p>
+                        </td>
+                    </tr>                                                    
+                    <tr>
+                        <th class='col-md-2'><h6>Description</h6></th>
+                        <td class=''>
+                            <p>{{ $city->description }}</p>
+                        </td>
+                    </tr>    
+                    <tr>
+                        <th class='col-md-2'><h6>Small Description</h6></th>
+                        <td class=''>
+                            <p>{{ $city->small_description }}</p>
+                        </td>
+                    </tr>  
+                    <tr>
+                        <th class='col-md-2'><h6>Fast Facts</h6></th>
+                        <td class=''>
+                            <p>{{ $city->fast_facts }}</p>
+                        </td>
+                    </tr>  
+                    <tr>
+                        <th><h6>Publish Website</h6></th>    
+                        <td>
+                          @php if($city->is_publish_on_website == '1'){
+                            $class = 'activelabel';
+                            $data = 'Yes';
+                            }
+                            else{
+                            $class = 'inactivelabel';
+                            $data = 'No';
+                            } @endphp
+                            <div class="{{ $class; }}">{{ $data }}</div>
+                        </td>
+                        </tr>                                                       
                     <tr>
                     <th><h6>Status</h6></th>    
                     <td>
@@ -60,13 +113,13 @@
                     <tr>
                        <th><h6>Created</h6></th>
                        <td>
-                           <p>{{ $city->created }}</p>
+                           <p>{{ $city->created_at }}</p>
                        </td>
                     </tr>  
                     <tr>
                        <th><h6>Modified</h6></th>
                        <td>
-                           <p>{{ $city->modified }}</p>
+                           <p>{{ $city->updated_at }}</p>
                        </td>
                     </tr>
                     </tbody>

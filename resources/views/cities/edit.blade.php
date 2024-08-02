@@ -19,8 +19,9 @@
       <div class="row mt-15">
           <!-- Id -->  
          <input type="hidden" name="id" value="{{ $city->id }}"  />
+         <input type="hidden" name="modified_by" value="{{ $userId }}"  />
          <!-- Country -->
-         <div class="col-sm-4">
+         <div class="col-sm-3">
             <div class="select-style-1">
                <label>Country</label>
                <div class="select-position select-sm">
@@ -34,42 +35,103 @@
             </div>
          </div>
          <!--State-->
-          <div class="col-sm-4">
+          <div class="col-sm-3">
             <div class="select-style-1">
                <label>State</label>
                <div class="select-position select-sm">
                <select class="jSelectbox" id="stateDropdown" name="state_id" required>
-                    <option value="{{ $state->id }}">{{ $state->name }}</option> 
-                    @foreach ($states as $state)
-                     <option value="{{ $state->id }}">{{ $state->name }}</option>
-                    @endforeach              
+                <option value="">Select State</option> 
+                @if(!empty($states))
+                <?php foreach ($states as $key => $state) { 
+                    $selected =  ($city->state_id == $state->id) ? 'selected' : '';
+                ?>
+                    <option value="{{ $state->id }}" <?php echo $selected;?>>{{ $state->name }}</option>
+                <?php } ?>
+                @endif                
                </select>
                </div>
             </div>
          </div>
-        <!-- TimeZone -->
-         <div class="col-sm-4">
-            <div class="select-style-1">
-               <label>Timezone</label>
-               <div class="select-position select-sm">
-               <select class="jSelectbox" id="actionDropdown" name="timezone_id" required>
-                <option value="{{ $timezone->id }}">{{ $timezone->name }}</option> 
-                    @foreach ($timezones as $timezone)
-                     <option value="{{ $timezone->id }}">{{ $timezone->name }}</option>
-                    @endforeach        
-               </select>
-               </div>
+             <!-- Name -->
+            <div class="col-sm-3">
+                <div class="input-style-1">
+                    <label>Name<span class="mandatory">*</span></label>
+                    <input type="text"  name="name" placeholder="State Name" value="{{ $city->name }}"  />
+                </div>   
             </div>
-         </div>
-          <!-- Name -->
-         <div class="col-sm-4">
+            <!-- City Code  -->
+            <div class="col-sm-3">
+                <div class="input-style-1">
+                <label>City Code<span class="mandatory">*</span></label>
+                <input type="text"  name="city_code" placeholder="City Code" value="{{ $city->city_code }}" />
+                </div>   
+            </div>             
+    </div>  
+    <hr>
+        <!-- Row 2 -->
+    <div class="row mt-15">
+         <!-- Latitude  -->
+         <div class="col-sm-3">
             <div class="input-style-1">
-            <label>Name<span class="mandatory">*</span></label>
-            <input type="text"  name="name" placeholder="State Name" value="{{ $city->name }}"  />
+            <label>Latitude<span class="mandatory">*</span></label>
+            <input type="text"  name="latitude" placeholder="Latitude" value="{{ $city->latitude }}" />
             </div>   
-         </div>
+         </div>       
+         <!-- Longitude  -->
+         <div class="col-sm-3">
+            <div class="input-style-1">
+            <label>Longitude<span class="mandatory">*</span></label>
+            <input type="text"  name="longitude" placeholder="Longitude" value="{{ $city->longitude }}" />
+            </div>   
+         </div>     
+         <!-- Country Code  -->
+         <div class="col-sm-3">
+            <div class="input-style-1">
+            <label>Country Code<span class="mandatory">*</span></label>
+            <input type="text"  name="country_code" id="CountryCode" placeholder="Country Code" value="{{ $city->country_code }}" />
+            </div>   
+         </div>  
+         <!-- Country Name  -->
+         <div class="col-sm-3">
+            <div class="input-style-1">
+            <label>Country Name<span class="mandatory">*</span></label>
+            <input type="text"  name="country_name" id="CountryName" placeholder="Country Name" value="{{ $city->country_name }}" />
+            </div>   
+         </div>     
+    </div>  
+<hr>           
+        <!-- Row 3 -->
+        <div class="row mt-15">
+         <!-- Description -->
+         <div class="col-sm-12">
+            <div class="input-style-1">
+            <label>Description <span class="mandatory">*</span></label> 
+             <textarea name="description" class="rich-editor" placeholder="Description" rows="3" >{{ $city->description }}</textarea> 
+            </div>   
+         </div> 
+        </div> 
+        <hr>         
+        <!-- Row 4 -->
+        <div class="row mt-15">
+            <!-- Small Description -->
+            <div class="col-sm-6">
+               <div class="input-style-1">
+               <label>Small Description <span class="mandatory">*</span></label> 
+                <textarea name="small_description" class="rich-editor" placeholder="Small Description" rows="3" >{{ $city->small_description }}</textarea> 
+               </div>   
+            </div> 
+            <!-- Fast Facts -->
+            <div class="col-sm-6">
+                <div class="input-style-1">
+                <label>Fast Facts<span class="mandatory">*</span></label> 
+                 <textarea name="fast_facts" class="rich-editor" placeholder="Fast Facts" rows="3" >{{ $city->fast_facts }}</textarea> 
+                </div>   
+            </div>             
+        </div>   
+        <hr>             
          <!-- Active Code --> 
-         <div class="col-sm-4">
+    <div class="row mt-15">        
+         <div class="col-sm-3">
              <label>Active</label><br> 
              <label class="radio-inline">
              <input type="radio" name="active" class="radio-inline" value="1" {{ $city->active == 1 ? 'checked' : '' }}> Yes
@@ -78,7 +140,17 @@
             <input type="radio" name="active" class="radio-inline" value="0" {{ $city->active == 0 ? 'checked' : '' }}> No
             </label>
          </div>
+         <div class="col-sm-3">
+            <label>Publish Website</label><br> 
+            <label class="radio-inline">
+            <input type="radio" name="is_publish_on_website" class="radio-inline" value="1" {{ $city->is_publish_on_website == 1 ? 'checked' : '' }}> Yes
+            </label>
+           <label class="radio-inline">
+           <input type="radio" name="is_publish_on_website" class="radio-inline" value="0" {{ $city->is_publish_on_website == 0 ? 'checked' : '' }}> No
+           </label>
+        </div>
       </div> 
+      <hr>     
       <div class="row mt-15">
        <div class="col-sm-3">  
         <button type="submit" class="main-btn primary-btn btn-hover btn-sm">Save</button>
@@ -97,11 +169,12 @@
         // Change event for the country dropdown
         $('#actionDropdown').on('change', function () {
             var countryId = $(this).val();
+            var baseUrl = "{{ url('/') }}";
             if (countryId) {
                 // Make an AJAX request to get the states based on the selected country
                 $.ajax({
                     type: 'GET',
-                    url: 'http://localhost/project/Laravel/Etos2/public/get-states/' + countryId, // Replace with the actual route to get states
+                    url : baseUrl + '/get-states/' + countryId, // Replace with the actual route to get states
                     success: function (data) {
                         // Clear the current options in the state dropdown
                         $('#stateDropdown').empty();
@@ -121,5 +194,25 @@
         });
     });
 </script>
-
+<script>
+    $(document).ready(function () {
+      $('#actionDropdown').on('change', function () {
+         var countryId = $(this).val();
+         var baseUrl = "{{ url('/') }}";
+         if (countryId) {
+             // Make an AJAX request to get the states based on the selected country
+             $.ajax({
+                 type: 'GET',
+                 datatype : 'json',
+                 url: baseUrl + '/get-countrydata/' + countryId, // Replace with the actual route to get states
+                 success: function (data) {
+                     // Clear the current value in the country code and country name column
+                     $('#CountryName').val(data['countryName']);
+                     $('#CountryCode').val(data['countryCode']);
+                 }
+             });
+         }
+      });   
+   });   
+</script>  
 
