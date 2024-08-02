@@ -100,7 +100,6 @@
 <thead>
 <tr>
 <th width="25"><div class="check-input-primary"><input class="form-check-input" type="checkbox" id="checkbox-1"></div></th>
-<th><h6><a href="#">Timezone<i class="lni lni-sort-alpha-asc"></i></a></h6></th>
 <th><h6><a href="#">Country<i class="lni lni-sort-alpha-asc"></i></a></h6></th>
 <th><h6><a href="#">State<i class="lni lni-sort-alpha-asc"></i></a></h6></th>
 <th><h6><a href="#">City<i class="lni lni-sort-alpha-asc"></i></a></h6></th>
@@ -120,7 +119,7 @@
 <td>
 <div class="check-input-primary"><input class="form-check-input" type="checkbox" id="checkbox-1" ></div>
 </td>
-<td><p> {{ $city->timezone->name }} </p></td>
+
 <td><p> {{ $city->country->name }} </p></td>
 <td><p>{{ $city->state->name }}</p></td>
 <td><p>{{ $city->name }}</p></td>

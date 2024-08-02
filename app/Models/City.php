@@ -10,21 +10,18 @@ class City extends Model
     use HasFactory;
     public $timestamps = false; // Disable Laravel's default timestamps
 
-    protected $fillable = ['country_id', 'state_id', 'timezone_id', 'name' ,'active','created','modified'];
+    protected $fillable = ['country_id', 'state_id', 'name','city_code','description','small_description','latitude','longitude','active','is_publish_on_website','fast_facts','created_at','updated_at','created_by','modified_by','country_code','country_name'];
 
      protected $table = 'cities';
 
     // Define the belongsTo relationship
     public function country()
     {
-        return $this->belongsTo(Countries::class);
+        return $this->belongsTo(Country::class);
     }
     public function state()
     {
         return $this->belongsTo(State::class);
     }
-    public function timezone()
-    {
-        return $this->belongsTo(Timezone::class);
-    }
+
 }

@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\City;
-use App\Models\Countries;
+use App\Models\Country;
 use App\Models\State;
-use App\Models\Timezone;
+
 
 
 
@@ -28,7 +28,7 @@ class CitiesController extends Controller
 
         //dd($cityQuery);
         /*Country List*/
-        $countries = Countries::all()->where('active',true);
+        $countries = Country::all()->where('active',true);
         $countryList = $countries->pluck('name','id');
        
         /*States List*/
@@ -90,10 +90,10 @@ class CitiesController extends Controller
         /*Controller*/
         // ,['pageTitle' => $this->pageTitle]
         $city = City::all();
-        $timezones = Timezone::all();
+
         //dd($timezones);
-        $countries = Countries::all();
-        return view('cities.create',compact('parentMenu','pageTitle','city','timezones','countries'));
+        $countries = Country::all();
+        return view('cities.create',compact('parentMenu','pageTitle','city','countries'));
     }
 
     /**
@@ -108,16 +108,14 @@ class CitiesController extends Controller
           $request->validate([
             'country_id' => ['required'],
             'state_id'=>['required'],
-            'timezone_id'=>['required']
              ]);
 
           $countryId = $request->input('country_id');
           $stateId = $request->input('state_id');
-          $timezoneId = $request->input('timezone_id');
 
-          $country = Countries::find($countryId);
+          $country = Country::find($countryId);
           $state = State::find($stateId);
-          $timezone = Timezone::find($timezoneId);
+
 
         if(!empty($country))
         {
@@ -127,15 +125,11 @@ class CitiesController extends Controller
         {
             $state_id = $state->id;
         } 
-         if(!empty($timezone))
-        {
-            $timezone_id = $timezone->id;
-        } 
+
 
         $city = City::create([
             'country_id' => $country_id,
             'state_id'=> $state_id,
-            'timezone_id'=> $timezone_id,
             'name' => $request->input('name'),
             'active' => $request->input('active'),
             'created' => now(), // Set the created timestamp
@@ -178,12 +172,11 @@ class CitiesController extends Controller
     public function edit($id)
     {
        $city = City::findOrFail($id);
-       $country = Countries::where('id', $city->country_id)->first(); 
-       $countries = Countries::where('id', '!=', $country->id)->get();
+       $country = Country::where('id', $city->country_id)->first(); 
+       $countries = Country::where('id', '!=', $country->id)->get();
        $state = State::where('id', $city->state_id)->first();
        $states = State::where('id', '!=', $state->id)->get();
-       $timezone = Timezone::where('id', $city->timezone_id)->first();
-       $timezones = Timezone::where('id', '!=', $timezone->id)->get();
+
        $parentMenu = 'Segment & Currency Setup';
     
        $pageTitle = "Edit";
@@ -207,11 +200,10 @@ class CitiesController extends Controller
 
           $countryId = $request->input('country_id');
           $stateId = $request->input('state_id');
-          $timezoneId = $request->input('timezone_id');
 
-          $country = Countries::find($countryId);
+          $country = Country::find($countryId);
           $state = State::find($stateId);
-          $timezone = Timezone::find($timezoneId);
+  
 
         if(!empty($country))
         {
@@ -221,15 +213,11 @@ class CitiesController extends Controller
         {
             $state_id = $state->id;
         } 
-         if(!empty($timezone))
-        {
-            $timezone_id = $timezone->id;
-        } 
+
 
         $city->update([
             'country_id' => $country_id,
             'state_id'=> $state_id,
-            'timezone_id'=> $timezone_id,
             'name' => $request->input('name'),
             'active' => $request->input('active'),
             'created' => now(), // Set the created timestamp
