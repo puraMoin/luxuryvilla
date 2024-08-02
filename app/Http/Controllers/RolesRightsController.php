@@ -16,15 +16,7 @@ class RolesRightsController extends Controller
      */
     public function index()
     {
-        $pageTitle = 'Roles Rights';
-        $parentMenu = 'Super Master';
-        /*$roles = RolesRight::all();*/
 
-        $roles = RolesRight::with('menuLinks')->get();
-
-        /*dd($roles);*/
-
-        return view('rolesrights.index',compact('parentMenu','pageTitle','roles'));
     }
 
     /**
@@ -34,16 +26,7 @@ class RolesRightsController extends Controller
      */
     public function create()
     {
-        $parentMenu = 'Super Master';
-    
-        $pageTitle = "Add";
-        /*Controller*/
-        // ,['pageTitle' => $this->pageTitle]
-        $menuLinks = MenuLink::all();
 
-       /* dd($menuLinks);*/
-
-        return view('rolesrights.create',compact('parentMenu','pageTitle','menuLinks'));
     }
 
     /**
@@ -55,30 +38,7 @@ class RolesRightsController extends Controller
     public function store(Request $request)
     {
 
-        $request->validate([
-            'role_name' => ['required'],
-            'role_description'=>['required'],
-            'menuLinks'=>['required']
-             ]);
 
-
-        $role = RolesRight::create([
-            'role_name' => $request->input('role_name'),
-            'role_description' => $request->input('role_description'),
-            'acive' => $request->input('acive'),
-            'created' => now(), // Set the created timestamp
-            'modified' => now(),
-        ]);
-
-        foreach ($request->input('menuLinks') as $menuLinkId) {
-        $rolemenulink = RoleRightMenuLink::create([
-            'role_id' => $role->id, // Assuming 'id' is the primary key of RolesRight table
-            'menu_link_id' => $menuLinkId,
-            'created' => now(),
-            'modified' => now(),
-        ]);
-     } 
-        return redirect()->route('roles-rights.index');
     }
 
     /**
@@ -89,19 +49,7 @@ class RolesRightsController extends Controller
      */
     public function show($id)
     {
-        $role = RolesRight::find($id);
 
-        if (!$role) {
-            return redirect()->route('roles-rights.index')->with('error', 'Role not found.');
-        }
-
-        // Retrieve additional details if needed
-
-        $pageTitle = 'Roles Rights';
-        $parentMenu = 'Super Master';
-
-        // You can pass the data to a view and display it
-        return view('rolesrights.show', compact('role','pageTitle','parentMenu'));
     }
 
     /**
@@ -112,15 +60,7 @@ class RolesRightsController extends Controller
      */
     public function edit($id)
     {
-       $role = RolesRight::findOrFail($id);
-       /*dd($role);*/
-       $selectedMenuLinks = $role->menuLinks;
-       $menuLinks = MenuLink::all(); 
-       //dd($menuLinks);
-       $parentMenu = 'Super Master';
-    
-       $pageTitle = "Edit";
-       return view('rolesrights.edit',compact('parentMenu','pageTitle','role','selectedMenuLinks','menuLinks'));
+
     }
 
     /**
@@ -133,25 +73,8 @@ class RolesRightsController extends Controller
     public function update(Request $request, $id)
     {
 
-      $role = RolesRight::find($id);
 
-        if (!$role) {
-            return redirect()->route('rolesrights.index')->with('error', 'Role not found.');
-         }
-
-       // Update the role information
-        $role->update([
-            'role_name' => $request->input('role_name'),
-            'role_description' => $request->input('role_description'),
-            'acive' => $request->input('acive'),
-            'modified' => now(),
-        ]);
-
-    // Sync the associated menu links
-    $role->menuLinks()->sync($request->input('menuLinks'));
-
-    return redirect()->route('roles-rights.index');
-}
+    }
 
     /**
      * Remove the specified resource from storage.

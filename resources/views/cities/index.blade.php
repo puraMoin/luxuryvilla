@@ -121,7 +121,12 @@
 </td>
 
 <td><p> {{ $city->country->name }} </p></td>
-<td><p>{{ $city->state->name }}</p></td>
+
+<td><p>
+    @if(!empty($city->state->name))
+    {{ $city->state->name }}
+    @endif
+</p></td>
 <td><p>{{ $city->name }}</p></td>
 <td class="text-center">
   @php if($city->active == '1'){

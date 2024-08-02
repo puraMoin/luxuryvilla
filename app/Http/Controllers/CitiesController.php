@@ -24,7 +24,7 @@ class CitiesController extends Controller
         $pageTitle = 'City';
         $parentMenu = 'Segment & Currency Setup';
         // Eager load the related CountryDetail model
-        $cityQuery = City::with(['country', 'state', 'timezone']);
+        $cityQuery = City::with(['country', 'state']);
 
         //dd($cityQuery);
         /*Country List*/
@@ -180,7 +180,7 @@ class CitiesController extends Controller
        $parentMenu = 'Segment & Currency Setup';
     
        $pageTitle = "Edit";
-       return view('cities.edit',compact('parentMenu','pageTitle','city','countries','country','state','states','timezone','timezones'));
+       return view('cities.edit',compact('parentMenu','pageTitle','city','countries','country','state','states'));
     }
 
     /**

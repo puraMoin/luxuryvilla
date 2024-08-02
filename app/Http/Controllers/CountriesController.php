@@ -190,4 +190,21 @@ class CountriesController extends Controller
 
         return redirect()->route('countries.index');
     }
+
+    public function getCountryData($countryId){
+    $responce = []; 
+    $countryName = $countryCode ='';  
+
+     if(!empty($countryId)){
+        $country = Country::where('id', $countryId)->first();
+        $segmentId = $country->segment_id;
+        $segments = Segment::where('id',$segmentId)->first();
+        $countryCode = $segments->code;
+        $countryName = $country->name;
+    }       
+
+    $responce = ['countryName'=>$countryName,'countryCode'=>$countryCode];
+
+    return response()->json($responce);
+   }
 }
