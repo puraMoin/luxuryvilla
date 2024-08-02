@@ -15,6 +15,8 @@
         <!-- Form to Edit Dashboar Details -->
         <form method="POST" action="{{ route('assigneddashboards.update', $assigneddashboards->id) }}" enctype="multipart/form-data">
             @csrf
+            <input type="hidden" name="created_by" class="form-control" value="{{$userId}}" required>
+         <input type="hidden" name="modified_by" class="form-control" value= "{{$userId}}" required>
             @method('PATCH')
             <div class="card-style mt-20">
                 <!-- Form Start Here -->

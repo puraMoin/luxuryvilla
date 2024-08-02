@@ -11,7 +11,7 @@ class RolesController extends Controller
     public function index()
     {
         $pageTitle = 'Roles List';
-        $roles = Role::all();  // Changed variable name to $roles for consistency
+        $roles = Role::all();
         
         return view('roles.index', compact('roles', 'pageTitle'));
     }

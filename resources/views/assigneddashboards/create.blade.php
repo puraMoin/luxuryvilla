@@ -17,6 +17,8 @@
       
       <form action="{{ route('assigneddashboards.store') }}" method="POST">
         @csrf
+        <input type="hidden" name="created_by" class="form-control" value="{{$userId}}" required>
+         <input type="hidden" name="modified_by" class="form-control" value= "{{$userId}}" required>
         <div class="row">
           <div class="col-md-6">
             <div class="input-style-1">

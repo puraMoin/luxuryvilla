@@ -4,37 +4,47 @@ namespace App\Http\Controllers;
 
 use App\Models\AssignedDashboard;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AssignedDashboardsController extends Controller
 {
-    
+
     public function index()
     {
-        $assigneddashboards = AssignedDashboard::all(); 
+        $assigneddashboards = AssignedDashboard::all();
         $pageTitle = 'Assigned Dashboards';
         return view('assigneddashboards.index', compact('assigneddashboards', 'pageTitle'));
     }
 
-   
+
     public function create()
     {
         $pageTitle = 'Add';
-        return view('assigneddashboards.create', compact('pageTitle'));
+        $userId = Auth::id();
+        return view('assigneddashboards.create', compact('pageTitle','userId'));
     }
 
-    
+
     public function store(Request $request)
     {
         $request->validate([
             'name' => 'string|max:255',
             'active' => 'boolean',
-        ]);
+            'created_by' => 'required|integer',
+            'modified_by' => 'required|integer',
 
+        ]);
+        AssignedDashboard::create([
+            'name' => $request->input('name'),
+            'active' => $request->input('active'),
+            'created_by' => $request->input('created_by'),
+            'modified_by' => $request->input('modified_by'),
+        ]);
         AssignedDashboard::create($request->all());
         return redirect()->route('assigneddashboards.index');
     }
 
-    
+
     public function show($id)
     {
         $assigneddashboards = AssignedDashboard::findOrFail($id);
@@ -43,16 +53,17 @@ class AssignedDashboardsController extends Controller
         return view('assigneddashboards.show', compact('assigneddashboards', 'pageTitle'));
     }
 
-    
+
     public function edit($id)
     {
         $assigneddashboards = AssignedDashboard::findOrFail($id);
         $pageTitle = 'Edit';
+        $userId = Auth::id();
 
-        return view('assigneddashboards.edit', compact('assigneddashboards', 'pageTitle'));
+        return view('assigneddashboards.edit', compact('assigneddashboards', 'pageTitle','userId'));
     }
 
-    
+
     public function update(Request $request, $id)
     {
         $validatedData = $request->validate([
@@ -64,11 +75,5 @@ class AssignedDashboardsController extends Controller
         $assigneddashboards->update($validatedData);
 
         return redirect()->route('assigneddashboards.index');
-    }
-
-   
-    public function destroy($id)
-    {
-        //
     }
 }
