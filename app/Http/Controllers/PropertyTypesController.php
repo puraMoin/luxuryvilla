@@ -8,31 +8,28 @@ use Illuminate\Support\Facades\Auth;
 
 class PropertyTypesController extends Controller
 {
-
     public function index()
     {
-        $propertytypes = PropertyType::all();
-        $pageTitle = 'Properties';
-        return view('properties.index', compact('propertytypes', 'pageTitle'));
-    }
+        $propertytypes = PropertyType::all(); 
+        $pageTitle = 'Property List';
 
+        return view('propertytypes.index', compact('propertytypes', 'pageTitle'));
+    }
 
     public function create()
     {
-        $pageTitle = 'Add';
         $userId = Auth::id();
-        return view('properties.create', compact('pageTitle', 'userId'));
+        $pageTitle = 'Create';
+        return view('propertytypes.create', compact('userId', 'pageTitle'));
     }
-
 
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'string | max:255',
-            'active' => 'boolean',
-            'created_by' => 'required | integer',
-            'modified_by' => 'required | integer',
-
+            'name' => 'required|string|max:255',
+            'active'=> 'boolean',
+            'created_by' => 'required|integer',
+            'modified_by' => 'required|integer',
         ]);
 
         PropertyType::create([
@@ -40,40 +37,46 @@ class PropertyTypesController extends Controller
             'active' => $request->input('active'),
             'created_by' => $request->input('created_by'),
             'modified_by' => $request->input('modified_by'),
+            'created_at' => now(),
+            'updated_at' => now(),
         ]);
-        PropertyType::create($request->all());
-        return redirect()->route('properties.create');
-    }
 
+        return redirect()->route('propertytypes.index');
+    }
 
     public function show($id)
     {
         $propertytypes = PropertyType::findOrFail($id);
         $pageTitle = 'View';
-        return view('properties.show', compact('propertytypes', 'pageTitle'));
-    }
 
+        return view('propertytypes.show', compact('propertytypes', 'pageTitle'));
+    }
 
     public function edit($id)
     {
-        $propertytypes = PropertyType::findOrfail($id);
-        $pageTitle = 'edit';
+        $propertytypes = PropertyType::findOrFail($id);
+        $pageTitle = 'Edit';
         $userId = Auth::id();
-
-        return view('properties.edit', compact('propertytypes', 'pageTitle', 'userId'));
+        return view('propertytypes.edit', compact('propertytypes', 'pageTitle', 'userId'));
     }
-
 
     public function update(Request $request, $id)
     {
-        $validatedData = $request->validate([
-            'name' => 'string | max:255',
-            'active' => 'boolean',
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'active'=> 'boolean',
         ]);
 
-        $propertytypes = PropertyType::findOrfail($id);
-        $propertytypes->update($validatedData);
+        $propertytypes = PropertyType::findOrFail($id);
+        $propertytypes->update([
+            'name' => $request->input('name'),
+            'active' => $request->input('active'),
+            'created_at' => now(),
+            'updated_at' => now(),
+            'created_by' => $request->input('created_by'),
+            'modified_by' => $request->input('modified_by'),
+        ]);
 
-        return redirect()->route('properties.index');
+        return redirect()->route('propertytypes.index');
     }
 }

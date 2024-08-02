@@ -7,7 +7,7 @@
     @include('partials.breadcrumb')
     <!-- Add New Button -->
     <div class="right-mob-left">
-      <a href="{{ route('assigneddashboards.index') }}">
+      <a href="{{ route('propertytypes.index') }}">
         <button type="button" class="main-btn primary-btn-outline btn-hover btn-xs">Back</button>
       </a>
     </div>
@@ -15,10 +15,11 @@
   <div class="container-fluid">
     <div class="card-style mt-20">
       
-      <form action="{{ route('assigneddashboards.store') }}" method="POST">
+      <form action="{{ route('propertytypes.store') }}" method="POST">
         @csrf
         <input type="hidden" name="created_by" class="form-control" value="{{$userId}}" required>
         <input type="hidden" name="modified_by" class="form-control" value= "{{$userId}}" required>
+        
         <div class="row">
           <div class="col-md-6">
             <div class="input-style-1">
