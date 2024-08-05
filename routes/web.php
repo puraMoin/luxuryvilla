@@ -27,6 +27,7 @@ use App\Http\Controllers\CurrencyController;
 use App\Http\Controllers\CustomerListsController;
 use App\Http\Controllers\PropertyTypesController;
 use App\Http\Controllers\RolesController;
+use App\Http\Controllers\CompanyMastersController;
 use App\Http\Controllers\SupplierTypesController;
 use App\Http\Controllers\SupplierRegionTypesController;
 use App\Http\Middleware\CheckSession;
@@ -118,6 +119,7 @@ Route::get('/dashboard', [DashboardsController::class, 'index'])->name('dashboar
   Route::get('/get-states/{countryId}', [StatesController::class, 'getStates']);
   Route::get('/get-countrydata/{countryId}', [CountriesController::class, 'getCountryData']);
   Route::resource('rolesrights', RolesRightsController::class);
+  Route::resource('companymasters', CompanyMastersController::class);
 
   /*Setup Route To Image Upload*/
   //Route::post('/posts/image_upload', 'PostController@uploadImage')->name('posts.image.upload');
