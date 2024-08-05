@@ -21,5 +21,9 @@ class RolesRight extends Model
     ];
 
     protected $table = 'role_and_rights';
+
+    public function assignedDashboard(){
+        return $this->belongsTo(AssignedDashboard::class);
+    }
    
 }

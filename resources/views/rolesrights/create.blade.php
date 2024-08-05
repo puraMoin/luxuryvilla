@@ -26,9 +26,18 @@
 
                     <!-- Assigned Dashboard ID -->
                     <div class="col-sm-4">
-                        <div class="input-style-1">
-                            <label for="assigned_dashboard_id">Assigned Dashboard ID <span class="mandatory">*</span></label>
-                            <input type="text" id="assigned_dashboard_id" name="assigned_dashboard_id" placeholder="Assigned Dashboard ID" value="{{ old('assigned_dashboard_id') }}" required />
+                        <div class="select-style-1">
+                            <label for="assigned_dashboard_id">Assigned Dashboard <span class="mandatory">*</span></label>
+                            <div class="select-position select-sm">  
+                            <select id="assigned_dashboard_id" name="assigned_dashboard_id" class="jSelectbox" required>
+                                <option value="">Select Assigned Dashboard</option>
+                                @foreach($assignedDashboardList as $id => $name)
+                                    <option value="{{ $id }}" {{ old('assigned_dashboard_id') == $id ? 'selected' : '' }}>
+                                        {{ $name }}
+                                    </option>
+                                @endforeach
+                            </select>
+                            </div>
                         </div>
                     </div>
 

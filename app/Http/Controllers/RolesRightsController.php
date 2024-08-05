@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\AssignedDashboard;
 use Illuminate\Http\Request;
 use App\Models\RolesRight;
 use Illuminate\Support\Facades\Auth;
@@ -19,12 +20,12 @@ class RolesRightsController extends Controller
     {
         $pageTitle = 'Create';
         $userId = Auth::id();
-        return view('rolesrights.create', compact('pageTitle', 'userId'));
+        $assignedDashboardList = AssignedDashboard::pluck('name', 'id');
+        return view('rolesrights.create', compact('pageTitle', 'userId', 'assignedDashboardList'));
     }
 
     public function store(Request $request)
-    {   
-        // dd($request);
+    {
         $request->validate([
             'name' => 'required|string|max:255',
             'assigned_dashboard_id' => 'required|integer',
@@ -48,6 +49,7 @@ class RolesRightsController extends Controller
         return redirect()->route('rolesrights.index');
     }
 
+
     public function show($id)
     {
         $rolesright = RolesRight::findOrFail($id);
@@ -59,11 +61,14 @@ class RolesRightsController extends Controller
     public function edit($id)
     {
         $rolesright = RolesRight::findOrFail($id);
-        $pageTitle = 'Edit';
         $userId = Auth::id();
-
-        return view('rolesrights.edit', compact('rolesright', 'pageTitle', 'userId'));
+        $assignedDashboard = AssignedDashboard::where('id', $rolesright->assigned_dashboard_id)->first();
+        $assignedDashboardList = AssignedDashboard::where('id', '!=', $assignedDashboard->id)->get();
+        $pageTitle = "Edit";
+        return view('rolesrights.edit', compact('pageTitle', 'rolesright', 'assignedDashboardList', 'assignedDashboard', 'userId'));
     }
+
+
 
     public function update(Request $request, $id)
     {
@@ -72,11 +77,11 @@ class RolesRightsController extends Controller
             'name' => $request->input('name'),
             'assigned_dashboard_id' => $request->input('assigned_dashboard_id'),
             'description' => $request->input('description'),
+            'created_at' => now(),
+            'updated_at' => now(),
             'active' => $request->input('active'),
             'created_by' => $request->input('created_by'),
             'modified_by' => $request->input('modified_by'),
-            'created_at' => now(),
-            'updated_at' => now(),
         ]);
 
 

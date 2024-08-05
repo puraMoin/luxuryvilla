@@ -9,11 +9,7 @@ use Illuminate\Support\Facades\Auth;
 
 class StatesController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+   
     public function index(Request $request)
     {
         $pageTitle = 'States';
@@ -52,11 +48,7 @@ class StatesController extends Controller
         return view('states.index',compact('parentMenu','pageTitle','states','countryList','selectedCountryId','stateList','selectedStateId'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+   
     public function create()
     {
         $parentMenu = 'Segment & Currency Setup';
@@ -69,12 +61,7 @@ class StatesController extends Controller
         return view('states.create',compact('parentMenu','pageTitle','countries','userId'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+   
     public function store(Request $request)
     {
 
@@ -113,12 +100,7 @@ class StatesController extends Controller
         return redirect()->route('states.index');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    
     public function show($id)
     {
 
@@ -138,37 +120,19 @@ class StatesController extends Controller
         return view('states.show', compact('states','pageTitle','parentMenu'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    
     public function edit($id)
     {
         $states = State::findOrFail($id);
-       
-        //dd($states);
-
         $userId = Auth::id();
-
         $country = Country::where('id', $states->country_id)->first(); 
-
         $countries = Country::where('id', '!=', $country->id)->get();
-
         $parentMenu = 'Segment & Currency Setup';
-    
         $pageTitle = "Edit";
         return view('states.edit',compact('parentMenu','pageTitle','states','countries','country','userId'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    
     public function update(Request $request, $id)
     {
 
@@ -207,16 +171,6 @@ class StatesController extends Controller
         return redirect()->route('states.index');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
 
   public function getStates($countryId)
      {

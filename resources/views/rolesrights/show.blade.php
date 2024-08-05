@@ -20,7 +20,7 @@
                         <tr>
                             <th class='col-md-2'><h6>Assigned Dashboard</h6></th>
                             <td>
-                                <p>{{ $rolesright->assigned_dashboard_id }}</p>
+                                <p>{{ $rolesright->assignedDashboard->name }}</p>
                             </td>
                         </tr>
                         <tr>

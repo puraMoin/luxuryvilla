@@ -14,4 +14,9 @@ class AssignedDashboard extends Model
         'created_by',
         'modified_by',
     ];
+
+    public function rolesrights()
+    {
+        return $this->hasMany(RolesRight::class);
+    }
 }

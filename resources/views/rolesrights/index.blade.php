@@ -64,7 +64,8 @@
                                     </div>
                                 </td>
                                 <td><p>{{ $rolesright->name }}</p></td>
-                                <td><p>{{ $rolesright->assigned_dashboard_id }}</p></td>
+                                {{-- <td><p>{{ $rolesright->assigned_dashboard_id }}</p></td> --}}
+                                <td><p>{{ $rolesright->assignedDashboard ? $rolesright->assignedDashboard->name : '---' }}</p></td>
                                 <td><p>{{ $rolesright->description }}</p></td>
                                 <td class="text-center">
                                     @if ($rolesright->active)
