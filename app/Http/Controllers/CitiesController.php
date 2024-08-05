@@ -6,8 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\City;
 use App\Models\Country;
 use App\Models\State;
-
-
+use Illuminate\Support\Facades\Auth;
 
 
 class CitiesController extends Controller
@@ -24,7 +23,8 @@ class CitiesController extends Controller
         $pageTitle = 'City';
         $parentMenu = 'Segment & Currency Setup';
         // Eager load the related CountryDetail model
-        $cityQuery = City::with(['country', 'state']);
+        $cityQuery = City::where('country_id','101')->with(['country', 'state']);
+
 
         //dd($cityQuery);
         /*Country List*/
@@ -74,6 +74,8 @@ class CitiesController extends Controller
 
         $cities = $cityQuery->paginate(20);
 
+        // dd($cities);
+
         return view('cities.index',compact('parentMenu','pageTitle','countryList','stateList','searchId',
             'selectedCountryId','selectedStateId','statusValue','cityStatus','cities'));
     }
@@ -93,7 +95,8 @@ class CitiesController extends Controller
 
         //dd($timezones);
         $countries = Country::all();
-        return view('cities.create',compact('parentMenu','pageTitle','city','countries'));
+        $userId = Auth::id();
+        return view('cities.create',compact('parentMenu','pageTitle','city','countries','userId'));
     }
 
     /**
@@ -131,9 +134,20 @@ class CitiesController extends Controller
             'country_id' => $country_id,
             'state_id'=> $state_id,
             'name' => $request->input('name'),
+            'city_code' => $request->input('city_code'),
+            'latitude' => $request->input('latitude'),
+            'longitude' => $request->input('longitude'),
+            'country_code' => $request->input('country_code'),
+            'country_name' => $request->input('country_name'),
+            'description' => $request->input('description'),
+            'small_description' => $request->input('small_description'),
+            'fast_facts' => $request->input('fast_facts'),
             'active' => $request->input('active'),
-            'created' => now(), // Set the created timestamp
-            'modified' => now(),
+            'is_publish_on_website' => $request->input('is_publish_on_website'),
+            'created_by' => $request->input('created_by'), 
+            'modified_by'=> $request->input('modified_by'),
+            'created_at' => now(), // Set the created timestamp
+            'updated_at' => now(),
         ]);
 
         return redirect()->route('cities.index');
@@ -174,13 +188,24 @@ class CitiesController extends Controller
        $city = City::findOrFail($id);
        $country = Country::where('id', $city->country_id)->first(); 
        $countries = Country::where('id', '!=', $country->id)->get();
-       $state = State::where('id', $city->state_id)->first();
-       $states = State::where('id', '!=', $state->id)->get();
+
+       $countryId = $city->country_id;
+       $stateId = (!empty($city->state_id)) ? $city->state_id : '';
+
+       $states = State::where('country_id',$city->country_id)->get();
+
+    //    if(!empty($city->state_id)){
+    //     $state = State::where('id', $city->state_id)->first();
+    //     $states = State::where('id', '!=', $state->id)->get();
+    //    } else {
+    //     $state =  $states = '';
+    //    }
 
        $parentMenu = 'Segment & Currency Setup';
     
        $pageTitle = "Edit";
-       return view('cities.edit',compact('parentMenu','pageTitle','city','countries','country','state','states'));
+       $userId = Auth::id();
+       return view('cities.edit',compact('parentMenu','pageTitle','city','countries','country','states','stateId','userId'));
     }
 
     /**
@@ -192,6 +217,7 @@ class CitiesController extends Controller
      */
     public function update(Request $request, $id)
     {
+        //dd($request);
         $city = City::find($id);
 
         if (!$city) {
@@ -214,14 +240,23 @@ class CitiesController extends Controller
             $state_id = $state->id;
         } 
 
-
         $city->update([
             'country_id' => $country_id,
             'state_id'=> $state_id,
             'name' => $request->input('name'),
+            'city_code' => $request->input('city_code'),
+            'latitude' => $request->input('latitude'),
+            'longitude' => $request->input('longitude'),
+            'country_code' => $request->input('country_code'),
+            'country_name' => $request->input('country_name'),
+            'description' => $request->input('description'),
+            'small_description' => $request->input('small_description'),
+            'fast_facts' => $request->input('fast_facts'),
             'active' => $request->input('active'),
-            'created' => now(), // Set the created timestamp
-            'modified' => now(),
+            'is_publish_on_website' => $request->input('is_publish_on_website'),
+            'modified_by'=> $request->input('modified_by'),
+            'created_at' => now(), // Set the created timestamp
+            'updated_at' => now(),
         ]);
 
         return redirect()->route('cities.index');

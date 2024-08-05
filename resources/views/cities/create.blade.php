@@ -16,6 +16,8 @@
       <!-- Form Start Here -->
        @csrf
       <div class="row mt-15">
+         <input type="hidden" name="created_by" value="{{ $userId }}"  />
+         <input type="hidden" name="modified_by" value="{{ $userId }}"  />
          <!-- Country Name -->
          <div class="col-sm-3">
             <div class="select-style-1">
@@ -40,9 +42,7 @@
                <label>State</label>
                <div class="select-position select-sm">
                <select class="jSelectbox" id="stateDropdown" name="state_id" required>
-                  <option value="">Select</option>  
-
-                   
+                  <option value="">Select</option>           
                </select>
                </div>
             </div>
