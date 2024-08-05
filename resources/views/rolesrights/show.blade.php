@@ -51,23 +51,22 @@
                                 <p>{{ $rolesright->updated_at }}</p>
                             </td>
                         </tr>
-                        <tr>
+                         <tr>
                             <th class='col-md-2'><h6>Created By</h6></th>
                             <td>
-                                <p>{{ $rolesright->created_by }}</p>
+                                <p>{{Auth::user()->name }}</p>
                             </td>
-                        </tr>
-                        <tr>
-                            <th class='col-md-2'><h6>Modified By</h6></th>
+                        </tr> 
+                         <tr> 
+                            <th class='col-md-2'><h6>Managed By</h6></th>
                             <td>
-                                <p>{{ $rolesright->modified_by }}</p>
+                                <p>{{Auth::user()->name }}</p>
                             </td>
-                        </tr>
+                        </tr> 
                     </tbody>
                 </table>
             </div>
         </div>
-        <!-- Add new section end here -->
     </div>
 </section>
 @endsection

@@ -58,33 +58,33 @@
                     </div>
 
                     <hr>
-                    <div class="row mt-15">
+                    {{-- <div class="row mt-15">
                         <div class="col-sm-4">
                             <div class="input-style-1">
                                 <label>Created At</label>
                                 <input type="text" name="created_at" value="{{ $rolesright->created_at }}"
                                     placeholder="Created At" readonly />
                             </div>
-                        </div>
+                        </div> --}}
 
-                        <div class="col-sm-4">
+                        {{-- <div class="col-sm-4">
                             <div class="input-style-1">
                                 <label>Updated At</label>
                                 <input type="text" name="updated_at" value="{{ $rolesright->updated_at }}"
                                     placeholder="Updated At" readonly />
                             </div>
-                        </div>
+                        </div> --}}
 
-                        <div class="col-sm-4">
+                        {{-- <div class="col-sm-4">
                             <div class="input-style-1">
                                 <label>Created By</label>
                                 <input type="text" name="created_by" value="{{ $rolesright->created_by }}"
                                     placeholder="Created By" readonly />
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
-                    <hr>
-                    <div class="row mt-15">
+                
+                    {{-- <div class="row mt-15">
                         <div class="col-sm-4">
                             <div class="input-style-1">
                                 <label>Modified By</label>
@@ -92,9 +92,9 @@
                                     placeholder="Modified By" readonly />
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
 
-                    <hr>
+                  
                     <div class="row mt-15">
                         <div class="col-sm-3">
                             <button type="submit" class="main-btn primary-btn btn-hover btn-sm">Update</button>

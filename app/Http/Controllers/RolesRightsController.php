@@ -12,7 +12,7 @@ class RolesRightsController extends Controller
     public function index()
     {
         $rolesrights = RolesRight::all();
-        $pageTitle = 'RolesRights List';
+        $pageTitle = 'Roles Rights List';
         return view('rolesrights.index', compact('rolesrights', 'pageTitle'));
     }
 
