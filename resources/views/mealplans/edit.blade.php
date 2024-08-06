@@ -46,7 +46,7 @@
                             </label>
                         </div>
 
-                        <hr>
+                        
                     </div>
 
                     <hr>

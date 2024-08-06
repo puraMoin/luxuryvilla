@@ -12,7 +12,7 @@ class MealPlansController extends Controller
     public function index()
     {
         // dd($meal);
-        $pageTitle = 'Meal List';
+        $pageTitle = 'Meal Plan List';
         $meal = MealPlan::all();
         return view('mealplans.index', compact('meal', 'pageTitle'));
     }
@@ -28,6 +28,7 @@ class MealPlansController extends Controller
     
     public function store(Request $request)
     {
+        // dd($request);
         $request->validate([
             'name' => 'required|string|max:255',
             'alias' => 'required|string|max:255',
@@ -42,10 +43,10 @@ class MealPlansController extends Controller
             'name' => $request->input('name'),
             'alias' => $request->input('alias'),
             'active' => $request->input('active'),
-            'created_at' => now(),
-            'updated_at' => now(),
             'created_by' => $request->input('created_by'),
+            'created_at' => now(),
             'modified_by' => $request->input('modified_by'),
+            'updated_at' => now(),
         ]);
         return redirect()->route('mealplans.index');
     }
