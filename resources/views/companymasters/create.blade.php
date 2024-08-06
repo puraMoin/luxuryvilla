@@ -9,7 +9,7 @@
             <!-- Add New Button -->
 
             <!-- For Start Here -->
-            <form method="POST" action="{{ route('cities.store') }}" enctype="multipart/form-data">
+            <form method="POST" action="{{ route('companymasters.store') }}" enctype="multipart/form-data">
                 <div class="card-style mt-20">
                     <!-- <div class="create_update">Created: <span>Andria Dsouza On 09/05/2023</span>   |   Last updated: <span>Andria Dsouza On 09/05/2023</span></div> -->
                     <!-- Form Start Here -->
