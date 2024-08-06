@@ -38,6 +38,7 @@
               {{-- <td><p>{{ $employee->username }}</p></td> --}}
               <td><p>{{ $employee->email }}</p></td>
               <td><p>{{ $employee->contact }}</p></td>
+              
               <td class="text-center">
                 @php
                   if($employee->active == '1'){
@@ -50,8 +51,8 @@
                 @endphp
                 <div class="{{ $class }}">{{ $data }}</div>
               </td>
-              {{-- <td><p>{{ $employee->created_at }}</p></td>
-              <td><p>{{ $employee->updated_at }}</p></td> --}}
+              
+
               <td class="text-center">
                 <a href="{{ route('employeelists.edit', $employee->id) }}">
                   <i class="lni lni-pencil-alt"></i>

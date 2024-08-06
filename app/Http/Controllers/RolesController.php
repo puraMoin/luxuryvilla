@@ -75,18 +75,6 @@ class RolesController extends Controller
     public function update(Request $request, $id)
     {
         // dd($request);
-        $request->validate([
-            'name' => 'required|string|max:255',
-            'description' => 'nullable|string',
-            'full_view' => 'required|in:0,1',
-            'full_add' => 'required|in:0,1',
-            'full_edit' => 'required|in:0,1',
-            'full_delete' => 'required|in:0,1',
-            'super_config' => 'required|in:0,1',
-            'config' => 'required|in:0,1',
-            'modified_by' => 'required|integer',
-        ]);
-
         $role = Role::findOrFail($id);
         $role->update([
             'name' => $request->input('name'),

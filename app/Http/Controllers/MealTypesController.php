@@ -47,6 +47,7 @@ class MealTypesController extends Controller
             'created_by' => $request->input('created_by'),
             'modified_by' => $request->input('modified_by'),
         ]);
+        return redirect()->route('mealtypes.index');
     }
 
     
@@ -70,8 +71,16 @@ class MealTypesController extends Controller
     
     public function update(Request $request, $id)
     {
-        //
+        $meal = MealType::findOrFail($id);
+        $meal->update([
+            'name' => $request->input('name'),
+            'alias' => $request->input('alias'),
+            'description' => $request->input('description'),
+            'active' => $request->input('active'),
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        return redirect()->route('mealtypes.index');
     }
-
 
 }
