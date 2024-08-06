@@ -28,12 +28,12 @@ class RolesController extends Controller
         $request->validate([
             'name' => 'required|string|max:255',
             'description' => 'nullable|string',
-            'full_view' => 'required|in:0,1',
-            'full_add' => 'required|in:0,1',
-            'full_edit' => 'required|in:0,1',
-            'full_delete' => 'required|in:0,1',
-            'super_config' => 'required|in:0,1',
-            'config' => 'required|in:0,1',
+            'full_view' => 'required|boolean',
+            'full_add' => 'required|boolean',
+            'full_edit' => 'required|boolean',
+            'full_delete' => 'required|boolean',
+            'super_config' => 'required|boolean',
+            'config' => 'required|boolean',
             'created_by' => 'required|integer',
             'modified_by' => 'required|integer'
         ]);
