@@ -42,26 +42,28 @@
                                     <p>{{ $role->description }}</p>
                                 </td>
                             </tr>
+                            
                             <tr>
                                 <th class='col-md-2'>
                                     <h6>Full View</h6>
                                 </th>
                                 <td>
                                     @php
-                                        $fullViewClass = $role->full_view == 'yes' ? 'activelabel' : 'inactivelabel';
-                                        $fullViewText = $role->full_view == 'yes' ? 'Yes' : 'No';
+                                        $fullViewClass = $role->full_view == '1' ? 'activelabel' : 'inactivelabel';
+                                        $fullViewText = $role->full_view == '1' ? 'Yes' : 'No';
                                     @endphp
                                     <div class="{{ $fullViewClass }}">{{ $fullViewText }}</div>
                                 </td>
                             </tr>
+
                             <tr>
                                 <th class='col-md-2'>
                                     <h6>Full Add</h6>
                                 </th>
                                 <td>
                                     @php
-                                        $fullAddClass = $role->full_add == 'yes' ? 'activelabel' : 'inactivelabel';
-                                        $fullAddText = $role->full_add == 'yes' ? 'Yes' : 'No';
+                                        $fullAddClass = $role->full_add == '1' ? 'activelabel' : 'inactivelabel';
+                                        $fullAddText = $role->full_add == '1' ? 'Yes' : 'No';
                                     @endphp
                                     <div class="{{ $fullAddClass }}">{{ $fullAddText }}</div>
                                 </td>
@@ -72,8 +74,8 @@
                                 </th>
                                 <td>
                                     @php
-                                        $fullEditClass = $role->full_edit == 'yes' ? 'activelabel' : 'inactivelabel';
-                                        $fullEditText = $role->full_edit == 'yes' ? 'Yes' : 'No';
+                                        $fullEditClass = $role->full_edit == '1' ? 'activelabel' : 'inactivelabel';
+                                        $fullEditText = $role->full_edit == '1' ? 'Yes' : 'No';
                                     @endphp
                                     <div class="{{ $fullEditClass }}">{{ $fullEditText }}</div>
                                 </td>
@@ -84,8 +86,8 @@
                                 </th>
                                 <td>
                                     @php
-                                        $fullDeleteClass = $role->full_delete == 'yes' ? 'activelabel' : 'inactivelabel';
-                                        $fullDeleteText = $role->full_delete == 'yes' ? 'Yes' : 'No';
+                                        $fullDeleteClass = $role->full_delete == '1' ? 'activelabel' : 'inactivelabel';
+                                        $fullDeleteText = $role->full_delete == '1' ? 'Yes' : 'No';
                                     @endphp
                                     <div class="{{ $fullDeleteClass }}">{{ $fullDeleteText }}</div>
                                 </td>
@@ -96,8 +98,8 @@
                                 </th>
                                 <td>
                                     @php
-                                        $superConfigClass = $role->super_config == 'yes' ? 'activelabel' : 'inactivelabel';
-                                        $superConfigText = $role->super_config == 'yes' ? 'Yes' : 'No';
+                                        $superConfigClass = $role->super_config == '1' ? 'activelabel' : 'inactivelabel';
+                                        $superConfigText = $role->super_config == '1' ? 'Yes' : 'No';
                                     @endphp
                                     <div class="{{ $superConfigClass }}">{{ $superConfigText }}</div>
                                 </td>
@@ -108,8 +110,8 @@
                                 </th>
                                 <td>
                                     @php
-                                        $configClass = $role->config == 'yes' ? 'activelabel' : 'inactivelabel';
-                                        $configText = $role->config == 'yes' ? 'Yes' : 'No';
+                                        $configClass = $role->config == '1' ? 'activelabel' : 'inactivelabel';
+                                        $configText = $role->config == '1' ? 'Yes' : 'No';
                                     @endphp
                                     <div class="{{ $configClass }}">{{ $configText }}</div>
                                 </td>

@@ -57,48 +57,55 @@
                                     <td>
                                         <p>{{ $role->name }}</p>
                                     </td>
+                                
                                     <td class="text-center">
                                         @php
-                                            $class = $role->full_view == 'yes' ? 'activelabel' : 'inactivelabel';
-                                            $data = $role->full_view == 'yes' ? 'Yes' : 'No';
+                                            $class = $role->full_view == '1' ? 'activelabel' : 'inactivelabel';
+                                            $data = $role->full_view == '1' ? 'Yes' : 'No';
                                         @endphp
                                         <div class="{{ $class }}">{{ $data }}</div>
                                     </td>
+                                
                                     <td class="text-center">
                                         @php
-                                            $class = $role->full_add == 'yes' ? 'activelabel' : 'inactivelabel';
-                                            $data = $role->full_add == 'yes' ? 'Yes' : 'No';
+                                            $class = $role->full_add == '1' ? 'activelabel' : 'inactivelabel';
+                                            $data = $role->full_add == '1' ? 'Yes' : 'No';
                                         @endphp
                                         <div class="{{ $class }}">{{ $data }}</div>
                                     </td>
+                                
                                     <td class="text-center">
                                         @php
-                                            $class = $role->full_edit == 'yes' ? 'activelabel' : 'inactivelabel';
-                                            $data = $role->full_edit == 'yes' ? 'Yes' : 'No';
+                                            $class = $role->full_edit == '1' ? 'activelabel' : 'inactivelabel';
+                                            $data = $role->full_edit == '1' ? 'Yes' : 'No';
                                         @endphp
                                         <div class="{{ $class }}">{{ $data }}</div>
                                     </td>
+                                
                                     <td class="text-center">
                                         @php
-                                            $class = $role->full_delete == 'yes' ? 'activelabel' : 'inactivelabel';
-                                            $data = $role->full_delete == 'yes' ? 'Yes' : 'No';
+                                            $class = $role->full_delete == '1' ? 'activelabel' : 'inactivelabel';
+                                            $data = $role->full_delete == '1' ? 'Yes' : 'No';
                                         @endphp
                                         <div class="{{ $class }}">{{ $data }}</div>
                                     </td>
+                                
                                     <td class="text-center">
                                         @php
-                                            $class = $role->super_config == 'yes' ? 'activelabel' : 'inactivelabel';
-                                            $data = $role->super_config == 'yes' ? 'Yes' : 'No';
+                                            $class = $role->super_config == '1' ? 'activelabel' : 'inactivelabel';
+                                            $data = $role->super_config == '1' ? 'Yes' : 'No';
                                         @endphp
                                         <div class="{{ $class }}">{{ $data }}</div>
                                     </td>
+                                
                                     <td class="text-center">
                                         @php
-                                            $class = $role->active == '1' ? 'activelabel' : 'inactivelabel';
-                                            $data = $role->active == '1' ? 'Yes' : 'No';
+                                            $class = $role->config == '1' ? 'activelabel' : 'inactivelabel';
+                                            $data = $role->config == '1' ? 'Yes' : 'No';
                                         @endphp
                                         <div class="{{ $class }}">{{ $data }}</div>
                                     </td>
+                                
                                     <td class="text-center">
                                         <a href="{{ route('roles.edit', $role->id) }}">
                                             <i class="lni lni-pencil-alt"></i>
@@ -108,6 +115,8 @@
                                         </a>
                                     </td>
                                 </tr>
+                                
+                                
                             @endforeach
                         </tbody>
                     </table>
