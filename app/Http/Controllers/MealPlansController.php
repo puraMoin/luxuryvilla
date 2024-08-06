@@ -34,9 +34,7 @@ class MealPlansController extends Controller
             'alias' => 'required|string|max:255',
             'active' => 'boolean',
             'created_by' => 'required|integer',
-            'created_at' => 'required|integer',
             'modified_by' => 'required|integer',
-            'updated_at' => 'required|integer',
         ]);
 
         $meal = MealPlan::create([
