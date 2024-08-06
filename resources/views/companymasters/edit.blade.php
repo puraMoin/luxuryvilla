@@ -119,10 +119,10 @@
                                   <label>State</label>
                                   <div class="select-position select-sm">
                                       <select class="jSelectbox" id="StateactionDropdown" name="state_id" required>
-                                          <option value="">Select</option>
-                                          {{-- @foreach ($states as $state)
+                                        <option value="{{ $state->id }}">{{ $state->name }}</option>
+                                          @foreach ($otherstates as $state)
                                           <option value="{{ $state->id }}">{{ $state->name }}</option>
-                                          @endforeach --}}
+                                          @endforeach
                                       </select>
                                   </div>
                               </div>
@@ -133,7 +133,10 @@
                                   <label>City</label>
                                   <div class="select-position select-sm">
                                       <select class="jSelectbox" id="cityDropdown" name="city_id" required>
-                                          <option value="">Select</option>
+                                        <option value="{{ $state->id }}">{{ $state->name }}</option>
+                                        @foreach ($othercities as $cities)
+                                        <option value="{{ $cities->id }}">{{ $cities->name }}</option>
+                                        @endforeach
                                       </select>
                                   </div>
                               </div>

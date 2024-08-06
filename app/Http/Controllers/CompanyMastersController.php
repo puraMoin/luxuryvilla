@@ -94,11 +94,11 @@ class CompanyMastersController extends Controller
 
         $cityId = $companymaster->city_id;
         $city = City::where('id',$cityId)->first();
-        $othercities = City::all()->where('id','!=',$cityId);
+        $othercities = City::all()->where('id','!=',$cityId)->where('state_id',$stateId);
 
         $pageTitle = "Edit";
         $userId = Auth::id();
-        return view('companymasters.edit',compact('companymaster','pageTitle','userId','currency','othercurrencies','country','othercountries','city','othercities'));
+        return view('companymasters.edit',compact('companymaster','pageTitle','userId','currency','othercurrencies','country','othercountries','state','otherstates','city','othercities'));
 
     }
 
