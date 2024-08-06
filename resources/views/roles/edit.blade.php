@@ -105,7 +105,7 @@
                         </div>
 
                         <!-- Config -->
-                        <div class="col-md-2">
+                        <div class="col-sm-2">
                             <label>Config <span class="mandatory"> *</span></label><br>
                             <label class="radio-inline">
                                 <input type="radio" id="config_yes" name="config" value="1" required

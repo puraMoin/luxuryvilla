@@ -12,7 +12,7 @@ class RolesController extends Controller
     {
         $pageTitle = 'Roles List';
         $roles = Role::all();
-        
+        // dd($roles);
         return view('roles.index', compact('roles', 'pageTitle'));
     }
 
@@ -24,37 +24,37 @@ class RolesController extends Controller
     }
 
     public function store(Request $request)
-{
-    $request->validate([
-        'name' => 'required|string|max:255',
-        'description' => 'nullable|string',
-        'full_view' => 'required|in:0,1',
-        'full_add' => 'required|in:0,1',
-        'full_edit' => 'required|in:0,1',
-        'full_delete' => 'required|in:0,1',
-        'super_config' => 'required|in:0,1',
-        'config' => 'required|in:0,1',
-        'created_by' => 'required|integer', 
-        'modified_by' => 'required|integer'
-    ]);
+    {
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'description' => 'nullable|string',
+            'full_view' => 'required|in:0,1',
+            'full_add' => 'required|in:0,1',
+            'full_edit' => 'required|in:0,1',
+            'full_delete' => 'required|in:0,1',
+            'super_config' => 'required|in:0,1',
+            'config' => 'required|in:0,1',
+            'created_by' => 'required|integer',
+            'modified_by' => 'required|integer'
+        ]);
 
-    $role = Role::create([
-        'name' => $request->input('name'),
-        'description' => $request->input('description'),
-        'full_view' => $request->input('full_view'),
-        'full_add' => $request->input('full_add'),
-        'full_edit' => $request->input('full_edit'),
-        'full_delete' => $request->input('full_delete'),
-        'super_config' => $request->input('super_config'),
-        'config' => $request->input('config'),
-        'created_by' => $request->input('created_by'),
-        'modified_by' => $request->input('modified_by'),
-        'created_at' => now(),
-        'updated_at' => now(),
-    ]);
+        $role = Role::create([
+            'name' => $request->input('name'),
+            'description' => $request->input('description'),
+            'full_view' => $request->input('full_view'),
+            'full_add' => $request->input('full_add'),
+            'full_edit' => $request->input('full_edit'),
+            'full_delete' => $request->input('full_delete'),
+            'super_config' => $request->input('super_config'),
+            'config' => $request->input('config'),
+            'created_by' => $request->input('created_by'),
+            'modified_by' => $request->input('modified_by'),
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
 
-    return redirect()->route('roles.index');
-}
+        return redirect()->route('roles.index');
+    }
 
     public function show($id)
     {
@@ -73,37 +73,38 @@ class RolesController extends Controller
     }
 
     public function update(Request $request, $id)
-{
-    $request->validate([
-        'name' => 'required|string|max:255',
-        'description' => 'nullable|string',
-        'full_view' => 'required|in:0,1',
-        'full_add' => 'required|in:0,1',
-        'full_edit' => 'required|in:0,1',
-        'full_delete' => 'required|in:0,1',
-        'super_config' => 'required|in:0,1',
-        'config' => 'required|in:0,1',
-        'modified_by' => 'required|integer',
-    ]);
+    {
+        // dd($request);
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'description' => 'nullable|string',
+            'full_view' => 'required|in:0,1',
+            'full_add' => 'required|in:0,1',
+            'full_edit' => 'required|in:0,1',
+            'full_delete' => 'required|in:0,1',
+            'super_config' => 'required|in:0,1',
+            'config' => 'required|in:0,1',
+            'modified_by' => 'required|integer',
+        ]);
 
-    $role = Role::findOrFail($id);
-    $role->update([
-        'name' => $request->input('name'),
-        'description' => $request->input('description'),
-        'full_view' => $request->input('full_view'),
-        'full_add' => $request->input('full_add'),
-        'full_edit' => $request->input('full_edit'),
-        'full_delete' => $request->input('full_delete'),
-        'super_config' => $request->input('super_config'),
-        'config' => $request->input('config'),
-        
-        // 'modified_by' => auth()->id(),
-        'created_at' => now(), 
-        'updated_at' => now(),
-    ]);
+        $role = Role::findOrFail($id);
+        $role->update([
+            'name' => $request->input('name'),
+            'description' => $request->input('description'),
+            'full_view' => $request->input('full_view'),
+            'full_add' => $request->input('full_add'),
+            'full_edit' => $request->input('full_edit'),
+            'full_delete' => $request->input('full_delete'),
+            'super_config' => $request->input('super_config'),
+            'config' => $request->input('config'),
 
-    return redirect()->route('roles.index');
-}
+            // 'modified_by' => auth()->id(),
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+
+        return redirect()->route('roles.index');
+    }
 
     public function destroy($id)
     {
