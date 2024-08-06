@@ -286,52 +286,33 @@
 <script>
     $(document).ready(function () {
         // Change event for the country dropdown
-        $('#actionDropdown').on('change', function () {
-            var countryId = $(this).val();
+        $('#StateactionDropdown').on('change', function () {
+            var stateId = $(this).val();
             var baseUrl = "{{ url('/') }}";
-            if (countryId) {
+            if (stateId) {
                 // Make an AJAX request to get the states based on the selected country
                 $.ajax({
                     type: 'GET',
-                    url : baseUrl + '/get-states/' + countryId, // Replace with the actual route to get states
+                    datatype : 'json',
+                    url: baseUrl + '/get-cities/' + stateId, // Replace with the actual route to get states
                     success: function (data) {
                         // Clear the current options in the state dropdown
-                        $('#stateDropdown').empty();
+                        $('#cityDropdown').empty();
                         // Add the defualt select box
-                        $('#stateDropdown').append('<option value="">Select</option>');
+                        $('#cityDropdown').append('<option value="">Select</option>');
                         // Add the new options based on the response
                         $.each(data, function (key, value) {
 
-                            $('#stateDropdown').append('<option value="' + value.id + '">' + value.name + '</option>');
+                            $('#cityDropdown').append('<option value="' + value.id + '">' + value.name + '</option>');
                         });
                     }
                 });
              } else {
                 // If no country is selected, clear the state dropdown
-                $('#stateDropdown').empty();
+                $('#cityDropdown').empty();
             }
         });
     });
 </script>
-<script>
-    $(document).ready(function () {
-      $('#actionDropdown').on('change', function () {
-         var countryId = $(this).val();
-         var baseUrl = "{{ url('/') }}";
-         if (countryId) {
-             // Make an AJAX request to get the states based on the selected country
-             $.ajax({
-                 type: 'GET',
-                 datatype : 'json',
-                 url: baseUrl + '/get-countrydata/' + countryId, // Replace with the actual route to get states
-                 success: function (data) {
-                     // Clear the current value in the country code and country name column
-                     $('#CountryName').val(data['countryName']);
-                     $('#CountryCode').val(data['countryCode']);
-                 }
-             });
-         }
-      });   
-   });   
-</script>  
+
 

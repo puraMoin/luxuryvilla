@@ -169,33 +169,65 @@ $(document).ready(function() {
 </script>
 <script type="text/javascript">
     $(document).ready(function() {
-            function displayImage(input) {
-            var imageBox = document.getElementById('imageBox');
+        // Function to handle the image file input
+        function displayImage(input) {
             var selectedImage = document.getElementById('selectedImage');
-            var coverImageSpan = document.getElementById('coverImage'); // Get the span element
-
-            
             var file = input.files[0];
-
-
             if (file) {
                 var reader = new FileReader();
                 reader.onload = function(e) {
                     selectedImage.src = e.target.result;
-                    // Update the text content of the span with the file name
-                    coverImageSpan.textContent = file.name;
-                    
-                   
                 };
                 reader.readAsDataURL(file);
-
             } else {
-                // If no file is selected, you can handle it accordingly
                 selectedImage.src = "{{ asset('images/no-image.png') }}";
             }
         }
-    });        
-</script>
+    
+        // Function to handle the header image file input
+        function displayHeader(input) {
+            var selectedHeaderImage = document.getElementById('selectedHeaderImage');
+            var file = input.files[0];
+            if (file) {
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    selectedHeaderImage.src = e.target.result;
+                };
+                reader.readAsDataURL(file);
+            } else {
+                selectedHeaderImage.src = "{{ asset('images/no-image.png') }}";
+            }
+        }
+
+        function displayFooter(input) {
+            var selectedFooterImage = document.getElementById('selectedFooterImage');
+            var file = input.files[0];
+            if (file) {
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    selectedFooterImage.src = e.target.result;
+                };
+                reader.readAsDataURL(file);
+            } else {
+                selectedFooterImage.src = "{{ asset('images/no-image.png') }}";
+            }
+        }
+    
+        // Event listeners
+        $('#imageInput').change(function() {
+            displayImage(this);
+        });
+    
+        $('#imageHeaderInput').change(function() {
+            displayHeader(this);
+        });
+
+        $('#imageFooterInput').change(function() {
+            displayFooter(this);
+        });
+    });
+    </script>
+
 <script type="text/javascript">
     $(document).on('keypress','.numeric',(function (event) {
     var charCode = (event.which) ? event.which : event.keyCode

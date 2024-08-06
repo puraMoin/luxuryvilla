@@ -260,7 +260,36 @@
                                   <textarea name="google_address" class="rich-editor" rows="3"></textarea>
                               </div>
                           </div>
-                      </div>                          
+                      </div>   
+                      <hr>       
+                          <!-- Row 8 -->        
+                      <div class="row mt-15">
+                        <!-- Image File -->
+                        <div class="col-sm-4">
+                            <label>Image File<span class="mandatory">*</span></label>
+                            <div id="imageBox">
+                                <img id="selectedImage" src="{{ asset('images/no-image.png') }}" alt="Selected Image">
+                            </div>
+                            <input type="file" name="image_file" id="imageInput">
+                        </div>
+
+                        <!-- Header Image File -->
+                        <div class="col-sm-4">
+                            <label>Header Image File<span class="mandatory">*</span></label>
+                            <div id="HeaderBox">
+                                <img id="selectedHeaderImage" src="{{ asset('images/no-image.png') }}" alt="Selected Image">
+                            </div>
+                            <input type="file" name="header_image_file" id="imageHeaderInput">
+                        </div>  
+                            <!-- Footer Image File -->
+                            <div class="col-sm-4">
+                                <label>Footer Image File<span class="mandatory">*</span></label>
+                                <div id="FooterBox">
+                                <img id="selectedFooterImage" src="{{ asset('images/no-image.png') }}" alt="Selected Image">
+                                </div>
+                                <input type="file" name="footer_image_file" id="imageFooterInput">
+                            </div>                                                        
+                      </div>                                                        
                         <div class="row mt-15">
                             <div class="col-sm-3">
                                 <button type="submit" class="main-btn primary-btn btn-hover btn-sm">Save</button>
