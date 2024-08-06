@@ -10,156 +10,275 @@
      <!-- Add New Button -->
 
     <!-- For Start Here -->
-   <form method="POST" action="{{ route('cities.update', ['city' => $city->id]) }}" enctype="multipart/form-data">  
-  <div class="card-style mt-20">
-      <!-- <div class="create_update">Created: <span>Andria Dsouza On 09/05/2023</span>   |   Last updated: <span>Andria Dsouza On 09/05/2023</span></div> -->
-      <!-- Form Start Here -->
-       @method('PUT')
-       @csrf
-      <div class="row mt-15">
-          <!-- Id -->  
-         <input type="hidden" name="id" value="{{ $city->id }}"  />
-         <input type="hidden" name="modified_by" value="{{ $userId }}"  />
-         <!-- Country -->
-         <div class="col-sm-3">
-            <div class="select-style-1">
-               <label>Country</label>
-               <div class="select-position select-sm">
-               <select class="jSelectbox" id="actionDropdown" name="country_id" required>
-                  <option value="{{ $country->id }}">{{ $country->name }}</option>                       
-                   @foreach ($countries as $country)
-                     <option value="{{ $country->id }}">{{ $country->name }}</option>
-                    @endforeach           
-               </select>
-               </div>
-            </div>
-         </div>
-         <!--State-->
-          <div class="col-sm-3">
-            <div class="select-style-1">
-               <label>State</label>
-               <div class="select-position select-sm">
-               <select class="jSelectbox" id="stateDropdown" name="state_id" required>
-                <option value="">Select State</option> 
-                @if(!empty($states))
-                <?php foreach ($states as $key => $state) { 
-                    $selected =  ($city->state_id == $state->id) ? 'selected' : '';
-                ?>
-                    <option value="{{ $state->id }}" <?php echo $selected;?>>{{ $state->name }}</option>
-                <?php } ?>
-                @endif                
-               </select>
-               </div>
-            </div>
-         </div>
-             <!-- Name -->
-            <div class="col-sm-3">
-                <div class="input-style-1">
-                    <label>Name<span class="mandatory">*</span></label>
-                    <input type="text"  name="name" placeholder="State Name" value="{{ $city->name }}"  />
-                </div>   
-            </div>
-            <!-- City Code  -->
-            <div class="col-sm-3">
-                <div class="input-style-1">
-                <label>City Code<span class="mandatory">*</span></label>
-                <input type="text"  name="city_code" placeholder="City Code" value="{{ $city->city_code }}" />
-                </div>   
-            </div>             
-    </div>  
-    <hr>
-        <!-- Row 2 -->
-    <div class="row mt-15">
-         <!-- Latitude  -->
-         <div class="col-sm-3">
-            <div class="input-style-1">
-            <label>Latitude<span class="mandatory">*</span></label>
-            <input type="text"  name="latitude" placeholder="Latitude" value="{{ $city->latitude }}" />
-            </div>   
-         </div>       
-         <!-- Longitude  -->
-         <div class="col-sm-3">
-            <div class="input-style-1">
-            <label>Longitude<span class="mandatory">*</span></label>
-            <input type="text"  name="longitude" placeholder="Longitude" value="{{ $city->longitude }}" />
-            </div>   
-         </div>     
-         <!-- Country Code  -->
-         <div class="col-sm-3">
-            <div class="input-style-1">
-            <label>Country Code<span class="mandatory">*</span></label>
-            <input type="text"  name="country_code" id="CountryCode" placeholder="Country Code" value="{{ $city->country_code }}" />
-            </div>   
-         </div>  
-         <!-- Country Name  -->
-         <div class="col-sm-3">
-            <div class="input-style-1">
-            <label>Country Name<span class="mandatory">*</span></label>
-            <input type="text"  name="country_name" id="CountryName" placeholder="Country Name" value="{{ $city->country_name }}" />
-            </div>   
-         </div>     
-    </div>  
-<hr>           
-        <!-- Row 3 -->
-        <div class="row mt-15">
-         <!-- Description -->
-         <div class="col-sm-12">
-            <div class="input-style-1">
-            <label>Description <span class="mandatory">*</span></label> 
-             <textarea name="description" class="rich-editor" placeholder="Description" rows="3" >{{ $city->description }}</textarea> 
-            </div>   
-         </div> 
-        </div> 
-        <hr>         
-        <!-- Row 4 -->
-        <div class="row mt-15">
-            <!-- Small Description -->
-            <div class="col-sm-6">
-               <div class="input-style-1">
-               <label>Small Description <span class="mandatory">*</span></label> 
-                <textarea name="small_description" class="rich-editor" placeholder="Small Description" rows="3" >{{ $city->small_description }}</textarea> 
-               </div>   
-            </div> 
-            <!-- Fast Facts -->
-            <div class="col-sm-6">
-                <div class="input-style-1">
-                <label>Fast Facts<span class="mandatory">*</span></label> 
-                 <textarea name="fast_facts" class="rich-editor" placeholder="Fast Facts" rows="3" >{{ $city->fast_facts }}</textarea> 
-                </div>   
-            </div>             
-        </div>   
-        <hr>             
-         <!-- Active Code --> 
-    <div class="row mt-15">        
-         <div class="col-sm-3">
-             <label>Active</label><br> 
-             <label class="radio-inline">
-             <input type="radio" name="active" class="radio-inline" value="1" {{ $city->active == 1 ? 'checked' : '' }}> Yes
-             </label>
-            <label class="radio-inline">
-            <input type="radio" name="active" class="radio-inline" value="0" {{ $city->active == 0 ? 'checked' : '' }}> No
-            </label>
-         </div>
-         <div class="col-sm-3">
-            <label>Publish Website</label><br> 
-            <label class="radio-inline">
-            <input type="radio" name="is_publish_on_website" class="radio-inline" value="1" {{ $city->is_publish_on_website == 1 ? 'checked' : '' }}> Yes
-            </label>
-           <label class="radio-inline">
-           <input type="radio" name="is_publish_on_website" class="radio-inline" value="0" {{ $city->is_publish_on_website == 0 ? 'checked' : '' }}> No
-           </label>
-        </div>
-      </div> 
-      <hr>     
-      <div class="row mt-15">
-       <div class="col-sm-3">  
-        <button type="submit" class="main-btn primary-btn btn-hover btn-sm">Save</button>
-        <button type="reset" class="main-btn primary-btn-outline btn-hover btn-sm">Reset</button>
-        </div>
-      </div>  
+            <form method="POST" action="{{ route('companymasters.update', $companymaster->id) }}" enctype="multipart/form-data">
+                <div class="card-style mt-20">
+                    <!-- <div class="create_update">Created: <span>Andria Dsouza On 09/05/2023</span>   |   Last updated: <span>Andria Dsouza On 09/05/2023</span></div> -->
+                    <!-- Form Start Here -->
+                    @csrf
+                    @method('PUT')
+                    <div class="row mt-15">
+                        <input type="hidden" name="modified_by" value="{{ $userId }}" />
+                        <!-- Name  -->
+                        <div class="col-sm-3">
+                            <div class="input-style-1">
+                                <label>Name<span class="mandatory">*</span></label>
+                                <input type="text" name="name" placeholder="Company Master Name" />
+                            </div>
+                        </div>
+                        <!-- Alias  -->
+                        <div class="col-sm-3">
+                            <div class="input-style-1">
+                                <label>Alias<span class="mandatory">*</span></label>
+                                <input type="text" name="alias" placeholder="Enter Alias" />
+                            </div>
+                        </div>
+                        <!-- Regsitration No  -->
+                        <div class="col-sm-3">
+                            <div class="input-style-1">
+                                <label>Regsitration No<span class="mandatory">*</span></label>
+                                <input type="text" name="registration_no" placeholder="Enter Regsitration No" />
+                            </div>
+                        </div>
+                        <!-- Vat No  -->
+                        <div class="col-sm-3">
+                            <div class="input-style-1">
+                                <label>Vat No<span class="mandatory">*</span></label>
+                                <input type="text" name="vat_no" placeholder="Enter Vat No" />
+                            </div>
+                        </div>
+                        <hr>
+                        <!-- Row 2 -->
+                        <div class="row mt-15">
+                            <!-- Business Registration Name  -->
+                            <div class="col-sm-3">
+                                <div class="input-style-1">
+                                    <label>Business Registration Name<span class="mandatory">*</span></label>
+                                    <input type="text" name="business_registration_name"
+                                        placeholder="Enter Business Registration Name" />
+                                </div>
+                            </div>
+                            <!-- Tin No  -->
+                            <div class="col-sm-3">
+                                <div class="input-style-1">
+                                    <label>Tin No<span class="mandatory">*</span></label>
+                                    <input type="text" name="tin_no" placeholder="Enter Tin No" />
+                                </div>
+                            </div>
+                            <!-- Currency Name -->
+                            <div class="col-sm-3">
+                                <div class="select-style-1">
+                                    <label>Currency</label>
+                                    <div class="select-position select-sm">
+                                        <select class="jSelectbox" id="actionDropdown" name="currency_id" required>
+                                            <option value="{{ $currency->id }}">{{ $currency->name }}</option>
 
-	</div>
-</form>
+                                            @foreach ($othercurrencies as $key => $currency)
+                                                <option value="{{ $currency->id }}">{{ $currency->name }}</option>
+                                            @endforeach
+
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Incorporate Name  -->
+                            <div class="col-sm-3">
+                                <div class="input-style-1">
+                                    <label>Incorporate Name<span class="mandatory">*</span></label>
+                                    <input type="text" name="incorporate_name" placeholder="Enter Incorporate Name" />
+                                </div>
+                            </div>
+
+                        </div>
+                        <!-- Row 3 -->
+                        <div class="row mt-15">
+                            <!-- Website  -->
+                            <div class="col-sm-3">
+                                <div class="input-style-1">
+                                    <label>Website<span class="mandatory">*</span></label>
+                                    <input type="text" name="website" placeholder="Enter Website" />
+                                </div>
+                            </div>
+                           <!-- Country Name -->
+                        <div class="col-sm-3">
+                            <div class="select-style-1">
+                                <label>Country</label>
+                                <div class="select-position select-sm">
+                                    <select class="jSelectbox" id="actionDropdown" name="country_id" required>                                    
+                                        <option value="{{ $country->id }}">{{ $country->name }}</option>
+                                        @foreach ($othercountries as $key => $country)
+                                            <option value="{{ $country->id }}">{{ $country->name }}</option>
+                                        @endforeach
+                                    </select>
+
+                                </div>
+                        </div>
+                            </div>
+                           <!-- State Name -->
+                           <div class="col-sm-3">
+                              <div class="select-style-1">
+                                  <label>State</label>
+                                  <div class="select-position select-sm">
+                                      <select class="jSelectbox" id="StateactionDropdown" name="state_id" required>
+                                        <option value="{{ $state->id }}">{{ $state->name }}</option>
+                                          @foreach ($otherstates as $state)
+                                          <option value="{{ $state->id }}">{{ $state->name }}</option>
+                                          @endforeach
+                                      </select>
+                                  </div>
+                              </div>
+                          </div>
+                          <!-- City Name -->
+                           <div class="col-sm-3">
+                              <div class="select-style-1">
+                                  <label>City</label>
+                                  <div class="select-position select-sm">
+                                      <select class="jSelectbox" id="cityDropdown" name="city_id" required>
+                                        <option value="{{ $state->id }}">{{ $state->name }}</option>
+                                        @foreach ($othercities as $cities)
+                                        <option value="{{ $cities->id }}">{{ $cities->name }}</option>
+                                        @endforeach
+                                      </select>
+                                  </div>
+                              </div>
+                          </div>
+                        </div>
+                        <hr>
+                        <!-- Row 3 -->
+                        <div class="row mt-15">
+                            <!-- Address -->
+                            <div class="col-sm-12">
+                                <div class="input-style-1">
+                                    <label>Address <span class="mandatory">*</span></label>
+                                    <textarea name="address" class="rich-editor" placeholder="Address" rows="3"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                         <!-- Row 4 -->                       
+                        <div class="row mt-15">
+                            <!-- Zip Code  -->
+                            <div class="col-sm-3">
+                                <div class="input-style-1">
+                                    <label>Zip Code <span class="mandatory">*</span></label>
+                                    <input type="text" name="zipcode" placeholder="Enter Zip Code" />
+                                </div>
+                            </div>
+
+                            <!-- Area -->
+                            <div class="col-sm-3">
+                                <div class="input-style-1">
+                                    <label>Area <span class="mandatory">*</span></label>
+                                    <input type="text" name="zipcode" placeholder="Enter Area" />
+                                </div>
+                            </div>
+
+                            <!-- Phone Calling Code 1  -->
+                            <div class="col-sm-3">
+                                <div class="input-style-1">
+                                    <label>Phone Calling Code 1 <span class="mandatory">*</span></label>
+                                    <input type="text" name="phone_calling_code_1" placeholder="Enter Phone Calling Code 1" />
+                                </div>
+                            </div>   
+                            
+                            <!-- Contact No 1 -->
+                            <div class="col-sm-3">
+                                <div class="input-style-1">
+                                    <label>Contact No 1 <span class="mandatory">*</span></label>
+                                    <input type="text" name="contact_no_1" placeholder="Enter Contact No 1" />
+                                </div>
+                            </div>
+
+                        </div>    
+                        <hr>
+                        <!-- Row 5 -->                        
+                        <div class="row mt-15">
+                            <!-- Phone Calling Code 2  -->
+                            <div class="col-sm-3">
+                                <div class="input-style-1">
+                                    <label>Phone Calling Code 2 <span class="mandatory">*</span></label>
+                                    <input type="text" name="phone_calling_code_2" placeholder="Enter Phone Calling Code 2" />
+                                </div>
+                            </div>
+                            <!--Contact no 2  -->
+                            <div class="col-sm-3">
+                                <div class="input-style-1">
+                                    <label>Contact no 2 <span class="mandatory">*</span></label>
+                                    <input type="text" name="contact_no_2" placeholder="Enter Contact no 2" />
+                                </div>
+                            </div>     
+                             <!-- Email  -->
+                            <div class="col-sm-3">
+                                <div class="input-style-1">
+                                    <label>Email <span class="mandatory">*</span></label>
+                                    <input type="email" name="email" placeholder="Enter Email" />
+                                </div>
+                            </div>      
+                              <!-- Fax  -->
+                              <div class="col-sm-3">
+                                <div class="input-style-1">
+                                    <label>Fax <span class="mandatory">*</span></label>
+                                    <input type="text" name="fax" placeholder="Enter Fax" />
+                                </div>
+                            </div>                               
+                        </div>    
+                         <!-- Row 6 -->
+                        <div class="row mt-15">
+                              <!-- Note  -->                            
+                            <div class="col-sm-12">
+                                <div class="input-style-1">
+                                    <label>Note <span class="mandatory">*</span></label>
+                                    <textarea name="note" class="rich-editor" rows="3"></textarea>
+                                </div>
+                            </div>
+                        </div>    
+                        <!-- Row 7 -->
+                        <div class="row mt-15">
+                              <!-- Facebook Link  -->                             
+                            <div class="col-sm-5">
+                                <div class="input-style-1">
+                                    <label>Facebook Link<span class="mandatory">*</span></label>
+                                    <input type="text" name="facebook_link" placeholder="Enter Facebook Link" />
+                                </div>
+                            </div> 
+                            <!-- Twitter Link  -->                              
+                            <div class="col-sm-5">
+                                <div class="input-style-1">
+                                    <label>Twitter<span class="mandatory">*</span></label>
+                                    <input type="text" name="twitter_link" placeholder="Enter Twitter Link" />
+                                </div>
+                            </div>                                                         
+                            <!-- Active Code -->
+                            <div class="col-sm-2">
+                                <label>Active</label><br>
+                                <label class="radio-inline">
+                                    <input type="radio" name="active" class="radio-inline" value="1"> Yes
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="active" class="radio-inline" value="0" checked> No
+                                </label>
+                            </div>
+                        </div>
+                        <hr>
+                         <!-- Row 8 -->
+                         <div class="row mt-15">
+                            <!-- Google Address  -->                            
+                          <div class="col-sm-12">
+                              <div class="input-style-1">
+                                  <label>Google Address <span class="mandatory">*</span></label>
+                                  <textarea name="google_address" class="rich-editor" rows="3"></textarea>
+                              </div>
+                          </div>
+                      </div>                          
+                        <div class="row mt-15">
+                            <div class="col-sm-3">
+                                <button type="submit" class="main-btn primary-btn btn-hover btn-sm">Save</button>
+                                <button type="reset"
+                                    class="main-btn primary-btn-outline btn-hover btn-sm">Reset</button>
+                            </div>
+                        </div>
+
+                    </div>
+            </form>
 </section>	
 @endsection
 
