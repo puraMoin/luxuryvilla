@@ -117,6 +117,7 @@ Route::get('/dashboard', [DashboardsController::class, 'index'])->name('dashboar
   Route::resource('propertytypes',PropertyTypesController::class);
 
   Route::get('/get-states/{countryId}', [StatesController::class, 'getStates']);
+  Route::get('/get-cities/{stateId}', [CitiesController::class, 'getCities']);
   Route::get('/get-countrydata/{countryId}', [CountriesController::class, 'getCountryData']);
   Route::resource('rolesrights', RolesRightsController::class);
   Route::resource('companymasters', CompanyMastersController::class);

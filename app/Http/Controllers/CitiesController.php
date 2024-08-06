@@ -272,4 +272,15 @@ class CitiesController extends Controller
     {
         //
     }
+
+    public function getCities($stateId)
+    {
+        $cities = "";
+        if($stateId){
+            $cities = City::where('state_id',$stateId)->get();
+        }
+
+        return response()->json($cities);
+
+    }
 }
