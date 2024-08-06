@@ -27,12 +27,14 @@
                                 <input type="text" id="name" name="name" class="form-control" required>
                             </div>
                         </div>
+                        
                         <div class="col-md-4">
                             <div class="input-style-1">
                                 <label for="alias">Alias <span class="mandatory"> *</span></label>
                                 <input type="text" id="alias" name="alias" class="form-control" required>
                             </div>
                         </div>
+
                         <div class="col-sm-4">
                             <label for="active">Active</label><br>
                             <label class="radio-inline">
@@ -42,6 +44,7 @@
                                 <input type="radio" id="active_no" name="active" value="0" {{ old('active') == '0' ? 'checked' : '' }}> No
                             </label>
                         </div> 
+
                     </div>
                     <hr>
                     <div class="row">
