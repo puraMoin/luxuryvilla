@@ -38,8 +38,8 @@ class CostTypesController extends Controller
         $costtypes = CostType::create([
             'title' => $request->input('title'),
             'active' => $request->input('active'),
-            'created' => $request->input('created'),
-            'modified' => $request->input('modified'),
+            'created' => now(),
+            'modified' => now(),
         ]);
         return redirect()->route('costtypes.index');
     }
