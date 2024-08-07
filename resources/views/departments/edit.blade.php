@@ -47,7 +47,11 @@
                                <textarea name="description" class="form-control rich-editor">{{ $department->description }}</textarea>
                             </div>
                         </div>
-                    </div>                     
+                    </div>       
+                    
+                </div>
+                <div>
+                    <br>
                     <div class="row">
                         <div class="col-12">
                             <button type="submit" class="main-btn primary-btn btn-hover btn-sm mt-3">Save</button>

@@ -37,9 +37,9 @@
                                 <input type="radio" id="active_no" name="active" value="0" {{ old('active') == '0' ? 'checked' : '' }}> No
                             </label>
                         </div> 
-
                     </div>
-                    <hr>
+                    </div>
+
                     <div class="row">
                         <div class="col-12">
                             <button type="submit" class="main-btn primary-btn btn-hover btn-sm mt-3">Save</button>

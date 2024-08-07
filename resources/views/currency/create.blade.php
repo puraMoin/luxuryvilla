@@ -132,8 +132,9 @@
                                 checked> No
                         </label>
                     </div>
+                </div>
                   </div>
-                  <hr>
+                  <div>
 
                     <div class="row">
                         <div class="col-12">

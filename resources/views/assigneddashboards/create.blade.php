@@ -36,6 +36,8 @@
             <input type="radio" name="active" class="radio-inline" value="0" checked> No
             </label>
          </div>
+        </div>
+      </div>
         <div class="row">
           <div class="col-12">
             <button type="submit" class="main-btn primary-btn btn-hover btn-sm mt-3">Save</button>
