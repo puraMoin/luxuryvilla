@@ -7,9 +7,6 @@
      @include('partials.breadcrumb')
 
      <div class="right-mob-left">
-        <a href="{{ route('cities.index') }}">
-        <button type="button" class="main-btn primary-btn-outline btn-hover btn-xs">Import</button> 
-        </a>
         <a href="{{ route('cities.create') }}">
         <button type="button" class="main-btn primary-btn btn-hover btn-xs">Create</button>
         </a>
