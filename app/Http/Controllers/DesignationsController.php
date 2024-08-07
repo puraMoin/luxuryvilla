@@ -75,7 +75,7 @@ class DesignationsController extends Controller
         $designation = Designation::findOrfail($id);
         $pageTitle = "Show";
 
-        return view('designations.show',compact('department','pageTitle'));
+        return view('designations.show',compact('designation','pageTitle'));
     }
 
     /**
@@ -89,7 +89,7 @@ class DesignationsController extends Controller
         $userId = Auth::id();
         $designation = Designation::find($id);
         $pageTitle = "Edit";
-        return view('designations.edit',compact('department','pageTitle','userId'));
+        return view('designations.edit',compact('designation','pageTitle','userId'));
     }
 
     /**

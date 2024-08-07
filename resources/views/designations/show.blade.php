@@ -15,7 +15,7 @@
 
             <!-- Back Button -->
             <div class="right-mob-left">
-                <a href="{{ route('departments.index') }}">
+                <a href="{{ route('designations.index') }}">
                     <button type="button" class="main-btn primary-btn-outline btn-hover btn-xs">Back</button>
                 </a>
             </div>
@@ -31,7 +31,7 @@
                                     <h6>Name</h6>
                                 </th>
                                 <td>
-                                    <p>{{ $department->name }}</p>
+                                    <p>{{ $designation->name }}</p>
                                 </td>
                             </tr>
 
@@ -40,7 +40,7 @@
                                     <h6>Description</h6>
                                 </th>
                                 <td>
-                                    <p>{{ $department->description }}</p>
+                                    <p>{{ $designation->description }}</p>
                                 </td>
                             </tr>
 
@@ -50,7 +50,7 @@
                                 </th>
                                 <th class="text-left">
                                     @php
-                                      if($department->active == '1'){
+                                      if($designation->active == '1'){
                                         $class = 'activelabel';
                                         $data = 'Active';
                                       } else {
@@ -67,15 +67,15 @@
                                     <h6>Created At</h6>
                                 </th>
                                 <td>
-                                    <p>{{ $department->created_at }}</p>
+                                    <p>{{ $designation->created_at }}</p>
                                 </td>
                             </tr>
                             <tr>
                                 <th class='col-md-2'>
-                                    <h6>Upldated At</h6>
+                                    <h6>Updated At</h6>
                                 </th>
                                 <td>
-                                    <p>{{ $department->updated_at }}</p>
+                                    <p>{{ $designation->updated_at }}</p>
                                 </td>
                             </tr>
                             <tr>
