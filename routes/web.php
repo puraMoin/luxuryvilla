@@ -32,6 +32,7 @@ use App\Http\Controllers\RolesController;
 use App\Http\Controllers\CompanyMastersController;
 use App\Http\Controllers\CostTypesController;
 use App\Http\Controllers\DepartmentsController;
+use App\Http\Controllers\DesignationsController;
 use App\Http\Controllers\MealPlansController;
 use App\Http\Controllers\MealTypesController;
 use App\Http\Controllers\SupplierTypesController;
@@ -39,6 +40,7 @@ use App\Http\Controllers\SupplierRegionTypesController;
 use App\Http\Middleware\CheckSession;
 use App\Models\Country;
 use App\Models\Currency;
+use App\Models\Designation;
 
 /*
 |--------------------------------------------------------------------------
@@ -127,6 +129,7 @@ Route::get('/dashboard', [DashboardsController::class, 'index'])->name('dashboar
   Route::resource('bedtypes',BedTypesController::class);
   Route::resource('costtypes',CostTypesController::class);
   Route::resource('departments',DepartmentsController::class);
+  Route::resource('designations',DesignationsController::class);
   Route::get('/get-states/{countryId}', [StatesController::class, 'getStates']);
   Route::get('/get-cities/{stateId}', [CitiesController::class, 'getCities']);
   Route::get('/get-countrydata/{countryId}', [CountriesController::class, 'getCountryData']);
