@@ -10,7 +10,6 @@ class CostTypesController extends Controller
 {
     public function index()
     {
-        // dd($);
         $pageTitle = 'Cost Types';
         $costtypes = CostType::all();
         return view('costtypes.index', compact('costtypes', 'pageTitle'));

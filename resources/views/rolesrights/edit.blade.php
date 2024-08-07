@@ -51,48 +51,12 @@
                             </div>
                         </div>
                     </div>
-
-                    <hr>
-                    {{-- <div class="row mt-15">
-                        <div class="col-sm-4">
-                            <div class="input-style-1">
-                                <label>Created At</label>
-                                <input type="text" name="created_at" value="{{ $rolesright->created_at }}"
-                                    placeholder="Created At" readonly />
-                            </div>
-                        </div> --}}
-
-                        {{-- <div class="col-sm-4">
-                            <div class="input-style-1">
-                                <label>Updated At</label>
-                                <input type="text" name="updated_at" value="{{ $rolesright->updated_at }}"
-                                    placeholder="Updated At" readonly />
-                            </div>
-                        </div> --}}
-
-                        {{-- <div class="col-sm-4">
-                            <div class="input-style-1">
-                                <label>Created By</label>
-                                <input type="text" name="created_by" value="{{ $rolesright->created_by }}"
-                                    placeholder="Created By" readonly />
-                            </div>
-                        </div> --}}
-                    </div>
-                
-                    {{-- <div class="row mt-15">
-                        <div class="col-sm-4">
-                            <div class="input-style-1">
-                                <label>Modified By</label>
-                                <input type="text" name="modified_by" value="{{ $rolesright->modified_by }}"
-                                    placeholder="Modified By" readonly />
-                            </div>
-                        </div>
-                    </div> --}}
-
-                  
+                </div>
+                <div>
+                    <br>
                     <div class="row mt-15">
                         <div class="col-sm-3">
-                            <button type="submit" class="main-btn primary-btn btn-hover btn-sm">Update</button>
+                            <button type="submit" class="main-btn primary-btn btn-hover btn-sm">Save</button>
                             <button type="reset" class="main-btn primary-btn-outline btn-hover btn-sm">Reset</button>
                         </div>
                     </div>

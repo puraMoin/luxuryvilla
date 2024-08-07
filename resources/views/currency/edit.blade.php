@@ -144,7 +144,8 @@
                     <hr>
                     <div class="row">
                         <div class="col-sm-6">
-                            <button type="submit" class="main-btn primary-btn btn-hover">Submit</button>
+                            <button type="submit" class="main-btn primary-btn btn-hover">Save</button>
+                            <button type="reset" class="main-btn primary-btn-outline btn-hover btn-sm">Reset</button>
                         </div>
                     </div>
                 </form>

@@ -303,15 +303,16 @@
                                 </div>                                                        
                           </div>  
                                                           
-                        <div class="row mt-15">
-                            <hr>  
-                            <div class="col-sm-3">
-                                <button type="submit" class="main-btn primary-btn btn-hover btn-sm">Save</button>
-                                <button type="reset"
-                                    class="main-btn primary-btn-outline btn-hover btn-sm">Reset</button>
-                            </div>
-                        </div>
 
+                    </div>
+                    </div>
+                    <div class="row mt-15">
+ <br> 
+                        <div class="col-sm-3">
+                            <button type="submit" class="main-btn primary-btn btn-hover btn-sm">Save</button>
+                            <button type="reset"
+                                class="main-btn primary-btn-outline btn-hover btn-sm">Reset</button>
+                        </div>
                     </div>
             </form>
 </section>	

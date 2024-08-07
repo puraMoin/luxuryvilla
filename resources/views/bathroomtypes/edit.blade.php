@@ -40,11 +40,13 @@
                             </label>
                         </div>
                     </div>
-
-                    <hr>
+                </div>
+                <div>
+                    <br>
                     <div class="row">
                         <div class="col-md-6">
-                            <button type="submit" class="main-btn primary-btn btn-hover">Update</button>
+                            <button type="submit" class="main-btn primary-btn btn-sm btn-hover">Save</button>
+                            <button type="reset" class="main-btn primary-btn-outline btn-hover btn-sm">Reset</button>
                         </div>
                     </div>
                 </form>

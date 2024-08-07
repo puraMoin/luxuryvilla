@@ -69,12 +69,12 @@
                              <input type="radio" name="active" class="radio-inline" value="0" {{ old('active', $employeelists->active) == 0 ? 'checked' : '' }}> No
                          </label>
                      </div>
- 
                  </div>
- 
+                 </div>
+ <div>
                  <div class="row mt-15">
                      <div class="col-sm-12 text-left">
-                         <button type="submit" class="main-btn primary-btn btn-hover btn-sm">Update</button>
+                         <button type="submit" class="main-btn primary-btn btn-hover btn-sm">Save</button>
                          <button type="reset" class="main-btn primary-btn-outline btn-hover btn-sm">Reset</button>
                      </div>
                  </div>
