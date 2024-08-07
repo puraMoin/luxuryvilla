@@ -48,23 +48,13 @@
                             </div>
                         </div>
                     </div>                     
-<<<<<<< HEAD
-                    <div class="row">
-                        <div class="col-12">
-                            <button type="submit" class="main-btn primary-btn btn-hover btn-sm">Save</button>
-        <button type="reset" class="main-btn primary-btn-outline btn-hover btn-sm">Reset</button>
-                        </div>
-                    </div>
-=======
-
->>>>>>> 2e283d461335c7c64775944c85034c4003931841
                 </form>
 
             </div>
             <div class="row">
                 <div class="col-12">
-                    <button type="submit" class="main-btn primary-btn btn-hover btn-sm mt-3">Save</button>
-                    <button type="reset" class="main-btn warning-btn btn-hover btn-sm mt-3">Reset</button>
+                    <button type="submit" class="main-btn primary-btn  btn-sm btn-hover">Save</button>
+                    <button type="reset" class="main-btn primary-btn-outline btn-hover btn-sm">Reset</button>
                 </div>
             </div>
         </div>
