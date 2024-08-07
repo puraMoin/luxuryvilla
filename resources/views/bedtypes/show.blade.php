@@ -31,7 +31,7 @@
                                     <h6>Name</h6>
                                 </th>
                                 <td>
-                                    <p>{{ $bedtype->name }}</p>
+                                    <p>{{ $bedtypes->name }}</p>
                                 </td>
                             </tr>
 
@@ -41,7 +41,7 @@
                                 </th>
                                 <th class="text-left">
                                     @php
-                                      if($bedtype->active == '1'){
+                                      if($bedtypes->active == '1'){
                                         $class = 'activelabel';
                                         $data = 'Active';
                                       } else {
@@ -58,7 +58,7 @@
                                     <h6>Created At</h6>
                                 </th>
                                 <td>
-                                    <p>{{ $bedtype->created_at }}</p>
+                                    <p>{{ $bedtypes->created_at }}</p>
                                 </td>
                             </tr>
                             <tr>
@@ -66,7 +66,7 @@
                                     <h6>Upldated At</h6>
                                 </th>
                                 <td>
-                                    <p>{{ $bedtype->updated_at }}</p>
+                                    <p>{{ $bedtypes->updated_at }}</p>
                                 </td>
                             </tr>
                             <tr>

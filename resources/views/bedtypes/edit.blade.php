@@ -16,7 +16,7 @@
         <div class="container-fluid">
             <div class="card-style mt-20">
 
-                <form action="{{ route('bedtypes.update', $bedtype->id) }}" method="POST">
+                <form action="{{ route('bedtypes.update', $bedtypes->id) }}" method="POST">
                     @csrf
                     @method('PUT')
                     <input type="hidden" name="modified_by" value="{{ $userId }}">
@@ -25,7 +25,7 @@
                         <div class="col-md-4">
                             <div class="input-style-1">
                                 <label for="name">Name <span class="mandatory"> *</span></label>
-                                <input type="text" id="name" name="name" class="form-control" value="{{ $bedtype->name }}" required>
+                                <input type="text" id="name" name="name" class="form-control" value="{{ $bedtypes->name }}" required>
                             </div>
                         </div>
 
@@ -33,10 +33,10 @@
                         <div class="col-sm-4">
                             <label>Active</label><br> 
                             <label class="radio-inline">
-                                <input type="radio" name="active" class="radio-inline" value="1" {{ old('active', $bedtype->active) == 1 ? 'checked' : '' }}> Yes
+                                <input type="radio" name="active" class="radio-inline" value="1" {{ old('active', $bedtypes->active) == 1 ? 'checked' : '' }}> Yes
                             </label>
                             <label class="radio-inline">
-                                <input type="radio" name="active" class="radio-inline" value="0" {{ old('active', $bedtype->active) == 0 ? 'checked' : '' }}> No
+                                <input type="radio" name="active" class="radio-inline" value="0" {{ old('active', $bedtypes->active) == 0 ? 'checked' : '' }}> No
                             </label>
                         </div>
                     </div>

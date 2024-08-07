@@ -16,4 +16,5 @@ class BathRoomType extends Model
         'created_by',
         'modified_by',
     ];
+    protected $table = 'bathroom_types';
 }

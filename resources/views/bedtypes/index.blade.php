@@ -35,7 +35,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($bedtype as $bedtype)
+                            @foreach ($bedtypes as $bedtypes)
                                 @php
                                     $class = '';
                                     $data = '';
@@ -43,12 +43,12 @@
 
                                 <tr>
                                     <td>
-                                        <p>{{ $bedtype->name }}</p>
+                                        <p>{{ $bedtypes->name }}</p>
                                     </td>
 
                                     <td class="text-center">
                                         @php
-                                          if($bedtype->active == '1'){
+                                          if($bedtypes->active == '1'){
                                             $class = 'activelabel';
                                             $data = 'Active';
                                           } else {
@@ -61,10 +61,10 @@
 
 
                                     <td class="text-center">
-                                        <a href="{{ route('bedtypes.edit', $bedtype->id) }}">
+                                        <a href="{{ route('bedtypes.edit', $bedtypes->id) }}">
                                             <i class="lni lni-pencil-alt"></i>
                                         </a>
-                                        <a href="{{ route('bedtypes.show', $bedtype->id) }}">
+                                        <a href="{{ route('bedtypes.show', $bedtypes->id) }}">
                                             <i class="lni lni-list"></i>
                                         </a>
                                     </td>
