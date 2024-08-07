@@ -12,7 +12,7 @@ class MealPlansController extends Controller
     public function index()
     {
         // dd($meal);
-        $pageTitle = 'Meal Plans List';
+        $pageTitle = 'Meal Plans';
         $meal = MealPlan::all();
         return view('mealplans.index', compact('meal', 'pageTitle'));
     }

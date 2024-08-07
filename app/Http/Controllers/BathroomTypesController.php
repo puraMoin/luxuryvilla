@@ -12,7 +12,7 @@ class BathroomTypesController extends Controller
     public function index()
     {
         // dd($);
-        $pageTitle = 'Bathroom Types List';
+        $pageTitle = 'Bathroom Types';
         $bathroomtype = BathRoomType::all();
         return view('bathroomtypes.index', compact('bathroomtype', 'pageTitle'));
     }

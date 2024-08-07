@@ -12,7 +12,7 @@ class BedTypesController extends Controller
     public function index()
     {
         // dd($);
-        $pageTitle = 'Bed Types List';
+        $pageTitle = 'Bed Types';
         $bedtypes = BedType::all();
         return view('bedtypes.index', compact('bedtypes', 'pageTitle'));
     }
