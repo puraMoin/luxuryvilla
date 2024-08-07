@@ -62,8 +62,8 @@
                      </div>   
                   </div>
                 </div>
-
-                <hr>
+            </div>
+                <div>
                 
                 <!-- Save and Reset Buttons -->
                 <div class="row mt-15">

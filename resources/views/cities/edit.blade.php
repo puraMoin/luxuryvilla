@@ -149,8 +149,9 @@
            <input type="radio" name="is_publish_on_website" class="radio-inline" value="0" {{ $city->is_publish_on_website == 0 ? 'checked' : '' }}> No
            </label>
         </div>
+    </div>
       </div> 
-      <hr>     
+      <br>     
       <div class="row mt-15">
        <div class="col-sm-3">  
         <button type="submit" class="main-btn primary-btn btn-hover btn-sm">Save</button>
