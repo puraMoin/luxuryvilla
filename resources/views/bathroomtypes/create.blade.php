@@ -39,7 +39,8 @@
                         </div> 
 
                     </div>
-                    <hr>
+                </div>
+                    <div>
                     <div class="row">
                         <div class="col-12">
                             <button type="submit" class="main-btn primary-btn btn-hover btn-sm mt-3">Save</button>

@@ -288,13 +288,15 @@
                                 <img id="selectedFooterImage" src="{{ asset('images/no-image.png') }}" alt="Selected Image">
                                 </div>
                                 <input type="file" name="footer_image_file" id="imageFooterInput">
-                            </div>                                                        
-                      </div>                                                        
+                            </div>   
+                        </div>                                                     
+                      </div>  
+                    </div>      
+                      <div>                                                  
                         <div class="row mt-15">
                             <div class="col-sm-3">
                                 <button type="submit" class="main-btn primary-btn btn-hover btn-sm">Save</button>
-                                <button type="reset"
-                                    class="main-btn primary-btn-outline btn-hover btn-sm">Reset</button>
+                                <button type="reset" class="main-btn primary-btn-outline btn-hover btn-sm">Reset</button>
                             </div>
                         </div>
 
