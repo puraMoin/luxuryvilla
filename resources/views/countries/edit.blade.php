@@ -220,8 +220,8 @@
                 </div>
                 <div class="row mt-15">
                     <div class="col-sm-3">
-                        <button class="btn btn-info" type="submit">Update</button>
-                        <button class="btn btn-warning" type="reset">Reset</button>
+                        <button type="submit" class="main-btn primary-btn btn-hover btn-sm">Save</button>
+                            <button type="reset" class="main-btn primary-btn-outline btn-hover btn-sm">Reset</button>
                     </div>
                 </div>
             </div>
