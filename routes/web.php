@@ -30,6 +30,7 @@ use App\Http\Controllers\CustomerListsController;
 use App\Http\Controllers\PropertyTypesController;
 use App\Http\Controllers\RolesController;
 use App\Http\Controllers\CompanyMastersController;
+use App\Http\Controllers\CostTypesController;
 use App\Http\Controllers\MealPlansController;
 use App\Http\Controllers\MealTypesController;
 use App\Http\Controllers\SupplierTypesController;
@@ -123,6 +124,7 @@ Route::get('/dashboard', [DashboardsController::class, 'index'])->name('dashboar
   Route::resource('mealplans',MealPlansController::class);
   Route::resource('bathroomtypes',BathroomTypesController::class);
   Route::resource('bedtypes',BedTypesController::class);
+  Route::resource('costtypes',CostTypesController::class);
 
   Route::get('/get-states/{countryId}', [StatesController::class, 'getStates']);
   Route::get('/get-cities/{stateId}', [CitiesController::class, 'getCities']);

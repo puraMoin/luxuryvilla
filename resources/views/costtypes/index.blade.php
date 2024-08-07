@@ -35,7 +35,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($costtypes as $costtypes)
+                            @foreach ($costtypes as $costtype)
                                 @php
                                     $class = '';
                                     $data = '';
@@ -43,12 +43,12 @@
 
                                 <tr>
                                     <td>
-                                        <p>{{ $costtypes->title }}</p>
+                                        <p>{{ $costtype->title }}</p>
                                     </td>
 
                                     <td class="text-center">
                                         @php
-                                          if($costtypes->active == '1'){
+                                          if($costtype->active == '1'){
                                             $class = 'activelabel';
                                             $data = 'Active';
                                           } else {
@@ -61,10 +61,10 @@
 
 
                                     <td class="text-center">
-                                        <a href="{{ route('costtypes.edit', $costtypes->id) }}">
+                                        <a href="{{ route('costtypes.edit', $costtype->id) }}">
                                             <i class="lni lni-pencil-alt"></i>
                                         </a>
-                                        <a href="{{ route('costtypes.show', $costtypes->id) }}">
+                                        <a href="{{ route('costtypes.show', $costtype->id) }}">
                                             <i class="lni lni-list"></i>
                                         </a>
                                     </td>
