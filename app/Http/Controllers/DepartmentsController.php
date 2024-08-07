@@ -73,7 +73,7 @@ class DepartmentsController extends Controller
      */
     public function show($id)
     {
-        $department = Department::findOrfail('id');
+        $department = Department::findOrfail($id);
         $pageTitle = "Show";
 
         return view('departments.show',compact('department','pageTitle'));
@@ -87,9 +87,10 @@ class DepartmentsController extends Controller
      */
     public function edit($id)
     {  
-        $department = Department::find('id');
+        $userId = Auth::id();
+        $department = Department::find($id);
         $pageTitle = "Edit";
-        return view('departments.edit',compact('department','pageTitle'));
+        return view('departments.edit',compact('department','pageTitle','userId'));
     }
 
     /**
@@ -101,12 +102,11 @@ class DepartmentsController extends Controller
      */
     public function update(Request $request, $id)
     {   
-        $department = Department::find('id');
+        $department = Department::find($id);
         $department->update([
             'name' => $request->input('name'),
             'description'=> $request->input('description'),
             'active'=> $request->input('active'),
-            'created_by'=> $request->input('created_by'),
             'modified_by'=> $request->input('modified_by'),
             'created_at'=>now(),
             'updated_at'=>now(),

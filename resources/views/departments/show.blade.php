@@ -15,7 +15,7 @@
 
             <!-- Back Button -->
             <div class="right-mob-left">
-                <a href="{{ route('mealplans.index') }}">
+                <a href="{{ route('departments.index') }}">
                     <button type="button" class="main-btn primary-btn-outline btn-hover btn-xs">Back</button>
                 </a>
             </div>
@@ -31,16 +31,16 @@
                                     <h6>Name</h6>
                                 </th>
                                 <td>
-                                    <p>{{ $meal->name }}</p>
+                                    <p>{{ $department->name }}</p>
                                 </td>
                             </tr>
 
                             <tr>
                                 <th class='col-md-2'>
-                                    <h6>Alias</h6>
+                                    <h6>Description</h6>
                                 </th>
                                 <td>
-                                    <p>{{ $meal->alias }}</p>
+                                    <p>{{ $department->description }}</p>
                                 </td>
                             </tr>
 
@@ -50,7 +50,7 @@
                                 </th>
                                 <th class="text-left">
                                     @php
-                                      if($meal->active == '1'){
+                                      if($department->active == '1'){
                                         $class = 'activelabel';
                                         $data = 'Active';
                                       } else {
@@ -67,7 +67,7 @@
                                     <h6>Created At</h6>
                                 </th>
                                 <td>
-                                    <p>{{ $meal->created_at }}</p>
+                                    <p>{{ $department->created_at }}</p>
                                 </td>
                             </tr>
                             <tr>
@@ -75,7 +75,7 @@
                                     <h6>Upldated At</h6>
                                 </th>
                                 <td>
-                                    <p>{{ $meal->updated_at }}</p>
+                                    <p>{{ $department->updated_at }}</p>
                                 </td>
                             </tr>
                             <tr>
