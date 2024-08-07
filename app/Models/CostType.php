@@ -13,7 +13,6 @@ class CostType extends Model
         'active',
         'created',
         'modified',
-        
     ];
     protected $table = 'cost_types';
 }

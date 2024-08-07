@@ -17,14 +17,14 @@
 
                 <form action="{{ route('costtypes.store') }}" method="POST">
                     @csrf
-                    <input type="hidden" name="created" value="{{ $userId }}">
-                    <input type="hidden" name="modified" value="{{ $userId }}">
+                    <input type="hidden" name="created_at" value="{{ $userId }}">
+                    <input type="hidden" name="updated_at" value="{{ $userId }}">
 
                     <div class="row">
                         <div class="col-md-4">
                             <div class="input-style-1">
-                                <label for="name">Name <span class="mandatory"> *</span></label>
-                                <input type="text" id="name" name="name" class="form-control" required>
+                                <label for="title">Title <span class="mandatory"> *</span></label>
+                                <input type="text" id="title" name="title" class="form-control" required>
                             </div>
                         </div>
 

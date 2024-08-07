@@ -58,15 +58,15 @@
                                     <h6>Created</h6>
                                 </th>
                                 <td>
-                                    <p>{{ $costtypes->created }}</p>
+                                    <p>{{ $costtypes->created_at }}</p>
                                 </td>
                             </tr>
                             <tr>
                                 <th class='col-md-2'>
-                                    <h6>Modified</h6>
+                                    <h6>Updated</h6>
                                 </th>
                                 <td>
-                                    <p>{{ $costtypes->modified }}</p>
+                                    <p>{{ $costtypes->updated_at }}</p>
                                 </td>
                             </tr>
                             <tr>

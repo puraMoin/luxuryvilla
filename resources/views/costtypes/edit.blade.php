@@ -19,13 +19,13 @@
                 <form action="{{ route('costtypes.update', $costtypes->id) }}" method="POST">
                     @csrf
                     @method('PUT')
-                    <input type="hidden" name="modified" value="{{ $userId }}">
+                    <input type="hidden" name="updated_at" value="{{ $userId }}">
                     <div class="row">
                         <!-- Name -->
                         <div class="col-md-4">
                             <div class="input-style-1">
                                 <label for="title">Title <span class="mandatory"> *</span></label>
-                                <input type="text" id="title" name="title" class="form-control" value="{{ $costtypes->name }}" required>
+                                <input type="text" id="title" name="title" class="form-control" value="{{ $costtypes->title }}" required>
                             </div>
                         </div>
 

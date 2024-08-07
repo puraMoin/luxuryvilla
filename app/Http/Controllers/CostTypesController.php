@@ -31,15 +31,13 @@ class CostTypesController extends Controller
         $request->validate([
             'title' => 'required|string|max:255',
             'active' => 'boolean',
-            'created' => 'required|integer',
-            'modified' => 'required|integer',
         ]);
 
         $costtypes = CostType::create([
             'title' => $request->input('title'),
             'active' => $request->input('active'),
-            'created' => now(),
-            'modified' => now(),
+            'created_at' => now(),
+            'updated_at' => now(),
         ]);
         return redirect()->route('costtypes.index');
     }
@@ -69,8 +67,7 @@ class CostTypesController extends Controller
         $costtypes->update([
             'title' => $request->input('title'),
             'active' => $request->input('active'),
-            'created' => now(),
-            'modified' => now(),
+            'updated_at' => now(),
         ]);
         return redirect()->route('costtypes.index');
     }
