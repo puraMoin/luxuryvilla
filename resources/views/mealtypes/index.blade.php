@@ -52,11 +52,7 @@
                                     </td>
 
                                     <td class="text-center">
-                                        @php
-                                            $class = $meal->alias;
-                                            $data = $meal->alias;
-                                        @endphp
-                                        <div class="{{ $class }}">{{ $data }}</div>
+                                        <p>{{ $meal->alias }}</p>
                                     </td>
 
                                     <td class="text-center">

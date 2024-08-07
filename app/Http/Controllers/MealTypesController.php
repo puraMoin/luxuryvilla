@@ -12,7 +12,7 @@ class MealTypesController extends Controller
     public function index()
     {
         // dd($meal);
-        $pageTitle = 'Meal List';
+        $pageTitle = 'Meal Types List';
         $meal = MealType::all();
         return view('mealtypes.index', compact('meal', 'pageTitle'));
     }
