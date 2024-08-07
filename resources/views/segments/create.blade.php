@@ -41,11 +41,14 @@
              <label class="radio-inline"><input type="radio" name="active" class="radio-inline" value="1"> Yes</label>
             <label class="radio-inline"><input type="radio" name="active" class="radio-inline" value="0" checked> No</label>
          </div>
-
+        </div
+        <div>
+        </div>
+<br>
         <div class="row">
           <div class="col-12">
-            <button type="submit" class="main-btn primary-btn btn-hover btn-sm mt-3">Save</button>
-            <button type="reset" class="main-btn primary-btn-outline btn-hover btn-sm mt-3" >Reset</button>
+            <button type="submit" class="main-btn primary-btn btn-hover btn-sm">Save</button>
+                        <button type="reset" class="main-btn primary-btn-outline btn-hover btn-sm">Reset</button>
         </div>
       </form>
     </div>
