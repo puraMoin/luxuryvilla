@@ -160,7 +160,7 @@
                             <div class="col-sm-3">
                                 <div class="input-style-1">
                                     <label>Area <span class="mandatory">*</span></label>
-                                    <input type="text" name="zipcode" placeholder="Enter Area" />
+                                    <input type="text" name="area" placeholder="Enter Area" />
                                 </div>
                             </div>
 
