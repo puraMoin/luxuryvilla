@@ -13,6 +13,8 @@ use App\Http\Controllers\UsersController;
 use App\Http\Controllers\AdminTypesController;
 
 use App\Http\Controllers\AssignedDashboardsController;
+use App\Http\Controllers\BathroomTypesController;
+use App\Http\Controllers\BedTypesController;
 use App\Http\Controllers\SeoModulesController;
 use App\Http\Controllers\SocialMediasController;
 use App\Http\Controllers\ContactsController;
@@ -119,6 +121,8 @@ Route::get('/dashboard', [DashboardsController::class, 'index'])->name('dashboar
   Route::resource('propertytypes',PropertyTypesController::class);
   Route::resource('mealtypes',MealTypesController::class);
   Route::resource('mealplans',MealPlansController::class);
+  Route::resource('bathroomtypes',BathroomTypesController::class);
+  Route::resource('bedtypes',BedTypesController::class);
 
   Route::get('/get-states/{countryId}', [StatesController::class, 'getStates']);
   Route::get('/get-cities/{stateId}', [CitiesController::class, 'getCities']);
