@@ -45,6 +45,12 @@ class SupplierTypesController extends Controller
         ]);
 
         SupplierType::create($request->all());
+        $supplierstype = SupplierType::create([
+            'name' => $request->input('name'),
+            'active' => $request->input('active'),
+            'created_by' => now(),
+            'modified_by' => now(),
+        ]);
 
         return redirect()->route('suppliertypes.index')->with('success', 'Supplier type created!');
     }
