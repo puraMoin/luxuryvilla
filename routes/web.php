@@ -38,7 +38,9 @@ use App\Http\Controllers\MealPlansController;
 use App\Http\Controllers\MealTypesController;
 use App\Http\Controllers\SupplierTypesController;
 use App\Http\Controllers\SupplierRegionTypesController;
+use App\Http\Controllers\DestinationsController;
 use App\Http\Middleware\CheckSession;
+
 use App\Models\Country;
 use App\Models\Currency;
 use App\Models\Designation;
@@ -133,12 +135,14 @@ Route::get('/dashboard', [DashboardsController::class, 'index'])->name('dashboar
   Route::resource('designations',DesignationsController::class);
   Route::resource('areaunits',AreaUnitsController::class);
   Route::resource('bookingstatuses',BookingStatusesController::class);
+  Route::resource('destinations', DestinationsController::class);
   
   Route::get('/get-states/{countryId}', [StatesController::class, 'getStates']);
   Route::get('/get-cities/{stateId}', [CitiesController::class, 'getCities']);
   Route::get('/get-countrydata/{countryId}', [CountriesController::class, 'getCountryData']);
   Route::resource('rolesrights', RolesRightsController::class);
   Route::resource('companymasters', CompanyMastersController::class);
+
 
   /*Setup Route To Image Upload*/
   //Route::post('/posts/image_upload', 'PostController@uploadImage')->name('posts.image.upload');
