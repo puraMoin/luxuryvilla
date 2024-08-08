@@ -29,9 +29,9 @@
                                     <h6>Alias</h6>
                                 </th>
 
-                                <th class="text-center">
+                                {{-- <th class="text-center">
                                     <h6>Description</h6>
-                                </th>
+                                </th> --}}
 
                                 <th class="text-center">
                                     <h6>Actions</h6>
