@@ -142,7 +142,8 @@
                     <tr>
                         <th class='col-md-2'><h6>ImageFile</h6></th>
                         <td class=''>
-                            <p>{{ $companymaster->image_file }}</p>
+                            <img src="{{ $companymaster->imagefile ? asset('images/companymasters/image_file/' . $companymaster->id . '/' . $companymaster->icon) : asset('images/no-image.png') }}"
+                            style="width: 100px; height:70px;">
                         </td>
                     </tr>            
                     <tr>
@@ -181,13 +182,17 @@
                     <tr>
                         <th class='col-md-2'><h6>Header Image File</h6></th>
                         <td class=''>
-                            <p>{{ $companymaster->header_image_file }}</p>
+                            {{-- <img src="{{ $companymaster->imageFile ? imageFile('images/companymasters/header_image_file/' . $companymaster->id . '/' . $companymaster->image_file) : asset('images/no-image.png') }}" style="width: 100px; height:70px;" > --}}
+                            <img src="{{ $companymaster->imagefile ? asset('images/companymasters/image_file/' . $companymaster->id . '/' . $companymaster->imagefile): asset('images/no-image.png') }}" style="width: 70px; height: 70px;" alt="Image File">
+
                         </td>
                     </tr>  
                     <tr>
                         <th class='col-md-2'><h6>Footer Image File</h6></th>
                         <td class=''>
-                            <p>{{ $companymaster->footer_image_file }}</p>
+                            {{-- <img src="{{ $companymaster->imageFile ? imageFile('images/companymasters/footer_image_file/' . $companymaster->id . '/' . $companymaster->image_file) : asset('images/no-image.png') }}" style="width: 100px; height:70px;" > --}}
+                            <img src="{{ $companymaster->imagefile ? asset('images/companymasters/image_file/' . $companymaster->id . '/' . $companymaster->imagefile): asset('images/no-image.png') }}" style="width: 70px; height: 70px;" alt="Image File">
+
                         </td>
                     </tr> 
                     <tr>

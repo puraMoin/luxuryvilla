@@ -41,7 +41,8 @@
                                     <h6>Icon</h6>
                                 </th>
                                 <td>
-                                    <img src="{{ $bookingstatuses->icon ? asset('images/bookingstatuses/icon/' . $bookingstatuses->id . '/' . $bookingstatuses->icon) : asset('images/no-image.png') }}" style="width: 100px; height:70px;" >
+                                    <img src="{{ $bookingstatuses->icon ? asset('images/bookingstatuses/icon/' . $bookingstatuses->id . '/' . $bookingstatuses->icon) : asset('images/no-image.png') }}"
+                                        style="width: 100px; height:70px;">
                                 </td>
                             </tr>
 
