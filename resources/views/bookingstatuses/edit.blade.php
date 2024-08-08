@@ -55,21 +55,24 @@
                         <div class="col-sm-4">
                             <label>Invoice <span class="mandatory">*</span></label><br>
                             <label class="radio-inline">
-                                <input type="radio" name="invoice" class="radio-inline" value="1" {{ $bookingstatuses->invoice ? 'checked' : '' }}> Yes
+                                <input type="radio" name="invoice" class="radio-inline" value="1" {{ $bookingstatuses->active == 1 ? 'checked' : '' }}> Yes
                             </label>
                             <label class="radio-inline">
-                                <input type="radio" name="invoice" class="radio-inline" value="0" {{ !$bookingstatuses->invoice ? 'checked' : '' }}> No
+                                <input type="radio" name="invoice" class="radio-inline" value="0" {{ $bookingstatuses->active == 0 ? 'checked' : '' }}> No
                             </label>
                         </div>
                         <!-- Active -->
                         <div class="col-sm-2">
                             <label>Active <span class="mandatory">*</span></label><br>
                             <label class="radio-inline">
-                                <input type="radio" name="active" class="radio-inline" value="1" {{ $bookingstatuses->active ? 'checked' : '' }}> Yes
+                                <input type="radio" name="active" class="radio-inline" value="1"
+                                {{ $bookingstatuses->active == 1 ? 'checked' : '' }}> Yes
+                        </label>
                             </label>
                             <label class="radio-inline">
-                                <input type="radio" name="active" class="radio-inline" value="0" {{ $bookingstatuses->active ? 'checked' : '' }}> No
-                            </label>
+                                <input type="radio" name="active" class="radio-inline" value="0"
+                                        {{ $bookingstatuses->active == 0 ? 'checked' : '' }}> No
+                                </label>
                         </div>
                         <!-- Icon File -->
                         <div class="col-sm-4 mt-15">
