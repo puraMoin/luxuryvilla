@@ -68,7 +68,7 @@
                                 <input type="radio" name="active" class="radio-inline" value="1" {{ $bookingstatuses->active ? 'checked' : '' }}> Yes
                             </label>
                             <label class="radio-inline">
-                                <input type="radio" name="active" class="radio-inline" value="0" {{ !$bookingstatuses->active ? 'checked' : '' }}> No
+                                <input type="radio" name="active" class="radio-inline" value="0" {{ $bookingstatuses->active ? 'checked' : '' }}> No
                             </label>
                         </div>
                         <!-- Icon File -->
@@ -76,10 +76,10 @@
                             <label>Icon <span class="mandatory">*</span></label>
                             @php
                                 $filepath = asset('images/bookingstatuses/icon/' . $bookingstatuses->id . '/' . $bookingstatuses->icon);
-                                $imageExists = file_exists(public_path('images/bookingstatuses/icon/' . $bookingstatuses->id . '/' . $bookingstatuses->icon));
+                                
                             @endphp
                             <div id="imageBox">
-                                <img id="icon" src="{{ $imageExists ? $filepath : asset('images/no-image.png') }}" alt="Selected icon">
+                                <img id="icon" src="{{ $bookingstatuses->icon ? $filepath : asset('images/no-image.png') }}" alt="Selected icon" height="70px">
                             </div>
                             <input type="file" name="icon" id="imageInput" onchange="previewImage(event)">
                         </div>
