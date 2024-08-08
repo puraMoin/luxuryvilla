@@ -2,83 +2,82 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\IslandMasters;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class IslandMastersController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
-        //
+        // dd($);
+        $pageTitle = 'Island Master';
+        $islandmaster = IslandMasters::all();
+        return view('islandmasters.index', compact('islandmaster', 'pageTitle'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function create()
     {
-        //
+        $userId = Auth::id();
+        $pageTitle = 'Create';
+        return view('islandmasters.create', compact('userId', 'pageTitle'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function store(Request $request)
     {
-        //
+        // dd($request);
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'alias' => 'required|string|max:255',
+            'created_by' => 'required|integer',
+            'modified_by' => 'required|integer',
+        ]);
+
+        $meal = IslandMasters::create([
+            'name' => $request->input('name'),
+            'alias' => $request->input('alias'),
+            'description' => $request->input('description'),
+            'created_by' => $request->input('created_by'),
+            'modified_by' => $request->input('modified_by'),
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        return redirect()->route('islandmasters.index');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function show($id)
     {
-        //
+        $islandmaster = IslandMasters::findOrFail($id);
+        $pageTitle = 'View';
+
+        return view('islandmasters.show', compact('islandmaster', 'pageTitle'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function edit($id)
     {
-        //
+        $islandmaster = IslandMasters::findOrFail($id);
+        $pageTitle = 'Edit';
+        $userId = Auth::id();
+        return view('islandmasters.edit', compact('islandmaster', 'pageTitle', 'userId'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function update(Request $request, $id)
     {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+        // dd($request);
+        $islandmaster = IslandMasters::findOrFail($id);
+        $islandmaster->update([
+            'name' => $request->input('name'),
+            'alias' => $request->input('alias'),
+            'description' => $request->input('description'),
+            'modified_by' => now(),
+            'created_by' => now(),
+        ]);
+        return redirect()->route('islandmasters.index');
     }
 }
