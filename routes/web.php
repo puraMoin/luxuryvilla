@@ -11,7 +11,7 @@ use App\Http\Controllers\StatesController;
 use App\Http\Controllers\CitiesController;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\AdminTypesController;
-
+use App\Http\Controllers\AreaUnitsController;
 use App\Http\Controllers\AssignedDashboardsController;
 use App\Http\Controllers\BathroomTypesController;
 use App\Http\Controllers\BedTypesController;
@@ -24,6 +24,7 @@ use App\Http\Controllers\BlogsController;
 use App\Http\Controllers\BlogCategoriesController;
 use App\Http\Controllers\BlogAuthorsController;
 use App\Http\Controllers\BlogTagsController;
+use App\Http\Controllers\BookingStatusesController;
 use App\Http\Controllers\EmployeeListsController;
 use App\Http\Controllers\CurrencyController;
 use App\Http\Controllers\CustomerListsController;
@@ -130,6 +131,9 @@ Route::get('/dashboard', [DashboardsController::class, 'index'])->name('dashboar
   Route::resource('costtypes',CostTypesController::class);
   Route::resource('departments',DepartmentsController::class);
   Route::resource('designations',DesignationsController::class);
+  Route::resource('areaunits',AreaUnitsController::class);
+  Route::resource('bookingstatuses',BookingStatusesController::class);
+  
   Route::get('/get-states/{countryId}', [StatesController::class, 'getStates']);
   Route::get('/get-cities/{stateId}', [CitiesController::class, 'getCities']);
   Route::get('/get-countrydata/{countryId}', [CountriesController::class, 'getCountryData']);
