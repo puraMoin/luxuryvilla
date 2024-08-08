@@ -7,9 +7,6 @@
         @include('partials.breadcrumb')
 
         <div class="right-mob-left">
-            <a href="{{ route('rolesrights.index') }}">
-                <button type="button" class="main-btn primary-btn-outline btn-hover btn-xs">Import</button>
-            </a>
             <a href="{{ route('rolesrights.create') }}">
                 <button type="button" class="main-btn primary-btn btn-hover btn-xs">Create</button>
             </a>
@@ -18,24 +15,24 @@
         <!-- Add new section start here -->
         <div class="card-style mt-20">
             <div class="row">
-                <div class="col-sm-4">
+                {{-- <div class="col-sm-4">
                     <div class="searchfield">
                         <input type="text" placeholder="Search...">
                         <button><i class="lni lni-search-alt"></i></button>
                     </div>
-                </div>
-                <div class="col-sm-4">
+                </div> --}}
+                {{-- <div class="col-sm-4">
                     <div class="filtertext">
                         <ul>
                             <!-- Add filter options here if needed -->
                         </ul>
                     </div>
-                </div>
-                <div class="col-sm-4 rowmargin10">
+                </div> --}}
+                {{-- <div class="col-sm-4 rowmargin10">
                     <div class="right-mob-left">
                         <button type="button" class="main-btn dark-btn btn-hover btn-xs">Export</button>
                     </div>
-                </div>
+                </div> --}}
             </div>
 
             <div class="table-wrapper table-responsive mt-10">
