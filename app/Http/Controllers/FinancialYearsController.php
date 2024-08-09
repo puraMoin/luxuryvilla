@@ -56,7 +56,7 @@ class FinancialYearsController extends Controller
 
     public function show($id)
     {
-        $financialyears = FinancialYear::findOrFail($id);
+        $financialyears = FinancialYear::with('createdBy','modifiedBy')->findOrFail($id);   
         $pageTitle = 'View';
 
         return view('financialyears.show', compact('financialyears', 'pageTitle'));

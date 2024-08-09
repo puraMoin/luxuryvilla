@@ -119,7 +119,7 @@
                                     <h6>Created By</h6>
                                 </th>
                                 <td>
-                                    <p>{{ Auth::user()->name }}</p>
+                                    <p>{{$financialyears->createdBy->name}}</p>
                                 </td>
                             </tr>
                             <tr>
@@ -127,7 +127,7 @@
                                     <h6>Managed By</h6>
                                 </th>
                                 <td>
-                                    <p>{{ Auth::user()->name }}</p>
+                                    <p>{{$financialyears->modifiedBy->name}}</p>
                                 </td>
                             </tr>
                             </tr>

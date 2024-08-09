@@ -22,4 +22,20 @@ class FinancialYear extends Model
     ];
 
     protected $table = 'financial_years';
+
+
+    // Define the belongsTo relationship
+    public function createdBy()
+    {
+        return $this->belongsTo(User::class, 'created_by', 'id');
+    }
+
+    public function modifiedBy()
+    {
+        return $this->belongsTo(User::class, 'modified_by', 'id');
+    }
+
+    
+
+
 }
