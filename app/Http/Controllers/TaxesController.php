@@ -29,8 +29,8 @@ class TaxesController extends Controller
     {
         // dd($request);
         $request->validate([
-            'name' => 'required|string|max:255',
-            'code' => 'required|string|max:255',
+            'name' => 'required | string | max:255',
+            'code' => 'required | string | max:255',
             'value_in_percent' => 'required|string|max:255',
             'active' => 'boolean',
             'created_by'=> 'nullable | integer',
