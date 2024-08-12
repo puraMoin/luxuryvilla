@@ -29,18 +29,19 @@ class WebsiteTypesController extends Controller
     {
         $request->validate([
             'name' => 'required|string|max:255',
-            'active'=> 'boolean',
-            'created_by' => 'nullable|integer',
-            'modified_by' => 'nullable|integer',
+            'active' => 'boolean',
+            'created_by'=> 'nullable | integer',
+            'modified_by'=> 'nullable | integer',
         ]);
 
-        WebsiteType::create([
+        $websitetypes = WebsiteType::create([
             'name' => $request->input('name'),
             'active' => $request->input('active'),
+            'created_by' => $request->input('created_by'),
+            'modified_by' => $request->input('modified_by'),
             'created_at' => now(),
             'updated_at' => now(),
         ]);
-
         return redirect()->route('websitetypes.index');
     }
 
@@ -71,8 +72,7 @@ class WebsiteTypesController extends Controller
             'created_at' => now(),
             'updated_at' => now(),
         ]);
-
-        return redirect()->route('websitetypes.index');
+            return redirect()->route('websitetypes.index');
     }
 
 

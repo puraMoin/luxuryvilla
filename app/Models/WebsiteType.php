@@ -11,10 +11,10 @@ class WebsiteType extends Model
     protected $fillable = [
         'name',
         'active',
-        'created_at',
-        'updated_at',
         'created_by',
         'modified_by',
+        'created_at',
+        'updated_at',
     ];
 
     protected $table = 'website_types';
