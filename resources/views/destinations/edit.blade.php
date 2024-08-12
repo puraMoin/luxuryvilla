@@ -176,7 +176,8 @@
                             </div>
                             <input type="file" name="thumbnail_image" id="imageHeaderInput">
                         </div>     
-                    </div>                                                                         
+                    </div>    
+                </div>                                                                     
                 <div class="row mt-15">
                     <br>
                     <div class="col-sm-3">
