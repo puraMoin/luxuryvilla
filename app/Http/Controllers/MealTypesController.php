@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Auth;
 
 class MealTypesController extends Controller
 {
-    
+
     public function index()
     {
         // dd($meal);
@@ -17,7 +17,7 @@ class MealTypesController extends Controller
         return view('mealtypes.index', compact('meal', 'pageTitle'));
     }
 
-    
+
     public function create()
     {
         $userId = Auth::id();
@@ -25,13 +25,12 @@ class MealTypesController extends Controller
         return view('mealtypes.create', compact('userId', 'pageTitle'));
     }
 
-    
+
     public function store(Request $request)
     {
         $request->validate([
             'name' => 'required|string|max:255',
             'alias' => 'required|string|max:255',
-            'description' => 'nullable|string',
             'active' => 'boolean',
             'created_by' => 'required|integer',
             'modified_by' => 'required|integer'
@@ -50,7 +49,7 @@ class MealTypesController extends Controller
         return redirect()->route('mealtypes.index');
     }
 
-    
+
     public function show($id)
     {
         $meal = MealType::findOrFail($id);
@@ -59,7 +58,7 @@ class MealTypesController extends Controller
         return view('mealtypes.show', compact('meal', 'pageTitle'));
     }
 
-    
+
     public function edit($id)
     {
         $meal = MealType::findOrFail($id);
@@ -68,7 +67,7 @@ class MealTypesController extends Controller
         return view('mealtypes.edit', compact('meal', 'pageTitle', 'userId'));
     }
 
-    
+
     public function update(Request $request, $id)
     {
         $meal = MealType::findOrFail($id);
