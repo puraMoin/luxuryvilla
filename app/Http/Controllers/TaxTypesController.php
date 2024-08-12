@@ -30,7 +30,6 @@ class TaxTypesController extends Controller
         // dd($request);
         $request->validate([
             'name' => 'required | string | max:255',
-            'description' => 'required | string | max:255',
             'active' => 'boolean',
             'created_by' => 'nullable | integer',
             'modified_by' => 'nullable | integer',

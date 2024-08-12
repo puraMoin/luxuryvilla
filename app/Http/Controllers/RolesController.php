@@ -27,7 +27,6 @@ class RolesController extends Controller
     {
         $request->validate([
             'name' => 'required|string|max:255',
-            'description' => 'nullable|string',
             'full_view' => 'required|boolean',
             'full_add' => 'required|boolean',
             'full_edit' => 'required|boolean',

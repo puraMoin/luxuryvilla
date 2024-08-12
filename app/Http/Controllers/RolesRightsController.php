@@ -29,7 +29,6 @@ class RolesRightsController extends Controller
         $request->validate([
             'name' => 'required|string|max:255',
             'assigned_dashboard_id' => 'required|integer',
-            'description' => 'required|string',
             'active' => 'required|boolean',
             'created_by' => 'nullable|integer',
             'modified_by' => 'nullable|integer',

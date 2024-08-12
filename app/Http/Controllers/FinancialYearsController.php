@@ -32,7 +32,6 @@ class FinancialYearsController extends Controller
             'is_current_year' => 'required|string|max:255',
             'start_date' => 'required|date',
             'end_date' => 'required|date',
-            'description' => 'nullable|string|max:500',
             'active' => 'required|boolean',
             'created_by' => 'required|integer',
             'modified_by' => 'required|integer',
@@ -56,7 +55,7 @@ class FinancialYearsController extends Controller
 
     public function show($id)
     {
-        $financialyears = FinancialYear::with('createdBy','modifiedBy')->findOrFail($id);   
+        $financialyears = FinancialYear::with('createdBy','modifiedBy')->findOrFail($id);
         $pageTitle = 'View';
 
         return view('financialyears.show', compact('financialyears', 'pageTitle'));
