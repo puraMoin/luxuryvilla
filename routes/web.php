@@ -41,6 +41,7 @@ use App\Http\Controllers\SupplierRegionTypesController;
 use App\Http\Controllers\DestinationsController;
 use App\Http\Controllers\FinancialYearsController;
 use App\Http\Controllers\IslandMastersController;
+use App\Http\Controllers\TaxesController;
 use App\Http\Middleware\CheckSession;
 
 use App\Models\Country;
@@ -140,6 +141,7 @@ Route::get('/dashboard', [DashboardsController::class, 'index'])->name('dashboar
   Route::resource('destinations', DestinationsController::class);
   Route::resource('islandmasters', IslandMastersController::class);
   Route::resource('financialyears', FinancialYearsController::class);
+  Route::resource('taxes', TaxesController::class);
   
   Route::get('/get-states/{countryId}', [StatesController::class, 'getStates']);
   Route::get('/get-cities/{stateId}', [CitiesController::class, 'getCities']);
