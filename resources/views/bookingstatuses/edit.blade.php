@@ -43,6 +43,7 @@
                             </div>
                         </div>
                     </div>
+                    <hr>
                     <div class="row mt-15">
                         <!-- Email Template -->
                         <div class="col-sm-4">
@@ -74,6 +75,7 @@
                                         {{ $bookingstatuses->active == 0 ? 'checked' : '' }}> No
                                 </label>
                         </div>
+                        <hr>
                         <!-- Icon File -->
                         <div class="col-sm-4 mt-15">
                             <label>Icon <span class="mandatory">*</span></label>

@@ -42,6 +42,7 @@
                             </div>
                         </div>
                     </div>
+                    <hr>
                     <div class="row mt-15">
                         <!-- Email Template -->
                         <div class="col-sm-4">
@@ -70,6 +71,7 @@
                                 <input type="radio" name="active" class="radio-inline" value="0" checked> No
                             </label>
                         </div>
+                        <hr>
                         <!-- Image File -->
                         <div class="col-sm-4">
                             <label>Icon <span class="mandatory">*</span></label>
