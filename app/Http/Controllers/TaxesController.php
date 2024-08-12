@@ -8,15 +8,15 @@ use Illuminate\Support\Facades\Auth;
 
 class TaxesController extends Controller
 {
-    
+
     public function index()
     {
-        $taxes = Taxes::all(); 
+        $taxes = Taxes::all();
         $pageTitle = 'Taxes';
         return view('taxes.index', compact('taxes', 'pageTitle'));
     }
 
-    
+
     public function create()
     {
         $userId = Auth::id();
@@ -24,13 +24,13 @@ class TaxesController extends Controller
         return view('taxes.create', compact('userId', 'pageTitle'));
     }
 
-  
+
     public function store(Request $request)
     {
         // dd($request);
         $request->validate([
-            'name' => 'required | string | max:255',
-            'code' => 'required | string | max:255',
+            'name' => 'required|string|max:255',
+            'code' => 'required|string|max:255',
             'value_in_percent' => 'required|string|max:255',
             'active' => 'boolean',
             'created_by'=> 'nullable | integer',
@@ -48,7 +48,7 @@ class TaxesController extends Controller
         return redirect()->route('taxes.index');
     }
 
-    
+
     public function show($id)
     {
         $taxes = Taxes::findOrFail($id);
@@ -66,7 +66,7 @@ class TaxesController extends Controller
         return view('taxes.edit', compact('pageTitle', 'taxes', 'userId'));
     }
 
-    
+
     public function update(Request $request, $id)
     {
         $taxes = Taxes::findOrFail($id);
@@ -80,10 +80,10 @@ class TaxesController extends Controller
             'created_at' => now(),
             'updated_at' => now(),
         ]);
-        return redirect()->route('taxes.index');
+            return redirect()->route('taxes.index');
     }
 
-    
+
     public function destroy($id)
     {
         //
