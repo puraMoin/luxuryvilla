@@ -58,7 +58,7 @@
                                 <div class="select-style-1">
                                     <label>City</label>
                                     <div class="select-position select-sm">
-                                        <select class="jSelectbox" id="cityDropdown" name="city_id" required>
+                                        <select class="jSelectbox" id="cityDropdown" name="city_id">
                                             <?php if(!empty($city)){ ?>
                                             <option value="{{ $city->id }}">{{ $city->name }}</option>
                                             @foreach ($othercities as $cities)
