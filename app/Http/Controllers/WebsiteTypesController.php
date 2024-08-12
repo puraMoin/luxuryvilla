@@ -30,15 +30,13 @@ class WebsiteTypesController extends Controller
         $request->validate([
             'name' => 'required|string|max:255',
             'active'=> 'boolean',
-            'created_by' => 'required|integer',
-            'modified_by' => 'required|integer',
+            'created_by' => 'nullable|integer',
+            'modified_by' => 'nullable|integer',
         ]);
 
         WebsiteType::create([
             'name' => $request->input('name'),
             'active' => $request->input('active'),
-            'created_by' => $request->input('created_by'),
-            'modified_by' => $request->input('modified_by'),
             'created_at' => now(),
             'updated_at' => now(),
         ]);

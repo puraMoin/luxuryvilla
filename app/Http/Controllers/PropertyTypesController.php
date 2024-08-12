@@ -62,11 +62,7 @@ class PropertyTypesController extends Controller
 
     public function update(Request $request, $id)
     {
-        $request->validate([
-            'name' => 'required|string|max:255',
-            'active'=> 'boolean',
-        ]);
-
+        
         $propertytypes = PropertyType::findOrFail($id);
         $propertytypes->update([
             'name' => $request->input('name'),

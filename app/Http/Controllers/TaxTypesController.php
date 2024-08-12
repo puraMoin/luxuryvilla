@@ -77,7 +77,7 @@ class TaxTypesController extends Controller
         ]);
             return redirect()->route('taxtypes.index');
     }
-    
+
     public function destroy($id)
     {
         //

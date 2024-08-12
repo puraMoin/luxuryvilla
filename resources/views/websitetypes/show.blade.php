@@ -37,14 +37,14 @@
                         </tr>
 
                         <tr>
-                            <th><h6>Created</h6></th>
+                            <th><h6>Created At</h6></th>
                             <td>
                                <p>{{ $websitetypes->created_at }}</p>
                             </td>
                         </tr>
 
                         <tr>
-                            <th><h6>Updated</h6></th>
+                            <th><h6>Updated At</h6></th>
                             <td>
                                <p>{{ $websitetypes->updated_at }}</p>
                             </td>
@@ -53,13 +53,13 @@
                         <tr>
                             <th><h6>Created By</h6></th>
                             <td>
-                                <p></p>
+                                <p>{{ Auth::user()->name }}</p>
                             </td>
                         </tr>
                         <tr>
                             <th><h6>Modified By</h6></th>
                             <td>
-                                <p></p>
+                                <p>{{ Auth::user()->name }}</p>
                             </td>
                         </tr>
                         </tr>
