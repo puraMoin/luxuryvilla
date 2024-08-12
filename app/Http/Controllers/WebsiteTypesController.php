@@ -70,8 +70,6 @@ class WebsiteTypesController extends Controller
             'active' => $request->input('active'),
             'created_at' => now(),
             'updated_at' => now(),
-            'created_by' => $request->input('created_by'),
-            'modified_by' => $request->input('modified_by'),
         ]);
 
         return redirect()->route('websitetypes.index');
