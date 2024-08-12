@@ -2,26 +2,28 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\PropertyType;
+use App\Models\WebsiteType;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class PropertyTypesController extends Controller
+class WebsiteTypesController extends Controller
 {
+
     public function index()
     {
-        $propertytypes = PropertyType::all();
+        $websitetypes = WebsiteType::all();
         $pageTitle = 'Property List';
 
-        return view('propertytypes.index', compact('propertytypes', 'pageTitle'));
+        return view('websitetypes.index', compact('websitetypes', 'pageTitle'));
     }
 
     public function create()
     {
         $userId = Auth::id();
         $pageTitle = 'Create';
-        return view('propertytypes.create', compact('userId', 'pageTitle'));
+        return view('websitetypes.create', compact('userId', 'pageTitle'));
     }
+
 
     public function store(Request $request)
     {
@@ -32,7 +34,7 @@ class PropertyTypesController extends Controller
             'modified_by' => 'required|integer',
         ]);
 
-        PropertyType::create([
+        WebsiteType::create([
             'name' => $request->input('name'),
             'active' => $request->input('active'),
             'created_by' => $request->input('created_by'),
@@ -41,34 +43,31 @@ class PropertyTypesController extends Controller
             'updated_at' => now(),
         ]);
 
-        return redirect()->route('propertytypes.index');
+        return redirect()->route('websitetypes.index');
     }
+
 
     public function show($id)
     {
-        $propertytypes = PropertyType::findOrFail($id);
+        $websitetypes = WebsiteType::findOrFail($id);
         $pageTitle = 'View';
-
-        return view('propertytypes.show', compact('propertytypes', 'pageTitle'));
+        return view('websitetypes.show', compact('websitetypes', 'pageTitle'));
     }
+
 
     public function edit($id)
     {
-        $propertytypes = PropertyType::findOrFail($id);
+        $websitetypes = WebsiteType::findOrFail($id);
         $pageTitle = 'Edit';
         $userId = Auth::id();
-        return view('propertytypes.edit', compact('propertytypes', 'pageTitle', 'userId'));
+        return view('websitetypes.edit', compact('websitetypes', 'pageTitle', 'userId'));
     }
+
 
     public function update(Request $request, $id)
     {
-        $request->validate([
-            'name' => 'required|string|max:255',
-            'active'=> 'boolean',
-        ]);
-
-        $propertytypes = PropertyType::findOrFail($id);
-        $propertytypes->update([
+        $websitetypes = WebsiteType::findOrFail($id);
+        $websitetypes->update([
             'name' => $request->input('name'),
             'active' => $request->input('active'),
             'created_at' => now(),
@@ -77,6 +76,8 @@ class PropertyTypesController extends Controller
             'modified_by' => $request->input('modified_by'),
         ]);
 
-        return redirect()->route('propertytypes.index');
+        return redirect()->route('websitetypes.index');
     }
+
+
 }
