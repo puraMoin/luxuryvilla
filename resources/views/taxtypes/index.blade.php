@@ -7,7 +7,7 @@
             @include('partials.breadcrumb')
             <!-- Add New Button -->
             <div class="right-mob-left">
-                <a href="{{ route('taxes.create') }}">
+                <a href="{{ route('taxtypes.create') }}">
                     <button type="button" class="main-btn primary-btn btn-hover btn-xs">Create</button>
                 </a>
             </div>
