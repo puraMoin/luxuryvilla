@@ -28,12 +28,12 @@ class IslandMastersController extends Controller
 
     public function store(Request $request)
     {
-        // dd($request);
+        //dd($request);
         $request->validate([
             'name' => 'required|string|max:255',
             'alias' => 'required|string|max:255',
             'created_by' => 'required|integer',
-            'modified_by' => 'required|integer',
+            'modified_by' => 'required|integer'
         ]);
 
         $meal = IslandMasters::create([
