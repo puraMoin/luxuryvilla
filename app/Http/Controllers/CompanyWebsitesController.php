@@ -31,7 +31,7 @@ class CompanyWebsitesController extends Controller
 
     public function store(Request $request)
     {
-        dd($request);
+        // dd($request);
         $request->validate([
             'link' => 'required|string|max:255',
             'company_master_id' => 'required|integer',
@@ -91,16 +91,15 @@ class CompanyWebsitesController extends Controller
 
     public function update(Request $request, $id)
     {
+        // dd($request);
         $companywebsites = CompanyWebsite::findOrFail($id);
-        $companywebsites->update([
+        $request = $companywebsites->update([
             'link' => $request->input('link'),
             'company_master_id' => $request->input('company_master_id'),
             'website_type_id' => $request->input('website_type_id'),
             'country_id' => $request->input('country_id'),
             'name' => $request->input('name'),
             'active' => $request->input('active'),
-            'created_by' => $request->input('created_by'),
-            'modified_by' => $request->input('modified_by'),
             'created_at' => now(),
             'updated_at' => now(),
         ]);
