@@ -6,48 +6,52 @@
 	<div class="container-fluid">
 		 <!-- BreathCrum -->
      @include('partials.breadcrumb')
-     <!-- ========== Middle Content-wrapper start ========== -->    
+     <!-- ========== Middle Content-wrapper start ========== -->
      <!-- Add New Button -->
 
     <!-- For Start Here -->
-   <form method="POST" action="{{ route('cities.update', ['city' => $city->id]) }}" enctype="multipart/form-data">  
+   <form method="POST" action="{{ route('cities.update', ['city' => $city->id]) }}" enctype="multipart/form-data">
   <div class="card-style mt-20">
       <!-- <div class="create_update">Created: <span>Andria Dsouza On 09/05/2023</span>   |   Last updated: <span>Andria Dsouza On 09/05/2023</span></div> -->
       <!-- Form Start Here -->
        @method('PUT')
        @csrf
       <div class="row mt-15">
-          <!-- Id -->  
+          <!-- Id -->
          <input type="hidden" name="id" value="{{ $city->id }}"  />
          <input type="hidden" name="modified_by" value="{{ $userId }}"  />
          <!-- Country -->
-         <div class="col-sm-3">
+
+
+        <div class="col-sm-3">
             <div class="select-style-1">
-               <label>Country</label>
-               <div class="select-position select-sm">
-               <select class="jSelectbox" id="actionDropdown" name="country_id" required>
-                  <option value="{{ $country->id }}">{{ $country->name }}</option>                       
-                   @foreach ($countries as $country)
-                     <option value="{{ $country->id }}">{{ $country->name }}</option>
-                    @endforeach           
-               </select>
-               </div>
+            <label>Country</label>
+            <div class="select-position select-sm">
+            <select class="jSelectbox" id="actionDropdown" name="country_id" required>
+                <option value="{{ $country->id }}">{{ $country->name }}</option>
+                @foreach ($countries as $country)
+                    <option value="{{ $country->id }}">{{ $country->name }}</option>
+                    @endforeach
+            </select>
             </div>
-         </div>
+            </div>
+        </div>
+
+
          <!--State-->
           <div class="col-sm-3">
             <div class="select-style-1">
                <label>State</label>
                <div class="select-position select-sm">
                <select class="jSelectbox" id="stateDropdown" name="state_id" required>
-                <option value="">Select State</option> 
+                <option value="">Select State</option>
                 @if(!empty($states))
-                <?php foreach ($states as $key => $state) { 
+                <?php foreach ($states as $key => $state) {
                     $selected =  ($city->state_id == $state->id) ? 'selected' : '';
                 ?>
                     <option value="{{ $state->id }}" <?php echo $selected;?>>{{ $state->name }}</option>
                 <?php } ?>
-                @endif                
+                @endif
                </select>
                </div>
             </div>
@@ -57,16 +61,16 @@
                 <div class="input-style-1">
                     <label>Name<span class="mandatory">*</span></label>
                     <input type="text"  name="name" placeholder="State Name" value="{{ $city->name }}"  />
-                </div>   
+                </div>
             </div>
             <!-- City Code  -->
             <div class="col-sm-3">
                 <div class="input-style-1">
                 <label>City Code<span class="mandatory">*</span></label>
                 <input type="text"  name="city_code" placeholder="City Code" value="{{ $city->city_code }}" />
-                </div>   
-            </div>             
-    </div>  
+                </div>
+            </div>
+    </div>
     <hr>
         <!-- Row 2 -->
     <div class="row mt-15">
@@ -75,64 +79,64 @@
             <div class="input-style-1">
             <label>Latitude<span class="mandatory">*</span></label>
             <input type="text"  name="latitude" placeholder="Latitude" value="{{ $city->latitude }}" />
-            </div>   
-         </div>       
+            </div>
+         </div>
          <!-- Longitude  -->
          <div class="col-sm-3">
             <div class="input-style-1">
             <label>Longitude<span class="mandatory">*</span></label>
             <input type="text"  name="longitude" placeholder="Longitude" value="{{ $city->longitude }}" />
-            </div>   
-         </div>     
+            </div>
+         </div>
          <!-- Country Code  -->
          <div class="col-sm-3">
             <div class="input-style-1">
             <label>Country Code<span class="mandatory">*</span></label>
             <input type="text"  name="country_code" id="CountryCode" placeholder="Country Code" value="{{ $city->country_code }}" />
-            </div>   
-         </div>  
+            </div>
+         </div>
          <!-- Country Name  -->
          <div class="col-sm-3">
             <div class="input-style-1">
             <label>Country Name<span class="mandatory">*</span></label>
             <input type="text"  name="country_name" id="CountryName" placeholder="Country Name" value="{{ $city->country_name }}" />
-            </div>   
-         </div>     
-    </div>  
-<hr>           
+            </div>
+         </div>
+    </div>
+<hr>
         <!-- Row 3 -->
         <div class="row mt-15">
          <!-- Description -->
          <div class="col-sm-12">
             <div class="input-style-1">
-            <label>Description <span class="mandatory">*</span></label> 
-             <textarea name="description" class="rich-editor" placeholder="Description" rows="3" >{{ $city->description }}</textarea> 
-            </div>   
-         </div> 
-        </div> 
-        <hr>         
+            <label>Description <span class="mandatory">*</span></label>
+             <textarea name="description" class="rich-editor" placeholder="Description" rows="3" >{{ $city->description }}</textarea>
+            </div>
+         </div>
+        </div>
+        <hr>
         <!-- Row 4 -->
         <div class="row mt-15">
             <!-- Small Description -->
             <div class="col-sm-6">
                <div class="input-style-1">
-               <label>Small Description <span class="mandatory">*</span></label> 
-                <textarea name="small_description" class="rich-editor" placeholder="Small Description" rows="3" >{{ $city->small_description }}</textarea> 
-               </div>   
-            </div> 
+               <label>Small Description <span class="mandatory">*</span></label>
+                <textarea name="small_description" class="rich-editor" placeholder="Small Description" rows="3" >{{ $city->small_description }}</textarea>
+               </div>
+            </div>
             <!-- Fast Facts -->
             <div class="col-sm-6">
                 <div class="input-style-1">
-                <label>Fast Facts<span class="mandatory">*</span></label> 
-                 <textarea name="fast_facts" class="rich-editor" placeholder="Fast Facts" rows="3" >{{ $city->fast_facts }}</textarea> 
-                </div>   
-            </div>             
-        </div>   
-        <hr>             
-         <!-- Active Code --> 
-    <div class="row mt-15">        
+                <label>Fast Facts<span class="mandatory">*</span></label>
+                 <textarea name="fast_facts" class="rich-editor" placeholder="Fast Facts" rows="3" >{{ $city->fast_facts }}</textarea>
+                </div>
+            </div>
+        </div>
+        <hr>
+         <!-- Active Code -->
+    <div class="row mt-15">
          <div class="col-sm-3">
-             <label>Active</label><br> 
+             <label>Active</label><br>
              <label class="radio-inline">
              <input type="radio" name="active" class="radio-inline" value="1" {{ $city->active == 1 ? 'checked' : '' }}> Yes
              </label>
@@ -141,7 +145,7 @@
             </label>
          </div>
          <div class="col-sm-3">
-            <label>Publish Website</label><br> 
+            <label>Publish Website</label><br>
             <label class="radio-inline">
             <input type="radio" name="is_publish_on_website" class="radio-inline" value="1" {{ $city->is_publish_on_website == 1 ? 'checked' : '' }}> Yes
             </label>
@@ -150,18 +154,18 @@
            </label>
         </div>
     </div>
-      </div> 
-      <br>     
+      </div>
+      <br>
       <div class="row mt-15">
-       <div class="col-sm-3">  
+       <div class="col-sm-3">
         <button type="submit" class="main-btn primary-btn btn-hover btn-sm">Save</button>
         <button type="reset" class="main-btn primary-btn-outline btn-hover btn-sm">Reset</button>
         </div>
-      </div>  
+      </div>
 
 	</div>
 </form>
-</section>	
+</section>
 @endsection
 
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
@@ -213,7 +217,7 @@
                  }
              });
          }
-      });   
-   });   
-</script>  
+      });
+   });
+</script>
 

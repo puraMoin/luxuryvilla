@@ -30,7 +30,7 @@ class CitiesController extends Controller
         /*Country List*/
         $countries = Country::all()->where('active',true);
         $countryList = $countries->pluck('name','id');
-       
+
         /*States List*/
         $states = State::all()->where('active',true);
         $stateList = $states->pluck('name','id');
@@ -89,11 +89,7 @@ class CitiesController extends Controller
     {
         $parentMenu = 'Segment & Currency Setup';
         $pageTitle = "Add";
-        /*Controller*/
-        // ,['pageTitle' => $this->pageTitle]
         $city = City::all();
-
-        //dd($timezones);
         $countries = Country::all();
         $userId = Auth::id();
         return view('cities.create',compact('parentMenu','pageTitle','city','countries','userId'));
@@ -123,11 +119,11 @@ class CitiesController extends Controller
         if(!empty($country))
         {
             $country_id = $country->id;
-        } 
+        }
         if(!empty($state))
         {
             $state_id = $state->id;
-        } 
+        }
 
 
         $city = City::create([
@@ -144,7 +140,7 @@ class CitiesController extends Controller
             'fast_facts' => $request->input('fast_facts'),
             'active' => $request->input('active'),
             'is_publish_on_website' => $request->input('is_publish_on_website'),
-            'created_by' => $request->input('created_by'), 
+            'created_by' => $request->input('created_by'),
             'modified_by'=> $request->input('modified_by'),
             'created_at' => now(), // Set the created timestamp
             'updated_at' => now(),
@@ -186,7 +182,7 @@ class CitiesController extends Controller
     public function edit($id)
     {
        $city = City::findOrFail($id);
-       $country = Country::where('id', $city->country_id)->first(); 
+       $country = Country::where('id', $city->country_id)->first();
        $countries = Country::where('id', '!=', $country->id)->get();
 
        $countryId = $city->country_id;
@@ -202,7 +198,7 @@ class CitiesController extends Controller
     //    }
 
        $parentMenu = 'Segment & Currency Setup';
-    
+
        $pageTitle = "Edit";
        $userId = Auth::id();
        return view('cities.edit',compact('parentMenu','pageTitle','city','countries','country','states','stateId','userId'));
@@ -229,16 +225,16 @@ class CitiesController extends Controller
 
           $country = Country::find($countryId);
           $state = State::find($stateId);
-  
+
 
         if(!empty($country))
         {
             $country_id = $country->id;
-        } 
+        }
         if(!empty($state))
         {
             $state_id = $state->id;
-        } 
+        }
 
         $city->update([
             'country_id' => $country_id,

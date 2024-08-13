@@ -13,8 +13,8 @@ class FinancialYear extends Model
         'is_current_year',
         'start_date',
         'end_date',
-        'active', 
-        'description', 
+        'active',
+        'description',
         'created_by',
         'created_at',
         'modified_by',
@@ -22,7 +22,6 @@ class FinancialYear extends Model
     ];
 
     protected $table = 'financial_years';
-
 
     // Define the belongsTo relationship
     public function createdBy()
@@ -34,8 +33,5 @@ class FinancialYear extends Model
     {
         return $this->belongsTo(User::class, 'modified_by', 'id');
     }
-
-    
-
 
 }
