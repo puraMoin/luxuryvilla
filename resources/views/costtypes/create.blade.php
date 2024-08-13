@@ -17,8 +17,6 @@
 
                 <form action="{{ route('costtypes.store') }}" method="POST">
                     @csrf
-                    <input type="hidden" name="created_at" value="{{ $userId }}">
-                    <input type="hidden" name="updated_at" value="{{ $userId }}">
 
                     <div class="row">
                         <div class="col-md-4">

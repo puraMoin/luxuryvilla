@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\AdminType;
+use App\Models\CompanyCodeCategory;
+use Illuminate\Support\Facades\Auth;
 
-class AdminTypesController extends Controller
+class CompanyCodeCategoriesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,11 +15,10 @@ class AdminTypesController extends Controller
      */
     public function index()
     {
-        $pageTitle = 'Admin Type';
-        $parentMenu = 'Super Master';
-        $admintypes = AdminType::all();
-
-          return view('admintypes.index',compact('parentMenu','pageTitle','admintypes'));
+        $parentMenu = 'Other Modules';
+        $pageTitle = "Company Code Category";
+        $companycodecategories = CompanyCodeCategory::all();
+        return view('companycodecategories.index', compact('companycodecategories', 'parentMenu', 'pageTitle'));
     }
 
     /**
@@ -28,11 +28,10 @@ class AdminTypesController extends Controller
      */
     public function create()
     {
-        
-        $pageTitle = "Admin Type";
-        $parentMenu = 'Super Master';
+        $pageTitle = 'Create';
+        $userId = Auth::id();
 
-         return view('admintypes.create',compact('parentMenu','pageTitle'));
+        return view('companycodecategories.create', compact('pageTitle', 'userId'));
     }
 
     /**
@@ -43,19 +42,22 @@ class AdminTypesController extends Controller
      */
     public function store(Request $request)
     {
-        //dd($request);die;    
+        //dd($request);
         $request->validate([
-            'name' => ['required']     
+            'name' => 'required|string|max:255',
+            'active' => 'boolean',    
              ]);
 
-         $admintype = AdminType::create([
+         $companycodecategory = CompanyCodeCategory::create([
             'name' => $request->input('name'),
             'active' => $request->input('active'),
+            'created_by' => $request->input('created_by'),
+            'modified_by' => $request->input('modified_by'),           
             'created_at' => now(), // Set the created timestamp
             'updated_at' => now(),
         ]);
 
-         return redirect()->route('admintypes.index');
+         return redirect()->route('companycodecategories.index');
     }
 
     /**
@@ -66,19 +68,19 @@ class AdminTypesController extends Controller
      */
     public function show($id)
     {
-        $admintype = AdminType::find($id);
+        $companycodecategory = CompanyCodeCategory::find($id);
 
-        if (!$admintype) {
-            return redirect()->route('admintypes.index')->with('error', 'Role not found.');
+        if (!$companycodecategory) {
+            return redirect()->route('companycodecategories.index')->with('error', 'companycodecategories not found.');
         }
 
         // Retrieve additional details if needed
 
-        $pageTitle = 'Admin Type';
-        $parentMenu = 'Super Master';
+        $pageTitle = 'Show';
+        $parentMenu = 'Other Modules';
 
         // You can pass the data to a view and display it
-        return view('admintypes.show', compact('admintype','pageTitle','parentMenu'));
+        return view('companycodecategories.show', compact('companycodecategory','pageTitle','parentMenu'));
     }
 
     /**
@@ -89,13 +91,13 @@ class AdminTypesController extends Controller
      */
     public function edit($id)
     {
-       $admintype = AdminType::findOrFail($id);
-       /*dd($role);*/
-       //dd($menuLinks);
-       $parentMenu = 'Super Master';
-    
-       $pageTitle = "Edit";
-       return view('admintypes.edit',compact('parentMenu','pageTitle','admintype'));
+        $companycodecategory = CompanyCodeCategory::findOrFail($id);
+        /*dd($role);*/
+        //dd($menuLinks);
+        $parentMenu = 'Other Modules';
+        $userId = Auth::id();
+        $pageTitle = "Edit";
+        return view('companycodecategories.edit',compact('parentMenu','pageTitle','companycodecategory','userId'));
     }
 
     /**
@@ -107,21 +109,22 @@ class AdminTypesController extends Controller
      */
     public function update(Request $request, $id)
     {
-      $admintype = AdminType::find($id);
+        $companycodecategory = CompanyCodeCategory::find($id);
 
-        if (!$admintype) {
-            return redirect()->route('admintypes.index')->with('error', 'Role not found.');
+        if (!$companycodecategory) {
+            return redirect()->route('companycodecategories.index')->with('error', 'companycodecategories not found.');
          }
 
        // Update the role information
-        $admintype->update([
+        $companycodecategory->update([
             'name' => $request->input('name'),
             'active' => $request->input('active'),
+            'modified_by' => $request->input('modified_by'),           
             'created_at' => now(), // Set the created timestamp
             'updated_at' => now(),
         ]);
 
-    return redirect()->route('admintypes.index');
+    return redirect()->route('companycodecategories.index');        
     }
 
     /**

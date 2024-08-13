@@ -11,8 +11,8 @@ class CostType extends Model
     protected $fillable =[
         'title',
         'active',
-        'created',
-        'modified',
+        'created_at',
+        'updated_at',
     ];
     protected $table = 'cost_types';
 }
