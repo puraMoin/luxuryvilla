@@ -96,7 +96,7 @@
 @endsection
 
 
-<!-- MenuLinks --> 
+<!-- MenuLinks -->
 {{-- <div class="col-sm-4">
     <div class="select-style-1">
         <label>MenuLinks</label>

@@ -32,7 +32,7 @@
             <div class="select-style-1">
                 <label for="companymaster">Company Master <span class="mandatory">*</span></label>
                 <div class="select-position select-sm">
-                    <select id="companymaster" name="companymaster" class="jSelectbox" required>
+                    <select id="companymaster" name="company_master_id" class="jSelectbox" required>
                         <option value="">Select Company Master</option>
                         @foreach ($companymaster as $companymasters)
                             <option value="{{ $companymasters->id }}"> {{ $companymasters->name }}</option>
@@ -46,7 +46,7 @@
             <div class="select-style-1">
                 <label for="websitetype">Website Type <span class="mandatory">*</span></label>
                 <div class="select-position select-sm">
-                    <select id="websitetype" name="websitetype" class="jSelectbox" required>
+                    <select id="websitetype" name="website_type_id" class="jSelectbox" required>
                         <option value="">Select Website Type</option>
                         @foreach ($websitetype as $websitetypes)
                             <option value="{{ $websitetypes->id }}"> {{ $websitetypes->name }}</option>
@@ -60,7 +60,7 @@
             <div class="select-style-1">
                 <label for="country">Country <span class="mandatory">*</span></label>
                 <div class="select-position select-sm">
-                    <select id="country" name="country" class="jSelectbox" required>
+                    <select id="country" name="country_id" class="jSelectbox" required>
                         <option value="">Select Country</option>
                         @foreach ($country as $countries)
                             <option value="{{ $countries->id }}"> {{ $countries->name }}</option>
@@ -69,7 +69,7 @@
                 </div>
             </div>
         </div>
-
+        <hr>
         <div class="col-md-6">
             <div class="input-style-1">
               <label for="Link">Link <span class="mandatory"> *</span></label>
@@ -77,7 +77,6 @@
             </div>
         </div>
 
-        <hr>
         <div class="col-sm-6">
             <!-- Active Code -->
              <label>Active <span class="mandatory"> *</span></label><br>

@@ -33,7 +33,7 @@
                                 <label for="companymaster">Company Master <span class="mandatory">*</span></label>
                                 <div class="select-position select-sm">
                                     <select id="companymaster" name="company_master_id" class="jSelectbox" required>
-                                        <option value="{{ $cm->id }}">{{ $cm->name }}</option>
+                                        <option value="{{ $companymaster->id }}">{{ $companymaster->name }}</option>
                                         @foreach ($companymasters as $companymaster)
                                             <option value="{{ $companymaster->id }}">{{ $companymaster->name }}</option>
                                         @endforeach

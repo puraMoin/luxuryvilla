@@ -32,7 +32,7 @@
                         <tr>
                             <th class='col-md-2'><h6>Status</h6></th>
                             <td>
-                                @php 
+                                @php
                                     $class = $rolesright->active == '1' ? 'activelabel' : 'inactivelabel';
                                     $data = $rolesright->active == '1' ? 'Active' : 'Inactive';
                                 @endphp
@@ -56,13 +56,13 @@
                             <td>
                                 <p>{{Auth::user()->name }}</p>
                             </td>
-                        </tr> 
-                         <tr> 
+                        </tr>
+                         <tr>
                             <th class='col-md-2'><h6>Managed By</h6></th>
                             <td>
                                 <p>{{Auth::user()->name }}</p>
                             </td>
-                        </tr> 
+                        </tr>
                     </tbody>
                 </table>
             </div>

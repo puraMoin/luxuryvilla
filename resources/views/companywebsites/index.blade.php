@@ -32,16 +32,15 @@
       $data = '';
 @endphp
 
-@foreach ($companywebsites as $companywebsite)
+@foreach ($companywebsite as $companywebsite)
 
 
 <tr>
-<td><p> {{ $companywebsite->companymaster ? $companywebsite->companymaster->name : '---' }} </p></td>
-<td><p> {{ $companywebsite->websitetype ? $companywebsite->websitetype->name : '---' }} </p></td>
-<td><p> {{ $companywebsite->country ? $companywebsite->country->name : '---' }} </p></td>
-<td><p>{{ $companywebsite->name }}</p></td>
-
-
+    <td><p> {{ $companywebsite->companymaster ? $companywebsite->companymaster->name : '---' }} </p></td>
+    <td><p> {{ $companywebsite->websitetype ? $companywebsite->websitetype->name : '---' }} </p></td>
+    <td><p> {{ $companywebsite->country ? $companywebsite->country->name : '---' }} </p></td>
+    <td><p> {{ $companywebsite->name }}
+</p></td>
 <td class="text-center">
   @php if($companywebsite->active == '1'){
     $class = 'activelabel';

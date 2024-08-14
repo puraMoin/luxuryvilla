@@ -15,8 +15,8 @@ class CompanyWebsitesController extends Controller
     {
         $parentMenu = 'Other Modules';
         $pageTitle = "Company Websites";
-        $companywebsites = CompanyWebsite::all();
-        return view('companywebsites.index', compact('companywebsites', 'parentMenu', 'pageTitle'));
+        $companywebsite = CompanyWebsite::all();
+        return view('companywebsites.index', compact('companywebsite', 'parentMenu', 'pageTitle'));
     }
 
     public function create()
@@ -31,16 +31,16 @@ class CompanyWebsitesController extends Controller
 
     public function store(Request $request)
     {
-        // dd($request);
+        //dd($request->all());
         $request->validate([
-            'company_master_id' => 'required|integer',
-            'website_type_id' => 'required|integer',
-            'country_id' => 'required|integer',
-            'name' => 'required|string|max:255',
-            'link' => 'required|string|max:255',
-            'active' => 'boolean',
-            'created_by' => 'integer',
-            'modified_by' => 'integer',
+        'company_master_id' => 'required|integer',
+        'website_type_id' => 'required|integer',
+        'country_id' => 'required|integer',
+        'name' => 'required|string|max:255',
+        'link' => 'required|string|max:1000',
+        'active' => 'boolean',
+        'created_by' => 'required|integer',
+        'modified_by' => 'required|integer',
         ]);
 
         CompanyWebsite::create([
@@ -62,11 +62,11 @@ class CompanyWebsitesController extends Controller
     public function show($id)
     {
 
-        $companywebsites = CompanyWebsite::findOrFail($id);
-        // dd($companywebsites);
+        $companywebsite = CompanyWebsite::findOrFail($id);
+        // dd($companywebsite);
         $parentMenu = 'Other Modules';
         $pageTitle = "View";
-        return view('companywebsites.show', compact('pageTitle', 'parentMenu', 'companywebsites'));
+        return view('companywebsites.show', compact('pageTitle', 'parentMenu', 'companywebsite'));
     }
 
     public function edit($id)
@@ -74,8 +74,8 @@ class CompanyWebsitesController extends Controller
         $companywebsite = CompanyWebsite::findOrFail($id);
         $userId = Auth::id();
 
-        $cm = CompanyMaster::where('id', $companywebsite->company_master_id)->first();
-        $companymasters = CompanyMaster::where('id', '!=', $cm->id)->get();
+        $companymaster = CompanyMaster::where('id', $companywebsite->company_master_id)->first();
+        $companymasters = CompanyMaster::where('id', '!=', $companymaster->id)->get();
 
         $websitetype = WebsiteType::where('id', $companywebsite->website_type_id)->first();
         $websitetypes = WebsiteType::where('id', '!=', $websitetype->id)->get();
@@ -85,15 +85,15 @@ class CompanyWebsitesController extends Controller
 
         $pageTitle = "Edit";
 
-        return view('companywebsites.edit', compact('pageTitle', 'companywebsite', 'cm', 'companymasters', 'websitetype', 'websitetypes', 'country', 'countries', 'userId'));
+        return view('companywebsites.edit', compact('pageTitle', 'companywebsite', 'companymaster', 'companymasters', 'websitetype', 'websitetypes', 'country', 'countries', 'userId'));
     }
 
 
     public function update(Request $request, $id)
     {
         // dd($request);
-        $companywebsites = CompanyWebsite::findOrFail($id);
-        $request = $companywebsites->update([
+        $companywebsite = CompanyWebsite::findOrFail($id);
+        $request = $companywebsite->update([
             'link' => $request->input('link'),
             'company_master_id' => $request->input('company_master_id'),
             'website_type_id' => $request->input('website_type_id'),

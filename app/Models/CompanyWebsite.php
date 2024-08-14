@@ -10,8 +10,14 @@ class CompanyWebsite extends Model
     use HasFactory;
 
     protected $fillable = [
-        'company_master_id', 'website_type_id', 'country_id',
-        'name','link','active','created_by','modified_by','created_at','updated_at'
+        'company_master_id',
+        'website_type_id',
+        'country_id',
+        'name',
+        'link',
+        'active',
+        'created_by',
+        'modified_by',
     ];
 
     protected $table = 'company_websites';
