@@ -16,4 +16,9 @@ class CompanyCodeCategory extends Model
     ];
 
     protected $table = 'company_code_categories';
+
+    public function companycodemodules()
+    {
+        return $this->hasMany(CompanyCodeModule::class);
+    }
 }

@@ -15,8 +15,9 @@ class CompanyCodeModule extends Model
 
     protected $table = 'company_code_modules';
 
-    public function companycodecategories(){
-        return $this->belongsTo(CompanyCodeCategory::class);
+    public function companycodecategories()
+    {
+        return $this->belongsTo(CompanyCodeCategory::class, 'company_code_category_id');
     }
 
 }

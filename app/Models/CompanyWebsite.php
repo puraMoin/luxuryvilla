@@ -17,15 +17,15 @@ class CompanyWebsite extends Model
     protected $table = 'company_websites';
 
     public function country(){
-        return $this->belongsTo(Country::class);
+        return $this->belongsTo(Country::class,'country_id');
     }
 
     public function companymaster(){
-        return $this->belongsTo(CompanyMaster::class);
+        return $this->belongsTo(CompanyMaster::class,'company_master_id');
     }
 
     public function websitetype(){
-        return $this->belongsTo(WebsiteType::class);
+        return $this->belongsTo(WebsiteType::class,'website_type_id');
     }
 
 }

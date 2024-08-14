@@ -15,7 +15,7 @@
 
             <!-- Back Button -->
             <div class="right-mob-left">
-                <a href="{{ route('companycodecategories.index') }}">
+                <a href="{{ route('companycodemodules.index') }}">
                     <button type="button" class="main-btn primary-btn-outline btn-hover btn-xs">Back</button>
                 </a>
             </div>
@@ -31,17 +31,24 @@
                                     <h6>Name</h6>
                                 </th>
                                 <td>
-                                    <p>{{ $companycodecategory->name }}</p>
+                                    <p>{{ $companycodemodule->name }}</p>
                                 </td>
                             </tr>
-
+                            <tr>
+                                <th class='col-md-4'>
+                                    <h6>Company Code Category</h6>
+                                </th>
+                                <td>
+                                    <p>{{ $companycodemodule->companycodecategories ? $companycodemodule->companycodecategories->name : '---' }}</p>
+                                </td>
+                            </tr>
                             <tr>
                                 <th class='col-md-2'>
                                     <h6>Status</h6>
                                 </th>
                                 <th class="text-left">
                                     @php
-                                      if($companycodecategory->active == '1'){
+                                      if($companycodemodule->active == '1'){
                                         $class = 'activelabel';
                                         $data = 'Active';
                                       } else {
@@ -58,7 +65,7 @@
                                     <h6>Created</h6>
                                 </th>
                                 <td>
-                                    <p>{{ $companycodecategory->created_at }}</p>
+                                    <p>{{ $companycodemodule->created_at }}</p>
                                 </td>
                             </tr>
                             <tr>
@@ -66,7 +73,7 @@
                                     <h6>Updated</h6>
                                 </th>
                                 <td>
-                                    <p>{{ $companycodecategory->updated_at }}</p>
+                                    <p>{{ $companycodemodule->updated_at }}</p>
                                 </td>
                             </tr>
                             <tr>

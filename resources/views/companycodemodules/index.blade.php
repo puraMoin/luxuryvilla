@@ -24,7 +24,9 @@
                                 <th>
                                     <h6>Name</h6>
                                 </th>
-
+                                <th>
+                                    <h6>Company Code Category</h6>
+                                </th>
                                 <th class="text-center">
                                     <h6>Status</h6>
                                 </th>
@@ -45,7 +47,9 @@
                                     <td>
                                         <p>{{ $companycodemodule->name }}</p>
                                     </td>
-
+                                    <td>
+                                        <p>{{ $companycodemodule->companycodecategories ? $companycodemodule->companycodecategories->name : '---' }}</p>
+                                    </td>
                                     <td class="text-center">
                                         @php
                                           if($companycodemodule->active == '1'){
