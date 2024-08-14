@@ -47,6 +47,7 @@ use App\Http\Controllers\TaxMastersController;
 use App\Http\Controllers\TaxTypesController;
 use App\Http\Controllers\CompanyWebsitesController;
 use App\Http\Controllers\CompanyCodeCategoriesController;
+use App\Http\Controllers\CompanyCodeModulesController;
 use App\Http\Controllers\WebsiteTypesController;
 use App\Http\Middleware\CheckSession;
 
@@ -152,6 +153,8 @@ Route::get('/dashboard', [DashboardsController::class, 'index'])->name('dashboar
   Route::resource('taxmasters', TaxMastersController::class);
   Route::resource('websitetypes', WebsiteTypesController::class);
   Route::resource('companycodecategories', CompanyCodeCategoriesController::class);
+  Route::resource('companycodemodules', CompanyCodeModulesController::class);
+  
   Route::resource('companywebsites', CompanyWebsitesController::class);
  
 
