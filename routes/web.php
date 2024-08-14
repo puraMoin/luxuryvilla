@@ -48,6 +48,7 @@ use App\Http\Controllers\TaxTypesController;
 use App\Http\Controllers\CompanyWebsitesController;
 use App\Http\Controllers\CompanyCodeCategoriesController;
 use App\Http\Controllers\CompanyCodeModulesController;
+use App\Http\Controllers\CompanyTextInformationsController;
 use App\Http\Controllers\WebsiteTypesController;
 use App\Http\Middleware\CheckSession;
 
@@ -154,9 +155,10 @@ Route::get('/dashboard', [DashboardsController::class, 'index'])->name('dashboar
   Route::resource('websitetypes', WebsiteTypesController::class);
   Route::resource('companycodecategories', CompanyCodeCategoriesController::class);
   Route::resource('companycodemodules', CompanyCodeModulesController::class);
-  
+  Route::resource('companytextinformations', CompanyTextInformationsController::class);
+
   Route::resource('companywebsites', CompanyWebsitesController::class);
- 
+
 
   Route::get('/get-states/{countryId}', [StatesController::class, 'getStates']);
   Route::get('/get-cities/{stateId}', [CitiesController::class, 'getCities']);
