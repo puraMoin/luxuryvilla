@@ -33,22 +33,22 @@ class CompanyWebsitesController extends Controller
     {
         // dd($request);
         $request->validate([
-            'link' => 'required|string|max:255',
             'company_master_id' => 'required|integer',
             'website_type_id' => 'required|integer',
             'country_id' => 'required|integer',
             'name' => 'required|string|max:255',
-            'active' => 'required|boolean',
-            'created_by' => 'required|integer',
-            'modified_by' => 'required|integer',
+            'link' => 'required|string|max:255',
+            'active' => 'boolean',
+            'created_by' => 'integer',
+            'modified_by' => 'integer',
         ]);
 
         CompanyWebsite::create([
-            'link' => $request->input('link'),
             'company_master_id' => $request->input('company_master_id'),
             'website_type_id' => $request->input('website_type_id'),
             'country_id' => $request->input('country_id'),
             'name' => $request->input('name'),
+            'link' => $request->input('link'),
             'active' => $request->input('active'),
             'created_by' => $request->input('created_by'),
             'modified_by' => $request->input('modified_by'),

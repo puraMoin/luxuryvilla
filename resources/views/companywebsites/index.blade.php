@@ -11,8 +11,6 @@
         <button type="button" class="main-btn primary-btn btn-hover btn-xs">Create</button>
         </a>
     </div>
-
-    <!--Add new section start here-->
 <div class="card-style mt-20">
 
 
@@ -36,11 +34,14 @@
 
 @foreach ($companywebsites as $companywebsite)
 
+
 <tr>
 <td><p> {{ $companywebsite->companymaster ? $companywebsite->companymaster->name : '---' }} </p></td>
-<td><p> {{ $companywebsite->websitetype ? $companywebsite->websitetype->name : '---' }}</p></td>
+<td><p> {{ $companywebsite->websitetype ? $companywebsite->websitetype->name : '---' }} </p></td>
 <td><p> {{ $companywebsite->country ? $companywebsite->country->name : '---' }} </p></td>
 <td><p>{{ $companywebsite->name }}</p></td>
+
+
 <td class="text-center">
   @php if($companywebsite->active == '1'){
     $class = 'activelabel';
@@ -60,16 +61,13 @@
 
 @endforeach
 <!-- end table row -->
-
-
 </tbody>
 </table>
 <!-- end table -->
 </div>
 </div>
-
     <!--Add new section end here-->
-	</div>
+</div>
 </section>
 @endsection
 
