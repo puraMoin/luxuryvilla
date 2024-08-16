@@ -68,7 +68,7 @@ class CostTypesController extends Controller
             'active' => $request->input('active'),
             'updated_at' => now(),
         ]);
-        
+
         return redirect()->route('costtypes.index');
     }
 }

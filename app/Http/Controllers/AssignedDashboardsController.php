@@ -27,14 +27,14 @@ class AssignedDashboardsController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate([    
+        $request->validate([
             'name' => 'string|max:255',
             'active' => 'boolean',
             'created_by' => 'required|integer',
             'modified_by' => 'required|integer',
 
         ]);
-        
+
         AssignedDashboard::create([
             'name' => $request->input('name'),
             'active' => $request->input('active'),

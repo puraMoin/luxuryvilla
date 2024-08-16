@@ -11,6 +11,7 @@ use App\Http\Controllers\StatesController;
 use App\Http\Controllers\CitiesController;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\AdminTypesController;
+use App\Http\Controllers\AgentCreditLimitForMastersController;
 use App\Http\Controllers\AreaUnitsController;
 use App\Http\Controllers\AssignedDashboardsController;
 use App\Http\Controllers\BathroomTypesController;
@@ -160,6 +161,7 @@ Route::get('/dashboard', [DashboardsController::class, 'index'])->name('dashboar
   Route::resource('companytextinformations', CompanyTextInformationsController::class);
   Route::resource('companyregistrations', CompanyRegistrationsController::class);
   Route::resource('agentcredittypes', AgentCreditTypesController::class);
+  Route::resource('agentcreditlimitformasters', AgentCreditLimitForMastersController::class);
 
   Route::resource('companywebsites', CompanyWebsitesController::class);
 
