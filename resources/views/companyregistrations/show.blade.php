@@ -38,7 +38,7 @@
 
                             <tr>
                                 <th class='col-md-2'>
-                                    <h6>Company Text Info</h6>
+                                    <h6>Company TAX Info</h6>
                                 </th>
                                 <td>
                                     <p>{{ $companyregistrations->companytextinformation ? $companyregistrations->companytextinformation->name : '---' }}</p>
