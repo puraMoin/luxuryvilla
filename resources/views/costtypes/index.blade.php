@@ -57,7 +57,7 @@
                                           }
                                         @endphp
                                         <div class="{{ $class }}">{{ $data }}</div>
-                                      </td>
+                                    </td>
 
 
                                     <td class="text-center">
