@@ -11,7 +11,7 @@ class AgentCreditLimitForMastersController extends Controller
 
     public function index()
     {
-        $pageTitle = 'Cost Types';
+        $pageTitle = 'Agent Credit Limit For Master';
         $agentcreditlimitformasters = AgentCreditLimitForMaster::all();
         return view('agentcreditlimitformasters.index', compact('agentcreditlimitformasters', 'pageTitle'));
     }
@@ -58,15 +58,22 @@ class AgentCreditLimitForMastersController extends Controller
 
     public function edit($id)
     {
-
+        $agentcreditlimitformasters = AgentCreditLimitForMaster::findOrFail($id);
+        $pageTitle = 'Edit';
+        $userId = Auth::id();
+        return view('agentcreditlimitformasters.edit', compact('agentcreditlimitformasters', 'pageTitle', 'userId'));
     }
 
 
     public function update(Request $request, $id)
     {
-
+        // dd($request);
+        $agentcreditlimitformasters = AgentCreditLimitForMaster::findOrFail($id);
+        $agentcreditlimitformasters->update([
+            'name' => $request->input('name'),
+            'active' => $request->input('active'),
+            'updated_at' => now(),
+        ]);
+        return redirect()->route('agentcreditlimitformasters.index');
     }
-
-
-
 }
