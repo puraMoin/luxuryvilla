@@ -26,7 +26,7 @@
         </th>
 
         <th class="text-center">
-            <h6>Company TAX Info</h6>
+            <h6>Company Tax Info</h6>
         </th>
 
         <th class="text-center">

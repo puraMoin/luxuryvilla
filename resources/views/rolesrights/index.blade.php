@@ -45,7 +45,7 @@
                                 </div>
                             </th>
                             <th><h6>Name<i class="lni lni-sort-alpha-asc"></i></h6></th>
-                            <th><h6>Assigned Dashboard ID<i class="lni lni-sort-alpha-asc"></i></h6></th>
+                            <th><h6>Assigned Dashboard<i class="lni lni-sort-alpha-asc"></i></h6></th>
                             <th><h6>Description<i class="lni lni-sort-alpha-asc"></i></h6></th>
                             <th class="text-center"><h6>Status</h6></th>
                             <th class="text-center"><h6>Action</h6></th>

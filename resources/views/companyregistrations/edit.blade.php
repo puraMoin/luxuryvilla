@@ -36,7 +36,7 @@
 
 <div class="col-sm-3">
     <div class="select-style-1">
-        <label for="company_text_information_id">Company TAX Info <span class="mandatory">*</span></label>
+        <label for="company_text_information_id">Company Tax Info <span class="mandatory">*</span></label>
         <div class="select-position select-sm">
             <select id="company_text_information_id" name="company_text_information_id" class="jSelectbox" required>
                 <option value="{{ $companytextinformation->id }}">{{ $companytextinformation->name }}</option>
