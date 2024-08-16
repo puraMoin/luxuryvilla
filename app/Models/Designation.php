@@ -11,6 +11,6 @@ class Designation extends Model
 
     protected $fillable = ['name','description','active','created_at','updated_at','created_by','modified_by'];
 
-    protected $table = 'departments';
+    protected $table = 'designations';
 
 }

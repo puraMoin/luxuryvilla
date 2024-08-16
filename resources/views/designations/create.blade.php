@@ -47,17 +47,16 @@
                                <textarea name="description" class="form-control rich-editor" ></textarea>
                             </div>
                         </div>
-                    </div>                       
-                </form>
-            </div>
-            <br>
-            <div class="row">
-                <div class="col-12">
-                    <button type="submit" class="main-btn primary-btn  btn-sm btn-hover">Save</button>
-                    <button type="reset" class="main-btn primary-btn-outline btn-hover btn-sm">Reset</button>
-                </div>
-            </div>
-        </div>
-        
+                    </div> 
+                </div> 
+                    <div class="row mt-15">
+                        <div class="col-12">
+                            <button type="submit" class="main-btn primary-btn  btn-sm btn-hover">Save</button>
+                            <button type="reset" class="main-btn primary-btn-outline btn-hover btn-sm">Reset</button>
+                        </div>
+                    </div> 
+                           
+                </form> 
+        </div>    
     </section>
 @endsection

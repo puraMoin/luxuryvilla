@@ -8,4 +8,16 @@ use Illuminate\Database\Eloquent\Model;
 class OnlineSupplier extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'name',
+        'active',
+        'created_at',
+        'updated_at',
+        'created_by',
+        'modified_by',
+    ];
+
+    protected $table = 'online_suppliers';
+
 }
