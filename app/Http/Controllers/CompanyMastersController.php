@@ -52,7 +52,7 @@ class CompanyMastersController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {   
+    {
         // dd($request);
         $request->validate([
             'name' => ['required'],
@@ -115,21 +115,21 @@ class CompanyMastersController extends Controller
         if ($request->hasFile('image_file')) {
             $image = $request->file('image_file');
             $folder = 'images/companymasters/image_file/' . $companymaster->id;
-            $image->move(public_path($folder), $image->getClientOriginalName());       
+            $image->move(public_path($folder), $image->getClientOriginalName());
             $companymaster->image_file = $image->getClientOriginalName();
         }
 
         if ($request->hasFile('header_image_file')) {
             $image = $request->file('header_image_file');
             $folder = 'images/companymasters/header_image_file/' . $companymaster->id;
-            $image->move(public_path($folder), $image->getClientOriginalName());       
+            $image->move(public_path($folder), $image->getClientOriginalName());
             $companymaster->header_image_file = $image->getClientOriginalName();
         }
 
         if ($request->hasFile('footer_image_file')) {
             $image = $request->file('footer_image_file');
             $folder = 'images/companymasters/footer_image_file/' . $companymaster->id;
-            $image->move(public_path($folder), $image->getClientOriginalName());       
+            $image->move(public_path($folder), $image->getClientOriginalName());
             $companymaster->footer_image_file = $image->getClientOriginalName();
         }
         $companymaster->save();
@@ -237,7 +237,7 @@ class CompanyMastersController extends Controller
             $folder = 'images/companymasters/image_file/' . $companymaster->id;
 
             $image->move(public_path($folder), $image->getClientOriginalName());
-            //dd($image1Path);        
+            //dd($image1Path);
             $companymaster->image_file = $image->getClientOriginalName();
         }
         if ($request->hasFile('header_image_file')) {
@@ -246,7 +246,7 @@ class CompanyMastersController extends Controller
 
             $folder = 'images/companymasters/header_image_file/' . $companymaster->id;
 
-            $image->move(public_path($folder), $image->getClientOriginalName());       
+            $image->move(public_path($folder), $image->getClientOriginalName());
             $companymaster->header_image_file = $image->getClientOriginalName();
         }
 
@@ -257,7 +257,7 @@ class CompanyMastersController extends Controller
             $folder = 'images/companymasters/footer_image_file/' . $companymaster->id;
 
             $image->move(public_path($folder), $image->getClientOriginalName());
-                 
+
             $companymaster->footer_image_file = $image->getClientOriginalName();
         }
         $companymaster->save();

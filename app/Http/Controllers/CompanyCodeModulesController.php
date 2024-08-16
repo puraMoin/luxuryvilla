@@ -48,13 +48,13 @@ class CompanyCodeModulesController extends Controller
     {
         $request->validate([
             'name' => 'required|string|max:255',
-            'active' => 'boolean',    
+            'active' => 'boolean',
              ]);
 
         $companycodeCategoryId = $request->input('company_code_category_id');
-  
+
         $companycodeCategory = CompanyCodeCategory::find($companycodeCategoryId);
-   
+
         if(!empty($companycodeCategory))
         {
           $companycodeCategoryId = $companycodeCategory->id;
@@ -65,7 +65,7 @@ class CompanyCodeModulesController extends Controller
             'company_code_category_id'=> $companycodeCategoryId,
             'active' => $request->input('active'),
             'created_by' => $request->input('created_by'),
-            'modified_by' => $request->input('modified_by'),           
+            'modified_by' => $request->input('modified_by'),
             'created_at' => now(), // Set the created timestamp
             'updated_at' => now(),
         ]);
@@ -105,7 +105,7 @@ class CompanyCodeModulesController extends Controller
     public function edit($id)
     {
         $companycodemodule = CompanyCodeModule::find($id);
-       
+
         $companycodeCategory = CompanyCodeCategory::where('id', $companycodemodule->company_code_category_id)->first();
         $companycodeCategories = CompanyCodeCategory::where('id', '!=', $companycodeCategory->id)->get();
 
@@ -133,9 +133,9 @@ class CompanyCodeModulesController extends Controller
         }
 
         $companycodeCategoryId = $request->input('company_code_category_id');
-  
+
         $companycodeCategory = CompanyCodeCategory::find($companycodeCategoryId);
-   
+
         if(!empty($companycodeCategory))
         {
           $companycodeCategoryId = $companycodeCategory->id;
@@ -145,7 +145,7 @@ class CompanyCodeModulesController extends Controller
             'name' => $request->input('name'),
             'company_code_category_id'=> $companycodeCategoryId,
             'active' => $request->input('active'),
-            'modified_by' => $request->input('modified_by'),           
+            'modified_by' => $request->input('modified_by'),
             'created_at' => now(), // Set the created timestamp
             'updated_at' => now(),
         ]);
