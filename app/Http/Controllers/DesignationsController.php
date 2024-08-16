@@ -59,8 +59,8 @@ class DesignationsController extends Controller
             'modified_by'=> $request->input('modified_by'),
             'created_at'=>now(),
             'updated_at'=>now(),
-        ]);   
-        
+        ]);
+
         return redirect()->route('designations.index');
     }
 
@@ -107,10 +107,9 @@ class DesignationsController extends Controller
             'description'=> $request->input('description'),
             'active'=> $request->input('active'),
             'modified_by'=> $request->input('modified_by'),
-            'created_at'=>now(),
             'updated_at'=>now(),
-        ]);   
-        
+        ]);
+
         return redirect()->route('designations.index');
     }
 
