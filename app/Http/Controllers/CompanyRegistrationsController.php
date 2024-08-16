@@ -79,7 +79,7 @@ class CompanyRegistrationsController extends Controller
         $userId = Auth::id();
         $companymaster = CompanyMaster::where('id', $companyregistrations->company_master_id)->first();
         $companymasters = CompanyMaster::where('id', '!=', $companymaster->id)->get();
-        $companytextinformation = CompanyTextInformation::where('id', $companyregistrations->company_text_informations_id)->first();
+        $companytextinformation = CompanyTextInformation::where('id', $companyregistrations->company_text_information_id)->first();
         $companytextinformations = CompanyTextInformation::where('id', '!=', $companytextinformation->id)->get();
         $pageTitle = "Edit";
         return view('companyregistrations.edit', compact('pageTitle', 'companyregistrations', 'companymaster', 'companymasters', 'companytextinformation', 'companytextinformations', 'userId'));

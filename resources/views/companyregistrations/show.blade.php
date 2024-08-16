@@ -41,7 +41,7 @@
                                     <h6>Company Text Info</h6>
                                 </th>
                                 <td>
-                                    <p>{{ $companyregistrations->company_text_information_id }}</p>
+                                    <p>{{ $companyregistrations->companytextinformation ? $companyregistrations->companytextinformation->name : '---' }}</p>
                                 </td>
                                 {{-- {{ $companyregistrations->companytextinformation ? $companyregistrations->companytextinformation->name : '---'   }} --}}
                             </tr>
