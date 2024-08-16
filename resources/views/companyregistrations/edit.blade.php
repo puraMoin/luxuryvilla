@@ -63,7 +63,7 @@
         class="form-control" value="{{ $companyregistrations->registration_number }}" required>
         </div>
 </div>
-
+<hr>
 <div class="col-md-3">
     <div class="input-style-1">
         <label for="registrationexpirydate">Registration Expiry Date <span class="mandatory"> *</span></label>
@@ -72,8 +72,6 @@
     </div>
 </div>
 
-
-<hr>
 <div class="col-sm-6">
     <!-- Active Code -->
     <label>Active <span class="mandatory"> *</span></label><br>
