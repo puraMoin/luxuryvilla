@@ -51,8 +51,9 @@ use App\Http\Controllers\CompanyCodeModulesController;
 use App\Http\Controllers\CompanyRegistrationsController;
 use App\Http\Controllers\CompanyTextInformationsController;
 use App\Http\Controllers\WebsiteTypesController;
+use App\Http\Controllers\AgentCreditTypesController;
 use App\Http\Middleware\CheckSession;
-
+use App\Models\AgentCreditType;
 use App\Models\Country;
 use App\Models\Currency;
 use App\Models\Designation;
@@ -158,6 +159,7 @@ Route::get('/dashboard', [DashboardsController::class, 'index'])->name('dashboar
   Route::resource('companycodemodules', CompanyCodeModulesController::class);
   Route::resource('companytextinformations', CompanyTextInformationsController::class);
   Route::resource('companyregistrations', CompanyRegistrationsController::class);
+  Route::resource('agentcredittypes', AgentCreditTypesController::class);
 
   Route::resource('companywebsites', CompanyWebsitesController::class);
 
