@@ -25,7 +25,7 @@ class CrmEnquiryStatusesController extends Controller
         $userId = Auth::id();
         $enquirystage = CrmEnquiryStage::all();
         $crmenquirystatuses = CrmEnquiryStatus::all();
-        return view('crmenquirystatuses.create', compact('crmenquirystatuses','pageTitle', 'userId', 'enquirystage'));
+        return view('crmenquirystatuses.create', compact('crmenquirystatuses', 'pageTitle', 'userId', 'enquirystage'));
     }
 
 
@@ -39,7 +39,7 @@ class CrmEnquiryStatusesController extends Controller
             'active' => 'boolean',
             'created_by' => 'required|integer',
             'modified_by' => 'required|integer',
-            ]);
+        ]);
 
         $crmenquirystatuses =  CrmEnquiryStatus::create([
             'crm_enquiry_stage_id' => $request->input('crm_enquiry_stage_id'),
@@ -50,9 +50,9 @@ class CrmEnquiryStatusesController extends Controller
             'modified_by' => $request->input('modified_by'),
             'created_at' => now(),
             'updated_at' => now(),
-            ]);
+        ]);
 
-            return redirect()->route('crmenquirystatuses.index');
+        return redirect()->route('crmenquirystatuses.index');
     }
 
 
@@ -75,7 +75,6 @@ class CrmEnquiryStatusesController extends Controller
 
         $pageTitle = "Edit";
         return view('crmenquirystatuses.edit', compact('pageTitle', 'crmenquirystatuses', 'userId', 'enquirystage', 'enquirystages'));
-
     }
 
 
@@ -96,5 +95,4 @@ class CrmEnquiryStatusesController extends Controller
 
         return redirect()->route('crmenquirystatuses.index');
     }
-
 }

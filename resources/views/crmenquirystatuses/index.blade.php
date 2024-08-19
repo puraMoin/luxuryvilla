@@ -55,11 +55,11 @@
                                     </td>
 
                                     <td>
-                                        <p>{{ $crmenquirystatus->name }}</p>
+                                        <p>{{ $crmenquirystatus->name ? $crmenquirystatus->name : '---' }}</p>
                                     </td>
 
                                     <td class="text-center">
-                                        <p>{{ $crmenquirystatus->color_code }}</p>
+                                        <p>{{ $crmenquirystatus->color_code ? $crmenquirystatus->color_code : '---'}}</p>
                                     </td>
 
                                     <td class="text-center">

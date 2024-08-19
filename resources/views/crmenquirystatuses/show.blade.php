@@ -48,7 +48,7 @@
                                     <h6>Color Code</h6>
                                 </th>
                                 <td>
-                                    <p>{{ $crmenquirystatuses->color_code }}</p>
+                                    <p>{{ $crmenquirystatuses->color_code ? $crmenquirystatuses->color_code : '---'}}</p>
                                 </td>
                             </tr>
 
