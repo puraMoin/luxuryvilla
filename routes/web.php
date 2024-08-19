@@ -54,6 +54,8 @@ use App\Http\Controllers\CompanyTextInformationsController;
 use App\Http\Controllers\OnlineSuppliersController;
 use App\Http\Controllers\WebsiteTypesController;
 use App\Http\Controllers\AgentCreditTypesController;
+use App\Http\Controllers\CrmEnquiryStagesController;
+use App\Http\Controllers\CrmEnquiryStatusesController;
 use App\Http\Middleware\CheckSession;
 use App\Models\AgentCreditType;
 use App\Models\Country;
@@ -166,6 +168,8 @@ Route::get('/dashboard', [DashboardsController::class, 'index'])->name('dashboar
   Route::resource('agentcreditlimitformasters', AgentCreditLimitForMastersController::class);
   Route::resource('onlinesuppliers', OnlineSuppliersController::class);
   Route::resource('companywebsites', CompanyWebsitesController::class);
+  Route::resource('crmenquirystages', CrmEnquiryStagesController::class);
+  Route::resource('crmenquirystatuses', CrmEnquiryStatusesController::class);
 
 
   Route::get('/get-states/{countryId}', [StatesController::class, 'getStates']);
