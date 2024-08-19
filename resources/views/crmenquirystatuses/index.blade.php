@@ -51,7 +51,7 @@
 
                                 <tr>
                                     <td>
-                                        <p>{{ $crmenquirystage->id }}</p>
+                                        <p></p>
                                     </td>
 
                                     <td>
