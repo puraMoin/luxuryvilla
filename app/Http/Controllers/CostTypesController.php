@@ -46,7 +46,6 @@ class CostTypesController extends Controller
     {
         $costtypes = CostType::findOrFail($id);
         $pageTitle = 'View';
-
         return view('costtypes.show', compact('costtypes', 'pageTitle'));
     }
 
