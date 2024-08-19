@@ -70,7 +70,6 @@ class CrmEnquiryStatusesController extends Controller
         $crmenquirystatuse = CrmEnquiryStatus::findOrFail($id);
         $userId = Auth::id();
 
-
         $crmenquirystage = CrmEnquiryStage::where('id', $crmenquirystatuse->crm_enquiry_stage_id)->first();
         $crmenquirystages = CrmEnquiryStage::where('id', '!=', $crmenquirystage->id)->get();
 
