@@ -51,7 +51,7 @@
 
                                 <tr>
                                     <td>
-                                        <p></p>
+                                        <p>{{ $crmenquirystatus->enquirystage ? $crmenquirystatus->enquirystage->name : '---'   }} </p>
                                     </td>
 
                                     <td>
