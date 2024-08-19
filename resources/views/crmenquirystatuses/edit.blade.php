@@ -26,11 +26,11 @@
                             <div class="select-style-1">
                                 <label for="crm_enquiry_stage_id">CRM Enquiry Stage <span class="mandatory">*</span></label>
                                 <div class="select-position select-sm">
-                                    <select id="crm_enquiry_stage_id" name="crm_enquiry_stage_id" class="jSelectbox" required>
-                                        <option value="">CRM Enquiry Stage</option>
-                                        {{-- @foreach ($companytextinformation as $companytextinformation)
-                                            <option value="{{ $companytextinformation->id }}"> {{ $companytextinformation->name }}</option>
-                                        @endforeach --}}
+                                    <select id="crm_enquiry_stage_id" name="crm_enquiry_stage_id" class="jSelectbox">
+                                        <option value="">Select Enquiry Stage</option>
+                                        @foreach ($enquirystages as $enquirystages)
+                                            <option value="{{ $enquirystage->id }}"> {{ $enquirystage->name }}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                             </div>

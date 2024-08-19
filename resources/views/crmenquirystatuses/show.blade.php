@@ -31,7 +31,7 @@
                                     <h6>CRM Enquiry Stage</h6>
                                 </th>
                                 <td>
-                                    <p></p>
+                                    <p>{{ $crmenquirystatuses->enquirystage ? $crmenquirystatuses->enquirystage->name : '---'   }} </p>
                                 </td>
                             </tr>
                             <tr>
