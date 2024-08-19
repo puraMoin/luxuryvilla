@@ -13,7 +13,7 @@ class CrmEnquiryStatusesController extends Controller
     public function index()
     {
         $parentMenu = 'CRM';
-        $pageTitle = "CRM Enquiry Statuses";
+        $pageTitle = "CRM Enquiry Status";
         $crmenquirystatuses = CrmEnquiryStatus::all();
         return view('crmenquirystatuses.index', compact('crmenquirystatuses', 'parentMenu', 'pageTitle'));
     }
