@@ -43,7 +43,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($crmenquirystatuse as $crmenquirystatuses)
+                            @foreach ($crmenquirystatuses as $crmenquirystatus)
                                 @php
                                     $class = '';
                                     $data = '';
@@ -51,20 +51,20 @@
 
                                 <tr>
                                     <td>
-                                        <p>{{$crmenquirystage->id}}</p>
+                                        <p></p>
                                     </td>
 
                                     <td>
-                                        <p>{{ $crmenquirystatuses->name }}</p>
+                                        <p>{{ $crmenquirystatus->name }}</p>
                                     </td>
 
                                     <td class="text-center">
-                                        <p>{{ $crmenquirystatuses->color_code }}</p>
+                                        <p>{{ $crmenquirystatus->color_code }}</p>
                                     </td>
 
                                     <td class="text-center">
                                         @php
-                                          if($crmenquirystatuses->active == '1'){
+                                          if($crmenquirystatus->active == '1'){
                                             $class = 'activelabel';
                                             $data = 'Active';
                                           } else {
@@ -76,10 +76,10 @@
                                     </td>
 
                                     <td class="text-center">
-                                        <a href="{{ route('crmenquirystatuses.edit', $crmenquirystatuses->id) }}">
+                                        <a href="{{ route('crmenquirystatuses.edit', $crmenquirystatus->id) }}">
                                             <i class="lni lni-pencil-alt"></i>
                                         </a>
-                                        <a href="{{ route('crmenquirystatuses.show', $crmenquirystatuses->id) }}">
+                                        <a href="{{ route('crmenquirystatuses.show', $crmenquirystatus->id) }}">
                                             <i class="lni lni-list"></i>
                                         </a>
                                     </td>

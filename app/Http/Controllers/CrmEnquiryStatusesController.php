@@ -14,8 +14,8 @@ class CrmEnquiryStatusesController extends Controller
     {
         $parentMenu = 'CRM';
         $pageTitle = "CRM Enquiry Statuses";
-        $crmenquirystatuse = CrmEnquiryStatus::all();
-        return view('crmenquirystatuses.index', compact('crmenquirystatuse', 'parentMenu', 'pageTitle'));
+        $crmenquirystatuses = CrmEnquiryStatus::all();
+        return view('crmenquirystatuses.index', compact('crmenquirystatuses', 'parentMenu', 'pageTitle'));
     }
 
 
@@ -23,9 +23,9 @@ class CrmEnquiryStatusesController extends Controller
     {
         $pageTitle = 'Create';
         $userId = Auth::id();
-        $crmenquirystageid = CrmEnquiryStatus::all();
-        $crmenquirystatuse = CrmEnquiryStatus::all();
-        return view('crmenquirystatuses.create', compact('crmenquirystatuse','pageTitle', 'userId', 'crmenquirystageid'));
+        $enquirystage = CrmEnquiryStage::all();
+        $crmenquirystatuses = CrmEnquiryStatus::all();
+        return view('crmenquirystatuses.create', compact('crmenquirystatuses','pageTitle', 'userId', 'enquirystage'));
     }
 
 
@@ -41,7 +41,7 @@ class CrmEnquiryStatusesController extends Controller
             'modified_by' => 'required|integer',
             ]);
 
-        $crmenquirystatuse =  CrmEnquiryStatus::create([
+        $crmenquirystatuses =  CrmEnquiryStatus::create([
             'crm_enquiry_stage_id' => $request->input('crm_enquiry_stage_id'),
             'name' => $request->input('name'),
             'color_code' => $request->input('color_code'),
@@ -58,23 +58,23 @@ class CrmEnquiryStatusesController extends Controller
 
     public function show($id)
     {
-        $crmenquirystatuse = CrmEnquiryStatus::findOrFail($id);
+        $crmenquirystatuses = CrmEnquiryStatus::findOrFail($id);
         $parentMenu = 'CRM';
         $pageTitle = "View";
-        return view('crmenquirystatuses.show', compact('pageTitle', 'parentMenu', 'crmenquirystatuse'));
+        return view('crmenquirystatuses.show', compact('pageTitle', 'parentMenu', 'crmenquirystatuses'));
     }
 
 
     public function edit($id)
     {
-        $crmenquirystatuse = CrmEnquiryStatus::findOrFail($id);
+        $crmenquirystatuses = CrmEnquiryStatus::findOrFail($id);
         $userId = Auth::id();
 
-        $crmenquirystage = CrmEnquiryStage::where('id', $crmenquirystatuse->crm_enquiry_stage_id)->first();
-        $crmenquirystages = CrmEnquiryStage::where('id', '!=', $crmenquirystage->id)->get();
+        $enquirystage = CrmEnquiryStage::where('id', $crmenquirystatuses->crm_enquiry_stage_id)->first();
+        $enquirystages = CrmEnquiryStage::where('id', '!=', $enquirystage->id)->get();
 
         $pageTitle = "Edit";
-        return view('crmenquirystatuses.edit', compact('pageTitle', 'crmenquirystatuse', 'userId', 'crmenquirystage', 'crmenquirystages'));
+        return view('crmenquirystatuses.edit', compact('pageTitle', 'crmenquirystatuses', 'userId', 'enquirystage', 'enquirystages'));
 
     }
 
@@ -82,8 +82,8 @@ class CrmEnquiryStatusesController extends Controller
     public function update(Request $request, $id)
     {
         // dd($request);
-        $crmenquirystatuse = CrmEnquiryStatus::findOrFail($id);
-        $request = $crmenquirystatuse->update([
+        $crmenquirystatuses = CrmEnquiryStatus::findOrFail($id);
+        $request = $crmenquirystatuses->update([
             'crm_enquiry_stage_id' => $request->input('crm_enquiry_stage_id'),
             'name' => $request->input('name'),
             'color_code' => $request->input('color_code'),

@@ -21,7 +21,7 @@ class CrmEnquiryStatus extends Model
 
     protected $table = 'crm_enquiry_statuses';
 
-    public function crmEnquiryStage()
+    public function enquirystage()
     {
         return $this->belongsTo(CrmEnquiryStage::class, 'crm_enquiry_stage_id');
     }

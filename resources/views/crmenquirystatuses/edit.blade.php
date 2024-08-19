@@ -15,7 +15,7 @@
         <div class="container-fluid">
             <div class="card-style mt-20">
 
-                <form action="{{ route('crmenquirystatuses.update', $crmenquirystatuse->id) }}" method="POST">
+                <form action="{{ route('crmenquirystatuses.update', $crmenquirystatuses->id) }}" method="POST">
                     @csrf
                     @method('PUT')
                     {{-- <input type="hidden" name="created_by" value="{{ $userId }}"> --}}
@@ -39,24 +39,24 @@
                         <div class="col-md-3">
                             <div class="input-style-1">
                                 <label for="name">Name <span class="mandatory"> *</span></label>
-                                <input type="text" id="name" name="name" class="form-control" value="{{ $crmenquirystatuse->name }}" required>
+                                <input type="text" id="name" name="name" class="form-control" value="{{ $crmenquirystatuses->name }}" required>
                             </div>
                         </div>
 
                         <div class="col-md-3">
                             <div class="input-style-1">
                                 <label for="color_code">Color Code <span class="mandatory"> *</span></label>
-                                <input type="text" id="color_code" name="color_code" class="form-control" value="{{ $crmenquirystatuse->color_code }}" required>
+                                <input type="text" id="color_code" name="color_code" class="form-control" value="{{ $crmenquirystatuses->color_code }}" required>
                             </div>
                         </div>
 
                         <div class="col-sm-3">
                             <label>Active</label><br>
                             <label class="radio-inline">
-                                <input type="radio" name="active" class="radio-inline" value="1" {{ $crmenquirystatuse->active == 1 ? 'checked' : '' }}> Yes
+                                <input type="radio" name="active" class="radio-inline" value="1" {{ $crmenquirystatuses->active == 1 ? 'checked' : '' }}> Yes
                             </label>
                             <label class="radio-inline">
-                                <input type="radio" name="active" class="radio-inline" value="0" {{ $crmenquirystatuse->active == 0 ? 'checked' : '' }}> No
+                                <input type="radio" name="active" class="radio-inline" value="0" {{ $crmenquirystatuses->active == 0 ? 'checked' : '' }}> No
                             </label>
                         </div>
 

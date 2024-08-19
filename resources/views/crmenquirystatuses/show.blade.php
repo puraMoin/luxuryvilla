@@ -31,7 +31,7 @@
                                     <h6>CRM Enquiry Stage</h6>
                                 </th>
                                 <td>
-                                    <p>{{ $crmenquirystage->name }}</p>
+                                    <p></p>
                                 </td>
                             </tr>
                             <tr>
@@ -39,7 +39,7 @@
                                     <h6>Name</h6>
                                 </th>
                                 <td>
-                                    <p>{{ $crmenquirystatuse->name }}</p>
+                                    <p>{{ $crmenquirystatuses->name }}</p>
                                 </td>
                             </tr>
 
@@ -48,7 +48,7 @@
                                     <h6>Color Code</h6>
                                 </th>
                                 <td>
-                                    <p>{{ $crmenquirystatuse->color_code }}</p>
+                                    <p>{{ $crmenquirystatuses->color_code }}</p>
                                 </td>
                             </tr>
 
@@ -56,8 +56,8 @@
                                 <th><h6>Status</h6></th>
                                 <td>
                                     @php
-                                        $statusClass = $crmenquirystatuse->active ? 'activelabel' : 'inactivelabel';
-                                        $statusText = $crmenquirystatuse->active ? 'Active' : 'Inactive';
+                                        $statusClass = $crmenquirystatuses->active ? 'activelabel' : 'inactivelabel';
+                                        $statusText = $crmenquirystatuses->active ? 'Active' : 'Inactive';
                                     @endphp
                                     <div class="{{ $statusClass }}">{{ $statusText }}</div>
                                 </td>
@@ -68,7 +68,7 @@
                                     <h6>Created At</h6>
                                 </th>
                                 <td>
-                                    <p>{{ $crmenquirystatuse->created_at }}</p>
+                                    <p>{{ $crmenquirystatuses->created_at }}</p>
                                 </td>
                             </tr>
                             <tr>
@@ -76,7 +76,7 @@
                                     <h6>Upldated At</h6>
                                 </th>
                                 <td>
-                                    <p>{{ $crmenquirystatuse->updated_at }}</p>
+                                    <p>{{ $crmenquirystatuses->updated_at }}</p>
                                 </td>
                             </tr>
                             <tr>
