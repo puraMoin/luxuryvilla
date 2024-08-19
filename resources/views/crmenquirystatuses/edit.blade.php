@@ -27,9 +27,9 @@
                                 <label for="crm_enquiry_stage_id">CRM Enquiry Stage <span class="mandatory">*</span></label>
                                 <div class="select-position select-sm">
                                     <select id="crm_enquiry_stage_id" name="crm_enquiry_stage_id" class="jSelectbox">
-                                        <option value="">Select Enquiry Stage</option>
-                                        @foreach ($enquirystages as $enquirystages)
-                                            <option value="{{ $enquirystage->id }}"> {{ $enquirystage->name }}</option>
+                                        <option value="{{ $enquirystage->id }}">{{ $enquirystage->name }}</option>
+                                        @foreach ($enquirystages as $enquirystagess)
+                                            <option value="{{ $enquirystagess->id }}"> {{ $enquirystagess->name }}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -46,7 +46,7 @@
                         <div class="col-md-3">
                             <div class="input-style-1">
                                 <label for="color_code">Color Code <span class="mandatory"> *</span></label>
-                                <input type="text" id="color_code" name="color_code" class="form-control" value="{{ $crmenquirystatuses->color_code }}" required>
+                                <input type="text" id="color_code" name="color_code" class="form-control" value="{{ $crmenquirystatuses->color_code }}" >
                             </div>
                         </div>
 
