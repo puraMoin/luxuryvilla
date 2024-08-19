@@ -11,7 +11,7 @@ class CrmEnquiryStagesController extends Controller
 
     public function index()
     {
-        $pageTitle = 'Cost Types';
+        $pageTitle = 'CRM Enquiry Stages';
         $crmenquirystage = CrmEnquiryStage::all();
         return view('crmenquirystages.index', compact('crmenquirystage', 'pageTitle'));
     }
@@ -32,14 +32,16 @@ class CrmEnquiryStagesController extends Controller
             'name' => 'required|string|max:255',
             'color_code' => 'required|string|max:255',
             'active' => 'boolean',
-            'created_by' => 'nullable | integer',
-            'modified_by' => 'nullable | integer',
+            'created_by' => 'required|integer',
+            'modified_by' => 'required|integer',
         ]);
 
         $crmenquirystage = CrmEnquiryStage::create([
             'name' => $request->input('name'),
             'color_code' => $request->input('color_code'),
             'active' => $request->input('active'),
+            'created_by' => $request->input('created_by'),
+            'modified_by' => $request->input('modified_by'),
             'created_at' => now(),
             'updated_at' => now(),
         ]);
