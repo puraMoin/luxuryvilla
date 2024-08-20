@@ -16,8 +16,7 @@ class User extends Authenticatable
      *
      * @var array
      */
-    public $timestamps = false; // Disable Laravel's default timestamps
-    protected $fillable = ['role_id','admin_type_id','country_id','name','email','password','contact_no','alternate_no','its_seo_users','its_report_manager','image','active','created','modified'];
+    protected $fillable = ['role_id','company_master_id','username','password','first_name','last_name','name','gender','email','dob','contact_no','alternate_no','google_address','country_id','state_id','city_id','area','zipcode','address','image_file','active','created_at','updated_at'];
 
     /**
      * The attributes that should be hidden for arrays.
@@ -43,12 +42,4 @@ class User extends Authenticatable
     {
         return $this->belongsTo(RolesRight::class, 'role_id', 'id');
     }
-
-    // Define the belongsTo relationship
-    public function adminTypes()
-    {
-        return $this->belongsTo(AdminType::class,'admin_type_id', 'id');
-    }
-
-
 }

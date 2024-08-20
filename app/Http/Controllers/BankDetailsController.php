@@ -142,11 +142,10 @@ class BankDetailsController extends Controller
 
         $countryId = $bankdetail->country_id;
         $country = Country::where('id', $countryId)->first();
-        $othercountries = Country::all()->where('id', '!=', $countryId);
 
         $stateId = $bankdetail->state_id;
         $state = State::where('id', $stateId)->first();
-        $otherstates = Country::all()->where('id', '!=', $countryId);
+        $otherstates = State::all()->where('id', '!=', $countryId);
 
         $cityId = $bankdetail->city_id;
         $city = City::where('id', $cityId)->first();
@@ -154,7 +153,7 @@ class BankDetailsController extends Controller
 
         $pageTitle = "Edit";
         $userId = Auth::id();
-        return view('bankdetails.edit', compact('bankdetail', 'pageTitle', 'userId', 'companymaster','othercompanymasters','currency', 'othercurrencies', 'country', 'othercountries', 'state', 'otherstates', 'city', 'othercities'));
+        return view('bankdetails.edit', compact('bankdetail', 'pageTitle', 'userId', 'companymaster','othercompanymasters','currency', 'othercurrencies', 'country', 'state', 'otherstates', 'city', 'othercities'));
     }
 
     /**

@@ -64,7 +64,7 @@
                                     <label>Currency</label>
                                     <div class="select-position select-sm">
                                         <select class="jSelectbox" id="actionDropdown" name="currency_id" required>
-                                            <option value="{{ $currency->id }}">{{ $currency->name }}</option>
+                                            <option value="{{ $currency ? $currency->id : '' }}">{{ $currency ? $currency->name : 'Select a Currency' }}</option>
 
                                             @foreach ($othercurrencies as $key => $currency)
                                                 <option value="{{ $currency->id }}">{{ $currency->name }}</option>
@@ -80,10 +80,7 @@
                                     <label>Country</label>
                                     <div class="select-position select-sm">
                                         <select class="jSelectbox" id="actionDropdown" name="country_id" required>
-                                            <option value="{{ $country->id }}">{{ $country->name }}</option>
-                                            @foreach ($othercountries as $key => $country)
-                                                <option value="{{ $country->id }}">{{ $country->name }}</option>
-                                            @endforeach
+                                            <option value="{{ $country ? $country->id : '' }}">{{ $country ? $country->name : 'Select a Country' }}</option>
                                         </select>
 
                                     </div>
