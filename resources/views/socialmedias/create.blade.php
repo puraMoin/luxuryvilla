@@ -11,7 +11,7 @@
         @csrf
         <div class="row mt-15">
 
-            <div class="col-sm-3">
+            <div class="col-sm-4">
                 <div class="select-style-1">
                     <label for="company_website_id">Company Website <span class="mandatory">*</span></label>
                     <div class="select-position select-sm">
@@ -25,14 +25,21 @@
                 </div>
             </div>
 
-            <div class="col-sm-3">
+            <div class="col-sm-4">
                 <div class="input-style-1">
                     <label>Name <span class="mandatory">*</span></label>
                     <input type="text" name="name" placeholder="Enter Name" required="true" />
                 </div>
             </div>
 
-            <div class="col-sm-6">
+            <div class="col-sm-4">
+                <div class="input-style-1">
+                    <label>Order <span class="mandatory">*</span></label>
+                    <input type="text" name="order" placeholder="Enter Order" required="true" />
+                </div>
+            </div>
+            <hr>
+            <div class="col-sm-12">
                 <div class="input-style-1">
                     <label>Link <span class="mandatory">*</span></label>
                     <input type="text" name="link" placeholder="Enter Link" required="true" />
@@ -40,14 +47,14 @@
             </div>
         </div>
 
-
+        <hr>
         <div class="row mt-15">
             <div class="col-sm-3">
                 <label>Image <span class="mandatory">*</span></label>
-                <div id="iconBox">
-                    <img id="selectedIcon" src="{{ asset('images/no-image.png') }}" alt="Selected Image">
+                <div id="imageBox">
+                    <img id="selectedImage" src="{{ asset('images/no-image.png') }}" alt="Selected Image">
                 </div>
-                <input type="file" name="image" id="imageInput" onchange="displayIcon(this)">
+                <input type="file" name="image_file" id="imageInput">
             </div>
 
             <div class="col-sm-3">

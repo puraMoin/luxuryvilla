@@ -32,7 +32,7 @@ class SocialMediasController extends Controller
         $request->validate([
             'company_website_id' => 'required|integer',
             'name' => 'required|string|max:255',
-            'image'=> 'mimes:jpeg,jpg,png,gif',
+            // 'image'=> 'mimes:jpeg,jpg,png,gif',
             'link' => 'required|string|max:1000',
             'order' => 'required|string|max:1000',
             'active' => 'boolean',
@@ -74,10 +74,12 @@ class SocialMediasController extends Controller
         $userId = Auth::id();
 
         $companywebsite = CompanyWebsite::where('id', $socialmedias->company_website_id)->first();
+        // dd($companywebsite);
         $companywebsites = CompanyWebsite::where('id', '!=', $companywebsite->id)->get();
+        // dd($companywebsites);
 
         $pageTitle = "Edit";
-        return view('socialmedias.edit', compact('parentMenu', 'pageTitle', 'socialmedias'));
+        return view('socialmedias.edit', compact('parentMenu', 'pageTitle', 'socialmedias','companywebsite','companywebsites'));
     }
 
     public function update(Request $request, $id)
@@ -87,17 +89,17 @@ class SocialMediasController extends Controller
         $socialmedias->update([
             'name' => $request->input('name'),
             'link' => $request->input('link'),
+            'order' => $request->input('order'),
             'active' => $request->input('active'),
             'created_at' => now(),
             'updated_at' => now(),
         ]);
 
-
-        if ($request->hasFile('image_icon')) {
-            $image = $request->file('image_icon');
-            $folder = 'images/socialmedias/image_icon/' . $socialmedias->id;
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $folder = 'images/socialmedias/image/' . $socialmedias->id;
             $image->move(public_path($folder), $image->getClientOriginalName());
-            $socialmedias->image_icon = $image->getClientOriginalName();
+            $socialmedias->image = $image->getClientOriginalName();
         }
 
         $socialmedias->save();

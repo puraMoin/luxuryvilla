@@ -37,7 +37,7 @@
                 <tr>
 
                 <td>
-                        <p> {{ $socialmedia->companywebsite ? $socialmedia->companywebsite->name : '---'   }} </p>
+                    <p> {{ $socialmedia->companywebsite ? $socialmedia->companywebsite->name : '---'   }} </p>
                 </td>
 
                 <td>

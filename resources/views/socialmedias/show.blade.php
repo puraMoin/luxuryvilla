@@ -31,19 +31,8 @@
                    <tr>
                     <th><h6>Image</h6></th>
                      <td>
-                        <p>
-
-                          @php
-                              $firstImage = $socialmedias->image_icon;
-                              $id = $socialmedias->id;
-                              $imagePath = $firstImage ? asset("images/socialmedias/image_icon/{$id}/{$firstImage}") : null;
-                          @endphp
-
-                          @if(!empty($imagePath))
-                              <img src="{{ $imagePath }}" height="30px">
-                          @endif
-
-                         </p>
+                        <img src="{{ $socialmedias->image ? asset('images/socialmedias/image/' . $socialmedias->id . '/' . $socialmedias->image) : asset('images/no-image.png') }}"
+                            style="width: 100px; height:70px;">
                      </td>
                   </tr>
 
