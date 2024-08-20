@@ -50,11 +50,15 @@
         <hr>
         <div class="row mt-15">
             <div class="col-sm-3">
+                {{-- @php
+                $filepath = asset(
+                    'images/socialmediass/image/' . $socialmedias->id . '/' . $socialmedias->image);
+                @endphp --}}
                 <label>Image <span class="mandatory">*</span></label>
                 <div id="imageBox">
                     <img id="selectedImage" src="{{ asset('images/no-image.png') }}" alt="Selected Image">
                 </div>
-                <input type="file" name="image_file" id="imageInput">
+                <input type="file" name="image" id="imageInput">
             </div>
 
             <div class="col-sm-3">

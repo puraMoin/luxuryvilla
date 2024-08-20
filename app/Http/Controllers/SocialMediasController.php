@@ -28,7 +28,6 @@ class SocialMediasController extends Controller
 
     public function store(Request $request)
     {
-        // dd($request);
         $request->validate([
             'company_website_id' => 'required|integer',
             'name' => 'required|string|max:255',
@@ -50,11 +49,12 @@ class SocialMediasController extends Controller
 
         if ($request->hasFile('image')) {
             $image = $request->file('image');
-            $folder = 'images/socialmedias/image/' . $socialmedia->id;
+            $folder = 'images/socialmedias/image/'. $socialmedia->id;
             $image->move(public_path($folder), $image->getClientOriginalName());
             $socialmedia->image = $image->getClientOriginalName();
-        }
-        $socialmedia->save();
+           }
+
+           $socialmedia->save();
 
         return redirect()->route('socialmedias.index');
     }
@@ -87,6 +87,7 @@ class SocialMediasController extends Controller
         //dd($request);
         $socialmedias = SocialMedia::find($id);
         $socialmedias->update([
+            'company_website_id' => $request->input('company_website_id'),
             'name' => $request->input('name'),
             'link' => $request->input('link'),
             'order' => $request->input('order'),
