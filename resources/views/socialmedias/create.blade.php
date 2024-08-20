@@ -16,7 +16,7 @@
                     <label for="company_website_id">Company Website <span class="mandatory">*</span></label>
                     <div class="select-position select-sm">
                         <select id="company_website_id" name="company_website_id" class="jSelectbox" required>
-                            <option value="">Company Website</option>
+                            <option value="">Select Company Website</option>
                             @foreach ($companywebsite as $companywebsite)
                                 <option value="{{ $companywebsite->id }}"> {{ $companywebsite->name }}</option>
                             @endforeach

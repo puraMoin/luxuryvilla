@@ -28,7 +28,7 @@ class SocialMediasController extends Controller
 
     public function store(Request $request)
     {
-        //dd($request);
+        // dd($request);
         $request->validate([
             'company_website_id' => 'required|integer',
             'name' => 'required|string|max:255',

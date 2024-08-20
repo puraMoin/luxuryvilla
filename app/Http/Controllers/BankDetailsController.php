@@ -89,11 +89,12 @@ class BankDetailsController extends Controller
             'account_no' => $request->input('account_no'),
             'currency_id' => $currencyId,
             'swift_code' => $request->input('swift_code'),
-            'iban_no' => $request->input('iban_no'),   
-            'ifsc_code' => $request->input('ifsc_code'),        
-            'bank_contact' => $request->input('bank_contact'),             
-            'connecting_bank_name' => $request->input('connecting_bank_name'),      
-            'google_address' => $request->input('google_address'),             
+            'iban_no' => $request->input('iban_no'),
+            'ifsc_code' => $request->input('ifsc_code'),
+            'bank_contact' => $request->input('bank_contact'),
+            'connecting_bank_name' => $request->input('connecting_bank_name'),
+            'connecting_bank_ifsc_code' => $request->input('connecting_bank_ifsc_code'),
+            'google_address' => $request->input('google_address'),
             'country_id' =>  $countryId,
             'state_id' => $stateId,
             'city_id' => $cityId,
@@ -104,7 +105,7 @@ class BankDetailsController extends Controller
             'updated_at' => now(),
         ]);
 
-        return redirect()->route('bankdetails.index');        
+        return redirect()->route('bankdetails.index');
     }
 
     /**
@@ -182,11 +183,12 @@ class BankDetailsController extends Controller
             'account_no' => $request->input('account_no'),
             'currency_id' => $currencyId,
             'swift_code' => $request->input('swift_code'),
-            'iban_no' => $request->input('iban_no'),   
-            'ifsc_code' => $request->input('ifsc_code'),        
-            'bank_contact' => $request->input('bank_contact'),             
-            'connecting_bank_name' => $request->input('connecting_bank_name'),      
-            'google_address' => $request->input('google_address'),             
+            'iban_no' => $request->input('iban_no'),
+            'ifsc_code' => $request->input('ifsc_code'),
+            'bank_contact' => $request->input('bank_contact'),
+            'connecting_bank_name' => $request->input('connecting_bank_name'),
+            'connecting_bank_ifsc_code' => $request->input('connecting_bank_ifsc_code'),
+            'google_address' => $request->input('google_address'),
             'country_id' =>  $countryId,
             'state_id' => $stateId,
             'city_id' => $cityId,
@@ -196,7 +198,7 @@ class BankDetailsController extends Controller
             'updated_at' => now(),
         ]);
 
-        return redirect()->route('bankdetails.index');    
+        return redirect()->route('bankdetails.index');
     }
 
     /**
