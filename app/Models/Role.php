@@ -10,6 +10,7 @@ class Role extends Model
     use HasFactory;
      protected $fillable = [
         'name',
+        'alias',
         'description',
         'full_view',
         'full_add',
@@ -20,4 +21,6 @@ class Role extends Model
         'created_by',
         'modified_by',
     ];
+
+    protected $table = 'roles';
 }

@@ -5,7 +5,7 @@
 	<div class="container-fluid">
 		 <!-- BreathCrum -->
      @include('partials.breadcrumb')
-     <!-- ========== Middle Content-wrapper start ========== -->    
+     <!-- ========== Middle Content-wrapper start ========== -->
      <!-- Add New Button -->
      <div class="right-mob-left">
         <!-- <button type="button" class="main-btn primary-btn-outline btn-hover btn-xs">Import</button>  -->
@@ -20,35 +20,54 @@
             <table class="table striped-table">
                <thead>
                <tr>
+                  <th><h6>Company Website</h6></th>
                   <th><h6>Name</h6></th>
-                  <th class=""><h6>Link</h6></th> 
-                  <th class=""><h6>Image</h6></th> 
-                  <th class="text-center"><h6>Active</h6></th> 
-                  <th class="text-center"><h6>Action</h6></th> 
+                  {{-- <th class=""><h6>Image</h6></th>
+                  <th class=""><h6>Link</h6></th> --}}
+                  {{-- <th class=""><h6>Order</h6></th> --}}
+                  <th class="text-center"><h6>Active</h6></th>
+                  <th class="text-center"><h6>Action</h6></th>
                </tr>
                </thead>
                <tbody>
                 @php $class = '';
                       $data = '';
                 @endphp
-                @foreach ($socialmedias as $socialmedia) 
+                @foreach ($socialmedias as $socialmedia)
                 <tr>
-                  <td><p> {{ $socialmedia->name }} </p></td>
-                  <td><p> {{ $socialmedia->link }} </p></td>
-                  <td><p>     
-                            @php
-                                $firstImage = $socialmedia->image_icon;
-                                $id = $socialmedia->id;
-                                $imagePath = $firstImage ? asset("images/socialmedias/image_icon/{$id}/{$firstImage}") : null;
-                            @endphp
 
-                            @if(!empty($imagePath))
-                                <img src="{{ $imagePath }}" height="50px">
-                            @endif  </p>
-                  </td>
-        
-                  <td class="text-center"> 
-                      @php if($socialmedia->active == '1'){
+                <td>
+                        <p> {{ $socialmedia->companywebsite ? $socialmedia->companywebsite->name : '---'   }} </p>
+                </td>
+
+                <td>
+                    <p> {{ $socialmedia->name }} </p>
+                </td>
+
+                {{-- <td>
+                    <p>
+                    @php
+                        $firstImage = $socialmedia->image_icon;
+                        $id = $socialmedia->id;
+                        $imagePath = $firstImage ? asset("images/socialmedias/image_icon/{$id}/{$firstImage}") : null;
+                    @endphp
+
+                    @if(!empty($imagePath))
+                        <img src="{{ $imagePath }}" height="50px">
+                    @endif
+                    </p>
+                </td> --}}
+
+                {{-- <td>
+                <p>  </p>
+                </td> --}}
+
+                {{-- <td>
+                    <p> {{ $socialmedia->link }} </p>
+                </td> --}}
+
+                <td class="text-center">
+                    @php if($socialmedia->active == '1'){
                             $class = 'activelabel';
                             $data = 'Active';
                             }
@@ -56,18 +75,20 @@
                             $class = 'inactivelabel';
                             $data = 'Inactive';
                             } @endphp
-                   <div class="{{ $class; }}">{{ $data }}</div>         
-                   </td>
-                  <td class="text-center"><a href="{{ route('socialmedias.edit',$socialmedia->id) }}"><i class="lni lni-pencil-alt"></i></a>
-                  <a href="{{ route('socialmedias.show',$socialmedia->id) }}"><i class="lni lni-list"></i></a>
-                  </td>
+                   <div class="{{ $class; }}">{{ $data }}
 
-                 </tr> 
-                 @endforeach
-               </tbody> 
+                   </div>
+                </td>
+                <td class="text-center"><a href="{{ route('socialmedias.edit',$socialmedia->id) }}"><i class="lni lni-pencil-alt"></i></a>
+                <a href="{{ route('socialmedias.show',$socialmedia->id) }}"><i class="lni lni-list"></i></a>
+                </td>
+
+                </tr>
+                @endforeach
+               </tbody>
             </table>
          </div>
       </div>
    </div>
-</section>	
+</section>
 @endsection

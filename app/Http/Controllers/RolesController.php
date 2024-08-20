@@ -25,8 +25,10 @@ class RolesController extends Controller
 
     public function store(Request $request)
     {
+        // dd($request);
         $request->validate([
             'name' => 'required|string|max:255',
+            'alias' => 'required|string|max:255',
             'full_view' => 'required|boolean',
             'full_add' => 'required|boolean',
             'full_edit' => 'required|boolean',
@@ -39,6 +41,7 @@ class RolesController extends Controller
 
         $role = Role::create([
             'name' => $request->input('name'),
+            'alias' => $request->input('alias'),
             'description' => $request->input('description'),
             'full_view' => $request->input('full_view'),
             'full_add' => $request->input('full_add'),
@@ -73,10 +76,11 @@ class RolesController extends Controller
 
     public function update(Request $request, $id)
     {
-        // dd($request);
+        //  dd($request);
         $role = Role::findOrFail($id);
         $role->update([
             'name' => $request->input('name'),
+            'alias' => $request->input('alias'),
             'description' => $request->input('description'),
             'full_view' => $request->input('full_view'),
             'full_add' => $request->input('full_add'),
@@ -84,7 +88,6 @@ class RolesController extends Controller
             'full_delete' => $request->input('full_delete'),
             'super_config' => $request->input('super_config'),
             'config' => $request->input('config'),
-            'created_at' => now(),
             'updated_at' => now(),
         ]);
 

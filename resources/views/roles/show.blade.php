@@ -36,13 +36,21 @@
                             </tr>
                             <tr>
                                 <th class='col-md-2'>
+                                    <h6>Alias</h6>
+                                </th>
+                                <td>
+                                    <p>{{ $role->alias }}</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th class='col-md-2'>
                                     <h6>Description</h6>
                                 </th>
                                 <td>
                                     <p>{{ $role->description }}</p>
                                 </td>
                             </tr>
-                            
+
                             <tr>
                                 <th class='col-md-2'>
                                     <h6>Full View</h6>

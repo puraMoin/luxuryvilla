@@ -4,169 +4,107 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\SocialMedia;
+use App\Models\CompanyWebsite;
+use Illuminate\Support\Facades\Auth;
 
 class SocialMediasController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        //
         $pageTitle = 'Social Media';
-        $parentMenu = 'Super Master';
-
+        $parentMenu = 'Master';
         $socialmedias = SocialMedia::all();
-
-        return view('socialmedias.index',compact('parentMenu','pageTitle','socialmedias'));
+        return view('socialmedias.index', compact('parentMenu', 'pageTitle', 'socialmedias'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function create()
     {
-        //
-        $pageTitle = 'Add';
-
-        return view('socialmedias.create',compact('pageTitle'));
+        $pageTitle = 'Create';
+        $userId = Auth::id();
+        $companywebsite = CompanyWebsite::all();
+        return view('socialmedias.create', compact('pageTitle','userId','companywebsite'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
-               //dd($request);die;     
-       $request->validate([
-            'name' => ['required'],
-            'link'=>['required'],         
+        //dd($request);
+        $request->validate([
+            'company_website_id' => 'required|integer',
+            'name' => 'required|string|max:255',
+            'image'=> 'mimes:jpeg,jpg,png,gif',
+            'link' => 'required|string|max:1000',
+            'order' => 'required|string|max:1000',
+            'active' => 'boolean',
         ]);
 
         $socialmedia = SocialMedia::create([
+            'company_website_id' => $request->input('company_website_id'),
             'name' => $request->input('name'),
             'link' => $request->input('link'),
+            'order' => $request->input('order'),
             'active' => $request->input('active'),
-            'created_at' => now(), // Set the created timestamp
+            'created_at' => now(),
             'updated_at' => now(),
         ]);
 
-         // Handle image uploads
-        if ($request->hasFile('image_icon')) {
-
-            $image = $request->file('image_icon');   
-
-            $folder = 'images/socialmedias/image_icon/'.$socialmedia->id;
-
-            // Save the image directly to the public folder
-            $image->move(public_path($folder), $image->getClientOriginalName());   
-            //dd($image1Path);
-            
-            $socialmedia->image_icon = $image->getClientOriginalName();
-           }
-
-           $socialmedia->save();
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $folder = 'images/socialmedias/image/' . $socialmedia->id;
+            $image->move(public_path($folder), $image->getClientOriginalName());
+            $socialmedia->image = $image->getClientOriginalName();
+        }
+        $socialmedia->save();
 
         return redirect()->route('socialmedias.index');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
-        //
-        $socialmedia = SocialMedia::find($id);
-
-        if (!$socialmedia) {
-            return redirect()->route('socialmedias.index')->with('error', 'socialmedias not found.');
-        }
-
-        // Retrieve additional details if needed
-        $pageTitle = 'SocialMedia';
-        $parentMenu = 'Super Master';
-
-        // You can pass the data to a view and display it
-        return view('socialmedias.show', compact('socialmedia','pageTitle','parentMenu'));
+        $socialmedias = SocialMedia::findOrFail($id);
+        $pageTitle = 'View';
+        $parentMenu = 'Master';
+        return view('socialmedias.show', compact('socialmedias', 'pageTitle', 'parentMenu'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
-        //
-        $socialmedia = SocialMedia::findOrFail($id);
+        $socialmedias = SocialMedia::findOrFail($id);
+        $parentMenu = 'Master';
+        $userId = Auth::id();
 
-        $parentMenu = 'Super Master';
-    
+        $companywebsite = CompanyWebsite::where('id', $socialmedias->company_website_id)->first();
+        $companywebsites = CompanyWebsite::where('id', '!=', $companywebsite->id)->get();
+
         $pageTitle = "Edit";
-        return view('socialmedias.edit',compact('parentMenu','pageTitle','socialmedia'));
+        return view('socialmedias.edit', compact('parentMenu', 'pageTitle', 'socialmedias'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
         //dd($request);
-        $socialmedia = SocialMedia::find($id);
-
-          if (!$socialmedia) {
-            return redirect()->route('socialmedias.index')->with('error', 'Socialmedia not found.');
-         }
-
-        $socialmedia->update([
+        $socialmedias = SocialMedia::find($id);
+        $socialmedias->update([
             'name' => $request->input('name'),
             'link' => $request->input('link'),
             'active' => $request->input('active'),
-            'created_at' => now(), // Set the created timestamp
+            'created_at' => now(),
             'updated_at' => now(),
         ]);
 
-         // Handle image uploads
+
         if ($request->hasFile('image_icon')) {
+            $image = $request->file('image_icon');
+            $folder = 'images/socialmedias/image_icon/' . $socialmedias->id;
+            $image->move(public_path($folder), $image->getClientOriginalName());
+            $socialmedias->image_icon = $image->getClientOriginalName();
+        }
 
-            $image = $request->file('image_icon');   
-
-            $folder = 'images/socialmedias/image_icon/'.$socialmedia->id;
-
-            // Save the image directly to the public folder
-            $image->move(public_path($folder), $image->getClientOriginalName());   
-            //dd($image1Path);
-            
-            $socialmedia->image_icon = $image->getClientOriginalName();
-           }
-
-           $socialmedia->save();
+        $socialmedias->save();
 
         return redirect()->route('socialmedias.index');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
         //

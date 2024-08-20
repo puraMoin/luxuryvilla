@@ -24,6 +24,9 @@
                                 <th>
                                     <h6>Name</h6>
                                 </th>
+                                {{-- <th>
+                                    <h6>Alias</h6>
+                                </th> --}}
                                 <th class="text-center">
                                     <h6>Full View</h6>
                                 </th>
@@ -57,7 +60,11 @@
                                     <td>
                                         <p>{{ $role->name }}</p>
                                     </td>
-                                
+
+                                    {{-- <td>
+                                        <p>{{ $role->alias }}</p>
+                                    </td> --}}
+
                                     <td class="text-center">
                                         @php
                                             $class = $role->full_view == '1' ? 'activelabel' : 'inactivelabel';
@@ -65,7 +72,7 @@
                                         @endphp
                                         <div class="{{ $class }}">{{ $data }}</div>
                                     </td>
-                                
+
                                     <td class="text-center">
                                         @php
                                             $class = $role->full_add == '1' ? 'activelabel' : 'inactivelabel';
@@ -73,7 +80,7 @@
                                         @endphp
                                         <div class="{{ $class }}">{{ $data }}</div>
                                     </td>
-                                
+
                                     <td class="text-center">
                                         @php
                                             $class = $role->full_edit == '1' ? 'activelabel' : 'inactivelabel';
@@ -81,7 +88,7 @@
                                         @endphp
                                         <div class="{{ $class }}">{{ $data }}</div>
                                     </td>
-                                
+
                                     <td class="text-center">
                                         @php
                                             $class = $role->full_delete == '1' ? 'activelabel' : 'inactivelabel';
@@ -89,7 +96,7 @@
                                         @endphp
                                         <div class="{{ $class }}">{{ $data }}</div>
                                     </td>
-                                
+
                                     <td class="text-center">
                                         @php
                                             $class = $role->super_config == '1' ? 'activelabel' : 'inactivelabel';
@@ -97,7 +104,7 @@
                                         @endphp
                                         <div class="{{ $class }}">{{ $data }}</div>
                                     </td>
-                                
+
                                     <td class="text-center">
                                         @php
                                             $class = $role->config == '1' ? 'activelabel' : 'inactivelabel';
@@ -105,7 +112,7 @@
                                         @endphp
                                         <div class="{{ $class }}">{{ $data }}</div>
                                     </td>
-                                
+
                                     <td class="text-center">
                                         <a href="{{ route('roles.edit', $role->id) }}">
                                             <i class="lni lni-pencil-alt"></i>
@@ -115,8 +122,8 @@
                                         </a>
                                     </td>
                                 </tr>
-                                
-                                
+
+
                             @endforeach
                         </tbody>
                     </table>

@@ -61,7 +61,7 @@ class RolesRightsController extends Controller
     {
         $rolesright = RolesRight::findOrFail($id);
         $userId = Auth::id();
-        
+
         $assignedDashboard = AssignedDashboard::where('id', $rolesright->assigned_dashboard_id)->first();
         $assignedDashboardList = AssignedDashboard::where('id', '!=', $assignedDashboard->id)->get();
 

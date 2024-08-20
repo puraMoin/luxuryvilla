@@ -21,10 +21,17 @@
                     <input type="hidden" name="modified_by" value="{{ $userId }}">
 
                     <div class="row">
-                        <div class="col-md-4">
+                        <div class="col-md-2">
                             <div class="input-style-1">
                                 <label for="name">Name <span class="mandatory"> *</span></label>
                                 <input type="text" id="name" name="name" class="form-control" required>
+                            </div>
+                        </div>
+
+                        <div class="col-md-2">
+                            <div class="input-style-1">
+                                <label for="alias">Alias <span class="mandatory"> *</span></label>
+                                <input type="text" id="alias" name="alias" class="form-control" required>
                             </div>
                         </div>
 

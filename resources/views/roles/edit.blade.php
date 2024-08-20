@@ -22,14 +22,19 @@
                     <input type="hidden" name="modified_by" value="{{ $userId }}">
                     <div class="row">
                         <!-- Name -->
-                        <div class="col-md-4">
+                        <div class="col-md-2">
                             <div class="input-style-1">
                                 <label for="name">Name <span class="mandatory"> *</span></label>
                                 <input type="text" id="name" name="name" class="form-control" value="{{ $role->name }}" required>
                             </div>
                         </div>
 
-                        {{-- desc --}}
+                        <div class="col-md-2">
+                            <div class="input-style-1">
+                                <label for="alias">Alias <span class="mandatory"> *</span></label>
+                                <input type="text" id="alias" name="alias" class="form-control" value="{{ $role->alias }}" required>
+                            </div>
+                        </div>
 
                         <!-- Full View -->
                         <div class="col-md-2">
@@ -118,14 +123,14 @@
                         </div>
                     </div>
                 </form>
-                </div>   
-                <br>                
+                </div>
+                <br>
                 <div class="row">
                     <div class="col-md-6">
                         <button type="submit" class="main-btn primary-btn btn-hover btn-sm">Save</button>
                     <button type="reset" class="main-btn primary-btn-outline btn-hover btn-sm">Reset</button>
                     </div>
-                </div>      
+                </div>
             </div>
     </section>
 @endsection
