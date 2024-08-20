@@ -113,9 +113,6 @@
                                     <div class="select-position select-sm">
                                         <select class="jSelectbox" id="actionDropdown" name="country_id" required>
                                             <option value="{{ $country->id }}">{{ $country->name }}</option>
-                                            @foreach ($othercountries as $key => $country)
-                                                <option value="{{ $country->id }}">{{ $country->name }}</option>
-                                            @endforeach
                                         </select>
 
                                     </div>

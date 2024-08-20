@@ -167,11 +167,10 @@ class CompanyMastersController extends Controller
 
         $countryId = $companymaster->country_id;
         $country = Country::where('id', $countryId)->first();
-        $othercountries = Country::all()->where('id', '!=', $countryId);
 
         $stateId = $companymaster->state_id;
         $state = State::where('id', $stateId)->first();
-        $otherstates = Country::all()->where('id', '!=', $countryId);
+        $otherstates = State::all()->where('id', '!=', $countryId);
 
         $cityId = $companymaster->city_id;
         $city = City::where('id', $cityId)->first();
@@ -179,7 +178,7 @@ class CompanyMastersController extends Controller
 
         $pageTitle = "Edit";
         $userId = Auth::id();
-        return view('companymasters.edit', compact('companymaster', 'pageTitle', 'userId', 'currency', 'othercurrencies', 'country', 'othercountries', 'state', 'otherstates', 'city', 'othercities'));
+        return view('companymasters.edit', compact('companymaster', 'pageTitle', 'userId', 'currency', 'othercurrencies', 'country' , 'state', 'otherstates', 'city', 'othercities'));
     }
 
     /**
