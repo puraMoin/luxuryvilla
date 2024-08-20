@@ -126,7 +126,7 @@
                                 <div class="input-style-1">
                                     <label>Account No<span class="mandatory">*</span></label>
                                     <input type="text" name="account_no"
-                                        placeholder="Enter Account No" />
+                                        placeholder="Enter Account No" value="{{ $bankdetail->account_no }}" />
                                 </div>
                             </div>
                             <!-- Swift Code  -->
