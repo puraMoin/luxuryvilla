@@ -191,7 +191,6 @@ class BankDetailsController extends Controller
             'state_id' => $stateId,
             'city_id' => $cityId,
             'active' => $request->input('active'),
-            'created_by' => $request->input('created_by'),
             'modified_by' => $request->input('modified_by'),
             'created_at' => now(), // Set the created timestamp
             'updated_at' => now(),
