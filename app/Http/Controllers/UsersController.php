@@ -192,14 +192,11 @@ class UsersController extends Controller
 
         $roles = RolesRight::where('id', '!=', $role->id)->get();
 
-        $adminType =  AdminType::where('id', $user->admin_type_id)->first();    
-
-        $adminTypes =  AdminType::where('id', '!=', $adminType->id)->get();    
 
         $parentMenu = 'Super Master';
     
         $pageTitle = "Edit";
-        return view('users.edit',compact('parentMenu','pageTitle','user','role','roles','adminType','adminTypes'));
+        return view('users.edit',compact('parentMenu','pageTitle','user','role','roles'));
     }
 
     /**
