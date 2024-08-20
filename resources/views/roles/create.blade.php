@@ -105,8 +105,6 @@
                             </label>
                         </div>
                     </div>
-
-                </form>
                     </div>
                     <br>
                     <div class="row">
@@ -115,6 +113,7 @@
                         <button type="reset" class="main-btn primary-btn-outline btn-hover btn-sm">Reset</button>
                         </div>
                     </div>
+                </form>
             </div>
 
     </section>

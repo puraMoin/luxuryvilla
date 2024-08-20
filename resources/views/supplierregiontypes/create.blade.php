@@ -14,7 +14,7 @@
   </div>
   <div class="container-fluid">
     <div class="card-style mt-20">
-      
+
       <form action="{{ route('supplierregiontypes.store') }}" method="POST">
         @csrf
         <div class="row">
@@ -25,8 +25,8 @@
             </div>
           </div>
         <div class="col-sm-6">
-            <!-- Active Code --> 
-             <label>Active</label><br> 
+            <!-- Active Code -->
+             <label>Active</label><br>
              <label class="radio-inline">
              <input type="radio" name="active" class="radio-inline" value="1"> Yes
              </label>
@@ -36,7 +36,7 @@
          </div>
         </div>
       </div>
-      
+
         <div>
         <div class="row">
           <div class="col-12">

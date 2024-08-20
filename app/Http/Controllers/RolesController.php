@@ -36,7 +36,7 @@ class RolesController extends Controller
             'super_config' => 'required|boolean',
             'config' => 'required|boolean',
             'created_by' => 'required|integer',
-            'modified_by' => 'required|integer'
+            'modified_by' => 'required|integer',
         ]);
 
         $role = Role::create([
@@ -88,7 +88,10 @@ class RolesController extends Controller
             'full_delete' => $request->input('full_delete'),
             'super_config' => $request->input('super_config'),
             'config' => $request->input('config'),
+            // 'created_at' => now(),
             'updated_at' => now(),
+            // 'created_by' => $request->input('created_by'),
+            // 'modified_by' => $request->input('modified_by'),
         ]);
 
         return redirect()->route('roles.index');

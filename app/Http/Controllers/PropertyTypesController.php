@@ -62,7 +62,7 @@ class PropertyTypesController extends Controller
 
     public function update(Request $request, $id)
     {
-        
+
         $propertytypes = PropertyType::findOrFail($id);
         $propertytypes->update([
             'name' => $request->input('name'),

@@ -20,6 +20,8 @@ class Role extends Model
         'config',
         'created_by',
         'modified_by',
+        'created_at',
+        'updated_at',
     ];
 
     protected $table = 'roles';
