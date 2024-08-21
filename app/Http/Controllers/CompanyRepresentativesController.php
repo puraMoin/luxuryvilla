@@ -9,7 +9,6 @@ use Illuminate\Support\Facades\Auth;
 
 class CompanyRepresentativesController extends Controller
 {
-
     public function index()
     {
         $parentMenu = 'Other Modules';
@@ -18,16 +17,14 @@ class CompanyRepresentativesController extends Controller
         return view('companyrepresentatives.index', compact('companyrepresentatives', 'parentMenu', 'pageTitle'));
     }
 
-
     public function create()
     {
         $pageTitle = 'Create';
         $userId = Auth::id();
         $companyrepresentatives = CompanyRepresentative::all();
         $companymaster = CompanyMaster::all();
-        return view('companyrepresentatives.create', compact('companymaster','companyrepresentatives', 'pageTitle', 'userId'));
+        return view('companyrepresentatives.create', compact('companymaster', 'companyrepresentatives', 'pageTitle', 'userId'));
     }
-
 
     public function store(Request $request)
     {
@@ -35,11 +32,11 @@ class CompanyRepresentativesController extends Controller
         $request->validate([
             'company_master_id' => 'required|integer',
             'name' => 'required|string|max:255',
-            'contact_1'=> 'nullable|string',
-            'email_1'=> 'nullable|email',
-            'contact_2'=> 'nullable|string',
-            'email_2'=> 'nullable|email',
-            'fax'=> 'nullable|string',
+            'contact_1' => 'nullable|string',
+            'email_1' => 'nullable|email',
+            'contact_2' => 'nullable|string',
+            'email_2' => 'nullable|email',
+            'fax' => 'nullable|string',
             'active' => 'boolean',
             'created_by' => 'required|integer',
             'modified_by' => 'required|integer',
@@ -71,7 +68,6 @@ class CompanyRepresentativesController extends Controller
         return view('companyrepresentatives.show', compact('pageTitle', 'parentMenu', 'companyrepresentatives'));
     }
 
-
     public function edit($id)
     {
         $companyrepresentatives = CompanyRepresentative::findOrFail($id);
@@ -83,7 +79,6 @@ class CompanyRepresentativesController extends Controller
         $pageTitle = "Edit";
         return view('companyrepresentatives.edit', compact('pageTitle', 'companyrepresentatives', 'companymaster', 'companymasters', 'userId'));
     }
-
 
     public function update(Request $request, $id)
     {
@@ -104,7 +99,6 @@ class CompanyRepresentativesController extends Controller
 
         return redirect()->route('companyrepresentatives.index');
     }
-
 
     public function destroy($id)
     {

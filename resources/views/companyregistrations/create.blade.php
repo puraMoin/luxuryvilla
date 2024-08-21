@@ -74,7 +74,6 @@
         </div>
 
         <div class="col-sm-3">
-            <!-- Active Code -->
              <label>Active <span class="mandatory"> *</span></label><br>
              <label class="radio-inline">
              <input type="radio" name="active" class="radio-inline" value="1"> Yes
