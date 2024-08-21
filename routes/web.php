@@ -118,13 +118,14 @@ Route::get('/dashboard', [DashboardsController::class, 'index'])->name('dashboar
   Route::resource('states', StatesController::class);
   Route::resource('cities', CitiesController::class);
   Route::resource('users', UsersController::class);
+
+  Route::get('/users/create/{usertype}', [UsersController::class, 'create'])->name('users.create');
   // Route to show the change password form
   Route::get('/changepassword', [UsersController::class,'showChangePasswordForm'])->name('users.changepassword');
 
   Route::post('/changepassword', [UsersController::class,'changePassword'])->name('users.update-password');
 
  /*Route::post('/store-password', [UsersController::class, 'changePassword'])->name('store-password');*/
-
 
   Route::resource('admintypes', AdminTypesController::class);
   Route::resource('seomodules', SeoModulesController::class);

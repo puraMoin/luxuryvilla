@@ -8,7 +8,8 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 use App\Models\User;
 use App\Models\RolesRight;
-
+use App\Models\Country;
+use App\Models\State;
 
 class UsersController extends Controller
 {
@@ -61,18 +62,36 @@ class UsersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($roleId = null)
     {
         $pageTitle = 'Admin List';
         $parentMenu = 'Super Master';
 
-        $usersQuery = User::with(['roles','companymaster','country','states','city'])->where('role_id','1');
+        if($roleId == 4){
+            $conditions = '4';		
+            $title = "Agent List";
+            $usertype = '4';	
+          }elseif($roleId == 3){
+            $conditions = '3';		
+             $title = "Employee List";
+             $usertype = '3';	
+          }elseif($roleId == 2){
+              $conditions = '2';
+              $title = "User List";
+              $usertype = '2';
+          }else{
+              $conditions = '1';
+              $title = "Admin List";
+              $usertype = '1';
+          }
+
+        $usersQuery = User::with(['roles','companymaster','country','states','city'])->where('role_id',$conditions);
 
         $users = $usersQuery->paginate(20);
        
         //dd($users);die;
 
-        return view('users.index',compact('users','pageTitle','parentMenu'));
+        return view('users.index',compact('users','pageTitle','parentMenu','usertype'));
     }
 
     /**
@@ -80,10 +99,46 @@ class UsersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(){
+    public function create($roleId = null){
         $pageTitle = 'Add';
         $rolesRights = RolesRight::all()->where('active',true);
-        return view('users.create',compact('pageTitle','rolesRights'));
+
+        $country = Country::where('id', '101')->first();
+        $countryId = $country->id;
+        $states = State::where('country_id', '101')->get();
+
+        if($roleId == 4){
+            $conditions = '4';	
+            $title = "Agent List";
+            $userType = '4';
+            $alias = 'AGT';	
+          }elseif($roleId == 3){
+            $conditions = '3';		
+             $title = "Employee List";
+             $userType = '3';
+             $alias = 'EMP';	
+          }elseif($roleId == 2){
+              $conditions = '2';	
+              $title = "User List";
+              $userType = '2';
+              $alias = 'USR';
+          }else{
+              $conditions = '1';	
+              $title = "Admin List";
+              $userType = '1';
+              $alias = 'ADM';
+          }
+
+	     /*Unique Code Generator*/
+          $date = date('Ymd');
+          $userData = User::all()->where('role_id',$conditions)->max('id');
+          $uniqueId = $userData + 1;
+          //$userData = $this->User->find('all',['conditions'=>$conditions,'contain'=>false,'fields'=>['MAX(User.id)']]);
+
+          $userCode = $alias.'/'.$date.'/'.$uniqueId;
+
+          //dd($userCode);
+        return view('users.create',compact('pageTitle','rolesRights','country','states','userCode','userType'));
     }
 
     /**
@@ -96,55 +151,75 @@ class UsersController extends Controller
     {
        //dd($request);die;     
        $request->validate([
-            'admin_type_id'=>['required'],
-            'name'=>['required'],
-            'email'=>['required'],
-            'password'=>['required'],
+            'role_id'=>'required',
+            'user_code'=>'required',
+            'first_name'=>'required',
+            'last_name'=>'required',
+            'gender'=>'required',
+            'dob'=>'required',
+            'email'=>'required',
+            'contact_no'=>'required',
+            'mobile_no'=>'required',
+            'google_address'=>'required',
+            'country_id'=>'required',            
+            'state_id'=>'required',   
+            'city_id'=>'required',   
+            'area'=>'required',  
+            'zipcode'=>'required',  
+            'address'=>'required',  
+            'active'=>'required',  
         ]);
 
-         $roleId = 1;
-        
-         $adminTypeId = $request->input('admin_type_id');
+         $roleId = $request->input('role_id');
+         $countryId = $request->input('country_id');
+         $stateId = $request->input('state_id');
+         $cityId = $request->input('city_id');
 
-         $role = RolesRight::find($roleId);
-
-         
-        if(!empty($role))
-        {
-            $role_id = $role->id;
-        } 
+         $firstName = $request->input('first_name');
+         $lastName = $request->input('last_name');
+         $fullName = $firstName . $lastName;
 
         $users = User::create([
-            'role_id' => $role_id,
+            'role_id' => $roleId,
+            'user_code'=> $request->input('user_code'),
             'name' => $request->input('name'),
+            'first_name'=> $firstName,
+            'last_name'=> $lastName,  
+            'name' => $fullName,
+            'gender' => $request->input('gender'),
+            'dob' => $request->input('dob'),
             'email' => $request->input('email'),
-            'password' => bcrypt($request->input('password')),
             'contact_no' => $request->input('contact_no'),
-            'alternate_no' => $request->input('alternate_no'),
-            'its_seo_users' => $request->input('its_seo_users'),
-            'its_report_manager' => $request->input('its_report_manager'),
+            'mobile_no' => $request->input('mobile_no'),
+            'google_address' => $request->input('google_address'),
+            'country_id' => $request->input('country_id'),
+            'state_id' => $request->input('state_id'),
+            'city_id' => $request->input('city_id'),
+            'area' => $request->input('area'),
+            'zipcode' => $request->input('zipcode'),
+            'address' => $request->input('address'),
             'active' => $request->input('active'),
             'created_at' => now(), // Set the created timestamp
             'updated_at' => now(),
         ]);
 
          // Handle image uploads
-        if ($request->hasFile('image')) {
+        if ($request->hasFile('image_file')) {
 
-            $image = $request->file('image');   
+            $image = $request->file('image_file');   
 
-            $folder = 'images/users/image/'.$users->id;
+            $folder = 'images/users/image_file/'.$users->id;
 
             // Save the image directly to the public folder
             $image->move(public_path($folder), $image->getClientOriginalName());   
             //dd($image1Path);
             
-            $users->image = $image->getClientOriginalName();
+            $users->image_file = $image->getClientOriginalName();
            }
 
            $users->save();
 
-        return redirect()->route('users.index');
+        return redirect()->route('users.edit', ['user' => $users->id]);
     }
     /**
      * Display the specified resource.
@@ -178,17 +253,19 @@ class UsersController extends Controller
      */
     public function edit($id)
     {
+        $parentMenu = 'Super Master';
+   
+        $pageTitle = "Edit";
+
         $user = User::findOrFail($id);
+        //dd($user);
+        $otherGender = $user->gender == 'Male' ? 'Female' : 'Male';
 
         $role = RolesRight::where('id', $user->role_id)->first(); 
 
         $roles = RolesRight::where('id', '!=', $role->id)->get();
 
-
-        $parentMenu = 'Super Master';
-    
-        $pageTitle = "Edit";
-        return view('users.edit',compact('parentMenu','pageTitle','user','role','roles'));
+        return view('users.edit',compact('parentMenu','pageTitle','user','role','roles','otherGender'));
     }
 
     /**
@@ -211,21 +288,18 @@ class UsersController extends Controller
 
 
          $role = RolesRight::find($roleId);
-         $adminTypes = AdminType::find($adminTypeId);
+
          
 
         if(!empty($role))
         {
             $role_id = $role->id;
         } 
-        if(!empty($adminTypes))
-        {
-            $admin_type_id = $adminTypes->id;
-        }
+
 
         $user->update([
             'role_id' => $role_id,
-            'admin_type_id'=> $admin_type_id,
+
             'name' => $request->input('name'),
             'email' => $request->input('email'),
             'contact_no' => $request->input('contact_no'),

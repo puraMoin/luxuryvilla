@@ -30,52 +30,82 @@
       <div class="row mt-15">
           <!-- Id -->  
          <input type="hidden"  name="id" value="{{ $user->id }}"  />
-
-         <!-- AdminType -->
-        <div class="col-sm-3">
-            <div class="select-style-1">
-               <label>Admin Type</label>
-               <div class="select-position select-sm">
-               <select class="jSelectbox" id="actionDropdown" name="admin_type_id" required>
-                  <option value="{{ $adminType->id }}">{{ $adminType->name }}</option>  
-                      @foreach ($adminTypes as $adminType)
-                     <option value="{{ $adminType->id }}">{{ $adminType->name }}</option>
-                      @endforeach
-               </select>
-               </div>
-            </div>
-         </div>
-          <!-- Name -->
-         <div class="col-sm-3">
+         <h4>Basic Details:</h4>
+         <!-- User Code -->     
+         <input type="hidden" name="role_id" value="{{ $user->role_id }}" >   
+         <div class="col-sm-3 mt-10">
             <div class="input-style-1">
-            <label>Name<span class="mandatory">*</span></label>
-            <input type="text"  name="name" placeholder="Enter Your User Name" required="true" 
-            value="{{ $user->name }}" />
+            <label>User Code<span class="mandatory">*</span></label>
+            <input type="text" name="user_code"  required="true" value = "{{ $user->user_code }}" readonly />
             </div>   
          </div>
-                   <!-- Contact --> 
+         <!-- First Name -->
+         <div class="col-sm-3 mt-10">
+            <div class="input-style-1">
+            <label>First Name<span class="mandatory">*</span></label>
+            <input type="text"  name="first_name" placeholder="Enter Your First Name" required="true" value = "{{ $user->first_name }}" />
+            </div>   
+         </div>
+         <!-- Last Name -->
+         <div class="col-sm-3 mt-10">
+            <div class="input-style-1">
+            <label>Last Name<span class="mandatory">*</span></label>
+            <input type="text"  name="last_name" placeholder="Enter Your Last Name" required="true" value = "{{ $user->last_name }}" />
+            </div>   
+         </div>
+         <div  class="col-sm-3 mt-10">
+            <div class="select-style-1">
+            <label>Gender <span class="mandatory"> *</span></label>
+            <div class="select-position select-sm">
+             <select class="jSelectbox" id="actionDropdown" name="gender" required>               
+                   <option value="{{ $user->gender }}">{{ $user->gender }}</option>
+                   <option value="{{ $otherGender }}">{{ $otherGender }}</option>
+             </select>
+             </div>
+            </div>   
+         </div>
+        </div> 
+        <div class="row">
+         <!-- DOB -->          
          <div class="col-sm-3">
             <div class="input-style-1">
-            <label>Contact<span class="mandatory">*</span></label>
-            <input type="text"  name="contact_no" placeholder="Enter Your Contact" class="numeric" required="true"  value="{{ $user->contact_no }}" />
+            <label>DOB<span class="mandatory">*</span></label>
+            <input type="date"  name="dob" required="true" value="{{ $user->dob }}" />
+            </div>   
+         </div>
+         <!-- Email --> 
+         <div class="col-sm-3">
+            <div class="input-style-1">
+               <label>Email<span class="mandatory">*</span></label>
+               <input type="email"  name="email" placeholder="Enter Your Email" required="true" value="{{ $user->email }}" />
+            </div>   
+         </div>  
+         <!-- Contact -->       
+         <div class="col-sm-3">
+            <div class="input-style-1">
+               <label>Contact<span class="mandatory">*</span></label>
+               <input type="text"  name="contact_no" placeholder="Enter Your Contact" class="numeric" required="true" value="{{ $user->contact_no }}" />
             </div>   
          </div>
          <!-- Alternate No --> 
-         <div class="col-sm-3">
+          <div class="col-sm-3">
             <div class="input-style-1">
-            <label>Alternate No<span class="mandatory">*</span></label>
-            <input type="text"  name="alternate_no" placeholder="Enter Alternate No" class="numeric" required="true" value="{{ $user->alternate_no }}" />
+               <label>Alternate No<span class="mandatory">*</span></label>
+               <input type="text"  name="mobile_no" placeholder="Enter Alternate No" class="numeric" required="true" value="{{ $user->mobile_no }}" />
+            </div>   
+         </div>        
+       </div>  
+      <hr>
+      <div class="row">
+         <h4>Address Information:</h4>
+         <div class="col-sm-12 mt-10">
+            <div class="input-style-1">
+            <label>Location (Only Area, City, State, Country)<span class="mandatory">*</span></label>
+            <input type="text"  name="google_address" value="{{ $user->google_address }}" />
             </div>   
          </div>
-         <!-- Password -->
-<!--          <div class="col-sm-3">
-            <div class="input-style-1">
-            <label>Password<span class="mandatory">*</span></label>
-            <input type="password"  name="password" placeholder="Enter Your Password" required="true" 
-             value="{{ $user->password }}" />
-            </div>   
-         </div> -->
-        </div> 
+         
+      </div>   
        <div class="row mt-15">
          <!-- Email --> 
          <div class="col-sm-3">

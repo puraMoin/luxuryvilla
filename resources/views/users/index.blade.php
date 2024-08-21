@@ -9,7 +9,7 @@
      <!-- Add New Button -->
      <div class="right-mob-left">
         <!-- <button type="button" class="main-btn primary-btn-outline btn-hover btn-xs">Import</button>  -->
-        <a href="{{ route('users.create') }}"><button type="button" class="main-btn primary-btn btn-hover btn-xs">Create</button></a></div>
+        <a href="{{ route('users.create', ['usertype' => $usertype]) }}"><button type="button" class="main-btn primary-btn btn-hover btn-xs">Create</button></a></div>
 	</div>
 
    <div class="container-fluid">
@@ -38,7 +38,6 @@
                       $data = '';
                 @endphp
 
-
                 @foreach ($users as $user) 
                 <tr>  
                   <td><p> {{  $user->name ? $user->name : '---' }} </p></td>
@@ -58,7 +57,6 @@
                   <td class="text-center"><a href="{{ route('users.edit',$user->id) }}"><i class="lni lni-pencil-alt"></i></a>
                   <a href="{{ route('users.show',$user->id) }}"><i class="lni lni-list"></i></a>
                   </td>
-
                  </tr> 
                  @endforeach
                </tbody> 
