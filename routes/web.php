@@ -58,6 +58,7 @@ use App\Http\Controllers\CrmEnquiryStagesController;
 use App\Http\Controllers\CrmEnquiryStatusesController;
 use App\Http\Controllers\AccomodationTypesController;
 use App\Http\Controllers\BankDetailsController;
+use App\Http\Controllers\CompanyRepresentativesController;
 use App\Http\Middleware\CheckSession;
 use App\Models\AgentCreditType;
 use App\Models\Country;
@@ -174,6 +175,7 @@ Route::get('/dashboard', [DashboardsController::class, 'index'])->name('dashboar
   Route::resource('crmenquirystatuses', CrmEnquiryStatusesController::class);
   Route::resource('accomodationtypes', AccomodationTypesController::class);
   Route::resource('bankdetails', BankDetailsController::class);
+  Route::resource('companyrepresentatives', CompanyRepresentativesController::class);
 
   Route::get('/get-states/{countryId}', [StatesController::class, 'getStates']);
   Route::get('/get-cities/{stateId}', [CitiesController::class, 'getCities']);
