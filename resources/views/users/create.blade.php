@@ -40,20 +40,7 @@
                </div>
             </div>
          </div>  -->
-        <!-- AdminType -->
-        <div class="col-sm-4">
-            <div class="select-style-1">
-               <label>Admin Type</label>
-               <div class="select-position select-sm">
-               <select class="jSelectbox" id="actionDropdown" name="admin_type_id" required>
-                  <option value="">Select</option>  
-                      @foreach ($adminTypes as $adminType)
-                     <option value="{{ $adminType->id }}">{{ $adminType->name }}</option>
-                      @endforeach
-               </select>
-               </div>
-            </div>
-         </div>
+
          <!-- Email/Username -->
         <div class="col-sm-4">
             <div class="input-style-1">
