@@ -12,6 +12,11 @@
                 {{ session('success') }}
             </div>
         @endif
+        <div class="right-mob-left">
+            <a href="{{ route('agentcreditlimitformasters.index') }}">
+                <button type="button" class="main-btn primary-btn-outline btn-hover btn-xs">Back</button>
+            </a>
+        </div>
         <!-- Form to Edit Property Details -->
         <form method="POST" action="{{ route('agentcreditlimitformasters.update', $agentcreditlimitformasters->id) }}" enctype="multipart/form-data">
             @csrf

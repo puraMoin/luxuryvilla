@@ -5,10 +5,12 @@
 	<div class="container-fluid">
 		 <!-- BreathCrum -->
      @include('partials.breadcrumb')
+     <div class="right-mob-left">
+        <a href="{{ route('bankdetails.index') }}">
+            <button type="button" class="main-btn primary-btn-outline btn-hover btn-xs">Back</button>
+        </a>
+    </div>
 
-
-
-    <!--Add new section start here-->
 <div class="card-style mt-20">
             <div class="table-wrapper table-responsive mt-10">
                 <table class="table striped-table">
@@ -78,19 +80,19 @@
                         <td class=''>
                         <p>{{ $bankdetail->connecting_bank_name }}</p>
                         </td>
-                    </tr>    
+                    </tr>
                     <tr>
                         <th class='col-md-2'><h6>Connecting Bank Ifsc Code</h6></th>
                         <td class=''>
                         <p>{{ $bankdetail->connecting_bank_ifsc_code }}</p>
                         </td>
-                    </tr>      
+                    </tr>
                     <tr>
                         <th class='col-md-2'><h6>Google Address</h6></th>
                         <td class=''>
                         <p>{{ $bankdetail->google_address }}</p>
                         </td>
-                    </tr>                                   
+                    </tr>
                     <tr>
                         <th class='col-md-2'><h6>Country</h6></th>
                         <td class=''>
@@ -122,7 +124,7 @@
                         } @endphp
                         <div class="{{ $class; }}">{{ $data }}</div>
                     </td>
-                    </tr>                  
+                    </tr>
                     <tr>
                        <th><h6>Created</h6></th>
                        <td>

@@ -5,12 +5,12 @@
   <div class="modal fade modal-lg" id="myModal">
     <div class="modal-dialog">
       <div class="modal-content">
-      
+    
         <!-- Modal Header -->
         <div class="modal-header">
           <h4 class="modal-title">Update Menu Links</h4>
         </div>
-        
+
         <!-- Modal body -->
         <div class="modal-body">
              <div class="row mt-15">
@@ -19,7 +19,7 @@
                      <label>Controller</label>
                      <div class="select-position select-sm">
                      <select class="jSelectbox" id="controllerDropdown" name="controoler">
-                       <option value="">Select Controller</option> 
+                       <option value="">Select Controller</option>
                      @foreach ($controllers as $controller)
                          <option value="{{ $controller }}">{{ $controller }}</option>
                      @endforeach
@@ -32,14 +32,14 @@
                      <label>Action</label>
                      <div class="select-position select-sm">
                      <select class="jSelectbox" id="methods" name="action">
-                        <option value="">Select Action</option>  
+                        <option value="">Select Action</option>
                      </select>
                      </div>
                   </div>
                </div>
-             </div>  
+             </div>
         </div>
-      
+
       </div>
     </div>
   </div>
@@ -47,19 +47,19 @@
 	<div class="container-fluid">
 		 <!-- BreathCrum -->
      @include('partials.breadcrumb')
-     <!-- ========== Middle Content-wrapper start ========== -->    
+     <!-- ========== Middle Content-wrapper start ========== -->
      <!-- Add New Button -->
      <div class="row">
       <div class="col-sm-5">
-         <div class="title rowmargindesk10"><h4>Update {{$pageTitle}} </h4></div> 
-      </div>  
+         <div class="title rowmargindesk10"><h4>Update {{$pageTitle}} </h4></div>
+      </div>
     </div>
     <!-- For Start Here -->
     <div class="card-style mt-20">
       <!-- <div class="create_update">Created: <span>Andria Dsouza On 09/05/2023</span>   |   Last updated: <span>Andria Dsouza On 09/05/2023</span></div> -->
       <!-- Form Start Here -->
       <form method="POST" action="{{ route('menulink.update',['id' => $menulinks->id]) }}">
-       @csrf   
+       @csrf
       <div class="row mt-15">
          <!-- Parent Id -->
          <div class="col-sm-3">
@@ -68,15 +68,15 @@
                <div class="select-position select-sm">
                <select class="jSelectbox" name="parent_id">
                   <option value="">Root</option>
-                  <?php if(!empty($parentMenuLinks)){ 
-                     foreach ($parentMenuLinks as $key => $parentMenuLink) { 
+                  <?php if(!empty($parentMenuLinks)){
+                     foreach ($parentMenuLinks as $key => $parentMenuLink) {
 
                         $selected = ($parentMenuLink->id == $menulinks->parent_id) ? 'selected' : '';
 
                      ?>
                      <option value="<?php echo $parentMenuLink->id; ?>" <?php echo $selected; ?>><?php echo $parentMenuLink->title; ?></option>
                      <?php } ?>
-                  <?php } ?>    
+                  <?php } ?>
                </select>
                </div>
             </div>
@@ -87,7 +87,7 @@
             <label>Title<span class="mandatory">*</span></label>
             <input type="text"  name="title" placeholder="Menu Title" value="{{ $menulinks->title; }}" required>
             <input type="hidden"  name="updated_by" placeholder="Menu Title" value="{{ $user->id; }}" required>
-            </div>   
+            </div>
          </div>
          <!-- Link -->
          <div class="col-sm-6">
@@ -102,7 +102,7 @@
              </div>
             </div>
            </div>
-         </div> 
+         </div>
       </div>
       <div class="row mt-15">
          <div class="col-sm-4">
@@ -112,7 +112,7 @@
             </div>
          </div>
          <div class="col-sm-4">
-         <?php 
+         <?php
             $active = $menulinks->active;
             $checked = ($active == 1) ? 'checked' : '';
             $unchecked = ($active == 1) ? '' : 'checked';
@@ -120,22 +120,22 @@
 
             // echo $checked;
 
-         ?>   
-         <div class="textblack13">Status Information</div>  
+         ?>
+         <div class="textblack13">Status Information</div>
          <div class="row mt-15">
          <div class="col-3">
          <div class="form-check generallabel mb-20">
          <input class="form-check-input" type="radio" name="active" value="1" id="radio-1" <?php echo $checked;?>>
          <label class="form-check-label" for="radio-1">Active</label>
-         </div>   
+         </div>
          </div>
          <div class="col-9">
          <div class="form-check generallabel mb-20">
          <input class="form-check-input" type="radio"  name="active" value="0" id="radio-2" <?php echo $unchecked;?>>
          <label class="form-check-label" for="radio-2">Inactive</label>
-         </div>   
-         </div>   
-         </div>   
+         </div>
+         </div>
+         </div>
          </div>
       </div>
       <div class="row mt-15">
@@ -144,6 +144,6 @@
       </form>
     </div>
 	</div>
-</section>	
+</section>
 @endsection
 

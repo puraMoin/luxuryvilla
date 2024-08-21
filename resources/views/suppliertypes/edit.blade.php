@@ -12,6 +12,11 @@
                 {{ session('success') }}
             </div>
         @endif
+        <div class="right-mob-left">
+            <a href="{{ route('suppliertypes.index') }}">
+              <button type="button" class="main-btn primary-btn-outline btn-hover btn-xs">Back</button>
+            </a>
+          </div>
         <!-- Form to Edit Agent Details -->
         <form method="POST" action="{{ route('suppliertypes.update', $supplierstype->id) }}" enctype="multipart/form-data">
             @csrf
@@ -25,7 +30,7 @@
                         <div class="input-style-1">
                             <label for="name">Name <span class="mandatory"> *</span></label>
                             <input type="text" id="name" name="name" placeholder="Name" value="{{ old('name', $supplierstype->name) }}" />
-                        </div>                        
+                        </div>
                     </div>
                     <div class="col-sm-6">
                         <label>Active</label><br>
@@ -35,7 +40,7 @@
                         <label class="radio-inline">
                             <input type="radio" name="active" value="0" {{ old('active', $supplierstype->active) == 0 ? 'checked' : '' }}> No
                         </label>
-                    </div>  
+                    </div>
                     </div>
                 </div>
 

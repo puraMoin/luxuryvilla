@@ -55,11 +55,11 @@
                                 <td>
                                     @php
                                         $statusClass = $taxmaster->is_vat ? 'activelabel' : 'inactivelabel';
-                                        $statusText = $taxmaster->is_vat ? 'Active' : 'Inactive';
+                                        $statusText = $taxmaster->is_vat ? 'Yes' : 'No';
                                     @endphp
                                     <div class="{{ $statusClass }}">{{ $statusText }}</div>
                                 </td>
-                            </tr>                                                                                  
+                            </tr>
                             <tr>
                                 <th><h6>Status</h6></th>
                                 <td>
@@ -75,11 +75,11 @@
                                 <td>
                                     @php
                                         $statusClass = $taxmaster->is_municipality_tax ? 'activelabel' : 'inactivelabel';
-                                        $statusText = $taxmaster->is_municipality_tax ? 'Active' : 'Inactive';
+                                        $statusText = $taxmaster->is_municipality_tax ? 'Yes' : 'No';
                                     @endphp
                                     <div class="{{ $statusClass }}">{{ $statusText }}</div>
                                 </td>
-                            </tr> 
+                            </tr>
                             <tr>
                                 <th class='col-md-2'>
                                     <h6>Created At</h6>

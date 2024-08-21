@@ -5,6 +5,11 @@
 	<div class="container-fluid">
 		 <!-- BreathCrum -->
      @include('partials.breadcrumb')
+     <div class="right-mob-left">
+        <a href="{{ route('onlinesuppliers.index') }}">
+          <button type="button" class="main-btn primary-btn-outline btn-hover btn-xs">Back</button>
+        </a>
+      </div>
 
 <div class="card-style mt-20">
 

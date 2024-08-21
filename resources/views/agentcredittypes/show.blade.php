@@ -5,9 +5,13 @@
 	<div class="container-fluid">
 		 <!-- BreathCrum -->
      @include('partials.breadcrumb')
+     <div class="right-mob-left">
+        <a href="{{ route('agentcredittypes.index') }}">
+            <button type="button" class="main-btn primary-btn-outline btn-hover btn-xs">Back</button>
+        </a>
+    </div>
 
 
-     
     <!--Add new section start here-->
 <div class="card-style mt-20">
 
@@ -21,9 +25,9 @@
                             <p>{{ $agentcredittype->name }}</p>
                         </td>
                     </tr>
- 
+
                     <tr>
-                    <th><h6>Status</h6></th>    
+                    <th><h6>Status</h6></th>
                     <td>
                       @php if($agentcredittype->active == '1'){
                         $class = 'activelabel';
@@ -35,7 +39,7 @@
                         } @endphp
                         <div class="{{ $class; }}">{{ $data }}</div>
                     </td>
-                    </tr> 
+                    </tr>
                     <tr>
                         <th class='col-md-2'>
                             <h6>Created By</h6>
@@ -57,7 +61,7 @@
                        <td>
                            <p>{{ $agentcredittype->created_at }}</p>
                        </td>
-                    </tr>  
+                    </tr>
                     <tr>
                        <th><h6>Modified</h6></th>
                        <td>
@@ -68,13 +72,13 @@
                 </table>
             </div>
         </div>
-    
+
 
 </div>
 
 
     <!--Add new section end here-->
 	</div>
-</section>	
+</section>
 @endsection
 

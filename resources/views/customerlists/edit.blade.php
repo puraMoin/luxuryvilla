@@ -12,6 +12,11 @@
                 {{ session('success') }}
             </div>
         @endif
+        <div class="right-mob-left">
+            <a href="{{ route('customerlists.index') }}">
+                <button type="button" class="main-btn primary-btn-outline btn-hover btn-xs">Back</button>
+            </a>
+        </div>
 
         <!-- Form to Edit Agent Details -->
         <form method="POST" action="{{ route('customerlists.update', $customerlist->id) }}" enctype="multipart/form-data">
@@ -49,7 +54,7 @@
 
                     <!-- Active -->
                     <div class="col-sm-6">
-                        <label>Active</label><br> 
+                        <label>Active</label><br>
                         <label class="radio-inline">
                             <input type="radio" name="active" class="radio-inline" value="1" {{ old('active', $customerlist->active) == 1 ? 'checked' : '' }}> Yes
                         </label>
@@ -61,7 +66,7 @@
                 </div>
 
             </div>
-            
+
 
                 <div class="row mt-15">
                     <div class="col-sm-12 text-left">

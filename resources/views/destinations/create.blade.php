@@ -5,8 +5,11 @@
         <div class="container-fluid">
             <!-- BreathCrum -->
             @include('partials.breadcrumb')
-            <!-- ========== Middle Content-wrapper start ========== -->
-            <!-- Add New Button -->
+            <div class="right-mob-left">
+                <a href="{{ route('destinations.index') }}">
+                  <button type="button" class="main-btn primary-btn-outline btn-hover btn-xs">Back</button>
+                </a>
+              </div>
 
             <!-- For Start Here -->
             <form method="POST" action="{{ route('destinations.store') }}" enctype="multipart/form-data">
@@ -28,7 +31,7 @@
                             <div class="select-style-1">
                                 <label>Country</label>
                                 <div class="select-position select-sm">
-                                    <select class="jSelectbox" id="actionDropdown" name="country_id" required>                      
+                                    <select class="jSelectbox" id="actionDropdown" name="country_id" required>
                                             <option value="{{ $country->id }}">{{ $country->name }}</option>
                                     </select>
                                 </div>
@@ -84,7 +87,7 @@
                                     <label>Homepage Order<span class="mandatory">*</span></label>
                                     <input type="text" name="homepage_order" placeholder="Enter Homepage Order" />
                                 </div>
-                            </div>                            
+                            </div>
                         </div>
                         <hr>
                         <!-- Row 3 -->
@@ -99,7 +102,7 @@
                         </div>
                         <hr>
                         <!-- Row 3 -->
-                        <div class="row">                            
+                        <div class="row">
                             <!-- Active Code -->
                             <div class="col-sm-4">
                                 <label>Active</label><br>
@@ -120,7 +123,7 @@
                                 <label class="radio-inline">
                                     <input type="radio" name="display_on_homepage" class="radio-inline" value="0" checked> No
                                 </label>
-                            </div>      
+                            </div>
                             <!-- Display Home Code -->
                             <div class="col-sm-4">
                                 <label>Is Top Destination</label><br>
@@ -130,7 +133,7 @@
                                 <label class="radio-inline">
                                     <input type="radio" name="is_top_destination" class="radio-inline" value="0" checked> No
                                 </label>
-                            </div>                                                   
+                            </div>
                         </div>
                         <hr>
                         <!-- Row 3 -->
@@ -143,8 +146,8 @@
                                 </div>
                             </div>
                         </div>
-                        <hr>         
-                          <!-- Row 8 -->        
+                        <hr>
+                          <!-- Row 8 -->
                       <div class="row mt-15">
                         <!-- Cover Image -->
                         <div class="col-sm-4">
@@ -162,11 +165,11 @@
                                 <img id="selectedHeaderImage" src="{{ asset('images/no-image.png') }}" alt="Selected Image">
                             </div>
                             <input type="file" name="thumbnail_image" id="imageHeaderInput">
-                        </div>     
-                        </div>                                                     
-                      </div>  
-                    </div>      
-                      <div>                                                  
+                        </div>
+                        </div>
+                      </div>
+                    </div>
+                      <div>
                         <div class="row mt-15">
                             <div class="col-sm-3">
                                 <button type="submit" class="main-btn primary-btn btn-hover btn-sm">Save</button>

@@ -4,6 +4,11 @@
     <section class="section">
         <div class="container-fluid">
             @include('partials.breadcrumb')
+            <div class="right-mob-left">
+                <a href="{{ route('rolesrights.index') }}">
+                  <button type="button" class="main-btn primary-btn-outline btn-hover btn-xs">Back</button>
+                </a>
+              </div>
 
             <form method="POST" action="{{ route('rolesrights.update', ['rolesright' => $rolesright->id]) }}"
                 enctype="multipart/form-data">
@@ -53,7 +58,7 @@
                     </div>
                 </div>
                 <div>
-                    
+
                     <div class="row mt-15">
                         <div class="col-sm-3">
                             <button type="submit" class="main-btn primary-btn btn-hover btn-sm">Save</button>

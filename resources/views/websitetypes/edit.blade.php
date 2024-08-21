@@ -12,6 +12,11 @@
                 {{ session('success') }}
             </div>
         @endif
+        <div class="right-mob-left">
+            <a href="{{ route('websitetypes.index') }}">
+                <button type="button" class="main-btn primary-btn-outline btn-hover btn-xs">Back</button>
+            </a>
+        </div>
         <!-- Form to Edit Property Details -->
         <form method="POST" action="{{ route('websitetypes.update', $websitetypes->id) }}" enctype="multipart/form-data">
             @csrf

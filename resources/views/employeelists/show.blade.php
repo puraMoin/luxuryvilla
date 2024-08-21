@@ -12,11 +12,11 @@
                 {{ session('success') }}
             </div>
         @endif
-        {{-- <div class="right-mob-left">
+        <div class="right-mob-left">
             <a href="{{ route('employeelists.index') }}">
               <button type="button" class="main-btn primary-btn-outline btn-hover btn-xs">Back</button>
             </a>
-          </div> --}}
+          </div>
         <!-- Agent Details Section -->
         <div class="card-style mt-20">
             <div class="table-wrapper table-responsive mt-10">
@@ -68,7 +68,7 @@
                                 <p>{{ $employeelists->updated_at }}</p>
                             </td>
                         </tr>
-                        
+
                         </tr>
                     </tbody>
                 </table>

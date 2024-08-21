@@ -8,9 +8,9 @@
             <!-- Add New Button -->
             <div class="right-mob-left">
                 <a href="{{ route('bookingstatuses.index') }}">
-                    <button type="button" class="main-btn primary-btn-outline btn-hover btn-sm">Back</button>
+                  <button type="button" class="main-btn primary-btn-outline btn-hover btn-xs">Back</button>
                 </a>
-            </div>
+              </div>
 
             <!-- Form Start Here -->
             <form method="POST" action="{{ route('bookingstatuses.update', $bookingstatuses->id) }}" enctype="multipart/form-data">
@@ -81,7 +81,7 @@
                             <label>Icon <span class="mandatory">*</span></label>
                             @php
                                 $filepath = asset('images/bookingstatuses/icon/' . $bookingstatuses->id . '/' . $bookingstatuses->icon);
-                                
+
                             @endphp
                             <div id="imageBox">
                                 <img id="icon" src="{{ $bookingstatuses->icon ? $filepath : asset('images/no-image.png') }}" alt="Selected icon" height="70px">

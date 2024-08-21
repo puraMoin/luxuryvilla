@@ -12,6 +12,11 @@
                 {{ session('success') }}
             </div>
         @endif
+        <div class="right-mob-left">
+            <a href="{{ route('areaunits.index') }}">
+              <button type="button" class="main-btn primary-btn-outline btn-hover btn-xs">Back</button>
+            </a>
+          </div>
         <!-- Form to Edit Property Details -->
         <form method="POST" action="{{ route('areaunits.update', $areaunits->id) }}" enctype="multipart/form-data">
             @csrf
@@ -21,12 +26,12 @@
                 <!-- Form Start Here -->
 
                 <div class="row mt-12">
-                    <!-- Name -->   
+                    <!-- Name -->
                     <div class="col-sm-6">
                         <div class="input-style-1">
                             <label for="name">Name <span class="mandatory"> *</span></label>
                             <input type="text" id="name" name="name" placeholder="Name" value="{{ old('name', $areaunits->name) }}" />
-                        </div>                        
+                        </div>
                     </div>
                     <div class="col-sm-6">
                         <label>Active</label><br>
@@ -36,7 +41,7 @@
                         <label class="radio-inline">
                             <input type="radio" name="active" value="0" {{ old('active', $areaunits->active) == 0 ? 'checked' : '' }}> No
                         </label>
-                    </div>  
+                    </div>
                     </div>
                 </div>
 

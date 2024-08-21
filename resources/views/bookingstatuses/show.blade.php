@@ -12,6 +12,11 @@
                     {{ session('success') }}
                 </div>
             @endif
+            <div class="right-mob-left">
+                <a href="{{ route('bookingstatuses.index') }}">
+                  <button type="button" class="main-btn primary-btn-outline btn-hover btn-xs">Back</button>
+                </a>
+              </div>
 
             <!-- Property Types Details Section -->
             <div class="card-style mt-20">

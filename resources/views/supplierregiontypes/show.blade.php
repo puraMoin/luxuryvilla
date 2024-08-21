@@ -12,6 +12,11 @@
                 {{ session('success') }}
             </div>
         @endif
+        <div class="right-mob-left">
+            <a href="{{ route('supplierregiontypes.index') }}">
+              <button type="button" class="main-btn primary-btn-outline btn-hover btn-xs">Back</button>
+            </a>
+          </div>
         <!-- Agent Details Section -->
         <div class="card-style mt-20">
             <div class="table-wrapper table-responsive mt-10">

@@ -5,8 +5,11 @@
         <div class="container-fluid">
             <!-- BreathCrum -->
             @include('partials.breadcrumb')
-            <!-- ========== Middle Content-wrapper start ========== -->
-            <!-- Add New Button -->
+            <div class="right-mob-left">
+                <a href="{{ route('bankdetails.index') }}">
+                    <button type="button" class="main-btn primary-btn-outline btn-hover btn-xs">Back</button>
+                </a>
+            </div>
 
             <!-- For Start Here -->
             <form method="POST" action="{{ route('bankdetails.store') }}" enctype="multipart/form-data">
@@ -32,7 +35,7 @@
                                     </select>
                                 </div>
                             </div>
-                        </div>                        
+                        </div>
                         <!-- Name  -->
                         <div class="col-sm-3">
                             <div class="input-style-1">
@@ -76,7 +79,7 @@
                                 <div class="select-style-1">
                                     <label>Country</label>
                                     <div class="select-position select-sm">
-                                        <select class="jSelectbox" id="actionDropdown" name="country_id" required>                      
+                                        <select class="jSelectbox" id="actionDropdown" name="country_id" required>
                                                 <option value="{{ $country->id }}">{{ $country->name }}</option>
                                         </select>
                                     </div>
@@ -108,7 +111,7 @@
                               </div>
                           </div>
                         </div>
-                        <hr>                        
+                        <hr>
                         <!-- Row 3 -->
                         <div class="row">
                             <!-- Account No  -->
@@ -132,39 +135,39 @@
                                     <label>Iban No<span class="mandatory">*</span></label>
                                     <input type="text" name="iban_no" placeholder="Enter Iban No" />
                                 </div>
-                            </div>   
+                            </div>
                             <!-- Ifsc Code  -->
                             <div class="col-sm-3">
                                 <div class="input-style-1">
                                     <label>Ifsc Code<span class="mandatory">*</span></label>
                                     <input type="text" name="ifsc_code" placeholder="Enter Ifsc Code" />
                                 </div>
-                            </div>                         
+                            </div>
                         </div>
-                        <hr>   
+                        <hr>
                         <!-- Row 7 -->
                         <div class="row mt-15">
-                              <!-- Bank Contact  -->                             
+                              <!-- Bank Contact  -->
                             <div class="col-sm-3">
                                 <div class="input-style-1">
                                     <label>Bank Contact<span class="mandatory">*</span></label>
                                     <input type="text" name="bank_contact" placeholder="Enter Bank Contact" />
                                 </div>
-                            </div> 
-                            <!-- Connecting Bank Name  -->                              
+                            </div>
+                            <!-- Connecting Bank Name  -->
                             <div class="col-sm-4">
                                 <div class="input-style-1">
                                     <label>Connecting Bank Name<span class="mandatory">*</span></label>
                                     <input type="text" name="connecting_bank_name" placeholder="Enter Connecting Bank Name" />
                                 </div>
-                            </div>     
-                            <!-- Connecting Bank Ifsc Code  -->                             
+                            </div>
+                            <!-- Connecting Bank Ifsc Code  -->
                             <div class="col-sm-3">
                                 <div class="input-style-1">
                                     <label>Connecting Bank Ifsc Code<span class="mandatory">*</span></label>
                                     <input type="text" name="connecting_bank_ifsc_code" placeholder="Enter Connecting Bank Ifsc Code" />
                                 </div>
-                            </div>                                                     
+                            </div>
                             <!-- Active Code -->
                             <div class="col-sm-2">
                                 <label>Active</label><br>
@@ -176,7 +179,7 @@
                                 </label>
                             </div>
                         </div>
-                        <hr>                     
+                        <hr>
                         <!-- Row 3 -->
                         <div class="row mt-15">
                             <!-- Address -->
@@ -187,20 +190,20 @@
                                 </div>
                             </div>
                         </div>
-                        <hr>     
+                        <hr>
                          <!-- Row 8 -->
                          <div class="row mt-15">
-                            <!-- Google Address  -->                            
+                            <!-- Google Address  -->
                           <div class="col-sm-12">
                               <div class="input-style-1">
                                   <label>Google Address <span class="mandatory">*</span></label>
                                   <textarea name="google_address" class="rich-editor" rows="3"></textarea>
                               </div>
                           </div>
-                      </div>                                                              
-                      </div>  
-                    </div>      
-                      <div>                                                  
+                      </div>
+                      </div>
+                    </div>
+                      <div>
                         <div class="row mt-15">
                             <div class="col-sm-3">
                                 <button type="submit" class="main-btn primary-btn btn-hover btn-sm">Save</button>

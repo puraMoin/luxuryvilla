@@ -5,16 +5,21 @@
     <div class="container-fluid">
         <!-- Breadcrumb -->
         @include('partials.breadcrumb')
+        <div class="right-mob-left">
+            <a href="{{ route('rolesrights.index') }}">
+              <button type="button" class="main-btn primary-btn-outline btn-hover btn-xs">Back</button>
+            </a>
+          </div>
 
         <!-- Form Start Here -->
         <form method="POST" action="{{ route('rolesrights.store') }}" enctype="multipart/form-data">
             <div class="card-style mt-20">
                 @csrf
-                
+
                 <!-- Hidden Fields -->
                 <input type="hidden" name="created_by" value="{{ $userId }}">
                 <input type="hidden" name="modified_by" value="{{ $userId }}">
-                
+
                 <!-- Row 1 -->
                 <div class="row mt-15">
                     <div class="col-sm-4">
@@ -28,7 +33,7 @@
                     <div class="col-sm-4">
                         <div class="select-style-1">
                             <label for="assigned_dashboard_id">Assigned Dashboard <span class="mandatory">*</span></label>
-                            <div class="select-position select-sm">  
+                            <div class="select-position select-sm">
                             <select id="assigned_dashboard_id" name="assigned_dashboard_id" class="jSelectbox" required>
                                 <option value="">Select Assigned Dashboard</option>
                                 @foreach($assignedDashboardList as $id => $name)
@@ -57,14 +62,14 @@
                 <div class="row mt-15">
                   <div class="col-sm-12">
                      <div class="input-style-1">
-                     <label>Description <span class="mandatory">*</span></label> 
+                     <label>Description <span class="mandatory">*</span></label>
                       <textarea name="description" class="rich-editor" placeholder="description" rows="3"></textarea>
-                     </div>   
+                     </div>
                   </div>
                 </div>
             </div>
                 <div>
-                
+
                 <!-- Save and Reset Buttons -->
                 <div class="row mt-15">
                     <div class="col-sm-3">

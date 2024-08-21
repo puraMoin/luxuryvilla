@@ -5,6 +5,11 @@
 	<div class="container-fluid">
 		 <!-- BreathCrum -->
      @include('partials.breadcrumb')
+     <div class="right-mob-left">
+        <a href="{{ route('customerlists.index') }}">
+            <button type="button" class="main-btn primary-btn-outline btn-hover btn-xs">Back</button>
+        </a>
+    </div>
 
     <!--Add new section start here-->
 <div class="card-style mt-20">
@@ -31,7 +36,7 @@
                     </tr>
                     <tr>
                     <tr>
-                    <th><h6>Status</h6></th>    
+                    <th><h6>Status</h6></th>
                     <td>
                       @php if($customerlist->active == '1'){
                         $class = 'activelabel';
@@ -43,13 +48,13 @@
                         } @endphp
                         <div class="{{ $class; }}">{{ $data }}</div>
                     </td>
-                    </tr> 
+                    </tr>
                     <tr>
                        <th><h6>Created</h6></th>
                        <td>
                            <p>{{ $customerlist->created_at }}</p>
                        </td>
-                    </tr>  
+                    </tr>
                     <tr>
                        <th><h6>Updated</h6></th>
                        <td>
@@ -60,13 +65,13 @@
                 </table>
             </div>
         </div>
-    
+
 
 </div>
 
 
     <!--Add new section end here-->
 	</div>
-</section>	
+</section>
 @endsection
 

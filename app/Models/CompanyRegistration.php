@@ -24,7 +24,7 @@ class CompanyRegistration extends Model
     protected $table = 'company_registrations';
 
     public function companytextinformation(){
-        return $this->belongsTo(CompanyTextInformation::class,'company_text_information_id');
+        return $this->belongsTo(CompanyTaxInformation::class,'company_text_information_id');
     }
 
     public function companymaster(){

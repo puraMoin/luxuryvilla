@@ -5,23 +5,23 @@
      <div class="container-fluid">
          <!-- Breadcrumb -->
          @include('partials.breadcrumb')
- 
+
          <!-- Display success message if any -->
          @if (session('success'))
              <div class="alert alert-success">
                  {{ session('success') }}
              </div>
          @endif
-         {{-- <div class="right-mob-left">
+         <div class="right-mob-left">
             <a href="{{ route('employeelists.index') }}">
               <button type="button" class="main-btn primary-btn-outline btn-hover btn-xs">Back</button>
             </a>
-          </div> --}}
+          </div>
          <!-- Form to Edit Employee Details -->
          <form method="POST" action="{{ route('employeelists.update', $employeelists->id) }}" enctype="multipart/form-data">
              @csrf
              @method('PATCH')
- 
+
              <div class="card-style mt-20">
                  <!-- Form Start Here -->
                  <div class="row mt-15">
@@ -32,7 +32,7 @@
                              <input type="text" id="name" name="name" placeholder="Name" value="{{ old('name', $employeelists->name) }}" />
                          </div>
                      </div>
- 
+
                      <!-- Username -->
                      <div class="col-sm-4">
                          <div class="input-style-1">
@@ -40,7 +40,7 @@
                              <input type="email" id="username" name="username" placeholder="Username" value="{{ old('username', $employeelists->username) }}" />
                          </div>
                      </div>
- 
+
                      <!-- Email -->
                      <div class="col-sm-4">
                          <div class="input-style-1">
@@ -49,7 +49,7 @@
                          </div>
                      </div>
                  </div>
- 
+
                  <div class="row mt-15">
                      <!-- Contact -->
                      <div class="col-sm-4">
@@ -58,10 +58,10 @@
                              <input type="text" class="numeric" name="contact" placeholder="Contact" value="{{ old('contact', $employeelists->contact) }}" />
                          </div>
                      </div>
- 
+
                      <!-- Active -->
                      <div class="col-sm-4">
-                         <label>Active</label><br> 
+                         <label>Active</label><br>
                          <label class="radio-inline">
                              <input type="radio" name="active" class="radio-inline" value="1" {{ old('active', $employeelists->active) == 1 ? 'checked' : '' }}> Yes
                          </label>
@@ -83,5 +83,4 @@
      </div>
  </section>
  @endsection
- 
- 
+

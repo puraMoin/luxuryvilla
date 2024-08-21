@@ -5,8 +5,12 @@
         <div class="container-fluid">
             <!-- BreathCrum -->
             @include('partials.breadcrumb')
-            <!-- ========== Middle Content-wrapper start ========== -->
-            <!-- Add New Button -->
+            <div class="right-mob-left">
+                <a href="{{ route('companymasters.index') }}">
+                  <button type="button" class="main-btn primary-btn-outline btn-hover btn-xs">Back</button>
+                </a>
+              </div>
+
 
             <!-- For Start Here -->
             <form method="POST" action="{{ route('companymasters.store') }}" enctype="multipart/form-data">
@@ -102,7 +106,7 @@
                                 <div class="select-style-1">
                                     <label>Country</label>
                                     <div class="select-position select-sm">
-                                        <select class="jSelectbox" id="actionDropdown" name="country_id" required>                      
+                                        <select class="jSelectbox" id="actionDropdown" name="country_id" required>
                                                 <option value="{{ $country->id }}">{{ $country->name }}</option>
                                         </select>
                                     </div>
@@ -146,7 +150,7 @@
                             </div>
                         </div>
                         <hr>
-                         <!-- Row 4 -->                       
+                         <!-- Row 4 -->
                         <div class="row mt-15">
                             <!-- Zip Code  -->
                             <div class="col-sm-3">
@@ -170,8 +174,8 @@
                                     <label>Phone Calling Code 1 <span class="mandatory">*</span></label>
                                     <input type="text" name="phone_calling_code_1" placeholder="Enter Phone Calling Code 1" />
                                 </div>
-                            </div>   
-                            
+                            </div>
+
                             <!-- Contact No 1 -->
                             <div class="col-sm-3">
                                 <div class="input-style-1">
@@ -180,9 +184,9 @@
                                 </div>
                             </div>
 
-                        </div>    
+                        </div>
                         <hr>
-                        <!-- Row 5 -->                        
+                        <!-- Row 5 -->
                         <div class="row mt-15">
                             <!-- Phone Calling Code 2  -->
                             <div class="col-sm-3">
@@ -197,48 +201,48 @@
                                     <label>Contact no 2 <span class="mandatory">*</span></label>
                                     <input type="text" name="contact_no_2" placeholder="Enter Contact no 2" />
                                 </div>
-                            </div>     
+                            </div>
                              <!-- Email  -->
                             <div class="col-sm-3">
                                 <div class="input-style-1">
                                     <label>Email <span class="mandatory">*</span></label>
                                     <input type="email" name="email" placeholder="Enter Email" />
                                 </div>
-                            </div>      
+                            </div>
                               <!-- Fax  -->
                               <div class="col-sm-3">
                                 <div class="input-style-1">
                                     <label>Fax <span class="mandatory">*</span></label>
                                     <input type="text" name="fax" placeholder="Enter Fax" />
                                 </div>
-                            </div>                               
-                        </div>    
+                            </div>
+                        </div>
                          <!-- Row 6 -->
                         <div class="row mt-15">
-                              <!-- Note  -->                            
+                              <!-- Note  -->
                             <div class="col-sm-12">
                                 <div class="input-style-1">
                                     <label>Note <span class="mandatory">*</span></label>
                                     <textarea name="note" class="rich-editor" rows="3"></textarea>
                                 </div>
                             </div>
-                        </div>    
+                        </div>
                         <!-- Row 7 -->
                         <div class="row mt-15">
-                              <!-- Facebook Link  -->                             
+                              <!-- Facebook Link  -->
                             <div class="col-sm-5">
                                 <div class="input-style-1">
                                     <label>Facebook Link<span class="mandatory">*</span></label>
                                     <input type="text" name="facebook_link" placeholder="Enter Facebook Link" />
                                 </div>
-                            </div> 
-                            <!-- Twitter Link  -->                              
+                            </div>
+                            <!-- Twitter Link  -->
                             <div class="col-sm-5">
                                 <div class="input-style-1">
                                     <label>Twitter<span class="mandatory">*</span></label>
                                     <input type="text" name="twitter_link" placeholder="Enter Twitter Link" />
                                 </div>
-                            </div>                                                         
+                            </div>
                             <!-- Active Code -->
                             <div class="col-sm-2">
                                 <label>Active</label><br>
@@ -253,16 +257,16 @@
                         <hr>
                          <!-- Row 8 -->
                          <div class="row mt-15">
-                            <!-- Google Address  -->                            
+                            <!-- Google Address  -->
                           <div class="col-sm-12">
                               <div class="input-style-1">
                                   <label>Google Address <span class="mandatory">*</span></label>
                                   <textarea name="google_address" class="rich-editor" rows="3"></textarea>
                               </div>
                           </div>
-                      </div>   
-                      <hr>       
-                          <!-- Row 8 -->        
+                      </div>
+                      <hr>
+                          <!-- Row 8 -->
                       <div class="row mt-15">
                         <!-- Image File -->
                         <div class="col-sm-4">
@@ -280,7 +284,7 @@
                                 <img id="selectedHeaderImage" src="{{ asset('images/no-image.png') }}" alt="Selected Image">
                             </div>
                             <input type="file" name="header_image_file" id="imageHeaderInput">
-                        </div>  
+                        </div>
                             <!-- Footer Image File -->
                             <div class="col-sm-4">
                                 <label>Footer Image File<span class="mandatory">*</span></label>
@@ -288,11 +292,11 @@
                                 <img id="selectedFooterImage" src="{{ asset('images/no-image.png') }}" alt="Selected Image">
                                 </div>
                                 <input type="file" name="footer_image_file" id="imageFooterInput">
-                            </div>   
-                        </div>                                                     
-                      </div>  
-                    </div>      
-                      <div>                                                  
+                            </div>
+                        </div>
+                      </div>
+                    </div>
+                      <div>
                         <div class="row mt-15">
                             <div class="col-sm-3">
                                 <button type="submit" class="main-btn primary-btn btn-hover btn-sm">Save</button>

@@ -5,6 +5,11 @@
     <div class="container-fluid">
         <!-- Breadcrumb -->
         @include('partials.breadcrumb')
+        <div class="right-mob-left">
+            <a href="{{ route('rolesrights.index') }}">
+              <button type="button" class="main-btn primary-btn-outline btn-hover btn-xs">Back</button>
+            </a>
+          </div>
 
         <!-- Add new section start here -->
         <div class="card-style mt-20">

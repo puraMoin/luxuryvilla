@@ -5,8 +5,11 @@
         <div class="container-fluid">
             <!-- BreathCrum -->
             @include('partials.breadcrumb')
-            <!-- ========== Middle Content-wrapper start ========== -->
-            <!-- Add New Button -->
+            <div class="right-mob-left">
+                <a href="{{ route('bankdetails.index') }}">
+                    <button type="button" class="main-btn primary-btn-outline btn-hover btn-xs">Back</button>
+                </a>
+            </div>
 
             <!-- For Start Here -->
             <form method="POST" action="{{ route('bankdetails.update', $bankdetail->id) }}"
@@ -57,7 +60,7 @@
                         </div>
                         <hr>
                         <!-- Row 2 -->
-                        <div class="row">                
+                        <div class="row">
                             <!-- Currency Name -->
                             <div class="col-sm-3">
                                 <div class="select-style-1">
@@ -113,9 +116,9 @@
                                         </select>
                                     </div>
                                 </div>
-                            </div> 
+                            </div>
                         </div>
-                        <hr>                        
+                        <hr>
                         <!-- Row 3 -->
                         <div class="row">
                             <!-- Account No  -->
@@ -139,38 +142,38 @@
                                     <label>Iban No<span class="mandatory">*</span></label>
                                     <input type="text" name="iban_no" placeholder="Enter Iban No" value="{{ $bankdetail->iban_no }}" />
                                 </div>
-                            </div>   
+                            </div>
                             <!-- Ifsc Code  -->
                             <div class="col-sm-3">
                                 <div class="input-style-1">
                                     <label>Ifsc Code<span class="mandatory">*</span></label>
                                     <input type="text" name="ifsc_code" placeholder="Enter Ifsc Code" value="{{ $bankdetail->ifsc_code }}" />
                                 </div>
-                            </div>                         
+                            </div>
                         </div>
                         <hr>
                         <div class="row mt-15">
-                            <!-- Bank Contact  -->                             
+                            <!-- Bank Contact  -->
                           <div class="col-sm-3">
                               <div class="input-style-1">
                                   <label>Bank Contact<span class="mandatory">*</span></label>
                                   <input type="text" name="bank_contact" placeholder="Enter Bank Contact" value="{{ $bankdetail->bank_contact }}" />
                               </div>
-                          </div> 
-                          <!-- Connecting Bank Name  -->                              
+                          </div>
+                          <!-- Connecting Bank Name  -->
                           <div class="col-sm-4">
                               <div class="input-style-1">
                                   <label>Connecting Bank Name<span class="mandatory">*</span></label>
                                   <input type="text" name="connecting_bank_name" placeholder="Enter Connecting Bank Name" value="{{ $bankdetail->connecting_bank_name }}" />
                               </div>
-                          </div>     
-                          <!-- Connecting Bank Ifsc Code  -->                             
+                          </div>
+                          <!-- Connecting Bank Ifsc Code  -->
                           <div class="col-sm-3">
                               <div class="input-style-1">
                                   <label>Connecting Bank Ifsc Code<span class="mandatory">*</span></label>
                                   <input type="text" name="connecting_bank_ifsc_code" placeholder="Enter Connecting Bank Ifsc Code" value="{{ $bankdetail->connecting_bank_ifsc_code }}" />
                               </div>
-                          </div>                                                     
+                          </div>
                           <!-- Active Code -->
                           <div class="col-sm-2">
                             <label>Active</label><br>
@@ -181,8 +184,8 @@
                                 <input type="radio" name="active" class="radio-inline" value="0" {{ $bankdetail->active == 0 ? 'checked' : '' }}> No
                             </label>
                         </div>
-                      </div>    
-                      <hr>                    
+                      </div>
+                      <hr>
                         <!-- Row 3 -->
                         <div class="row mt-15">
                             <!-- Address -->

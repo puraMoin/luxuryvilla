@@ -12,6 +12,11 @@
                 {{ session('success') }}
             </div>
         @endif
+        <div class="right-mob-left">
+            <a href="{{ route('areaunits.index') }}">
+              <button type="button" class="main-btn primary-btn-outline btn-hover btn-xs">Back</button>
+            </a>
+          </div>
         <!-- Property Types Details Section -->
         <div class="card-style mt-20">
             <div class="table-wrapper table-responsive mt-10">
@@ -35,7 +40,7 @@
                                 <div class="{{ $statusClass }}">{{ $statusText }}</div>
                             </td>
                         </tr>
-                        
+
                         <tr>
                             <th><h6>Created</h6></th>
                             <td>
