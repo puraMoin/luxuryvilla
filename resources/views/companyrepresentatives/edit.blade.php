@@ -42,26 +42,26 @@
 </div>
 <div class="col-md-3">
     <div class="input-style-1">
-        <label for="contact_1">Contact 1 <span class="mandatory"> *</span></label>
+        <label for="contact_1">Contact  <span class="mandatory"> *</span></label>
         <input type="text" id="contact_1" name="contact_1" class="form-control" value="{{ $companyrepresentatives->contact_1 }}" required>
     </div>
 </div>
 <div class="col-md-3">
     <div class="input-style-1">
-        <label for="email_1">Email 1 <span class="mandatory"> *</span></label>
+        <label for="email_1">Email  <span class="mandatory"> *</span></label>
         <input type="text" id="email_1" name="email_1" class="form-control" value="{{ $companyrepresentatives->email_1 }}" required>
     </div>
 </div>
 <hr>
 <div class="col-md-3">
     <div class="input-style-1">
-        <label for="contact_2">Contact 2 <span class="mandatory"> *</span></label>
+        <label for="contact_2">Alternate Contact  <span class="mandatory"> *</span></label>
         <input type="text" id="contact_2" name="contact_2" class="form-control" value="{{ $companyrepresentatives->contact_2 }}" required>
     </div>
 </div>
 <div class="col-md-3">
     <div class="input-style-1">
-        <label for="email_2">Email 2 <span class="mandatory"> *</span></label>
+        <label for="email_2">Alternate Email  <span class="mandatory"> *</span></label>
         <input type="text" id="email_2" name="email_2" class="form-control" value="{{ $companyrepresentatives->email_2 }}" required>
     </div>
 </div>

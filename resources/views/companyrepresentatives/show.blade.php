@@ -47,7 +47,7 @@
 
                             <tr>
                                 <th class='col-md-2'>
-                                    <h6>Contact 1</h6>
+                                    <h6>Contact </h6>
                                 </th>
                                 <td>
                                     <p>{{ $companyrepresentatives->contact_1 }}</p>
@@ -56,7 +56,7 @@
 
                             <tr>
                                 <th class='col-md-2'>
-                                    <h6>Contact 2</h6>
+                                    <h6>Alternate Contact</h6>
                                 </th>
                                 <td>
                                     <p>{{ $companyrepresentatives->contact_2 }}</p>
@@ -65,7 +65,7 @@
 
                             <tr>
                                 <th class='col-md-2'>
-                                    <h6>Email 1</h6>
+                                    <h6>Email </h6>
                                 </th>
                                 <td>
                                     <p>{{ $companyrepresentatives->email_1 }}</p>
@@ -74,7 +74,7 @@
 
                             <tr>
                                 <th class='col-md-2'>
-                                    <h6>Email 2</h6>
+                                    <h6>Alternate Email </h6>
                                 </th>
                                 <td>
                                     <p>{{ $companyrepresentatives->email_2 }}</p>
