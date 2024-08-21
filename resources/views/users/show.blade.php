@@ -16,52 +16,76 @@
                     <tr>
                         <th class='col-md-2'><h6>Role</h6></th>
                         <td class=''>
-                            <p>{{ $user->roles->role_name }}</p>
+                            <p>{{ $user->roles->name }}</p>
                         </td>
-                    </tr>
-                    <tr>
-                        <th class='col-md-2'><h6>Admin Type</h6></th>
-                        <td class=''>
-                            <p>{{ $user->adminTypes->name }}</p>
-                        </td>
-                    </tr> 
+                    </tr>        
                     <tr>
                         <th class='col-md-2'><h6>Name</h6></th>
                         <td class=''>
                             <p>{{ $user->name }}</p>
                         </td>
-                    </tr> 
+                    </tr>            
                    <tr>
-                        <th class='col-md-2'><h6>Email/UserName</h6></th>
+                        <th class='col-md-2'><h6>UserName</h6></th>
+                        <td class=''>
+                            <p>{{ $user->username }}</p>
+                        </td>
+                    </tr> 
+                    <tr>
+                        <th class='col-md-2'><h6>Email</h6></th>
                         <td class=''>
                             <p>{{ $user->email }}</p>
                         </td>
-                    </tr> 
-                   <tr>
+                    </tr>
+                    <tr>
+                        <th class='col-md-2'><h6>Date of Birth</h6></th>
+                        <td class=''>
+                            <p>{{ $user->dob }}</p>
+                        </td>
+                    </tr>     
+                    <tr>
                         <th class='col-md-2'><h6>Contact No</h6></th>
                         <td class=''>
                             <p>{{ $user->contact_no }}</p>
                         </td>
                     </tr> 
-                   <tr>
+                    <tr>
                         <th class='col-md-2'><h6>Alternate No</h6></th>
                         <td class=''>
-                            <p>{{ $user->alternate_no }}</p>
+                            <p>{{ $user->mobile_no }}</p>
+                        </td>
+                    </tr>                                            
+                    <tr>
+                        <th class='col-md-2'><h6>Gender</h6></th>
+                        <td class=''>
+                            <p>{{ $user->gender }}</p>
+                        </td>
+                    </tr> 
+                    <tr>
+                        <th class='col-md-2'><h6>Address</h6></th>
+                        <td class=''>
+                            <p>{{ $user->address }}</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class='col-md-2'><h6>ZipCode</h6></th>
+                        <td class=''>
+                            <p>{{ $user->zipcode }}</p>
                         </td>
                     </tr>
                   <tr>
-                      <th><h6>Icon Image</h6></th>
+                      <th><h6>Image</h6></th>
                        <td>
                           <p>
                              
                             @php
-                                $firstImage = $user->image;
+                                $firstImage = $user->image_file;
                                 $id = $user->id;
-                                $imagePath = $firstImage ? asset("images/users/image/{$id}/{$firstImage}") : null;
+                                $imagePath = $firstImage ? asset("images/users/image_file/{$id}/{$firstImage}") : null;
                             @endphp
 
                             @if(!empty($imagePath))
-                                <img src="{{ $imagePath }}" height="30px">
+                                <img src="{{ $imagePath }}" height="50px">
                             @endif
                              
                            </p>
@@ -81,46 +105,6 @@
                         <div class="{{ $class; }}">{{ $data }}</div>
                     </td>
                     </tr> 
-                 <tr>
-                    <th><h6>Its Seo Users</h6></th>    
-                    <td>
-                      @php if($user->its_seo_users == '1'){
-                        $class = 'activelabel';
-                        $data = 'Yes';
-                        }
-                        else{
-                        $class = 'inactivelabel';
-                        $data = 'No';
-                        } @endphp
-                        <div class="{{ $class; }}">{{ $data }}</div>
-                    </td>
-                    </tr> 
-                   <tr>
-                    <th><h6>Its Reporting Manager</h6></th>    
-                    <td>
-                      @php if($user->its_report_manager == '1'){
-                        $class = 'activelabel';
-                        $data = 'Yes';
-                        }
-                        else{
-                        $class = 'inactivelabel';
-                        $data = 'No';
-                        } @endphp
-                        <div class="{{ $class; }}">{{ $data }}</div>
-                    </td>
-                    </tr> 
-                    <tr>
-                       <th><h6>Created</h6></th>
-                       <td>
-                           <p>{{ $user->created_at }}</p>
-                       </td>
-                    </tr>  
-                    <tr>
-                       <th><h6>Modified</h6></th>
-                       <td>
-                           <p>{{ $user->updated_at }}</p>
-                       </td>
-                    </tr>
                     </tbody>
                 </table>
             </div>

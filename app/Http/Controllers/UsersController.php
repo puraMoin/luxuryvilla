@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 use App\Models\User;
 use App\Models\RolesRight;
-use App\Models\AdminType;
+
 
 class UsersController extends Controller
 {
@@ -63,10 +63,10 @@ class UsersController extends Controller
      */
     public function index()
     {
-        $pageTitle = 'Users';
+        $pageTitle = 'Admin List';
         $parentMenu = 'Super Master';
 
-        $usersQuery = User::with(['roles','adminTypes']);
+        $usersQuery = User::with(['roles','companymaster','country','states','city'])->where('role_id','1');
 
         $users = $usersQuery->paginate(20);
        
@@ -83,9 +83,7 @@ class UsersController extends Controller
     public function create(){
         $pageTitle = 'Add';
         $rolesRights = RolesRight::all()->where('active',true);
-        $adminTypes = AdminType::all()->where('active',true);
-
-        return view('users.create',compact('pageTitle','rolesRights','adminTypes'));
+        return view('users.create',compact('pageTitle','rolesRights'));
     }
 
     /**
@@ -110,22 +108,14 @@ class UsersController extends Controller
 
          $role = RolesRight::find($roleId);
 
-         $adminTypes = AdminType::find($adminTypeId);
          
-
         if(!empty($role))
         {
             $role_id = $role->id;
         } 
 
-        if(!empty($adminTypes))
-        {
-            $admin_type_id = $adminTypes->id;
-        }
-
         $users = User::create([
             'role_id' => $role_id,
-            'admin_type_id'=> $admin_type_id,
             'name' => $request->input('name'),
             'email' => $request->input('email'),
             'password' => bcrypt($request->input('password')),
@@ -165,6 +155,8 @@ class UsersController extends Controller
     public function show($id)
     {
         $user = User::find($id);
+
+        //dd($user);
 
         if (!$user) {
             return redirect()->route('states.index')->with('error', 'State not found.');

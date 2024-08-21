@@ -41,7 +41,7 @@
 
                 @foreach ($users as $user) 
                 <tr>  
-                  <td><p> {{ $user->name }} </p></td>
+                  <td><p> {{  $user->name ? $user->name : '---' }} </p></td>
                   <td><p> {{ $user->email }} </p></td>
                   <td><p> {{ $user->contact_no }} </p></td>
                   <td class="text-center"> 
