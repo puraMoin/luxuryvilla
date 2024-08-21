@@ -15,7 +15,6 @@
     <!-- For Start Here -->
    <form method="POST" action="{{ route('agentcredittypes.update', ['agentcredittype' => $agentcredittype->id]) }}" enctype="multipart/form-data">
   <div class="card-style mt-20">
-      <!-- <div class="create_update">Created: <span>Andria Dsouza On 09/05/2023</span>   |   Last updated: <span>Andria Dsouza On 09/05/2023</span></div> -->
       <!-- Form Start Here -->
        @method('PUT')
        @csrf
