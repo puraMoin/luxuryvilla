@@ -26,7 +26,7 @@ class MenuLinkController extends BaseController{
 
         /*Get All Data*/
         $menulinks = MenuLink::all();
-        $menulinks = MenuLink::paginate(10); // here
+        $menulinks = MenuLink::paginate(20); // here
         return view('menulinks.index',compact('parentMenu','pageTitle','menulinks'));
     }
 
