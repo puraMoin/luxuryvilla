@@ -7,7 +7,7 @@
             @include('partials.breadcrumb')
             <!-- Back Button -->
             <div class="right-mob-left">
-                <a href="{{ route('companytextinformations.index') }}">
+                <a href="{{ route('companytaxinformations.index') }}">
                     <button type="button" class="main-btn primary-btn-outline btn-hover btn-xs">Back</button>
                 </a>
             </div>
@@ -16,7 +16,7 @@
         <div class="container-fluid">
             <div class="card-style mt-20">
 
-                <form action="{{ route('companytextinformations.update', $companytextinformation->id) }}" method="POST">
+                <form action="{{ route('companytaxinformations.update', $companytextinformation->id) }}" method="POST">
                     @csrf
                     @method('PUT')
                     <div class="row">

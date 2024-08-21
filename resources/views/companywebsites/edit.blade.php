@@ -69,7 +69,7 @@
                                 </div>
                             </div>
                         </div>
-
+                        <hr>
                         <div class="col-md-6">
                             <div class="input-style-1">
                                 <label for="link">Link <span class="mandatory"> *</span></label>

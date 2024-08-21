@@ -5,6 +5,12 @@
     <div class="container-fluid">
         <!-- BreathCrum -->
         @include('partials.breadcrumb')
+
+        <div class="right-mob-left">
+            <a href="{{ route('socialmedias.index') }}">
+                <button type="button" class="main-btn primary-btn-outline btn-hover btn-xs">Back</button>
+            </a>
+        </div>
         <form method="POST" action="{{ route('socialmedias.store') }}" enctype="multipart/form-data">
             <div class="card-style mt-20">
 

@@ -5,9 +5,11 @@
 	<div class="container-fluid">
 		 <!-- BreathCrum -->
      @include('partials.breadcrumb')
-
-
-
+     <div class="right-mob-left">
+        <a href="{{ route('socialmedias.index') }}">
+            <button type="button" class="main-btn primary-btn-outline btn-hover btn-xs">Back</button>
+        </a>
+    </div>
     <!--Add new section start here-->
 <div class="card-style mt-20">
             <div class="table-wrapper table-responsive mt-10">

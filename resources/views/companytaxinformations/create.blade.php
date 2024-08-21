@@ -7,7 +7,7 @@
             @include('partials.breadcrumb')
             <!-- Back Button -->
             <div class="right-mob-left">
-                <a href="{{ route('companytextinformations.index') }}">
+                <a href="{{ route('companytaxinformations.index') }}">
                     <button type="button" class="main-btn primary-btn-outline btn-hover btn-xs">Back</button>
                 </a>
             </div>
@@ -15,7 +15,7 @@
         <div class="container-fluid">
             <div class="card-style mt-20">
 
-                <form action="{{ route('companytextinformations.store') }}" method="POST">
+                <form action="{{ route('companytaxinformations.store') }}" method="POST">
                     @csrf
                     <input type="hidden" name="created_by" class="form-control" value="{{$userId}}" required>
                     <input type="hidden" name="modified_by" class="form-control" value= "{{$userId}}" required>

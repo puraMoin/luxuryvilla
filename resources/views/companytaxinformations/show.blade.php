@@ -15,7 +15,7 @@
 
             <!-- Back Button -->
             <div class="right-mob-left">
-                <a href="{{ route('companytextinformations.index') }}">
+                <a href="{{ route('companytaxinformations.index') }}">
                     <button type="button" class="main-btn primary-btn-outline btn-hover btn-xs">Back</button>
                 </a>
             </div>

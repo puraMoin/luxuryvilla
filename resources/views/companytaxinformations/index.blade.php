@@ -7,7 +7,7 @@
             @include('partials.breadcrumb')
             <!-- Add New Button -->
             <div class="right-mob-left">
-                <a href="{{ route('companytextinformations.create') }}">
+                <a href="{{ route('companytaxinformations.create') }}">
                     <button type="button" class="main-btn primary-btn btn-hover btn-xs">Create</button>
                 </a>
             </div>
@@ -43,10 +43,10 @@
                                     </td>
 
                                     <td class="text-center">
-                                        <a href="{{ route('companytextinformations.edit', $companytextinformations->id) }}">
+                                        <a href="{{ route('companytaxinformations.edit', $companytextinformations->id) }}">
                                             <i class="lni lni-pencil-alt"></i>
                                         </a>
-                                        <a href="{{ route('companytextinformations.show', $companytextinformations->id) }}">
+                                        <a href="{{ route('companytaxinformations.show', $companytextinformations->id) }}">
                                             <i class="lni lni-list"></i>
                                         </a>
                                     </td>
