@@ -16,8 +16,8 @@ class MenuLinkController extends BaseController{
      public function getMenuLinks(){
         $menuLinks = MenuLink::with(['children' => function ($query) {
             $query->where('active', true);
-        }])->whereNull('parent_id')->where('active',true)->get(); // Retrieve all menu links from the database
-        return $menuLinks; // Return the menu links
+        }])->whereNull('parent_id')->where('active',true)->get();
+        return $menuLinks;
     }
 
     public function index(){
@@ -26,7 +26,7 @@ class MenuLinkController extends BaseController{
 
         /*Get All Data*/
         $menulinks = MenuLink::all();
-
+        $menulinks = MenuLink::paginate(10); // here
         return view('menulinks.index',compact('parentMenu','pageTitle','menulinks'));
     }
 
@@ -37,7 +37,7 @@ class MenuLinkController extends BaseController{
         /*Controller*/
         $controllers = $this->getControllers();
         $pageTitle = "Add";
-        
+
 
         // dd($parentMenuLinks);
 
@@ -47,7 +47,7 @@ class MenuLinkController extends BaseController{
 
     /*Store Method*/
     public function store(Request $request){
-       
+
        // dd($request);
 
          $request->validate([
@@ -55,7 +55,7 @@ class MenuLinkController extends BaseController{
              'link' => 'required|string',
              'order' => 'required|int',
          ]);
-         
+
          $user = Auth::user(); // Get the currently authenticated user
 
         // Create a new MenuLink instance
@@ -68,7 +68,7 @@ class MenuLinkController extends BaseController{
         $menuLink->created_by = $user->id;;
         $menuLink->updated_by = $user->id;;
 
-        
+
 
         // Save the model, allowing Eloquent to automatically handle timestamps
         $menuLink->save();
@@ -80,7 +80,7 @@ class MenuLinkController extends BaseController{
     // Show edit form
     public function edit($id)
     {
-        
+
         $user = Auth::user(); // Get the currently authenticated user
 
         /*Page Title*/
@@ -102,9 +102,9 @@ class MenuLinkController extends BaseController{
      // Update item in the database
     public function update(Request $request, $id)
     {
-      
-        
-     
+
+
+
         $menulink = MenuLink::find($id);
         $menulink->update($request->all());
 
@@ -161,7 +161,7 @@ class MenuLinkController extends BaseController{
 
         // Get all routes registered in your application
         $routes = Route::getRoutes();
-   
+
         foreach ($routes as $route) {
             $controllerAction = $route->getAction('controller');
             var_dump($controllerAction);
@@ -172,13 +172,13 @@ class MenuLinkController extends BaseController{
                 $methods = get_class_methods($controller);
 
                 // Store controller name and its methods
-                $controllers[$controller] = $methods;   
+                $controllers[$controller] = $methods;
             }
         }exit;
 
         return $controllers;
-    }    
-    
+    }
+
     /*Get ll Controller*/
     public function getAllControllers(){
         $controllers = [];
@@ -198,7 +198,7 @@ class MenuLinkController extends BaseController{
     }
 
     public function getMethodsForController($controllerName){
-        
+
         $methods = get_class_methods("App\Http\Controllers\\$controllerName");
         return response()->json($methods);
 

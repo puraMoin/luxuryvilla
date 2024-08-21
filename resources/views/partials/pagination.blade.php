@@ -1,4 +1,4 @@
-<div class="mt-30"> 
+<div class="mt-30">
 <div class="row">
 <div class="col-sm-6">
 <div class="total_records">Total Records: <span>{{ $items->total() }}</span>   </div>
@@ -66,6 +66,6 @@
     @endif
 </ul>
     </nav>
-</div>     
-</div>  
+</div>
+</div>
 </div>
