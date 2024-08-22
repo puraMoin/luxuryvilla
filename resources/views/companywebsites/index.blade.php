@@ -32,7 +32,7 @@
       $data = '';
 @endphp
 
-@foreach ($companywebsite as $companywebsite)
+@foreach ($companywebsite_pag as $companywebsite)
 
 
 <tr>
@@ -65,7 +65,7 @@
 <!-- end table -->
 </div>
 </div>
-    <!--Add new section end here-->
+@include('partials.pagination', ['items' => $companywebsite_pag])
 </div>
 </section>
 @endsection

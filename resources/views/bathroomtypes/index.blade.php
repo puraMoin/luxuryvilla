@@ -39,7 +39,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($bathroomtype as $bathroomtype)
+                            @foreach ($bathroomtype_pag as $bathroomtype)
                                 @php
                                     $class = '';
                                     $data = '';
@@ -82,6 +82,7 @@
                     </table>
                 </div>
             </div>
+            @include('partials.pagination', ['items' => $bathroomtype_pag])
         </div>
     </section>
 @endsection

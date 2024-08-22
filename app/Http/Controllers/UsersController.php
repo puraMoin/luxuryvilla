@@ -10,6 +10,7 @@ use App\Models\User;
 use App\Models\RolesRight;
 use App\Models\Country;
 use App\Models\State;
+use App\Models\City;
 
 class UsersController extends Controller
 {
@@ -177,12 +178,11 @@ class UsersController extends Controller
 
          $firstName = $request->input('first_name');
          $lastName = $request->input('last_name');
-         $fullName = $firstName . $lastName;
+         $fullName = $firstName . ' ' . $lastName;
 
         $users = User::create([
             'role_id' => $roleId,
             'user_code'=> $request->input('user_code'),
-            'name' => $request->input('name'),
             'first_name'=> $firstName,
             'last_name'=> $lastName,
             'name' => $fullName,
@@ -261,11 +261,26 @@ class UsersController extends Controller
         //dd($user);
         $otherGender = $user->gender == 'Male' ? 'Female' : 'Male';
 
+<<<<<<< HEAD
         $role = RolesRight::where('id', $user->role_id)->first();
 
+=======
+        $role = RolesRight::where('id', $user->role_id)->first(); 
+>>>>>>> e285e72158231bf2cbe918b71f7a8217fe0a5576
         $roles = RolesRight::where('id', '!=', $role->id)->get();
 
-        return view('users.edit',compact('parentMenu','pageTitle','user','role','roles','otherGender'));
+        $countryId = $user->country_id;
+        $country = Country::where('id', $countryId)->first();
+
+        $stateId = $user->state_id;
+        $state = State::where('id', $stateId)->first();
+        $otherstates = State::all()->where('id', '!=', $stateId);
+
+        $cityId = $user->city_id;
+        $city = City::where('id', $cityId)->first();
+        $othercities = City::all()->where('id', '!=', $cityId)->where('state_id', $stateId);
+
+        return view('users.edit',compact('parentMenu','pageTitle','user','role','roles','otherGender','country','state','otherstates','city','othercities'));
     }
 
     /**
@@ -279,6 +294,7 @@ class UsersController extends Controller
     {
          $user = User::find($id);
 
+<<<<<<< HEAD
           if (!$user) {
             return redirect()->route('users.index')->with('error', 'User not found.');
          }
@@ -295,34 +311,65 @@ class UsersController extends Controller
         {
             $role_id = $role->id;
         }
+=======
+         $roleId = $request->input('role_id');
+         $countryId = $request->input('country_id');
+         $stateId = $request->input('state_id');
+         $cityId = $request->input('city_id');
+>>>>>>> e285e72158231bf2cbe918b71f7a8217fe0a5576
 
+         $firstName = $request->input('first_name');
+         $lastName = $request->input('last_name');
+         $fullName = $firstName . ' ' . $lastName;
 
         $user->update([
-            'role_id' => $role_id,
-
+            'role_id' => $request->input('role_id'),
+            'user_code'=> $request->input('user_code'),
             'name' => $request->input('name'),
+            'first_name'=> $firstName,
+            'last_name'=> $lastName,  
+            'name' => $fullName,
+            'gender' => $request->input('gender'),
+            'dob' => $request->input('dob'),
             'email' => $request->input('email'),
             'contact_no' => $request->input('contact_no'),
-            'alternate_no' => $request->input('alternate_no'),
-            'its_seo_users' => $request->input('its_seo_users'),
-            'its_report_manager' => $request->input('its_report_manager'),
+            'mobile_no' => $request->input('mobile_no'),
+            'google_address' => $request->input('google_address'),
+            'country_id' => $countryId,
+            'state_id' =>  $stateId,
+            'city_id' => $cityId,
+            'area' => $request->input('area'),
+            'zipcode' => $request->input('zipcode'),
+            'address' => $request->input('address'),
             'active' => $request->input('active'),
+            'username' => $request->input('username'),
+            'password' => bcrypt($request->input('password')),
             'created_at' => now(), // Set the created timestamp
             'updated_at' => now(),
         ]);
 
          // Handle image uploads
-        if ($request->hasFile('image')) {
+         // Handle image uploads
+         if ($request->hasFile('image_file')) {
 
+<<<<<<< HEAD
             $image = $request->file('image');
+=======
+            $image = $request->file('image_file');   
+>>>>>>> e285e72158231bf2cbe918b71f7a8217fe0a5576
 
-            $folder = 'images/users/image/'.$user->id;
+            $folder = 'images/users/image_file/'.$user->id;
 
             // Save the image directly to the public folder
             $image->move(public_path($folder), $image->getClientOriginalName());
             //dd($image1Path);
+<<<<<<< HEAD
 
             $user->image = $image->getClientOriginalName();
+=======
+            
+            $user->image_file = $image->getClientOriginalName();
+>>>>>>> e285e72158231bf2cbe918b71f7a8217fe0a5576
            }
 
            $user->save();

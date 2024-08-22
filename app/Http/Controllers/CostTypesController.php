@@ -12,7 +12,8 @@ class CostTypesController extends Controller
     {
         $pageTitle = 'Cost Types';
         $costtypes = CostType::all();
-        return view('costtypes.index', compact('costtypes', 'pageTitle'));
+        $costtypes_pag = CostType::paginate(20);
+        return view('costtypes.index', compact('costtypes', 'pageTitle','costtypes_pag'));
     }
 
 

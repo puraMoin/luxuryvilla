@@ -35,7 +35,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($islandmaster as $islandmasters)
+                            @foreach ($islandmaster_pag as $islandmasters)
                                 @php
                                     $class = '';
                                     $data = '';
@@ -68,6 +68,7 @@
                     </table>
                 </div>
             </div>
+            @include('partials.pagination', ['items' => $islandmaster_pag])
         </div>
     </section>
 @endsection

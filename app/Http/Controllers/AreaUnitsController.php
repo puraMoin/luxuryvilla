@@ -8,12 +8,13 @@ use Illuminate\Support\Facades\Auth;
 
 class AreaUnitsController extends Controller
 {
-    
+
     public function index()
     {
         $areaunits = AreaUnit::all();
         $pageTitle = 'Area Units';
-        return view('areaunits.index', compact('areaunits', 'pageTitle'));
+        $areaunits_pag = AreaUnit::paginate(20);
+        return view('areaunits.index', compact('areaunits', 'pageTitle','areaunits_pag'));
     }
 
 
@@ -24,7 +25,7 @@ class AreaUnitsController extends Controller
         return view('areaunits.create', compact('userId', 'pageTitle'));
     }
 
-   
+
     public function store(Request $request)
     {
         $request->validate([
@@ -46,7 +47,7 @@ class AreaUnitsController extends Controller
         return redirect()->route('areaunits.index');
     }
 
-    
+
     public function show($id)
     {
         $areaunits = AreaUnit::findOrFail($id);
@@ -55,7 +56,7 @@ class AreaUnitsController extends Controller
         return view('areaunits.show', compact('areaunits', 'pageTitle'));
     }
 
-   
+
     public function edit($id)
     {
         $areaunits = AreaUnit::findOrFail($id);
@@ -64,7 +65,7 @@ class AreaUnitsController extends Controller
         return view('areaunits.edit', compact('areaunits', 'pageTitle', 'userId'));
     }
 
-    
+
     public function update(Request $request, $id)
     {
         $request->validate([
@@ -85,7 +86,7 @@ class AreaUnitsController extends Controller
         return redirect()->route('areaunits.index');
     }
 
-   
+
     public function destroy($id)
     {
         //

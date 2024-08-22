@@ -13,7 +13,8 @@ class FinancialYearsController extends Controller
     {
         $pageTitle = 'Financial Years';
         $financialyears = FinancialYear::all();
-        return view('financialyears.index', compact('financialyears', 'pageTitle'));
+        $financialyears_pag = FinancialYear::paginate(20);
+        return view('financialyears.index', compact('financialyears', 'pageTitle','financialyears_pag'));
     }
 
 

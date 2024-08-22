@@ -35,7 +35,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($bedtypes as $bedtypes)
+                            @foreach ($bedtypes_pag as $bedtypes)
                                 @php
                                     $class = '';
                                     $data = '';
@@ -74,6 +74,7 @@
                     </table>
                 </div>
             </div>
+            @include('partials.pagination', ['items' => $bedtypes_pag])
         </div>
     </section>
 @endsection

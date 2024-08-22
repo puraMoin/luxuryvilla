@@ -13,7 +13,8 @@ class TaxesController extends Controller
     {
         $taxes = Taxes::all();
         $pageTitle = 'Taxes';
-        return view('taxes.index', compact('taxes', 'pageTitle'));
+        $taxes_pag = Taxes::paginate(20);
+        return view('taxes.index', compact('taxes', 'pageTitle','taxes_pag'));
     }
 
 

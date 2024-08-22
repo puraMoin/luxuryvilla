@@ -18,8 +18,9 @@ class DesignationsController extends Controller
         $designations = Designation::all();
         $parentMenu = 'Other Modules';
         $pageTitle = "Designation";
+        $designations_pag = Designation::paginate(20);
 
-        return view ('designations.index',(compact('designations','parentMenu','pageTitle')));
+        return view ('designations.index',(compact('designations','parentMenu','pageTitle','designations_pag')));
     }
 
     /**

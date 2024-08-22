@@ -18,8 +18,9 @@ class DepartmentsController extends Controller
         $department = Department::all();
         $parentMenu = 'Other Modules';
         $pageTitle = "Department";
+        $department_pag = Department::paginate(20);
 
-        return view ('departments.index',(compact('department','parentMenu','pageTitle')));
+        return view ('departments.index',(compact('department','parentMenu','pageTitle','department_pag')));
     }
 
     /**
@@ -60,8 +61,8 @@ class DepartmentsController extends Controller
             'modified_by'=> $request->input('modified_by'),
             'created_at'=>now(),
             'updated_at'=>now(),
-        ]);   
-        
+        ]);
+
         return redirect()->route('departments.index');
     }
 
@@ -86,7 +87,7 @@ class DepartmentsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
-    {  
+    {
         $userId = Auth::id();
         $department = Department::find($id);
         $pageTitle = "Edit";
@@ -101,7 +102,7 @@ class DepartmentsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-    {   
+    {
         $department = Department::find($id);
         $department->update([
             'name' => $request->input('name'),
@@ -110,8 +111,8 @@ class DepartmentsController extends Controller
             'modified_by'=> $request->input('modified_by'),
             'created_at'=>now(),
             'updated_at'=>now(),
-        ]);   
-        
+        ]);
+
         return redirect()->route('departments.index');
     }
 

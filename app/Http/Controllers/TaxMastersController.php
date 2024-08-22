@@ -17,7 +17,8 @@ class TaxMastersController extends Controller
     {
         $taxmasters = TaxMaster::all();
         $pageTitle = 'Tax Masters';
-        return view('taxmasters.index', compact('taxmasters', 'pageTitle'));        
+        $taxmasters_pag = TaxMaster::paginate(20);
+        return view('taxmasters.index', compact('taxmasters', 'pageTitle','taxmasters_pag'));
     }
 
     /**
@@ -49,17 +50,17 @@ class TaxMastersController extends Controller
             'created_by' => 'nullable | integer',
             'modified_by' => 'nullable | integer',
             'created_at' => now(),
-            'updated_at' => now(),            
+            'updated_at' => now(),
         ]);
 
         $taxmasters = TaxMaster::create([
             'name' => $request->input('name'),
-            'alias' => $request->input('alias'),           
+            'alias' => $request->input('alias'),
             'description' => $request->input('description'),
-            'is_vat' => $request->input('is_vat'),            
+            'is_vat' => $request->input('is_vat'),
             'active' => $request->input('active'),
-            'is_municipality_tax' => $request->input('is_municipality_tax'),    
-            'created_by' => $request->input('created_by'),   
+            'is_municipality_tax' => $request->input('is_municipality_tax'),
+            'created_by' => $request->input('created_by'),
             'modified_by' => $request->input('modified_by'),
             'created_at' => now(),
             'updated_at' => now(),
@@ -92,8 +93,8 @@ class TaxMastersController extends Controller
         $taxmaster = TaxMaster::findOrFail($id);
         $userId = Auth::id();
         $pageTitle = "Edit";
-        return view('taxmasters.edit', compact('pageTitle', 'taxmaster', 'userId'));        
-        
+        return view('taxmasters.edit', compact('pageTitle', 'taxmaster', 'userId'));
+
     }
 
     /**
@@ -108,12 +109,12 @@ class TaxMastersController extends Controller
         $taxmaster = TaxMaster::findOrFail($id);
         $taxmaster->update([
             'name' => $request->input('name'),
-            'alias' => $request->input('alias'),           
+            'alias' => $request->input('alias'),
             'description' => $request->input('description'),
-            'is_vat' => $request->input('is_vat'),            
+            'is_vat' => $request->input('is_vat'),
             'active' => $request->input('active'),
-            'is_municipality_tax' => $request->input('is_municipality_tax'),    
-            'created_by' => $request->input('created_by'),   
+            'is_municipality_tax' => $request->input('is_municipality_tax'),
+            'created_by' => $request->input('created_by'),
             'modified_by' => $request->input('modified_by'),
             'created_at' => now(),
             'updated_at' => now(),

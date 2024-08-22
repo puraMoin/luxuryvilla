@@ -14,7 +14,8 @@ class BedTypesController extends Controller
         // dd($);
         $pageTitle = 'Bed Types';
         $bedtypes = BedType::all();
-        return view('bedtypes.index', compact('bedtypes', 'pageTitle'));
+        $bedtypes_pag = BedType::paginate(20);
+        return view('bedtypes.index', compact('bedtypes', 'pageTitle','bedtypes_pag'));
     }
 
 

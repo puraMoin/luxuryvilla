@@ -32,7 +32,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($bookingstatuses as $bookingstatus)
+                        @foreach ($bookingstatuses_pag as $bookingstatus)
                         @php
                             $class = $bookingstatus->active == '1' ? 'activelabel' : 'inactivelabel';
                             $data = $bookingstatus->active == '1' ? 'Active' : 'Inactive';
@@ -59,6 +59,7 @@
                 </table>
             </div>
         </div>
+        @include('partials.pagination', ['items' => $bookingstatuses_pag])
     </div>
 </section>
 @endsection

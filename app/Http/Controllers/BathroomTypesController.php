@@ -14,7 +14,8 @@ class BathroomTypesController extends Controller
         // dd($);
         $pageTitle = 'Bathroom Types';
         $bathroomtype = BathRoomType::all();
-        return view('bathroomtypes.index', compact('bathroomtype', 'pageTitle'));
+        $bathroomtype_pag = BathRoomType::paginate(20);
+        return view('bathroomtypes.index', compact('bathroomtype', 'pageTitle','bathroomtype_pag'));
     }
 
 

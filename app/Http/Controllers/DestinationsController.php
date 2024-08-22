@@ -19,9 +19,10 @@ class DestinationsController extends Controller
     {
         $parentMenu = 'Other Modules';
         $pageTitle = "Destinations";
+        $destinations_pag = Destination::paginate(20);
         $destinations = Destination::with(['country','state','city'])->get();
 
-        return view ('destinations.index',(compact('destinations','parentMenu','pageTitle')));
+        return view ('destinations.index',(compact('destinations','parentMenu','pageTitle','destinations_pag')));
     }
 
     /**
@@ -54,7 +55,7 @@ class DestinationsController extends Controller
             'one_line_description'=>['required'],
             'display_on_homepage'=>['required'],
             'no_of_elements_to_show'=>['required'],
-            'homepage_order'=>['required'],                           
+            'homepage_order'=>['required'],
             'active'=>['required'],
             'is_top_destination'=>['required'],
         ]);
@@ -78,33 +79,33 @@ class DestinationsController extends Controller
                 'is_top_destination'=> $request->input('is_top_destination'),
                 'created_at' => now(), // Set the created timestamp
                 'updated_at' => now(),
-            ]);     
+            ]);
 
             if ($request->hasFile('thumbnail_image')) {
 
-                $image = $request->file('thumbnail_image');   
-    
+                $image = $request->file('thumbnail_image');
+
                 $folder = 'images/destinations/thumbnail_image/'.$destination->id;
-    
+
                 // Save the image directly to the public folder
-                $image->move(public_path($folder), $image->getClientOriginalName());   
-                //dd($image1Path);        
+                $image->move(public_path($folder), $image->getClientOriginalName());
+                //dd($image1Path);
                 $destination->thumbnail_image = $image->getClientOriginalName();
-                
+
                }
                if ($request->hasFile('cover_image')) {
 
-                $image = $request->file('cover_image');   
-    
+                $image = $request->file('cover_image');
+
                 $folder = 'images/destinations/cover_image/'.$destination->id;
-    
+
                 // Save the image directly to the public folder
-                $image->move(public_path($folder), $image->getClientOriginalName());   
-                //dd($image1Path);        
+                $image->move(public_path($folder), $image->getClientOriginalName());
+                //dd($image1Path);
                 $destination->cover_image = $image->getClientOriginalName();
-              
+
                }
-                 
+
                $destination->save();
 
                return redirect()->route('destinations.index');
@@ -178,33 +179,33 @@ class DestinationsController extends Controller
                 'is_top_destination'=> $request->input('is_top_destination'),
                 'created_at' => now(), // Set the created timestamp
                 'updated_at' => now(),
-            ]);     
+            ]);
 
             if ($request->hasFile('thumbnail_image')) {
 
-                $image = $request->file('thumbnail_image');   
-    
+                $image = $request->file('thumbnail_image');
+
                 $folder = 'images/destinations/thumbnail_image/'.$destination->id;
-    
+
                 // Save the image directly to the public folder
-                $image->move(public_path($folder), $image->getClientOriginalName());   
-                //dd($image1Path);        
+                $image->move(public_path($folder), $image->getClientOriginalName());
+                //dd($image1Path);
                 $destination->thumbnail_image = $image->getClientOriginalName();
-                
+
                }
                if ($request->hasFile('cover_image')) {
 
-                $image = $request->file('cover_image');   
-    
+                $image = $request->file('cover_image');
+
                 $folder = 'images/destinations/cover_image/'.$destination->id;
-    
+
                 // Save the image directly to the public folder
-                $image->move(public_path($folder), $image->getClientOriginalName());   
-                //dd($image1Path);        
+                $image->move(public_path($folder), $image->getClientOriginalName());
+                //dd($image1Path);
                 $destination->cover_image = $image->getClientOriginalName();
-              
+
                }
-                 
+
                $destination->save();
 
                return redirect()->route('destinations.index');

@@ -12,7 +12,8 @@ class BookingStatusesController extends Controller
     {
         $bookingstatuses = BookingStatuses::all();
         $pageTitle = 'Booking Status';
-        return view('bookingstatuses.index', compact('bookingstatuses', 'pageTitle'));
+        $bookingstatuses_pag = BookingStatuses::paginate(20);
+        return view('bookingstatuses.index', compact('bookingstatuses', 'pageTitle','bookingstatuses_pag'));
     }
 
     public function create()
@@ -79,7 +80,7 @@ class BookingStatusesController extends Controller
         $request->validate([
             'name' => 'required|string|max:255',
             'class' => 'required|string|max:255',
-            'icon' => 'nullable|image|max:2048', 
+            'icon' => 'nullable|image|max:2048',
             'paid' => 'required|string|max:255',
             'invoice' => 'required|string|max:255',
             'email_template' => 'required|string|max:255',

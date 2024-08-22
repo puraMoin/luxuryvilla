@@ -12,6 +12,8 @@
             justify-content: center;
             align-items: center;
         }
+
+
    </style>
 <section class="section">
 	<div class="container-fluid">
@@ -84,7 +86,7 @@
          <div class="col-sm-3">
             <div class="input-style-1">
                <label>Contact<span class="mandatory">*</span></label>
-               <input type="text"  name="contact_no" placeholder="Enter Your Contact" class="numeric" required="true" value="{{ $user->contact_no }}" />
+               <input type="text" name="contact_no" placeholder="Enter Your Contact" class="numeric" required="true" value="{{ $user->contact_no }}" />
             </div>   
          </div>
          <!-- Alternate No --> 
@@ -104,18 +106,105 @@
             <input type="text"  name="google_address" value="{{ $user->google_address }}" />
             </div>   
          </div>
-         
+         <div class="row">
+            <!-- Country Name -->
+            <div class="col-sm-3">
+               <div class="select-style-1">
+                     <label>Country</label>
+                     <div class="select-position select-sm">
+                        <select class="jSelectbox" id="actionDropdown" name="country_id" required>
+                                <option value="{{ $country->id }}">{{ $country->name }}</option>
+                        </select>
+                        </div>  
+                  </div>
+               </div>
+               <!-- State Name -->
+               <div class="col-sm-3">
+                  <div class="select-style-1">
+                     <label>State</label>
+                        <div class="select-position select-sm">
+                           <select class="jSelectbox" id="StateactionDropdown" name="state_id" required>
+                           <option value="{{ $state ? $state->id : '' }}">{{ $state ? $state->name : 'Select Your State' }}</option>
+                              @foreach ($otherstates as $states)
+                                 <option value="{{ $states->id }}">{{ $states->name }}</option>
+                              @endforeach
+                          </select>
+                        </div>
+                     </div>
+                  </div>
+               <!-- City Name -->
+               <div class="col-sm-3">
+                  <div class="select-style-1">
+                     <label>City</label>
+                     <div class="select-position select-sm">
+                        <select class="jSelectbox" id="cityDropdown" name="city_id" required>
+                         <option value="{{ $city ? $city->id : '' }}">{{ $city ? $city->name : 'Select Your City' }}</option>
+                         @foreach ($othercities as $cities)
+                            <option value="{{ $cities->id }}">{{ $cities->name }}</option>
+                         @endforeach                         
+                      </select>
+                      </div>
+                  </div>
+               </div>
+              <!-- Area -->
+               <div class="col-sm-3">
+                  <div class="input-style-1">
+                  <label>Area<span class="mandatory">*</span></label>
+                  <input type="text" name="area" placeholder="Enter Your Area" required="true" value="{{ $user->area }}" />
+                  </div>   
+               </div>
+              <!-- Zip Code -->
+              <div class="col-sm-3">
+                  <div class="input-style-1">
+                  <label>Zip Code<span class="mandatory">*</span></label>
+                  <input type="text" name="zipcode" placeholder="Enter Your Zip Code" required="true" value="{{ $user->zipcode }}" />
+                  </div>   
+              </div>
+               <!-- Address  -->
+               <div class="col-sm-9">
+                  <div class="input-style-1">
+                   <label>Address <span class="mandatory">*</span></label>
+                      <textarea name="address" rows="3">{{ $user->address }}</textarea>
+                  </div>
+               </div>
+         </div>    
+         <hr>         
       </div>   
-       <div class="row mt-15">
-         <!-- Email --> 
-         <div class="col-sm-3">
+      <div class="row">
+         <!-- UserName --> 
+         <h4>Login Details:</h4>
+         <div class="col-sm-3 mt-10">
             <div class="input-style-1">
-            <label>Email/UserName<span class="mandatory">*</span></label>
-            <input type="email"  name="email" placeholder="Enter Your Email" required="true" 
-             value="{{ $user->email }}"/>
+            <label>UserName<span class="mandatory">*</span></label>
+            <input type="email"  name="username" placeholder="Enter Your Username" required="true" 
+             value="{{ $user->username }}"/>
             </div>   
          </div>
 
+      <div class="col-sm-3 col-xs-3 mt-10" style="padding-right: 0px">
+         <div class="input-style-1">
+            <label>Password<span class="mandatory">*</span></label>            
+            <input type="password" id="psw" name="password" autocomplete="off" required disabled placeholder="Enter your password"  value="{{ $user->password }}">
+        </div>
+      </div>
+      <div class="col-sm-3 col-xs-3 mt-35" style="padding-left: 0px">
+         <div class="input-style-1">
+            <button type="button" class="btn btn-sm btn-warning changePassword" style="border-radius: 0px; height:42px"><i class="fa fa-eye-slash" aria-hidden="true"></i></button>
+        </div>
+      </div>
+      
+       </div>  
+      <hr>     
+      <div class="row">
+         <h4>Profile Information:</h4>      
+               <!-- Image -->
+         <div class="col-sm-3">
+            <label>Image</label>
+            <div id="imageBox">
+            <img id="selectedImage" src="{{ $user->image_file ? asset('images/users/image_file/' . $user->id . '/' . $user->image_file) : asset('images/no-image.png') }}" alt="Selected Image">
+            </div>
+            <input type="file" name="image_file" id="imageInput" onchange="displayImage(this)">
+         </div> 
          <div class="col-sm-3">
             <!-- Active Code --> 
              <label>Active</label><br> 
@@ -126,64 +215,14 @@
             <input type="radio" name="active" class="radio-inline" value="0" {{ $user->active == 0 ? 'checked' : '' }}> No
             </label>
          </div>
-
-                 <div class="col-sm-3">
-            <!-- Active Code --> 
-             <label>Its Seo Users</label><br> 
-             <label class="radio-inline">
-             <input type="radio" name="its_seo_users" class="radio-inline" value="1" {{ $user->its_seo_users == 1 ? 'checked' : '' }}> Yes
-             </label>
-            <label class="radio-inline">
-            <input type="radio" name="its_seo_users" class="radio-inline" value="0" {{ $user->its_seo_users == 0 ? 'checked' : '' }}> No
-            </label>
-         </div>
-
-         <div class="col-sm-3">
-            <!-- Active Code --> 
-             <label>Its Reporting Manager</label><br> 
-             <label class="radio-inline">
-             <input type="radio" name="its_report_manager" class="radio-inline" value="1" {{ $user->its_report_manager == 1 ? 'checked' : '' }}> Yes
-             </label>
-            <label class="radio-inline">
-            <input type="radio" name="its_report_manager" class="radio-inline" value="0"  {{ $user->its_report_manager == 0 ? 'checked' : '' }}> No
-            </label>
-         </div>
-
-       </div>
-    <div class="row mt-15">
-               
-    <!--  Image -->
-       <div class="col-sm-3">
-         <label>Image</label>
-          <div id="imageBox">
-         <img id="selectedIcon" src="{{ $user->image ? asset('images/users/image/' . $user->id . '/' . $user->image) : asset('images/no-image.png') }}" alt="Selected Image">
-         </div>
-         <input type="file" name="image" id="imageInput" onchange="displayIcon(this)" > 
-          <span id="iconImage">{{ $user->image }}</span>
         </div> 
-
-    <!-- Active Code --> 
-    <div class="col-sm-4">
-             <label>Active</label><br> 
-             <label class="radio-inline">
-             <input type="radio" name="active" class="radio-inline" value="1" {{ $role->active == 1 ? 'checked' : '' }}> Yes
-             </label>
-            <label class="radio-inline">
-            <input type="radio" name="active" class="radio-inline" value="0" {{ $role->active == 0 ? 'checked' : '' }}> No
-            </label>
-    </div>
-
-
-    </div>   
-       
-      <div class="row mt-15">
-       <div class="col-sm-3">  
-        <button class="btn btn-info" type="submit">Save</button>
-        <button class="btn btn-warning" type="reset">Reset</button>
-        </div>
-      </div>  
-
 	</div>
+   <div class="row mt-15">
+      <div class="col-sm-3">  
+       <button class="main-btn primary-btn btn-hover btn-sm" type="submit">Save</button>
+       <button class="main-btn primary-btn-outline btn-hover btn-sm" type="reset">Reset</button>
+       </div>
+     </div>  
 </form>
 </section>	
 @endsection
@@ -201,4 +240,14 @@
             reader.readAsDataURL(input.files[0]);
         }
     }
+</script>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+   $(document).ready(function() {
+      $('.changePassword').click(function(){
+         $('#psw').prop('disabled',false);
+         $('#psw').val('');
+      });
+   });
 </script>

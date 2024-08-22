@@ -32,7 +32,7 @@
                                 <th class="text-center">
                                     <h6>Start Date</h6>
                                 </th>
-                                
+
                                 <th class="text-center">
                                     <h6>End Date</h6>
                                 </th>
@@ -51,7 +51,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($financialyears as $financialyear)
+                            @foreach ($financialyears_pag as $financialyear)
                                 @php
                                     $class = '';
                                     $data = '';
@@ -110,6 +110,7 @@
                     </table>
                 </div>
             </div>
+            @include('partials.pagination', ['items' => $financialyears_pag])
         </div>
     </section>
 @endsection
