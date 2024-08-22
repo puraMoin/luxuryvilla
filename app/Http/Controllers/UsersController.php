@@ -88,11 +88,11 @@ class UsersController extends Controller
 
         $usersQuery = User::with(['roles','companymaster','country','states','city'])->where('role_id',$conditions);
 
-        $users = User::paginate(20);
+        // $users = User::paginate(20);
 
         //dd($users);die;
 
-        return view('users.index',compact('users','pageTitle','parentMenu','usertype','users'));
+        return view('users.index',compact('users','pageTitle','parentMenu','usertype'));
     }
 
     /**
@@ -265,7 +265,7 @@ class UsersController extends Controller
         $role = RolesRight::where('id', $user->role_id)->first();
 
 =======
-        $role = RolesRight::where('id', $user->role_id)->first(); 
+        $role = RolesRight::where('id', $user->role_id)->first();
 >>>>>>> e285e72158231bf2cbe918b71f7a8217fe0a5576
         $roles = RolesRight::where('id', '!=', $role->id)->get();
 
@@ -328,7 +328,7 @@ class UsersController extends Controller
             'user_code'=> $request->input('user_code'),
             'name' => $request->input('name'),
             'first_name'=> $firstName,
-            'last_name'=> $lastName,  
+            'last_name'=> $lastName,
             'name' => $fullName,
             'gender' => $request->input('gender'),
             'dob' => $request->input('dob'),
@@ -361,7 +361,7 @@ class UsersController extends Controller
 <<<<<<< HEAD
             $image = $request->file('image');
 =======
-            $image = $request->file('image_file');   
+            $image = $request->file('image_file');
 >>>>>>> e285e72158231bf2cbe918b71f7a8217fe0a5576
 
             $folder = 'images/users/image_file/'.$user->id;
@@ -373,7 +373,7 @@ class UsersController extends Controller
 
             $user->image = $image->getClientOriginalName();
 =======
-            
+
             $user->image_file = $image->getClientOriginalName();
 >>>>>>> e285e72158231bf2cbe918b71f7a8217fe0a5576
            }
