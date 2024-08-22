@@ -44,7 +44,7 @@
 </div>
 <h6>{{ (isset(Auth::user()->name)) ? Auth::user()->name : ''; }}</h6>
 </div>
-<li><a href="{{ route('users.show', Auth::user()->id) }}"><i class="lni lni-user"></i> View Profile</a></li>
+<li><a href="{{ route('users.show', $id) }}"><i class="lni lni-user"></i> View Profile</a></li>
 <li><a href="{{ route('users.changepassword') }}"><i class="lni lni-alarm"></i>Change Password</a></li>
 <li><a href="{{ route('logout') }}"> <i class="lni lni-exit"></i> Sign Out </a></li>
 </ul>
