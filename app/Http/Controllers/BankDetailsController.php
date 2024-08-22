@@ -23,7 +23,8 @@ class BankDetailsController extends Controller
         $parentMenu = 'Other Modules';
         $pageTitle = "Bank Details";
         $bankdetails = BankDetail::with(['companymaster','currency', 'country', 'state', 'city'])->get();
-        return view('bankdetails.index', (compact('bankdetails', 'parentMenu', 'pageTitle')));
+        $bankdetails_pag = BankDetail::paginate(20);
+        return view('bankdetails.index', (compact('bankdetails', 'parentMenu', 'pageTitle','bankdetails_pag')));
     }
 
     /**

@@ -46,7 +46,7 @@
       $data = '';
 @endphp
 
-@foreach ($onlinesuppliers as $onlinesupplier)
+@foreach ($onlinesuppliers_pag as $onlinesupplier)
 
 <tr>
 
@@ -78,7 +78,7 @@
 <!-- end table -->
 </div>
 </div>
-
+@include('partials.pagination', ['items' => $onlinesuppliers_pag])
   </div>
 </section>
 @endsection

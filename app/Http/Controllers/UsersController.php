@@ -292,6 +292,7 @@ class UsersController extends Controller
      */
     public function update(Request $request, $id)
     {
+         $newPassword = ($request->input('password'));
          $user = User::find($id);
 
 <<<<<<< HEAD
@@ -343,10 +344,15 @@ class UsersController extends Controller
             'address' => $request->input('address'),
             'active' => $request->input('active'),
             'username' => $request->input('username'),
-            'password' => bcrypt($request->input('password')),
             'created_at' => now(), // Set the created timestamp
             'updated_at' => now(),
         ]);
+
+        if($newPassword != null){
+            $user->update([
+                'password' => bcrypt($request->input('password'))
+            ]);
+        }
 
          // Handle image uploads
          // Handle image uploads

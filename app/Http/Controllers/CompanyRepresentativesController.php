@@ -14,7 +14,8 @@ class CompanyRepresentativesController extends Controller
         $parentMenu = 'Other Modules';
         $pageTitle = "Company Representatives";
         $companyrepresentatives = CompanyRepresentative::all();
-        return view('companyrepresentatives.index', compact('companyrepresentatives', 'parentMenu', 'pageTitle'));
+        $companyrepresentatives_pag = CompanyRepresentative::paginate(20);
+        return view('companyrepresentatives.index', compact('companyrepresentatives', 'parentMenu', 'pageTitle','companyrepresentatives_pag'));
     }
 
     public function create()

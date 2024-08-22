@@ -20,7 +20,8 @@ class CompanyCodeModulesController extends Controller
         $pageTitle = "Company Code Modules";
         $companycodemodules = CompanyCodeModule::with(['companycodecategories'])->get();
         //dd($companycodemodules);
-        return view('companycodemodules.index', compact('companycodemodules', 'parentMenu', 'pageTitle'));
+        $companycodemodules_pag = CompanyCodeModule::paginate(20);
+        return view('companycodemodules.index', compact('companycodemodules', 'parentMenu', 'pageTitle','companycodemodules_pag'));
     }
 
     /**

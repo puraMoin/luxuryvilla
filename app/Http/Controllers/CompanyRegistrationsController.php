@@ -16,7 +16,8 @@ class CompanyRegistrationsController extends Controller
         $parentMenu = 'Other Modules';
         $pageTitle = "Company Registrations";
         $companyregistrations = CompanyRegistration::all();
-        return view('companyregistrations.index', compact('companyregistrations', 'parentMenu', 'pageTitle'));
+        $companyregistrations_pag = CompanyRegistration::paginate(20);
+        return view('companyregistrations.index', compact('companyregistrations', 'parentMenu', 'pageTitle','companyregistrations_pag'));
     }
 
 

@@ -13,7 +13,8 @@ class CrmEnquiryStagesController extends Controller
     {
         $pageTitle = 'CRM Enquiry Stages';
         $crmenquirystage = CrmEnquiryStage::all();
-        return view('crmenquirystages.index', compact('crmenquirystage', 'pageTitle'));
+        $crmenquirystage_pag = CrmEnquiryStage::paginate(20);
+        return view('crmenquirystages.index', compact('crmenquirystage', 'pageTitle','crmenquirystage_pag'));
     }
 
 

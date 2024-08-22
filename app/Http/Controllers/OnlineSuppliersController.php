@@ -17,7 +17,8 @@ class OnlineSuppliersController extends Controller
     {
         $onlinesuppliers = OnlineSupplier::all();
         $pageTitle = 'OnlineSupplier';
-        return view('onlinesuppliers.index', compact('onlinesuppliers', 'pageTitle'));        
+        $onlinesuppliers_pag = OnlineSupplier::paginate(20);
+        return view('onlinesuppliers.index', compact('onlinesuppliers', 'pageTitle','onlinesuppliers_pag'));
     }
 
     /**
@@ -52,7 +53,7 @@ class OnlineSuppliersController extends Controller
             'name' => $request->input('name'),
             'active' => $request->input('active'),
             'created_by' => $request->input('created_by'),
-            'modified_by' => $request->input('modified_by'),                       
+            'modified_by' => $request->input('modified_by'),
             'created_at' => now(),
             'updated_at' => now(),
         ]);
@@ -100,7 +101,7 @@ class OnlineSuppliersController extends Controller
         $onlinesupplier->update([
             'name' => $request->input('name'),
             'active' => $request->input('active'),
-            'modified_by' => $request->input('modified_by'),                       
+            'modified_by' => $request->input('modified_by'),
             'created_at' => now(),
             'updated_at' => now(),
         ]);

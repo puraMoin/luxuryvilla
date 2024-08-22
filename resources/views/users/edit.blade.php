@@ -184,7 +184,7 @@
       <div class="col-sm-3 col-xs-3 mt-10" style="padding-right: 0px">
          <div class="input-style-1">
             <label>Password<span class="mandatory">*</span></label>            
-            <input type="password" id="psw" name="password" autocomplete="off" required disabled placeholder="Enter your password"  value="{{ $user->password }}">
+            <input type="password" id="psw" name="password" autocomplete="off" required  placeholder="Enter your password"  value="{{ $user->password }}" disabled='true'>
         </div>
       </div>
       <div class="col-sm-3 col-xs-3 mt-35" style="padding-left: 0px">

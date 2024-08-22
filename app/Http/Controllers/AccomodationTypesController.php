@@ -17,7 +17,8 @@ class AccomodationTypesController extends Controller
     {
         $accomodationtypes = AccommodationType::all();
         $pageTitle = 'Accommodation Types';
-        return view('accomodationtypes.index', compact('accomodationtypes', 'pageTitle'));
+        $accomodationtypes_pag = AccommodationType::paginate(20);
+        return view('accomodationtypes.index', compact('accomodationtypes', 'pageTitle','accomodationtypes_pag'));
 
     }
 
@@ -30,7 +31,7 @@ class AccomodationTypesController extends Controller
     {
         $userId = Auth::id();
         $pageTitle = 'Create';
-        return view('accomodationtypes.create', compact('userId', 'pageTitle')); 
+        return view('accomodationtypes.create', compact('userId', 'pageTitle'));
     }
 
     /**
@@ -52,7 +53,7 @@ class AccomodationTypesController extends Controller
             'name' => $request->input('name'),
             'active' => $request->input('active'),
             'created_by' => $request->input('created_by'),
-            'modified_by' => $request->input('modified_by'),                        
+            'modified_by' => $request->input('modified_by'),
             'created_at' => now(),
             'updated_at' => now(),
         ]);

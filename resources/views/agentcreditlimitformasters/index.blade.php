@@ -46,7 +46,7 @@
       $data = '';
 @endphp
 
-@foreach ($agentcreditlimitformasters as $agentcreditlimitformaster)
+@foreach ($agentcreditlimitformasters_pag as $agentcreditlimitformaster)
 
 <tr>
 
@@ -78,7 +78,7 @@
 <!-- end table -->
 </div>
 </div>
-
+@include('partials.pagination', ['items' => $agentcreditlimitformasters_pag])
   </div>
 </section>
 @endsection

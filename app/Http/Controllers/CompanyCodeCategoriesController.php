@@ -18,7 +18,9 @@ class CompanyCodeCategoriesController extends Controller
         $parentMenu = 'Other Modules';
         $pageTitle = "Company Code Category";
         $companycodecategories = CompanyCodeCategory::all();
-        return view('companycodecategories.index', compact('companycodecategories', 'parentMenu', 'pageTitle'));
+        $companycodecategories_pag = CompanyCodeCategory::paginate(20);
+
+        return view('companycodecategories.index', compact('companycodecategories', 'parentMenu', 'pageTitle','companycodecategories_pag'));
     }
 
     /**
@@ -45,14 +47,14 @@ class CompanyCodeCategoriesController extends Controller
         //dd($request);
         $request->validate([
             'name' => 'required|string|max:255',
-            'active' => 'boolean',    
+            'active' => 'boolean',
              ]);
 
          $companycodecategory = CompanyCodeCategory::create([
             'name' => $request->input('name'),
             'active' => $request->input('active'),
             'created_by' => $request->input('created_by'),
-            'modified_by' => $request->input('modified_by'),           
+            'modified_by' => $request->input('modified_by'),
             'created_at' => now(), // Set the created timestamp
             'updated_at' => now(),
         ]);
@@ -119,12 +121,12 @@ class CompanyCodeCategoriesController extends Controller
         $companycodecategory->update([
             'name' => $request->input('name'),
             'active' => $request->input('active'),
-            'modified_by' => $request->input('modified_by'),           
+            'modified_by' => $request->input('modified_by'),
             'created_at' => now(), // Set the created timestamp
             'updated_at' => now(),
         ]);
 
-    return redirect()->route('companycodecategories.index');        
+    return redirect()->route('companycodecategories.index');
     }
 
     /**

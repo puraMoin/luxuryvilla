@@ -13,7 +13,8 @@ class CompanyTaxInformationsController extends Controller
     {
         $pageTitle = 'Company Tax Informations';
         $companytextinformation = CompanyTaxInformation::all();
-        return view('companytaxinformations.index', compact('companytextinformation', 'pageTitle'));
+        $companytextinformation_pag = CompanyTaxInformation::paginate(20);
+        return view('companytaxinformations.index', compact('companytextinformation', 'pageTitle','companytextinformation_pag'));
     }
 
     public function create()

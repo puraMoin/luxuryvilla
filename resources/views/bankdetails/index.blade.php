@@ -11,11 +11,11 @@
         <button type="button" class="main-btn primary-btn btn-hover btn-xs">Create</button>
         </a>
     </div>
-     
+
     <!--Add new section start here-->
 <div class="card-style mt-20">
 
-    
+
 <div class="table-wrapper table-responsive mt-10">
 <table class="table striped-table">
 <thead>
@@ -25,7 +25,7 @@
 <th><h6><a href="#">Country<i class="lni lni-sort-alpha-asc"></i></a></h6></th>
 <th><h6><a href="#">State<i class="lni lni-sort-alpha-asc"></i></a></h6></th>
 <th><h6><a href="#">City<i class="lni lni-sort-alpha-asc"></i></a></h6></th>
-<th class="text-center"><h6>Status</h6></th>    
+<th class="text-center"><h6>Status</h6></th>
 <th class="text-center"><h6>Action</h6></th>
 </tr>
 <!-- end table row-->
@@ -35,7 +35,7 @@
       $data = '';
 @endphp
 
-@foreach ($bankdetails as $bankdetail)    
+@foreach ($bankdetails_pag as $bankdetail)
 
 <tr>
 
@@ -55,7 +55,7 @@
     $data = 'Inactive';
     } @endphp
     <div class="{{ $class; }}">{{ $data }}</div>
-</td>  
+</td>
 <td class="text-center"><a href="{{ route('bankdetails.edit',$bankdetail->id) }}"><i class="lni lni-pencil-alt"></i></a>
 <a href="{{ route('bankdetails.show',$bankdetail->id) }}"><i class="lni lni-list"></i></a>
 </td>
@@ -65,16 +65,15 @@
 @endforeach
 <!-- end table row -->
 
- 
+
 </tbody>
 </table>
 <!-- end table -->
 </div>
 </div>
- 
-    <!--Add new section end here-->
+@include('partials.pagination', ['items' => $bankdetails_pag])
 	</div>
-</section>	
+</section>
 @endsection
 
 <script>
