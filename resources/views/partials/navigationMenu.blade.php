@@ -22,6 +22,15 @@
 <button class="dropdown-toggle bg-transparent border-0" type="button" id="profile" data-bs-toggle="dropdown" aria-expanded="false">
 <div class="profile-info">
 <div class="info">
+{{-- @php
+    $firstImage = $user->image_file;
+    $id = $user->id;
+    $imagePath = $firstImage ? asset("images/users/image_file/{$id}/{$firstImage}") : null;
+@endphp
+
+@if(!empty($imagePath))
+    <img src="{{ $imagePath }}" height="50px">
+@endif --}}
 <h6 class="hidden-xs">{{ (isset(Auth::user()->name)) ? Auth::user()->name : ''; }}</h6>
 <div class="image"><img src="{{ asset('images/users/image_file') }}" alt=""/>
 <span class="status"></span>
