@@ -23,7 +23,7 @@
 <div class="profile-info">
 <div class="info">
 <h6 class="hidden-xs">{{ (isset(Auth::user()->name)) ? Auth::user()->name : ''; }}</h6>
-<div class="image"><img src="{{ asset('images/profile/profile-image.png') }} " alt=""/>
+<div class="image"><img src="{{ asset('images/users/image_file') }}" alt=""/>
 <span class="status"></span>
 </div>
 </div>
@@ -32,13 +32,12 @@
 </button>
 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profile">
 <div class="profileboxinner">
-<div class="profileboxinnerimg"><img src="{{ asset('images/profile/profile-image.png') }}" alt=""></div>
-<h6>{{ (isset(Auth::user()->name)) ? Auth::user()->name : ''; }}</h6>    
-</div>  
-<li><a href="#0"><i class="lni lni-user"></i> View Profile</a></li>
+<div class="profileboxinnerimg"><img src="{{ asset ('images/users/image_file') }}" alt="">
+</div>
+<h6>{{ (isset(Auth::user()->name)) ? Auth::user()->name : ''; }}</h6>
+</div>
+<li><a href="#"><i class="lni lni-user"></i> View Profile</a></li>
 <li><a href="{{ route('users.changepassword') }}"><i class="lni lni-alarm"></i>Change Password</a></li>
-<!-- <li><a href="#0"> <i class="lni lni-inbox"></i> Messages</a></li> -->
-<!-- <li><a href="#0"> <i class="lni lni-cog"></i> Settings </a></li> -->
 <li><a href="{{ route('logout') }}"> <i class="lni lni-exit"></i> Sign Out </a></li>
 </ul>
 </div>

@@ -125,8 +125,6 @@ Route::get('/dashboard', [DashboardsController::class, 'index'])->name('dashboar
 
   Route::post('/changepassword', [UsersController::class,'changePassword'])->name('users.update-password');
 
- /*Route::post('/store-password', [UsersController::class, 'changePassword'])->name('store-password');*/
-
   Route::resource('admintypes', AdminTypesController::class);
   Route::resource('seomodules', SeoModulesController::class);
   Route::resource('socialmedias', SocialMediasController::class);
