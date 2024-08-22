@@ -88,11 +88,9 @@ class UsersController extends Controller
 
         $usersQuery = User::with(['roles','companymaster','country','states','city'])->where('role_id',$conditions);
 
-        // $users = User::paginate(20);
+        $users = $usersQuery->paginate(20);
 
-        //dd($users);die;
-
-        return view('users.index',compact('pageTitle','parentMenu','usertype'));
+        return view('users.index',compact('pageTitle','parentMenu','usertype','users'));
     }
 
     /**
