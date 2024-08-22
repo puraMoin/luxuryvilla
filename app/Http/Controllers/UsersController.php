@@ -92,7 +92,7 @@ class UsersController extends Controller
 
         //dd($users);die;
 
-        return view('users.index',compact('users','pageTitle','parentMenu','usertype'));
+        return view('users.index',compact('pageTitle','parentMenu','usertype'));
     }
 
     /**
