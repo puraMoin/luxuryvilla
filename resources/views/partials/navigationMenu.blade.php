@@ -22,17 +22,14 @@
 <button class="dropdown-toggle bg-transparent border-0" type="button" id="profile" data-bs-toggle="dropdown" aria-expanded="false">
 <div class="profile-info">
 <div class="info">
-{{-- @php
-    $firstImage = $user->image_file;
-    $id = $user->id;
-    $imagePath = $firstImage ? asset("images/users/image_file/{$id}/{$firstImage}") : null;
+    @php
+    $firstImage = Auth::user()->image_file;
+    $id = Auth::user()->id;
+    //dd($id);
+    $imagePath = $firstImage ? asset("images/users/image_file/$id/$firstImage") : asset ('images/profile/profile-image.png');
 @endphp
-
-@if(!empty($imagePath))
-    <img src="{{ $imagePath }}" height="50px">
-@endif --}}
-<h6 class="hidden-xs">{{ (isset(Auth::user()->name)) ? Auth::user()->name : ''; }}</h6>
-<div class="image"><img src="{{ asset('images/users/image_file') }}" alt=""/>
+<h6 class="hidden-xs">{{ (isset(Auth::user()->name)) ? Auth::user()->name : ''; }} </h6>
+<div class="image"><img src="{{ $imagePath }}" alt=""/>
 <span class="status"></span>
 </div>
 </div>
@@ -41,7 +38,9 @@
 </button>
 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profile">
 <div class="profileboxinner">
-<div class="profileboxinnerimg"><img src="{{ asset ('images/users/image_file') }}" alt="">
+<div class="profileboxinnerimg">
+
+    <img src="{{ $imagePath }}" alt="">
 </div>
 <h6>{{ (isset(Auth::user()->name)) ? Auth::user()->name : ''; }}</h6>
 </div>
