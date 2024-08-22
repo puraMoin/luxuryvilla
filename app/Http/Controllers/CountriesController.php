@@ -66,7 +66,7 @@ class CountriesController extends Controller
         if(!empty($segment))
         {
             $segmentId = $segment->id;
-        } 
+        }
 
 
         $country = Country::create([
@@ -102,14 +102,14 @@ class CountriesController extends Controller
 
         if ($request->hasFile('image_file')) {
 
-            $image = $request->file('image_file');   
+            $image = $request->file('image_file');
 
             $folder = 'images/country/image_file/'.$country->id;
 
             // Save the image directly to the public folder
-            $image->move(public_path($folder), $image->getClientOriginalName());   
+            $image->move(public_path($folder), $image->getClientOriginalName());
             //dd($image1Path);
-            
+
             $country->image_file = $image->getClientOriginalName();
            }
 
@@ -132,7 +132,7 @@ class CountriesController extends Controller
     {
         $countries = Country::findOrFail($id);
 
-        $segment = Segment::where('id', $countries->segment_id)->first(); 
+        $segment = Segment::where('id', $countries->segment_id)->first();
         $othersegments = Segment::where('id', '!=', $segment->id)->get();
         $parentMenu = 'Super Master';
 
@@ -145,7 +145,7 @@ class CountriesController extends Controller
 
     public function update(Request $request, $id)
     {
-        
+
         $country = Country::findOrFail($id);
         $country->update([
             'passport_validity_in_yrs_adult' => $request->input('passport_validity_in_yrs_adult'),
@@ -177,14 +177,14 @@ class CountriesController extends Controller
 
         if ($request->hasFile('image_file')) {
 
-            $image = $request->file('image_file');   
+            $image = $request->file('image_file');
 
             $folder = 'images/country/image_file/'.$country->id;
 
             // Save the image directly to the public folder
-            $image->move(public_path($folder), $image->getClientOriginalName());   
+            $image->move(public_path($folder), $image->getClientOriginalName());
             //dd($image1Path);
-            
+
             $country->image_file = $image->getClientOriginalName();
            }
 
@@ -192,8 +192,8 @@ class CountriesController extends Controller
     }
 
     public function getCountryData($countryId){
-    $responce = []; 
-    $countryName = $countryCode ='';  
+    $responce = [];
+    $countryName = $countryCode ='';
 
      if(!empty($countryId)){
         $country = Country::where('id', $countryId)->first();
@@ -201,7 +201,7 @@ class CountriesController extends Controller
         $segments = Segment::where('id',$segmentId)->first();
         $countryCode = $segments->code;
         $countryName = $country->name;
-    }       
+    }
 
     $responce = ['countryName'=>$countryName,'countryCode'=>$countryCode];
 

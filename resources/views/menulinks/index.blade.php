@@ -5,7 +5,7 @@
 	<div class="container-fluid">
 		 <!-- BreathCrum -->
      @include('partials.breadcrumb')
-     <!-- ========== Middle Content-wrapper start ========== -->    
+     <!-- ========== Middle Content-wrapper start ========== -->
      <!-- Add New Button -->
      <div class="right-mob-left">
         <!-- <button type="button" class="main-btn primary-btn-outline btn-hover btn-xs">Import</button>  -->
@@ -23,9 +23,9 @@
                   <th><h6>Order</h6></th>
                   <th><h6>Parent</h6></th>
                   <th><h6>Title</h6></th>
-                  <th><h6>Link</h6></th> 
-                  <th class="text-center"><h6>Active</h6></th> 
-                  <th class="text-center"><h6>Action</h6></th> 
+                  <th><h6>Link</h6></th>
+                  <th class="text-center"><h6>Active</h6></th>
+                  <th class="text-center"><h6>Action</h6></th>
                </tr>
                </thead>
                <tbody>
@@ -56,7 +56,7 @@
                          $class = ($active == 1) ? 'activelabel' : 'inactivelabel';
                          $activeText = ($active == 1) ? 'Active' : 'Inactive';
                      @endphp
-                     <td class="text-center"><div class="{{ $class }}">{{ $activeText }}</div></td> 
+                     <td class="text-center"><div class="{{ $class }}">{{ $activeText }}</div></td>
                      <!-- Action -->
                      <td class="text-center">
                         <a href="{{ route('menulink.edit',['id' => $menulink->id]) }}" title="Update"><i class="lni lni-pencil-alt"></i></a>
@@ -68,6 +68,7 @@
             </table>
          </div>
       </div>
+      @include('partials.pagination', ['items' => $menulinks])
    </div>
-</section>	
+</section>
 @endsection
