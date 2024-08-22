@@ -261,12 +261,9 @@ class UsersController extends Controller
         //dd($user);
         $otherGender = $user->gender == 'Male' ? 'Female' : 'Male';
 
-<<<<<<< HEAD
         $role = RolesRight::where('id', $user->role_id)->first();
 
-=======
         $role = RolesRight::where('id', $user->role_id)->first();
->>>>>>> e285e72158231bf2cbe918b71f7a8217fe0a5576
         $roles = RolesRight::where('id', '!=', $role->id)->get();
 
         $countryId = $user->country_id;
@@ -295,7 +292,6 @@ class UsersController extends Controller
          $newPassword = ($request->input('password'));
          $user = User::find($id);
 
-<<<<<<< HEAD
           if (!$user) {
             return redirect()->route('users.index')->with('error', 'User not found.');
          }
@@ -312,12 +308,10 @@ class UsersController extends Controller
         {
             $role_id = $role->id;
         }
-=======
          $roleId = $request->input('role_id');
          $countryId = $request->input('country_id');
          $stateId = $request->input('state_id');
          $cityId = $request->input('city_id');
->>>>>>> e285e72158231bf2cbe918b71f7a8217fe0a5576
 
          $firstName = $request->input('first_name');
          $lastName = $request->input('last_name');
@@ -358,24 +352,18 @@ class UsersController extends Controller
          // Handle image uploads
          if ($request->hasFile('image_file')) {
 
-<<<<<<< HEAD
             $image = $request->file('image');
-=======
             $image = $request->file('image_file');
->>>>>>> e285e72158231bf2cbe918b71f7a8217fe0a5576
 
             $folder = 'images/users/image_file/'.$user->id;
 
             // Save the image directly to the public folder
             $image->move(public_path($folder), $image->getClientOriginalName());
             //dd($image1Path);
-<<<<<<< HEAD
 
             $user->image = $image->getClientOriginalName();
-=======
 
             $user->image_file = $image->getClientOriginalName();
->>>>>>> e285e72158231bf2cbe918b71f7a8217fe0a5576
            }
 
            $user->save();
