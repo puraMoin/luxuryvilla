@@ -145,7 +145,7 @@ class BankDetailsController extends Controller
 
         $stateId = $bankdetail->state_id;
         $state = State::where('id', $stateId)->first();
-        $otherstates = State::all()->where('id', '!=', $countryId);
+        $otherstates = State::all()->where('id', '!=', $stateId);
 
         $cityId = $bankdetail->city_id;
         $city = City::where('id', $cityId)->first();
