@@ -262,8 +262,6 @@ class UsersController extends Controller
         $otherGender = $user->gender == 'Male' ? 'Female' : 'Male';
 
         $role = RolesRight::where('id', $user->role_id)->first();
-
-        $role = RolesRight::where('id', $user->role_id)->first();
         $roles = RolesRight::where('id', '!=', $role->id)->get();
 
         $countryId = $user->country_id;
@@ -292,22 +290,6 @@ class UsersController extends Controller
          $newPassword = ($request->input('password'));
          $user = User::find($id);
 
-          if (!$user) {
-            return redirect()->route('users.index')->with('error', 'User not found.');
-         }
-
-        $roleId = 1;
-        $adminTypeId = $request->input('admin_type_id');
-
-
-         $role = RolesRight::find($roleId);
-
-
-
-        if(!empty($role))
-        {
-            $role_id = $role->id;
-        }
          $roleId = $request->input('role_id');
          $countryId = $request->input('country_id');
          $stateId = $request->input('state_id');
@@ -348,7 +330,6 @@ class UsersController extends Controller
             ]);
         }
 
-         // Handle image uploads
          // Handle image uploads
          if ($request->hasFile('image_file')) {
 
