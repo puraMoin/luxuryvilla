@@ -12,8 +12,9 @@ class RolesController extends Controller
     {
         $pageTitle = 'Roles List';
         $roles = Role::all();
+        $roles_pag = Role::paginate(20);
         // dd($roles);
-        return view('roles.index', compact('roles', 'pageTitle'));
+        return view('roles.index', compact('roles', 'pageTitle','roles_pag'));
     }
 
     public function create()

@@ -12,7 +12,12 @@
                     {{ session('success') }}
                 </div>
             @endif
-            <!-- Agent Details Section -->
+            <div class="right-mob-left">
+                <a href="{{ route('currency.index') }}">
+                    <button type="button" class="main-btn primary-btn-outline btn-hover btn-xs">Back</button>
+                </a>
+            </div>
+            
             <div class="card-style mt-20">
                 <div class="table-wrapper table-responsive mt-10">
                     <table class="table striped-table">

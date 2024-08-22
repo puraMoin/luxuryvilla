@@ -14,7 +14,8 @@ class MealPlansController extends Controller
         // dd($meal);
         $pageTitle = 'Meal Plans';
         $meal = MealPlan::all();
-        return view('mealplans.index', compact('meal', 'pageTitle'));
+        $meal_pag = MealPlan::paginate(20);
+        return view('mealplans.index', compact('meal', 'pageTitle','meal_pag'));
     }
 
 

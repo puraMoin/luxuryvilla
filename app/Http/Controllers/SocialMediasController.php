@@ -14,7 +14,8 @@ class SocialMediasController extends Controller
         $pageTitle = 'Social Media';
         $parentMenu = 'Master';
         $socialmedias = SocialMedia::all();
-        return view('socialmedias.index', compact('parentMenu', 'pageTitle', 'socialmedias'));
+        $social_medias = SocialMedia::paginate(20);
+        return view('socialmedias.index', compact('parentMenu', 'pageTitle', 'socialmedias','social_medias'));
     }
 
 

@@ -8,30 +8,31 @@ use Illuminate\Http\Request;
 
 class CurrencyController extends Controller
 {
-    
+
     public function index()
     {
         $pageTitle = 'Currency';
         $parentMenu = 'Super Master';
-        $currency = Currency::all();
-        return view('currency.index', compact('parentMenu', 'pageTitle', 'currency'));
+        // $currency = Currency::all();
+        $currencies = Currency::paginate(20);
+        return view('currency.index', compact('parentMenu', 'pageTitle','currencies'));
     }
 
-    
+
     public function create()
     {
         $pageTitle = 'Add';
-        $userId = Auth::id();  
+        $userId = Auth::id();
         return view('currency.create', compact('pageTitle', 'userId'));
     }
 
-    
+
     public function store(Request $request)
     {
         $request->validate([
             'name' => 'string|max:255',
-            'iso_code' => 'string|max:10',  
-            'iso_code_num' => 'string|max:10',  
+            'iso_code' => 'string|max:10',
+            'iso_code_num' => 'string|max:10',
             'conversion_rate' => 'numeric',
             'sign' => 'string',
             'blank' => 'boolean',
@@ -39,10 +40,10 @@ class CurrencyController extends Controller
             'decimals' => 'boolean',
             'display_on_frontend' => 'boolean',
             'active' => 'boolean',
-            'created_by' => 'required|integer', 
-            'modified_by' => 'required|integer', 
+            'created_by' => 'required|integer',
+            'modified_by' => 'required|integer',
         ]);
-    
+
         $currency = Currency::create([
             'name' => $request->input('name'),
             'iso_code' => $request->input('iso_code'),
@@ -59,11 +60,11 @@ class CurrencyController extends Controller
             'created_at' => now(),
             'updated_at' => now(),
         ]);
-    
+
         return redirect()->route('currency.index');
     }
 
-    
+
     public function show($id)
     {
         $currency = Currency::findOrFail($id);
@@ -72,7 +73,7 @@ class CurrencyController extends Controller
         return view('currency.show', compact('currency', 'pageTitle'));
     }
 
-    
+
     public function edit($id)
     {
         $currency = Currency::findOrFail($id);
@@ -83,7 +84,7 @@ class CurrencyController extends Controller
         return view('currency.edit', compact('parentMenu', 'pageTitle', 'currency', 'userId'));
     }
 
-   
+
     public function update(Request $request, $id)
     {
         $currency = Currency::findOrFail($id);
@@ -99,10 +100,10 @@ class CurrencyController extends Controller
             'display_on_frontend' => $request->input('display_on_frontend'),
             'active' => $request->input('active'),
             'modified_by' => $request->input('modified_by'),
-            'created_at' => now(), 
+            'created_at' => now(),
             'updated_at' => now(),
         ]);
-    
+
         return redirect()->route('currency.index');
     }
 

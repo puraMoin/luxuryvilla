@@ -24,21 +24,21 @@
               {{-- <th><h6>Username</h6></th> --}}
               <th><h6>Email</h6></th>
               <th><h6>Contact</h6></th>
-              <th class="text-center"><h6>Active</h6></th> 
+              <th class="text-center"><h6>Active</h6></th>
               {{-- <th><h6>Created At</h6></th>
               <th><h6>Updated At</h6></th> --}}
-              <th class="text-center"><h6>Action</h6></th> 
+              <th class="text-center"><h6>Action</h6></th>
             </tr>
           </thead>
           <tbody>
             @php $class = ''; $data = ''; @endphp
-            @foreach ($employeelists as $employee)
+            @foreach ($employee_pag as $employee)
             <tr>
               <td><p>{{ $employee->name }}</p></td>
               {{-- <td><p>{{ $employee->username }}</p></td> --}}
               <td><p>{{ $employee->email }}</p></td>
               <td><p>{{ $employee->contact }}</p></td>
-              
+
               <td class="text-center">
                 @php
                   if($employee->active == '1'){
@@ -51,7 +51,7 @@
                 @endphp
                 <div class="{{ $class }}">{{ $data }}</div>
               </td>
-              
+
 
               <td class="text-center">
                 <a href="{{ route('employeelists.edit', $employee->id) }}">
@@ -63,10 +63,12 @@
               </td>
             </tr>
             @endforeach
-          </tbody> 
+          </tbody>
         </table>
       </div>
     </div>
+    @include('partials.pagination', ['items' => $employee_pag])
+
   </div>
-</section>  
+</section>
 @endsection

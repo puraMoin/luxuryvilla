@@ -5,7 +5,7 @@
 	<div class="container-fluid">
 		 <!-- BreathCrum -->
      @include('partials.breadcrumb')
-     <!-- ========== Middle Content-wrapper start ========== -->    
+     <!-- ========== Middle Content-wrapper start ========== -->
      <!-- Add New Button -->
      <div class="right-mob-left">
         <!-- <button type="button" class="main-btn primary-btn-outline btn-hover btn-xs">Import</button>  -->
@@ -26,11 +26,11 @@
             <table class="table striped-table">
                <thead>
                <tr>
-                  <th class=""><h6>Name</h6></th> 
+                  <th class=""><h6>Name</h6></th>
                   <th class=""><h6>Email/UserName</h6></th>
-                  <th class=""><h6>Contact</h6></th> 
-                  <th class="text-center"><h6>Active</h6></th> 
-                  <th class="text-center"><h6>Action</h6></th> 
+                  <th class=""><h6>Contact</h6></th>
+                  <th class="text-center"><h6>Active</h6></th>
+                  <th class="text-center"><h6>Action</h6></th>
                </tr>
                </thead>
                <tbody>
@@ -38,12 +38,12 @@
                       $data = '';
                 @endphp
 
-                @foreach ($users as $user) 
-                <tr>  
+                @foreach ($users as $user)
+                <tr>
                   <td><p> {{  $user->name ? $user->name : '---' }} </p></td>
                   <td><p> {{ $user->email }} </p></td>
                   <td><p> {{ $user->contact_no }} </p></td>
-                  <td class="text-center"> 
+                  <td class="text-center">
                       @php if($user->active == '1'){
                             $class = 'activelabel';
                             $data = 'Active';
@@ -52,17 +52,18 @@
                             $class = 'inactivelabel';
                             $data = 'Inactive';
                             } @endphp
-                   <div class="{{ $class; }}">{{ $data }}</div>         
+                   <div class="{{ $class; }}">{{ $data }}</div>
                    </td>
                   <td class="text-center"><a href="{{ route('users.edit',$user->id) }}"><i class="lni lni-pencil-alt"></i></a>
                   <a href="{{ route('users.show',$user->id) }}"><i class="lni lni-list"></i></a>
                   </td>
-                 </tr> 
+                 </tr>
                  @endforeach
-               </tbody> 
+               </tbody>
             </table>
          </div>
       </div>
+      @include('partials.pagination', ['items' => $users])
    </div>
-</section>	
+</section>
 @endsection

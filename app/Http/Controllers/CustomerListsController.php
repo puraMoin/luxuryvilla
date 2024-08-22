@@ -16,8 +16,9 @@ class CustomerListsController extends Controller
     {
         $customers = CustomerList::all();
         $pageTitle = 'Customer List';
-        $parentMenu = 'Users'; 
-        return view('customerlists.index',compact('customers','pageTitle','parentMenu'));
+        $parentMenu = 'Users';
+        $customers_pag = CustomerList::paginate(20);
+        return view('customerlists.index',compact('customers','pageTitle','parentMenu','customers_pag'));
     }
 
     /**
@@ -39,8 +40,8 @@ class CustomerListsController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([   
-            'name'=>['required'],   
+        $request->validate([
+            'name'=>['required'],
         ]);
 
         $customerlist = CustomerList::create([
@@ -89,7 +90,7 @@ class CustomerListsController extends Controller
         $customerlist = CustomerList::findOrFail($id);
 
         $parentMenu = 'Blog';
-    
+
         $pageTitle = "Edit";
         return view('customerlists.edit',compact('parentMenu','pageTitle','customerlist'));
     }

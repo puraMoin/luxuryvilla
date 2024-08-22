@@ -5,19 +5,22 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Segment;
+use App\Models\MenuLink;
 
 class SegmentsController extends Controller
 {
-    
+
     public function index()
     {
         $pageTitle = 'Segments';
         $parentMenu = 'Super Master';
         $segment = Segment::all();
-        return view('segments.index', compact('parentMenu', 'pageTitle', 'segment'));
+        // $menulinks = MenuLink::all();
+        $segments = Segment::paginate(20);
+        return view('segments.index', compact('parentMenu', 'pageTitle', 'segment','segments'));
     }
 
-   
+
     public function create()
     {
         $pageTitle = 'Add';
@@ -25,7 +28,7 @@ class SegmentsController extends Controller
         return view('segments.create', compact('pageTitle', 'userId'));
     }
 
-   
+
     public function store(Request $request)
     {
 
@@ -47,7 +50,7 @@ class SegmentsController extends Controller
         return redirect()->route('segments.index')->with('success', 'segment created!');
     }
 
-    
+
     public function show($id)
     {
         $segment = Segment::findOrFail($id);
@@ -56,7 +59,7 @@ class SegmentsController extends Controller
         return view('segments.show', compact('segment', 'pageTitle'));
     }
 
-   
+
     public function edit($id)
     {
         $segment = Segment::findOrFail($id);
@@ -79,7 +82,7 @@ class SegmentsController extends Controller
             'code' => $request->input('code'),
             'active' => $request->input('active'),
             'modified_by' => $request->input('modified_by'),
-            'created_at' => now(), 
+            'created_at' => now(),
             'updated_at' => now(),
         ]);
 

@@ -39,7 +39,7 @@
                                 $class = '';
                                 $data = '';
                             @endphp
-                            @foreach ($currency as $currency)
+                            @foreach ($currencies as $currency)
                                 <tr>
                                 <td>
                                     <p>{{ $currency->name }}</p>
@@ -74,6 +74,7 @@
                     </table>
                 </div>
             </div>
+            @include('partials.pagination', ['items' => $currencies])
         </div>
     </section>
 @endsection

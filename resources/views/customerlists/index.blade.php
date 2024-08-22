@@ -20,20 +20,20 @@
         <table class="table striped-table">
           <thead>
             <tr>
-              <th><h6>Name</h6></th>       
+              <th><h6>Name</h6></th>
               <th><h6>Email</h6></th>
               <th><h6>Contact No</h6></th>
-              <th class="text-center"><h6>Active</h6></th> 
+              <th class="text-center"><h6>Active</h6></th>
 
-              <th class="text-center"><h6>Action</h6></th> 
+              <th class="text-center"><h6>Action</h6></th>
             </tr>
           </thead>
           <tbody>
             @php $class = ''; $data = ''; @endphp
-            @foreach ($customers as $customer)
+            @foreach ($customers_pag as $customer)
             <tr>
               <td><p>{{ $customer->name }}</p></td>
-              
+
               <td><p>{{ $customer->email }}</p></td>
               <td><p>{{ $customer->contact }}</p></td>
               <td class="text-center">
@@ -59,10 +59,11 @@
               </td>
             </tr>
             @endforeach
-          </tbody> 
+          </tbody>
         </table>
       </div>
     </div>
+    @include('partials.pagination', ['items' => $customers_pag])
   </div>
-</section>  
+</section>
 @endsection

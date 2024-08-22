@@ -17,8 +17,10 @@ class SupplierRegionTypesController extends Controller
         $pageTitle = 'Supplier Region';
         $parentMenu = 'Super Master';
         $supplierregion = SupplierRegionType::all();
+        $supplierregion_pag = SupplierRegionType::paginate(20);
 
-        return view('supplierregiontypes.index',compact('parentMenu','pageTitle','supplierregion'));
+
+        return view('supplierregiontypes.index',compact('parentMenu','pageTitle','supplierregion','supplierregion_pag'));
     }
 
     /**
@@ -88,7 +90,7 @@ class SupplierRegionTypesController extends Controller
         /*dd($role);*/
         //dd($menuLinks);
         $parentMenu = 'Super Master';
-     
+
         $pageTitle = "Edit";
         return view('supplierregiontypes.edit',compact('parentMenu','pageTitle','supplierregion'));
     }
@@ -112,7 +114,7 @@ class SupplierRegionTypesController extends Controller
         $supplierregion->update([
             'name' => $request->input('name'),
             'active' => $request->input('active'),
-            'created_at' => now(), 
+            'created_at' => now(),
             'updated_at' => now(),
         ]);
 

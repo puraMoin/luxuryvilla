@@ -12,7 +12,8 @@ class SupplierTypesController extends Controller
     {
         $supplierstype = SupplierType::all();
         $pageTitle = 'Supplier List';
-        return view('suppliertypes.index', compact('supplierstype', 'pageTitle'));
+        $supplierstype_pag = SupplierType::paginate(20);
+        return view('suppliertypes.index', compact('supplierstype', 'pageTitle','supplierstype_pag'));
     }
 
 

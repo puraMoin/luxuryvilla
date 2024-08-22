@@ -13,7 +13,9 @@ class AssignedDashboardsController extends Controller
     {
         $assigneddashboards = AssignedDashboard::all();
         $pageTitle = 'Assigned Dashboards';
-        return view('assigneddashboards.index', compact('assigneddashboards', 'pageTitle'));
+        $assigneddashboards_pag = AssignedDashboard::paginate(20);
+
+        return view('assigneddashboards.index', compact('assigneddashboards', 'pageTitle','assigneddashboards_pag'));
     }
 
 

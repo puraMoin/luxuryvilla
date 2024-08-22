@@ -20,11 +20,11 @@
         <table class="table striped-table">
           <thead>
             <tr>
-              <th><h6>Name</h6></th>       
+              <th><h6>Name</h6></th>
               <th><h6>Code</h6></th>
-              <th class="text-center"><h6>Active</h6></th> 
+              <th class="text-center"><h6>Active</h6></th>
 
-              <th class="text-center"><h6>Action</h6></th> 
+              <th class="text-center"><h6>Action</h6></th>
             </tr>
           </thead>
           <tbody>
@@ -32,7 +32,7 @@
             @foreach ($segment as $segment)
             <tr>
               <td><p>{{ $segment->name }}</p></td>
-              
+
               <td><p>{{ $segment->code }}</p></td>
               <td class="text-center">
                 @php
@@ -57,11 +57,12 @@
               </td>
             </tr>
             @endforeach
-          </tbody> 
+          </tbody>
         </table>
       </div>
     </div>
+    @include('partials.pagination', ['items' => $segments])
   </div>
-</section>  
+</section>
 @endsection
 

@@ -21,14 +21,14 @@
           <thead>
             <tr>
               <th><h6>Name</h6></th>
-              <th class="text-center"><h6>Status</h6></th> 
-              <th class="text-center"><h6>Action</h6></th> 
+              <th class="text-center"><h6>Status</h6></th>
+              <th class="text-center"><h6>Action</h6></th>
             </tr>
           </thead>
           <tbody>
             @php $class = ''; $data = ''; @endphp
 
-            @foreach ($assigneddashboards as $assigndash)
+            @foreach ($assigneddashboards_pag as $assigndash)
             <tr>
               <td><p>{{ $assigndash->name }}</p></td>
               <td class="text-center">
@@ -53,10 +53,11 @@
               </td>
             </tr>
             @endforeach
-          </tbody> 
+          </tbody>
         </table>
       </div>
     </div>
+    @include('partials.pagination', ['items' => $assigneddashboards_pag])
   </div>
-</section>  
+</section>
 @endsection

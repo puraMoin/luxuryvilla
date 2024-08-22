@@ -16,7 +16,8 @@ class EmployeeListsController extends Controller
     {
         $employeelists = EmployeeList::all();
         $pageTitle = 'Employee List';
-        return view('employeelists.index', compact('employeelists', 'pageTitle'));
+        $employee_pag = EmployeeList::paginate(20);
+        return view('employeelists.index', compact('employeelists', 'pageTitle','employee_pag'));
     }
 
     /**

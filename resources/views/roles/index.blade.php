@@ -51,7 +51,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($roles as $role)
+                            @foreach ($roles_pag as $role)
                                 @php
                                     $class = '';
                                     $data = '';
@@ -129,6 +129,7 @@
                     </table>
                 </div>
             </div>
+            @include('partials.pagination', ['items' => $roles_pag])
         </div>
     </section>
 @endsection

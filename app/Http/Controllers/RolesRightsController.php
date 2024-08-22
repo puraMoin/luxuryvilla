@@ -13,7 +13,8 @@ class RolesRightsController extends Controller
     {
         $rolesrights = RolesRight::all();
         $pageTitle = 'Roles Rights List';
-        return view('rolesrights.index', compact('rolesrights', 'pageTitle'));
+        $rolesrights_pag = RolesRight::paginate(20);
+        return view('rolesrights.index', compact('rolesrights', 'pageTitle','rolesrights_pag'));
     }
 
     public function create()

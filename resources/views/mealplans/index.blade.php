@@ -39,7 +39,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($meal as $meal)
+                            @foreach ($meal_pag as $meal)
                                 @php
                                     $class = '';
                                     $data = '';
@@ -82,6 +82,7 @@
                     </table>
                 </div>
             </div>
+            @include('partials.pagination', ['items' => $meal_pag])
         </div>
     </section>
 @endsection

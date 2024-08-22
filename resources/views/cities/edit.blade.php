@@ -8,6 +8,11 @@
      @include('partials.breadcrumb')
      <!-- ========== Middle Content-wrapper start ========== -->
      <!-- Add New Button -->
+     <div class="right-mob-left">
+        <a href="{{ route('cities.index') }}">
+            <button type="button" class="main-btn primary-btn-outline btn-hover btn-xs">Back</button>
+        </a>
+    </div>
 
     <!-- For Start Here -->
    <form method="POST" action="{{ route('cities.update', ['city' => $city->id]) }}" enctype="multipart/form-data">

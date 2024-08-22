@@ -68,13 +68,13 @@ class UsersController extends Controller
         $parentMenu = 'Super Master';
 
         if($roleId == 4){
-            $conditions = '4';		
+            $conditions = '4';
             $title = "Agent List";
-            $usertype = '4';	
+            $usertype = '4';
           }elseif($roleId == 3){
-            $conditions = '3';		
+            $conditions = '3';
              $title = "Employee List";
-             $usertype = '3';	
+             $usertype = '3';
           }elseif($roleId == 2){
               $conditions = '2';
               $title = "User List";
@@ -87,11 +87,11 @@ class UsersController extends Controller
 
         $usersQuery = User::with(['roles','companymaster','country','states','city'])->where('role_id',$conditions);
 
-        $users = $usersQuery->paginate(20);
-       
+        $users = User::paginate(20);
+
         //dd($users);die;
 
-        return view('users.index',compact('users','pageTitle','parentMenu','usertype'));
+        return view('users.index',compact('users','pageTitle','parentMenu','usertype','users'));
     }
 
     /**
@@ -108,22 +108,22 @@ class UsersController extends Controller
         $states = State::where('country_id', '101')->get();
 
         if($roleId == 4){
-            $conditions = '4';	
+            $conditions = '4';
             $title = "Agent List";
             $userType = '4';
-            $alias = 'AGT';	
+            $alias = 'AGT';
           }elseif($roleId == 3){
-            $conditions = '3';		
+            $conditions = '3';
              $title = "Employee List";
              $userType = '3';
-             $alias = 'EMP';	
+             $alias = 'EMP';
           }elseif($roleId == 2){
-              $conditions = '2';	
+              $conditions = '2';
               $title = "User List";
               $userType = '2';
               $alias = 'USR';
           }else{
-              $conditions = '1';	
+              $conditions = '1';
               $title = "Admin List";
               $userType = '1';
               $alias = 'ADM';
@@ -149,7 +149,7 @@ class UsersController extends Controller
      */
     public function store(Request $request)
     {
-       //dd($request);die;     
+       //dd($request);die;
        $request->validate([
             'role_id'=>'required',
             'user_code'=>'required',
@@ -161,13 +161,13 @@ class UsersController extends Controller
             'contact_no'=>'required',
             'mobile_no'=>'required',
             'google_address'=>'required',
-            'country_id'=>'required',            
-            'state_id'=>'required',   
-            'city_id'=>'required',   
-            'area'=>'required',  
-            'zipcode'=>'required',  
-            'address'=>'required',  
-            'active'=>'required',  
+            'country_id'=>'required',
+            'state_id'=>'required',
+            'city_id'=>'required',
+            'area'=>'required',
+            'zipcode'=>'required',
+            'address'=>'required',
+            'active'=>'required',
         ]);
 
          $roleId = $request->input('role_id');
@@ -184,7 +184,7 @@ class UsersController extends Controller
             'user_code'=> $request->input('user_code'),
             'name' => $request->input('name'),
             'first_name'=> $firstName,
-            'last_name'=> $lastName,  
+            'last_name'=> $lastName,
             'name' => $fullName,
             'gender' => $request->input('gender'),
             'dob' => $request->input('dob'),
@@ -206,14 +206,14 @@ class UsersController extends Controller
          // Handle image uploads
         if ($request->hasFile('image_file')) {
 
-            $image = $request->file('image_file');   
+            $image = $request->file('image_file');
 
             $folder = 'images/users/image_file/'.$users->id;
 
             // Save the image directly to the public folder
-            $image->move(public_path($folder), $image->getClientOriginalName());   
+            $image->move(public_path($folder), $image->getClientOriginalName());
             //dd($image1Path);
-            
+
             $users->image_file = $image->getClientOriginalName();
            }
 
@@ -254,14 +254,14 @@ class UsersController extends Controller
     public function edit($id)
     {
         $parentMenu = 'Super Master';
-   
+
         $pageTitle = "Edit";
 
         $user = User::findOrFail($id);
         //dd($user);
         $otherGender = $user->gender == 'Male' ? 'Female' : 'Male';
 
-        $role = RolesRight::where('id', $user->role_id)->first(); 
+        $role = RolesRight::where('id', $user->role_id)->first();
 
         $roles = RolesRight::where('id', '!=', $role->id)->get();
 
@@ -289,12 +289,12 @@ class UsersController extends Controller
 
          $role = RolesRight::find($roleId);
 
-         
+
 
         if(!empty($role))
         {
             $role_id = $role->id;
-        } 
+        }
 
 
         $user->update([
@@ -314,14 +314,14 @@ class UsersController extends Controller
          // Handle image uploads
         if ($request->hasFile('image')) {
 
-            $image = $request->file('image');   
+            $image = $request->file('image');
 
             $folder = 'images/users/image/'.$user->id;
 
             // Save the image directly to the public folder
-            $image->move(public_path($folder), $image->getClientOriginalName());   
+            $image->move(public_path($folder), $image->getClientOriginalName());
             //dd($image1Path);
-            
+
             $user->image = $image->getClientOriginalName();
            }
 

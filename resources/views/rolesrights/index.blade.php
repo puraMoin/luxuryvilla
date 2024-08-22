@@ -53,7 +53,7 @@
                         <!-- end table row-->
                     </thead>
                     <tbody>
-                        @foreach ($rolesrights as $rolesright)
+                        @foreach ($rolesrights_pag as $rolesright)
                             <tr>
                                 <td>
                                     <div class="check-input-primary">
@@ -83,14 +83,7 @@
                 <!-- end table -->
             </div>
         </div>
-        <div class="mt-30">
-            <div class="row">
-                <div class="col-sm-6">
-                    <div class="total_records">Total Records: <span>{{ $rolesrights->count() }}</span></div>
-                </div>
-            </div>
-        </div>
-        <!-- Add new section end here -->
+        @include('partials.pagination', ['items' => $rolesrights_pag])
     </div>
 </section>
 @endsection

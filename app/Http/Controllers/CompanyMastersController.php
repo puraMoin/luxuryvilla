@@ -23,8 +23,9 @@ class CompanyMastersController extends Controller
         $parentMenu = 'Other Modules';
         $pageTitle = "Company Master";
         $companymasters = CompanyMaster::with(['currency', 'country', 'state', 'city'])->get();
+        $companymasters_pag = CompanyMaster::paginate(20);
 
-        return view('companymasters.index', (compact('companymasters', 'parentMenu', 'pageTitle')));
+        return view('companymasters.index', (compact('companymasters', 'parentMenu', 'pageTitle','companymasters_pag')));
     }
 
     /**
