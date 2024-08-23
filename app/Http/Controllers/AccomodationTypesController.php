@@ -15,10 +15,10 @@ class AccomodationTypesController extends Controller
      */
     public function index()
     {
-        $accomodationtypes = AccommodationType::all();
+        // $accomodationtypes = AccommodationType::all();
         $pageTitle = 'Accommodation Types';
-        $accomodationtypes_pag = AccommodationType::paginate(20);
-        return view('accomodationtypes.index', compact('accomodationtypes', 'pageTitle','accomodationtypes_pag'));
+        $accomodationtypes = AccommodationType::paginate(20);
+        return view('accomodationtypes.index', compact('accomodationtypes', 'pageTitle'));
 
     }
 

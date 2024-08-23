@@ -53,7 +53,7 @@
                         <!-- end table row-->
                     </thead>
                     <tbody>
-                        @foreach ($rolesrights_pag as $rolesright)
+                        @foreach ($rolesrights as $rolesright)
                             <tr>
                                 <td>
                                     <div class="check-input-primary">
@@ -83,7 +83,7 @@
                 <!-- end table -->
             </div>
         </div>
-        @include('partials.pagination', ['items' => $rolesrights_pag])
+        @include('partials.pagination', ['items' => $rolesrights])
     </div>
 </section>
 @endsection

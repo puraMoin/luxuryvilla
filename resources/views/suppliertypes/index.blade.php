@@ -28,7 +28,7 @@
           <tbody>
             @php $class = ''; $data = ''; @endphp
 
-            @foreach ($supplierstype_pag as $type)
+            @foreach ($supplierstype as $type)
             <tr>
               <td><p>{{ $type->name }}</p></td>
               <td class="text-center">
@@ -57,7 +57,7 @@
         </table>
       </div>
     </div>
-    @include('partials.pagination', ['items' => $supplierstype_pag])
+    @include('partials.pagination', ['items' => $supplierstype])
   </div>
 </section>
 @endsection

@@ -15,12 +15,12 @@ class DepartmentsController extends Controller
      */
     public function index()
     {
-        $department = Department::all();
+        // $department = Department::all();
         $parentMenu = 'Other Modules';
         $pageTitle = "Department";
-        $department_pag = Department::paginate(20);
+        $department = Department::paginate(20);
 
-        return view ('departments.index',(compact('department','parentMenu','pageTitle','department_pag')));
+        return view ('departments.index',(compact('department','parentMenu','pageTitle')));
     }
 
     /**

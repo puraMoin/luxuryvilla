@@ -11,10 +11,10 @@ class TaxesController extends Controller
 
     public function index()
     {
-        $taxes = Taxes::all();
+        // $taxes = Taxes::all();
         $pageTitle = 'Taxes';
-        $taxes_pag = Taxes::paginate(20);
-        return view('taxes.index', compact('taxes', 'pageTitle','taxes_pag'));
+        $taxes = Taxes::paginate(20);
+        return view('taxes.index', compact('taxes', 'pageTitle'));
     }
 
 

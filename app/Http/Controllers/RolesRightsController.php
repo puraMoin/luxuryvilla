@@ -11,10 +11,10 @@ class RolesRightsController extends Controller
 {
     public function index()
     {
-        $rolesrights = RolesRight::all();
+        // $rolesrights = RolesRight::all();
         $pageTitle = 'Roles Rights List';
-        $rolesrights_pag = RolesRight::paginate(20);
-        return view('rolesrights.index', compact('rolesrights', 'pageTitle','rolesrights_pag'));
+        $rolesrights = RolesRight::paginate(20);
+        return view('rolesrights.index', compact('rolesrights', 'pageTitle'));
     }
 
     public function create()

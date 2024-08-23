@@ -17,10 +17,10 @@ class CompanyCodeCategoriesController extends Controller
     {
         $parentMenu = 'Other Modules';
         $pageTitle = "Company Code Category";
-        $companycodecategories = CompanyCodeCategory::all();
-        $companycodecategories_pag = CompanyCodeCategory::paginate(20);
+        // $companycodecategories = CompanyCodeCategory::all();
+        $companycodecategories = CompanyCodeCategory::paginate(20);
 
-        return view('companycodecategories.index', compact('companycodecategories', 'parentMenu', 'pageTitle','companycodecategories_pag'));
+        return view('companycodecategories.index', compact('companycodecategories', 'parentMenu', 'pageTitle'));
     }
 
     /**

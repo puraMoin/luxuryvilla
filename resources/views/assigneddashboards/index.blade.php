@@ -28,7 +28,7 @@
           <tbody>
             @php $class = ''; $data = ''; @endphp
 
-            @foreach ($assigneddashboards_pag as $assigndash)
+            @foreach ($assigneddashboards as $assigndash)
             <tr>
               <td><p>{{ $assigndash->name }}</p></td>
               <td class="text-center">
@@ -57,7 +57,7 @@
         </table>
       </div>
     </div>
-    @include('partials.pagination', ['items' => $assigneddashboards_pag])
+    @include('partials.pagination', ['items' => $assigneddashboards])
   </div>
 </section>
 @endsection

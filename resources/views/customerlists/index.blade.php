@@ -30,7 +30,7 @@
           </thead>
           <tbody>
             @php $class = ''; $data = ''; @endphp
-            @foreach ($customers_pag as $customer)
+            @foreach ($customers as $customer)
             <tr>
               <td><p>{{ $customer->name }}</p></td>
 
@@ -63,7 +63,7 @@
         </table>
       </div>
     </div>
-    @include('partials.pagination', ['items' => $customers_pag])
+    @include('partials.pagination', ['items' => $customers])
   </div>
 </section>
 @endsection

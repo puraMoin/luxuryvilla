@@ -46,7 +46,7 @@
       $data = '';
 @endphp
 
-@foreach ($agentcredittypes_pag as $agentcredittype)
+@foreach ($agentcredittypes as $agentcredittype)
 
 <tr>
 
@@ -79,7 +79,7 @@
 </div>
 </div>
 
-@include('partials.pagination', ['items' => $agentcredittypes_pag])
+@include('partials.pagination', ['items' => $agentcredittypes])
   </div>
 </section>
 @endsection

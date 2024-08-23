@@ -32,17 +32,17 @@
       $data = '';
 @endphp
 
-@foreach ($companywebsite_pag as $companywebsite)
+@foreach ($companywebsite as $companywebsites)
 
 
 <tr>
-    <td><p> {{ $companywebsite->companymaster ? $companywebsite->companymaster->name : '---' }} </p></td>
-    <td><p> {{ $companywebsite->websitetype ? $companywebsite->websitetype->name : '---' }} </p></td>
-    <td><p> {{ $companywebsite->country ? $companywebsite->country->name : '---' }} </p></td>
-    <td><p> {{ $companywebsite->name }}
+    <td><p> {{ $companywebsites->companymaster ? $companywebsites->companymaster->name : '---' }} </p></td>
+    <td><p> {{ $companywebsites->websitetype ? $companywebsites->websitetype->name : '---' }} </p></td>
+    <td><p> {{ $companywebsites->country ? $companywebsites->country->name : '---' }} </p></td>
+    <td><p> {{ $companywebsites->name }}
 </p></td>
 <td class="text-center">
-  @php if($companywebsite->active == '1'){
+  @php if($companywebsites->active == '1'){
     $class = 'activelabel';
     $data = 'Active';
     }
@@ -52,8 +52,8 @@
     } @endphp
     <div class="{{ $class; }}">{{ $data }}</div>
 </td>
-<td class="text-center"><a href="{{ route('companywebsites.edit',$companywebsite->id) }}"><i class="lni lni-pencil-alt"></i></a>
-<a href="{{ route('companywebsites.show',$companywebsite->id) }}"><i class="lni lni-list"></i></a>
+<td class="text-center"><a href="{{ route('companywebsites.edit',$companywebsites->id) }}"><i class="lni lni-pencil-alt"></i></a>
+<a href="{{ route('companywebsites.show',$companywebsites->id) }}"><i class="lni lni-list"></i></a>
 </td>
 
 </tr>
@@ -65,7 +65,7 @@
 <!-- end table -->
 </div>
 </div>
-@include('partials.pagination', ['items' => $companywebsite_pag])
+@include('partials.pagination', ['items' => $companywebsite])
 </div>
 </section>
 @endsection

@@ -12,9 +12,9 @@ class FinancialYearsController extends Controller
     public function index()
     {
         $pageTitle = 'Financial Years';
-        $financialyears = FinancialYear::all();
-        $financialyears_pag = FinancialYear::paginate(20);
-        return view('financialyears.index', compact('financialyears', 'pageTitle','financialyears_pag'));
+        // $financialyears = FinancialYear::all();
+        $financialyears = FinancialYear::paginate(20);
+        return view('financialyears.index', compact('financialyears', 'pageTitle'));
     }
 
 

@@ -11,11 +11,11 @@ class WebsiteTypesController extends Controller
 
     public function index()
     {
-        $websitetypes = WebsiteType::all();
+        // $websitetypes = WebsiteType::all();
         $pageTitle = 'Website Types';
-        $websitetypes_pag = WebsiteType::paginate(20);
+        $websitetypes = WebsiteType::paginate(20);
 
-        return view('websitetypes.index', compact('websitetypes', 'pageTitle','websitetypes_pag'));
+        return view('websitetypes.index', compact('websitetypes', 'pageTitle'));
     }
 
     public function create()

@@ -17,10 +17,10 @@ class AgentCreditTypesController extends Controller
     {
         $pageTitle = 'Agent Credit Types';
         $parentMenu = 'Agents';
-        $agentcredittypes = AgentCreditType::all();
-        $agentcredittypes_pag = AgentCreditType::paginate(20);
+        // $agentcredittypes = AgentCreditType::all();
+        $agentcredittypes = AgentCreditType::paginate(20);
 
-        return view('agentcredittypes.index',compact('parentMenu','pageTitle','agentcredittypes','agentcredittypes_pag'));
+        return view('agentcredittypes.index',compact('parentMenu','pageTitle','agentcredittypes'));
 
     }
 

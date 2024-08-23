@@ -10,10 +10,10 @@ class BookingStatusesController extends Controller
 {
     public function index()
     {
-        $bookingstatuses = BookingStatuses::all();
+        // $bookingstatuses = BookingStatuses::all();
         $pageTitle = 'Booking Status';
-        $bookingstatuses_pag = BookingStatuses::paginate(20);
-        return view('bookingstatuses.index', compact('bookingstatuses', 'pageTitle','bookingstatuses_pag'));
+        $bookingstatuses = BookingStatuses::paginate(20);
+        return view('bookingstatuses.index', compact('bookingstatuses', 'pageTitle'));
     }
 
     public function create()

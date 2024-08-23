@@ -46,7 +46,7 @@
       $data = '';
 @endphp
 
-@foreach ($accomodationtypes_pag as $accomodationtype)
+@foreach ($accomodationtypes as $accomodationtype)
 
 <tr>
 
@@ -78,7 +78,7 @@
 <!-- end table -->
 </div>
 </div>
-@include('partials.pagination', ['items' => $accomodationtypes_pag])
+@include('partials.pagination', ['items' => $accomodationtypes])
   </div>
 </section>
 @endsection

@@ -35,7 +35,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($bedtypes_pag as $bedtypes)
+                            @foreach ($bedtypes as $bedtype)
                                 @php
                                     $class = '';
                                     $data = '';
@@ -43,12 +43,12 @@
 
                                 <tr>
                                     <td>
-                                        <p>{{ $bedtypes->name }}</p>
+                                        <p>{{ $bedtype->name }}</p>
                                     </td>
 
                                     <td class="text-center">
                                         @php
-                                          if($bedtypes->active == '1'){
+                                          if($bedtype->active == '1'){
                                             $class = 'activelabel';
                                             $data = 'Active';
                                           } else {
@@ -61,10 +61,10 @@
 
 
                                     <td class="text-center">
-                                        <a href="{{ route('bedtypes.edit', $bedtypes->id) }}">
+                                        <a href="{{ route('bedtypes.edit', $bedtype->id) }}">
                                             <i class="lni lni-pencil-alt"></i>
                                         </a>
-                                        <a href="{{ route('bedtypes.show', $bedtypes->id) }}">
+                                        <a href="{{ route('bedtypes.show', $bedtype->id) }}">
                                             <i class="lni lni-list"></i>
                                         </a>
                                     </td>
@@ -74,7 +74,7 @@
                     </table>
                 </div>
             </div>
-            @include('partials.pagination', ['items' => $bedtypes_pag])
+            @include('partials.pagination', ['items' => $bedtypes])
         </div>
     </section>
 @endsection

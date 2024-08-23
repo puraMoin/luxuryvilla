@@ -51,7 +51,7 @@
     </tr>
 </thead>
 <tbody>
-    @foreach ($companyregistrations_pag as $companyregistrations)
+    @foreach ($companyregistrations as $companyregistration)
         @php
             $class = '';
             $data = '';
@@ -59,14 +59,14 @@
 
         <tr>
             <td class="text-left">
-                <p> {{ $companyregistrations->companymaster ? $companyregistrations->companymaster->name : '---'   }} </p>
+                <p> {{ $companyregistration->companymaster ? $companyregistration->companymaster->name : '---'   }} </p>
             </td>
 
             <td class="text-center">
-                <p> {{ $companyregistrations->companytextinformation ? $companyregistrations->companytextinformation->name : '---' }} </p>
+                <p> {{ $companyregistration->companytextinformation ? $companyregistration->companytextinformation->name : '---' }} </p>
             </td>
             <td class="text-center">
-                <p>{{ $companyregistrations->registration_body }}</p>
+                <p>{{ $companyregistration->registration_body }}</p>
             </td>
             {{-- <td class="text-center">
                 <p>{{ $companyregistrations->registration_number }}</p>
@@ -76,7 +76,7 @@
             </td> --}}
             <td class="text-center">
                 @php
-                    if($companyregistrations->active == '1'){
+                    if($companyregistration->active == '1'){
                     $class = 'activelabel';
                     $data = 'Active';
                     } else {
@@ -88,10 +88,10 @@
             </td>
 
             <td class="text-center">
-                <a href="{{ route('companyregistrations.edit', $companyregistrations->id) }}">
+                <a href="{{ route('companyregistrations.edit', $companyregistration->id) }}">
                     <i class="lni lni-pencil-alt"></i>
                 </a>
-                <a href="{{ route('companyregistrations.show', $companyregistrations->id) }}">
+                <a href="{{ route('companyregistrations.show', $companyregistration->id) }}">
                     <i class="lni lni-list"></i>
                 </a>
             </td>
@@ -101,7 +101,7 @@
 </table>
 </div>
 </div>
-@include('partials.pagination', ['items' => $companyregistrations_pag])
+@include('partials.pagination', ['items' => $companyregistrations])
 </div>
 </section>
 @endsection

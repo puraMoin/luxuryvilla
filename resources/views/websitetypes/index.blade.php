@@ -28,7 +28,7 @@
           <tbody>
             @php $class = ''; $data = ''; @endphp
 
-            @foreach ($websitetypes_pag as $websitetype)
+            @foreach ($websitetypes as $websitetype)
             <tr>
               <td><p>{{ $websitetype->name }}</p></td>
               <td class="text-center">
@@ -57,7 +57,7 @@
         </table>
       </div>
     </div>
-    @include('partials.pagination', ['items' => $websitetypes_pag])
+    @include('partials.pagination', ['items' => $websitetypes])
   </div>
 </section>
 @endsection

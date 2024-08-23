@@ -12,9 +12,9 @@ class ContractSeasonTypesController extends Controller
     public function index()
     {
         $pageTitle = 'Contract Season Types';
-        $contractseasontypes = ContractSeasonType::all();
-        $contractseasontypes_pag = ContractSeasonType::paginate(20);
-        return view('contractseasontypes.index', compact('contractseasontypes', 'pageTitle','contractseasontypes_pag'));
+        // $contractseasontypes = ContractSeasonType::all();
+        $contractseasontypes = ContractSeasonType::paginate(20);
+        return view('contractseasontypes.index', compact('contractseasontypes', 'pageTitle'));
     }
 
 

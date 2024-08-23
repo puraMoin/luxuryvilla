@@ -35,7 +35,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($designations_pag as $designation)
+                            @foreach ($designations as $designation)
                                 @php
                                     $class = '';
                                     $data = '';
@@ -74,7 +74,7 @@
                     </table>
                 </div>
             </div>
-            @include('partials.pagination', ['items' => $designations_pag])
+            @include('partials.pagination', ['items' => $designations])
         </div>
     </section>
 @endsection

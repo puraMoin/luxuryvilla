@@ -33,7 +33,7 @@
                 @php $class = '';
                       $data = '';
                 @endphp
-                @foreach ($social_medias as $socialmedia)
+                @foreach ($socialmedias as $socialmedia)
                 <tr>
 
                 <td>
@@ -89,7 +89,7 @@
             </table>
          </div>
       </div>
-      @include('partials.pagination', ['items' => $social_medias])
+      @include('partials.pagination', ['items' => $socialmedias])
    </div>
 </section>
 @endsection

@@ -34,7 +34,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($contractseasontypes_pag as $contractseasontypes)
+                            @foreach ($contractseasontypes as $contractseasontype)
                                 @php
                                     $class = '';
                                     $data = '';
@@ -42,12 +42,12 @@
 
                                 <tr>
                                     <td>
-                                        <p>{{ $contractseasontypes->title }}</p>
+                                        <p>{{ $contractseasontype->title }}</p>
                                     </td>
 
                                     <td class="text-center">
                                         @php
-                                          if($contractseasontypes->active == '1'){
+                                          if($contractseasontype->active == '1'){
                                             $class = 'activelabel';
                                             $data = 'Active';
                                           } else {
@@ -59,10 +59,10 @@
                                       </td>
 
                                     <td class="text-center">
-                                        <a href="{{ route('contractseasontypes.edit', $contractseasontypes->id) }}">
+                                        <a href="{{ route('contractseasontypes.edit', $contractseasontype->id) }}">
                                             <i class="lni lni-pencil-alt"></i>
                                         </a>
-                                        <a href="{{ route('contractseasontypes.show', $contractseasontypes->id) }}">
+                                        <a href="{{ route('contractseasontypes.show', $contractseasontype->id) }}">
                                             <i class="lni lni-list"></i>
                                         </a>
                                     </td>
@@ -72,7 +72,7 @@
                     </table>
                 </div>
             </div>
-            @include('partials.pagination', ['items' => $contractseasontypes_pag])
+            @include('partials.pagination', ['items' => $contractseasontypes])
         </div>
     </section>
 @endsection

@@ -15,10 +15,10 @@ class TaxMastersController extends Controller
      */
     public function index()
     {
-        $taxmasters = TaxMaster::all();
+        // $taxmasters = TaxMaster::all();
         $pageTitle = 'Tax Masters';
-        $taxmasters_pag = TaxMaster::paginate(20);
-        return view('taxmasters.index', compact('taxmasters', 'pageTitle','taxmasters_pag'));
+        $taxmasters = TaxMaster::paginate(20);
+        return view('taxmasters.index', compact('taxmasters', 'pageTitle'));
     }
 
     /**

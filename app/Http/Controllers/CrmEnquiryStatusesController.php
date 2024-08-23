@@ -14,9 +14,9 @@ class CrmEnquiryStatusesController extends Controller
     {
         $parentMenu = 'CRM';
         $pageTitle = "CRM Enquiry Status";
-        $crmenquirystatuses = CrmEnquiryStatus::all();
-        $crmenquirystatuses_pag = CrmEnquiryStatus::paginate(20);
-        return view('crmenquirystatuses.index', compact('crmenquirystatuses', 'parentMenu', 'pageTitle','crmenquirystatuses_pag'));
+        // $crmenquirystatuses = CrmEnquiryStatus::all();
+        $crmenquirystatuses = CrmEnquiryStatus::paginate(20);
+        return view('crmenquirystatuses.index', compact('crmenquirystatuses', 'parentMenu', 'pageTitle'));
     }
 
 

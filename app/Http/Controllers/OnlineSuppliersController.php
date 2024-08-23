@@ -15,10 +15,10 @@ class OnlineSuppliersController extends Controller
      */
     public function index()
     {
-        $onlinesuppliers = OnlineSupplier::all();
+        // $onlinesuppliers = OnlineSupplier::all();
         $pageTitle = 'OnlineSupplier';
-        $onlinesuppliers_pag = OnlineSupplier::paginate(20);
-        return view('onlinesuppliers.index', compact('onlinesuppliers', 'pageTitle','onlinesuppliers_pag'));
+        $onlinesuppliers = OnlineSupplier::paginate(20);
+        return view('onlinesuppliers.index', compact('onlinesuppliers', 'pageTitle'));
     }
 
     /**

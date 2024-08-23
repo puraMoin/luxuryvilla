@@ -15,9 +15,9 @@ class CompanyWebsitesController extends Controller
     {
         $parentMenu = 'Other Modules';
         $pageTitle = "Company Websites";
-        $companywebsite = CompanyWebsite::all();
-        $companywebsite_pag = CompanyWebsite::paginate(20);
-        return view('companywebsites.index', compact('companywebsite', 'parentMenu', 'pageTitle','companywebsite_pag'));
+        // $companywebsite = CompanyWebsite::all();
+        $companywebsite = CompanyWebsite::paginate(20);
+        return view('companywebsites.index', compact('companywebsite', 'parentMenu', 'pageTitle'));
     }
 
     public function create()

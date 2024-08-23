@@ -13,9 +13,9 @@ class MealTypesController extends Controller
     {
         // dd($meal);
         $pageTitle = 'Meal Types';
-        $meal = MealType::all();
-        $meal_pag = MealType::paginate(20);
-        return view('mealtypes.index', compact('meal', 'pageTitle','meal_pag'));
+        // $meal = MealType::all();
+        $meal = MealType::paginate(20);
+        return view('mealtypes.index', compact('meal', 'pageTitle'));
     }
 
 

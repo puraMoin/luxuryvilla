@@ -10,11 +10,11 @@ class PropertyTypesController extends Controller
 {
     public function index()
     {
-        $propertytypes = PropertyType::all();
+        // $propertytypes = PropertyType::all();
         $pageTitle = 'Property List';
-        $propertytypes_pag = PropertyType::paginate(20);
+        $propertytypes = PropertyType::paginate(20);
 
-        return view('propertytypes.index', compact('propertytypes', 'pageTitle','propertytypes_pag'));
+        return view('propertytypes.index', compact('propertytypes', 'pageTitle'));
     }
 
     public function create()

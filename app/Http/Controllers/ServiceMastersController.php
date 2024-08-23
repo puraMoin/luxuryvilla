@@ -12,9 +12,9 @@ class ServiceMastersController extends Controller
     public function index()
     {
         $pageTitle = 'Service Master';
-        $servicemasters = ServiceMaster::all();
-        $servicemasters_pag = ServiceMaster::paginate(20);
-        return view('servicemasters.index', compact('servicemasters', 'pageTitle','servicemasters_pag'));
+        // $servicemasters = ServiceMaster::all();
+        $servicemasters = ServiceMaster::paginate(20);
+        return view('servicemasters.index', compact('servicemasters', 'pageTitle'));
     }
 
 

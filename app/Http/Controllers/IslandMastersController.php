@@ -13,9 +13,9 @@ class IslandMastersController extends Controller
     {
         // dd($);
         $pageTitle = 'Island Master';
-        $islandmaster = IslandMasters::all();
-        $islandmaster_pag = IslandMasters::paginate(20);
-        return view('islandmasters.index', compact('islandmaster', 'pageTitle','islandmaster_pag'));
+        // $islandmaster = IslandMasters::all();
+        $islandmaster = IslandMasters::paginate(20);
+        return view('islandmasters.index', compact('islandmaster', 'pageTitle'));
     }
 
 

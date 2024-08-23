@@ -11,10 +11,10 @@ class RolesController extends Controller
     public function index()
     {
         $pageTitle = 'Roles List';
-        $roles = Role::all();
-        $roles_pag = Role::paginate(20);
+        // $roles = Role::all();
+        $roles = Role::paginate(20);
         // dd($roles);
-        return view('roles.index', compact('roles', 'pageTitle','roles_pag'));
+        return view('roles.index', compact('roles', 'pageTitle'));
     }
 
     public function create()

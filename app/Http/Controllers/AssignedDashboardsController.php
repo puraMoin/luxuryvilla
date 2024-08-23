@@ -11,11 +11,11 @@ class AssignedDashboardsController extends Controller
 
     public function index()
     {
-        $assigneddashboards = AssignedDashboard::all();
+        // $assigneddashboards = AssignedDashboard::all();
         $pageTitle = 'Assigned Dashboards';
-        $assigneddashboards_pag = AssignedDashboard::paginate(20);
+        $assigneddashboards = AssignedDashboard::paginate(20);
 
-        return view('assigneddashboards.index', compact('assigneddashboards', 'pageTitle','assigneddashboards_pag'));
+        return view('assigneddashboards.index', compact('assigneddashboards', 'pageTitle'));
     }
 
 

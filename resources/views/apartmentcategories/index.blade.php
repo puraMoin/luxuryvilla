@@ -34,7 +34,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($apartmentcategories_pag as $apartmentcategories)
+                            @foreach ($apartmentcategories as $apartmentcategory)
                                 @php
                                     $class = '';
                                     $data = '';
@@ -42,12 +42,12 @@
 
                                 <tr>
                                     <td>
-                                        <p>{{ $apartmentcategories->name }}</p>
+                                        <p>{{ $apartmentcategory->name }}</p>
                                     </td>
 
                                     <td class="text-center">
                                         @php
-                                          if($apartmentcategories->active == '1'){
+                                          if($apartmentcategory->active == '1'){
                                             $class = 'activelabel';
                                             $data = 'Active';
                                           } else {
@@ -59,10 +59,10 @@
                                       </td>
 
                                     <td class="text-center">
-                                        <a href="{{ route('apartmentcategories.edit', $apartmentcategories->id) }}">
+                                        <a href="{{ route('apartmentcategories.edit', $apartmentcategory->id) }}">
                                             <i class="lni lni-pencil-alt"></i>
                                         </a>
-                                        <a href="{{ route('apartmentcategories.show', $apartmentcategories->id) }}">
+                                        <a href="{{ route('apartmentcategories.show', $apartmentcategory->id) }}">
                                             <i class="lni lni-list"></i>
                                         </a>
                                     </td>
@@ -72,7 +72,7 @@
                     </table>
                 </div>
             </div>
-            @include('partials.pagination', ['items' => $apartmentcategories_pag])
+            @include('partials.pagination', ['items' => $apartmentcategories])
         </div>
     </section>
 @endsection

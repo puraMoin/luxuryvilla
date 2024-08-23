@@ -15,12 +15,12 @@ class DesignationsController extends Controller
      */
     public function index()
     {
-        $designations = Designation::all();
+        // $designations = Designation::all();
         $parentMenu = 'Other Modules';
         $pageTitle = "Designation";
-        $designations_pag = Designation::paginate(20);
+        $designations = Designation::paginate(20);
 
-        return view ('designations.index',(compact('designations','parentMenu','pageTitle','designations_pag')));
+        return view ('designations.index',(compact('designations','parentMenu','pageTitle')));
     }
 
     /**

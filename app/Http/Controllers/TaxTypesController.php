@@ -11,10 +11,10 @@ class TaxTypesController extends Controller
 
     public function index()
     {
-        $taxtypes = TaxType::all();
+        // $taxtypes = TaxType::all();
         $pageTitle = 'Tax Types';
-        $taxtypes_pag = TaxType::paginate(20);
-        return view('taxtypes.index', compact('taxtypes', 'pageTitle','taxtypes_pag'));
+        $taxtypes = TaxType::paginate(20);
+        return view('taxtypes.index', compact('taxtypes', 'pageTitle'));
     }
 
 

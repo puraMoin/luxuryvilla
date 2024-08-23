@@ -39,7 +39,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($bathroomtype_pag as $bathroomtype)
+                            @foreach ($bathroomtype as $bathroomtypes)
                                 @php
                                     $class = '';
                                     $data = '';
@@ -47,16 +47,16 @@
 
                                 <tr>
                                     <td>
-                                        <p>{{ $bathroomtype->name }}</p>
+                                        <p>{{ $bathroomtypes->name }}</p>
                                     </td>
 
                                     {{-- <td class="text-center">
-                                        <p>{{ $bathroomtype->alias }}</p>
+                                        <p>{{ $bathroomtypes->alias }}</p>
                                     </td> --}}
 
                                     <td class="text-center">
                                         @php
-                                          if($bathroomtype->active == '1'){
+                                          if($bathroomtypes->active == '1'){
                                             $class = 'activelabel';
                                             $data = 'Active';
                                           } else {
@@ -69,10 +69,10 @@
 
 
                                     <td class="text-center">
-                                        <a href="{{ route('bathroomtypes.edit', $bathroomtype->id) }}">
+                                        <a href="{{ route('bathroomtypes.edit', $bathroomtypes->id) }}">
                                             <i class="lni lni-pencil-alt"></i>
                                         </a>
-                                        <a href="{{ route('bathroomtypes.show', $bathroomtype->id) }}">
+                                        <a href="{{ route('bathroomtypes.show', $bathroomtypes->id) }}">
                                             <i class="lni lni-list"></i>
                                         </a>
                                     </td>
@@ -82,7 +82,7 @@
                     </table>
                 </div>
             </div>
-            @include('partials.pagination', ['items' => $bathroomtype_pag])
+            @include('partials.pagination', ['items' => $bathroomtype])
         </div>
     </section>
 @endsection

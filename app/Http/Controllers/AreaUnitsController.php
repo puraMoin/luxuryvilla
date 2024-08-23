@@ -11,10 +11,10 @@ class AreaUnitsController extends Controller
 
     public function index()
     {
-        $areaunits = AreaUnit::all();
+        // $areaunits = AreaUnit::all();
         $pageTitle = 'Area Units';
-        $areaunits_pag = AreaUnit::paginate(20);
-        return view('areaunits.index', compact('areaunits', 'pageTitle','areaunits_pag'));
+        $areaunits = AreaUnit::paginate(20);
+        return view('areaunits.index', compact('areaunits', 'pageTitle'));
     }
 
 

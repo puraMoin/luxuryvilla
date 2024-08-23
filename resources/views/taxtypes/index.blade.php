@@ -35,7 +35,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($taxtypes_pag as $taxtype)
+                            @foreach ($taxtypes as $taxtype)
                                 @php
                                     $class = '';
                                     $data = '';
@@ -73,7 +73,7 @@
                     </table>
                 </div>
             </div>
-            @include('partials.pagination', ['items' => $taxtypes_pag])
+            @include('partials.pagination', ['items' => $taxtypes])
         </div>
     </section>
 @endsection

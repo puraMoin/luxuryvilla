@@ -39,7 +39,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($meal_pag as $meal)
+                            @foreach ($meal as $meals)
                                 @php
                                     $class = '';
                                     $data = '';
@@ -47,16 +47,16 @@
 
                                 <tr>
                                     <td>
-                                        <p>{{ $meal->name }}</p>
+                                        <p>{{ $meals->name }}</p>
                                     </td>
 
                                     <td class="text-center">
-                                        <p>{{ $meal->alias }}</p>
+                                        <p>{{ $meals->alias }}</p>
                                     </td>
 
                                     <td class="text-center">
                                         @php
-                                          if($meal->active == '1'){
+                                          if($meals->active == '1'){
                                             $class = 'activelabel';
                                             $data = 'Active';
                                           } else {
@@ -69,10 +69,10 @@
 
 
                                     <td class="text-center">
-                                        <a href="{{ route('mealplans.edit', $meal->id) }}">
+                                        <a href="{{ route('mealplans.edit', $meals->id) }}">
                                             <i class="lni lni-pencil-alt"></i>
                                         </a>
-                                        <a href="{{ route('mealplans.show', $meal->id) }}">
+                                        <a href="{{ route('mealplans.show', $meals->id) }}">
                                             <i class="lni lni-list"></i>
                                         </a>
                                     </td>
@@ -82,7 +82,7 @@
                     </table>
                 </div>
             </div>
-            @include('partials.pagination', ['items' => $meal_pag])
+            @include('partials.pagination', ['items' => $meal])
         </div>
     </section>
 @endsection

@@ -32,7 +32,7 @@
           </thead>
           <tbody>
             @php $class = ''; $data = ''; @endphp
-            @foreach ($employee_pag as $employee)
+            @foreach ($employeelists as $employee)
             <tr>
               <td><p>{{ $employee->name }}</p></td>
               {{-- <td><p>{{ $employee->username }}</p></td> --}}
@@ -67,7 +67,7 @@
         </table>
       </div>
     </div>
-    @include('partials.pagination', ['items' => $employee_pag])
+    @include('partials.pagination', ['items' => $employeelists])
 
   </div>
 </section>

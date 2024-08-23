@@ -14,10 +14,10 @@ class EmployeeListsController extends Controller
      */
     public function index()
     {
-        $employeelists = EmployeeList::all();
+        // $employeelists = EmployeeList::all();
         $pageTitle = 'Employee List';
-        $employee_pag = EmployeeList::paginate(20);
-        return view('employeelists.index', compact('employeelists', 'pageTitle','employee_pag'));
+        $employeelists = EmployeeList::paginate(20);
+        return view('employeelists.index', compact('employeelists', 'pageTitle'));
     }
 
     /**

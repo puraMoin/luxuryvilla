@@ -34,7 +34,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($servicemasters_pag as $servicemasters)
+                            @foreach ($servicemasters as $servicemaster)
                                 @php
                                     $class = '';
                                     $data = '';
@@ -42,12 +42,12 @@
 
                                 <tr>
                                     <td>
-                                        <p>{{ $servicemasters->name }}</p>
+                                        <p>{{ $servicemaster->name }}</p>
                                     </td>
 
                                     <td class="text-center">
                                         @php
-                                          if($servicemasters->active == '1'){
+                                          if($servicemaster->active == '1'){
                                             $class = 'activelabel';
                                             $data = 'Active';
                                           } else {
@@ -59,10 +59,10 @@
                                       </td>
 
                                     <td class="text-center">
-                                        <a href="{{ route('servicemasters.edit', $servicemasters->id) }}">
+                                        <a href="{{ route('servicemasters.edit', $servicemaster->id) }}">
                                             <i class="lni lni-pencil-alt"></i>
                                         </a>
-                                        <a href="{{ route('servicemasters.show', $servicemasters->id) }}">
+                                        <a href="{{ route('servicemasters.show', $servicemaster->id) }}">
                                             <i class="lni lni-list"></i>
                                         </a>
                                     </td>
@@ -72,7 +72,7 @@
                     </table>
                 </div>
             </div>
-            @include('partials.pagination', ['items' => $servicemasters_pag])
+            @include('partials.pagination', ['items' => $servicemasters])
         </div>
     </section>
 @endsection

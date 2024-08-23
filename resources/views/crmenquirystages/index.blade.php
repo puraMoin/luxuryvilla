@@ -39,7 +39,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($crmenquirystage_pag as $crmenquirystages)
+                            @foreach ($crmenquirystage as $crmenquirystages)
                                 @php
                                     $class = '';
                                     $data = '';
@@ -81,7 +81,7 @@
                     </table>
                 </div>
             </div>
-            @include('partials.pagination', ['items' => $crmenquirystage_pag])
+            @include('partials.pagination', ['items' => $crmenquirystage])
         </div>
     </section>
 @endsection

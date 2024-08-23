@@ -12,9 +12,9 @@ class AgentCreditLimitForMastersController extends Controller
     public function index()
     {
         $pageTitle = 'Agent Credit Limit For Master';
-        $agentcreditlimitformasters = AgentCreditLimitForMaster::all();
-        $agentcreditlimitformasters_pag = AgentCreditLimitForMaster::paginate(20);
-        return view('agentcreditlimitformasters.index', compact('agentcreditlimitformasters', 'pageTitle','agentcreditlimitformasters_pag'));
+        // $agentcreditlimitformasters = AgentCreditLimitForMaster::all();
+        $agentcreditlimitformasters = AgentCreditLimitForMaster::paginate(20);
+        return view('agentcreditlimitformasters.index', compact('agentcreditlimitformasters', 'pageTitle'));
     }
 
 

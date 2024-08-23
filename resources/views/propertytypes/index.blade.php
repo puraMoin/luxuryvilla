@@ -28,7 +28,7 @@
           <tbody>
             @php $class = ''; $data = ''; @endphp
 
-            @foreach ($propertytypes_pag as $proptype)
+            @foreach ($propertytypes as $proptype)
             <tr>
               <td><p>{{ $proptype->name }}</p></td>
               <td class="text-center">
@@ -57,7 +57,7 @@
         </table>
       </div>
     </div>
-    @include('partials.pagination', ['items' => $propertytypes_pag])
+    @include('partials.pagination', ['items' => $propertytypes])
   </div>
 </section>
 @endsection

@@ -35,7 +35,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($companycodecategories_pag as $companycodecategory)
+                            @foreach ($companycodecategories as $companycodecategory)
                                 @php
                                     $class = '';
                                     $data = '';
@@ -74,7 +74,7 @@
                     </table>
                 </div>
             </div>
-            @include('partials.pagination', ['items' => $companycodecategories_pag])
+            @include('partials.pagination', ['items' => $companycodecategories])
         </div>
     </section>
 @endsection

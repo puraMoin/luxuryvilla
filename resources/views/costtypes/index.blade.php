@@ -35,7 +35,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($costtypes_pag as $costtype)
+                            @foreach ($costtypes as $costtype)
                                 @php
                                     $class = '';
                                     $data = '';
@@ -74,7 +74,7 @@
                     </table>
                 </div>
             </div>
-            @include('partials.pagination', ['items' => $costtypes_pag])
+            @include('partials.pagination', ['items' => $costtypes])
         </div>
     </section>
 @endsection

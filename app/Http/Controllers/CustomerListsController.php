@@ -14,11 +14,11 @@ class CustomerListsController extends Controller
      */
     public function index()
     {
-        $customers = CustomerList::all();
+        // $customers = CustomerList::all();
         $pageTitle = 'Customer List';
         $parentMenu = 'Users';
-        $customers_pag = CustomerList::paginate(20);
-        return view('customerlists.index',compact('customers','pageTitle','parentMenu','customers_pag'));
+        $customers = CustomerList::paginate(20);
+        return view('customerlists.index',compact('customers','pageTitle','parentMenu'));
     }
 
     /**

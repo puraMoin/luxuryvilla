@@ -35,7 +35,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($department_pag as $department)
+                            @foreach ($department as $departments)
                                 @php
                                     $class = '';
                                     $data = '';
@@ -43,12 +43,12 @@
 
                                 <tr>
                                     <td>
-                                        <p>{{ $department->name }}</p>
+                                        <p>{{ $departments->name }}</p>
                                     </td>
 
                                     <td class="text-center">
                                         @php
-                                          if($department->active == '1'){
+                                          if($departments->active == '1'){
                                             $class = 'activelabel';
                                             $data = 'Active';
                                           } else {
@@ -61,10 +61,10 @@
 
 
                                     <td class="text-center">
-                                        <a href="{{ route('departments.edit', $department->id) }}">
+                                        <a href="{{ route('departments.edit', $departments->id) }}">
                                             <i class="lni lni-pencil-alt"></i>
                                         </a>
-                                        <a href="{{ route('departments.show', $department->id) }}">
+                                        <a href="{{ route('departments.show', $departments->id) }}">
                                             <i class="lni lni-list"></i>
                                         </a>
                                     </td>
@@ -74,7 +74,7 @@
                     </table>
                 </div>
             </div>
-            @include('partials.pagination', ['items' => $department_pag])
+            @include('partials.pagination', ['items' => $department])
         </div>
     </section>
 @endsection
