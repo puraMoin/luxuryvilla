@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\ServiceModuleMaster;
 
 class ServiceModuleMastersController extends Controller
 {
@@ -13,7 +14,9 @@ class ServiceModuleMastersController extends Controller
      */
     public function index()
     {
-        //
+        $pageTitle = 'Service Module Masters';
+        $servicemodulemasters = ServiceModuleMaster::paginate(20);
+        return view('servicemodulemasters.index', compact('servicemodulemasters', 'pageTitle'));
     }
 
     /**
@@ -23,7 +26,8 @@ class ServiceModuleMastersController extends Controller
      */
     public function create()
     {
-        //
+        $pageTitle = 'Create';
+        return view('servicemodulemasters.create', compact('pageTitle'));
     }
 
     /**
@@ -34,7 +38,18 @@ class ServiceModuleMastersController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'active' => 'boolean',
+        ]);
+
+        $servicemodulemasters = ServiceModuleMaster::create([
+            'title' => $request->input('title'),
+            'active' => $request->input('active'),
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        return redirect()->route('servicemodulemasters.index');
     }
 
     /**
@@ -45,7 +60,9 @@ class ServiceModuleMastersController extends Controller
      */
     public function show($id)
     {
-        //
+        $servicemodulemaster = ServiceModuleMaster::findOrFail($id);
+        $pageTitle = 'View';
+        return view('servicemodulemasters.show', compact('servicemodulemaster', 'pageTitle'));
     }
 
     /**
@@ -56,7 +73,9 @@ class ServiceModuleMastersController extends Controller
      */
     public function edit($id)
     {
-        //
+        $servicemodulemaster = ServiceModuleMaster::findOrFail($id);
+        $pageTitle = 'Edit';
+        return view('servicemodulemasters.edit', compact('servicemodulemaster', 'pageTitle'));
     }
 
     /**
