@@ -12,4 +12,6 @@ class ContractSeasonType extends Model
         'title',
         'active',
     ];
+
+    protected $table = 'contract_season_types';
 }

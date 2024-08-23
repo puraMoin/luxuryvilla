@@ -44,7 +44,7 @@ class ServiceModuleMastersController extends Controller
         ]);
 
         $servicemodulemasters = ServiceModuleMaster::create([
-            'title' => $request->input('title'),
+            'name' => $request->input('name'),
             'active' => $request->input('active'),
             'created_at' => now(),
             'updated_at' => now(),
@@ -87,7 +87,14 @@ class ServiceModuleMastersController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $servicemodulemasters = ServiceModuleMaster::findOrFail($id);
+        $servicemodulemasters->update([
+            'name' => $request->input('name'),
+            'active' => $request->input('active'),
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        return redirect()->route('servicemodulemasters.index');
     }
 
     /**
