@@ -2,81 +2,82 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ApartmentCategory;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ApartmentCategoriesController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
-        //
+        $pageTitle = 'Apartment Categories';
+        $apartmentcategories = ApartmentCategory::all();
+        $apartmentcategories_pag = ApartmentCategory::paginate(20);
+        return view('apartmentcategories.index', compact('apartmentcategories', 'pageTitle','apartmentcategories_pag'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function create()
     {
-        //
+        $userId = Auth::id();
+        $pageTitle = 'Create';
+        return view('apartmentcategories.create', compact('userId', 'pageTitle'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function store(Request $request)
     {
-        //
+        // dd($request);
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'active' => 'boolean',
+            'created_by' => 'required|integer',
+            'modified_by' => 'required|integer',
+        ]);
+
+        $apartmentcategories = ApartmentCategory::create([
+            'name' => $request->input('name'),
+            'active' => $request->input('active'),
+            'created_by' => $request->input('created_by'),
+            'created_at' => now(),
+            'modified_by' => $request->input('modified_by'),
+            'updated_at' => now(),
+        ]);
+        return redirect()->route('apartmentcategories.index');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function show($id)
     {
-        //
+        $apartmentcategories = ApartmentCategory::findOrFail($id);
+        $pageTitle = 'View';
+        return view('apartmentcategories.show', compact('apartmentcategories', 'pageTitle'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function edit($id)
     {
-        //
+        $apartmentcategories = ApartmentCategory::findOrFail($id);
+        $pageTitle = 'Edit';
+        $userId = Auth::id();
+        return view('apartmentcategories.edit', compact('apartmentcategories', 'pageTitle', 'userId'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function update(Request $request, $id)
     {
-        //
+        $apartmentcategories = ApartmentCategory::findOrFail($id);
+        $apartmentcategories->update([
+            'name' => $request->input('name'),
+            'active' => $request->input('active'),
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        return redirect()->route('apartmentcategories.index');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function destroy($id)
     {
         //

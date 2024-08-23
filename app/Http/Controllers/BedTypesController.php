@@ -53,7 +53,6 @@ class BedTypesController extends Controller
     {
         $bedtypes = BedType::findOrFail($id);
         $pageTitle = 'View';
-
         return view('bedtypes.show', compact('bedtypes', 'pageTitle'));
     }
 
