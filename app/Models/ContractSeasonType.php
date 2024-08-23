@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class ContractSeasonType extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'title',
+        'active',
+    ];
 }
