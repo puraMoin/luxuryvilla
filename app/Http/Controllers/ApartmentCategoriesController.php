@@ -55,7 +55,7 @@ class ApartmentCategoriesController extends Controller
         return view('apartmentcategories.show', compact('apartmentcategories', 'pageTitle'));
     }
 
-
+    
     public function edit($id)
     {
         $apartmentcategories = ApartmentCategory::findOrFail($id);
