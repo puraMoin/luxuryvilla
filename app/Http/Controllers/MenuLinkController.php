@@ -236,9 +236,14 @@ private function getControllerPrefix($controllerName)
 }
 
 
-
-
-
+public function masterlink(){
+    $parentMenu = '';
+    $pageTitle = 'Master Links';
+    /*Get All Data*/
+    // $menulinks = MenuLink::all();
+    // $menulinks = MenuLink::paginate(20);
+    return view('menulinks.masterlinks',compact('parentMenu','pageTitle'));
+}
 
 
 }
