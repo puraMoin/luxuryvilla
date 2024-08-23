@@ -11,7 +11,7 @@
         <button type="button" class="main-btn primary-btn btn-hover btn-xs">Create</button>
         </a>
     </div>
-     
+
     <!--Add new section start here-->
 <div class="card-style mt-20">
 <div class="row">
@@ -33,15 +33,15 @@
        <label>Country</label>
         <div class="select-position select-sm">
            <select class="jSelectbox" id="actionDropdown" name="country_id" required>
-              <option value="">Select</option>  
-               <?php 
+              <option value="">Select</option>
+               <?php
                   foreach ($countryList as $countryId => $country){
                    $selected = ($selectedCountryId == $countryId) ? 'selected' : '';
-               ?>  
+               ?>
                  <option value="{{ $countryId }}" {{ $selected}}>{{ $country }}</option>
-               <?php } ?>   
+               <?php } ?>
            </select>
-            
+
         </div>
     </div>
   </div>
@@ -51,13 +51,13 @@
        <label>State</label>
        <div class="select-position select-sm">
        <select class="jSelectbox" id="actionDropdown" name="state_id" required>
-          <option value="">Select</option>  
-           <?php 
+          <option value="">Select</option>
+           <?php
               foreach ($stateList as $stateId => $state){
                $selected = ($selectedStateId == $stateId) ? 'selected' : '';
-           ?>  
+           ?>
              <option value="{{ $stateId }}" {{ $selected}}>{{ $state }}</option>
-           <?php } ?>   
+           <?php } ?>
        </select>
        </div>
     </div>
@@ -69,13 +69,13 @@
        <label>Status</label>
        <div class="select-position select-sm">
        <select class="jSelectbox" id="status" name="active" required>
-          <option value="">Select</option>  
-          <?php 
-             foreach ($cityStatus as $display => $value) { 
+          <option value="">Select</option>
+          <?php
+             foreach ($cityStatus as $display => $value) {
               $checked = ($statusValue == $value) ? 'selected' : '';
            ?>
            <option value="{{ $value }}" {{$checked}}>{{ $display }}</option>
-           <?php } ?>   
+           <?php } ?>
        </select>
        </div>
     </div>
@@ -85,13 +85,13 @@
    <a href="{{ route('cities.index') }}">
     <button type="button" class="main-btn dark-btn btn-hover btn-xs" style="margin-top:28px">Reset</button>
    </a>
-  </div>    
-</div>    
-</form>
-</div>  
-  
+  </div>
 </div>
-    
+</form>
+</div>
+
+</div>
+
 <div class="table-wrapper table-responsive mt-10">
 <table class="table striped-table">
 <thead>
@@ -100,7 +100,7 @@
 <th><h6><a href="#">Country<i class="lni lni-sort-alpha-asc"></i></a></h6></th>
 <th><h6><a href="#">State<i class="lni lni-sort-alpha-asc"></i></a></h6></th>
 <th><h6><a href="#">City<i class="lni lni-sort-alpha-asc"></i></a></h6></th>
-<th class="text-center"><h6>Status</h6></th>    
+<th class="text-center"><h6>Status</h6></th>
 <th class="text-center"><h6>Action</h6></th>
 </tr>
 <!-- end table row-->
@@ -110,7 +110,7 @@
       $data = '';
 @endphp
 
-@foreach ($cities as $city)    
+@foreach ($cities as $city)
 
 <tr>
 <td>
@@ -135,7 +135,7 @@
     $data = 'Inactive';
     } @endphp
     <div class="{{ $class; }}">{{ $data }}</div>
-</td>  
+</td>
 <td class="text-center"><a href="{{ route('cities.edit',$city->id) }}"><i class="lni lni-pencil-alt"></i></a>
 <a href="{{ route('cities.show',$city->id) }}"><i class="lni lni-list"></i></a>
 </td>
@@ -145,13 +145,13 @@
 @endforeach
 <!-- end table row -->
 
- 
+
 </tbody>
 </table>
 <!-- end table -->
 </div>
 </div>
-<div class="mt-30"> 
+<div class="mt-30">
 <div class="row">
 <div class="col-sm-6">
 <div class="total_records">Total Records: <span>{{ $cities->total() }}</span>   </div>
@@ -219,12 +219,12 @@
     @endif
 </ul>
     </nav>
-</div>     
-</div>  
-</div>  
+</div>
+</div>
+</div>
     <!--Add new section end here-->
 	</div>
-</section>	
+</section>
 @endsection
 
 <script>
