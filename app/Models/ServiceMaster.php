@@ -9,6 +9,12 @@ class ServiceMaster extends Model
 {
     use HasFactory;
     protected $fillable = [
-        
+        'name',
+        'description',
+        'active',
+        'created_at',
+        'updated_at',
+        'created_by',
+        'modified_by',
     ];
 }

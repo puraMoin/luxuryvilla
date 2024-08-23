@@ -28,7 +28,24 @@ class ServiceMastersController extends Controller
 
     public function store(Request $request)
     {
+        // dd($request);
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'active' => 'boolean',
+            'created_by' => 'required|integer',
+            'modified_by' => 'required|integer',
+        ]);
 
+        $servicemasters = ServiceMaster::create([
+            'name' => $request->input('name'),
+            'description' => $request->input('description'),
+            'active' => $request->input('active'),
+            'created_by' => $request->input('created_by'),
+            'created_at' => now(),
+            'modified_by' => $request->input('modified_by'),
+            'updated_at' => now(),
+        ]);
+        return redirect()->route('servicemasters.index');
     }
 
 
@@ -51,7 +68,15 @@ class ServiceMastersController extends Controller
 
     public function update(Request $request, $id)
     {
-
+        $servicemasters = ServiceMaster::findOrFail($id);
+        $servicemasters->update([
+            'name' => $request->input('name'),
+            'description' => $request->input('description'),
+            'active' => $request->input('active'),
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        return redirect()->route('servicemasters.index');
     }
 
 
