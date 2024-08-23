@@ -125,12 +125,9 @@ Route::get('/dashboard', [DashboardsController::class, 'index'])->name('dashboar
 
   Route::post('/changepassword', [UsersController::class,'changePassword'])->name('users.update-password');
 
-<<<<<<< HEAD
   Route::get('/menulink/masterlinks', [MenuLinkController::class, 'masterlink'])->name('menulink.masterlinks');
  /*Route::post('/store-password', [UsersController::class, 'changePassword'])->name('store-password');*/
 
-=======
->>>>>>> 49fdf743b99ea2f8939001d0b6cd59949d7e92ec
   Route::resource('admintypes', AdminTypesController::class);
   Route::resource('seomodules', SeoModulesController::class);
   Route::resource('socialmedias', SocialMediasController::class);
