@@ -20,7 +20,6 @@ use App\Http\Controllers\SeoModulesController;
 use App\Http\Controllers\SocialMediasController;
 use App\Http\Controllers\ContactsController;
 use App\Http\Controllers\RolesRightsController;
-use App\Http\Controllers\MenuLinkController;
 use App\Http\Controllers\BlogsController;
 use App\Http\Controllers\BlogCategoriesController;
 use App\Http\Controllers\BlogAuthorsController;
@@ -38,6 +37,7 @@ use App\Http\Controllers\DepartmentsController;
 use App\Http\Controllers\DesignationsController;
 use App\Http\Controllers\MealPlansController;
 use App\Http\Controllers\MealTypesController;
+use App\Http\Controllers\MenuLinkController;
 use App\Http\Controllers\SupplierTypesController;
 use App\Http\Controllers\SupplierRegionTypesController;
 use App\Http\Controllers\DestinationsController;
@@ -125,6 +125,7 @@ Route::get('/dashboard', [DashboardsController::class, 'index'])->name('dashboar
 
   Route::post('/changepassword', [UsersController::class,'changePassword'])->name('users.update-password');
 
+  Route::get('/menulink/masterlinks', [MenuLinkController::class, 'masterlink'])->name('menulink.masterlinks');
  /*Route::post('/store-password', [UsersController::class, 'changePassword'])->name('store-password');*/
 
   Route::resource('admintypes', AdminTypesController::class);
