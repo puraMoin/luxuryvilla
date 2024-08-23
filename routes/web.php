@@ -60,7 +60,9 @@ use App\Http\Controllers\AccomodationTypesController;
 use App\Http\Controllers\ApartmentCategoriesController;
 use App\Http\Controllers\BankDetailsController;
 use App\Http\Controllers\CompanyRepresentativesController;
+use App\Http\Controllers\ContractSeasonTypesController;
 use App\Http\Controllers\ServiceMastersController;
+use App\Http\Controllers\ServiceModuleMastersController;
 use App\Http\Middleware\CheckSession;
 use App\Models\AgentCreditType;
 use App\Models\Country;
@@ -182,6 +184,8 @@ Route::get('/dashboard', [DashboardsController::class, 'index'])->name('dashboar
   Route::resource('companyrepresentatives', CompanyRepresentativesController::class);
   Route::resource('apartmentcategories', ApartmentCategoriesController::class);
   Route::resource('servicemasters', ServiceMastersController::class);
+  Route::resource('contractseasontypes', ContractSeasonTypesController::class);
+  Route::resource('servicemodulemasters', ServiceModuleMastersController::class);
 
   Route::get('/get-states/{countryId}', [StatesController::class, 'getStates']);
   Route::get('/get-cities/{stateId}', [CitiesController::class, 'getCities']);
