@@ -93,6 +93,7 @@ class DestinationsController extends Controller
                 $destination->thumbnail_image = $image->getClientOriginalName();
 
                }
+
                if ($request->hasFile('cover_image')) {
 
                 $image = $request->file('cover_image');
@@ -193,6 +194,7 @@ class DestinationsController extends Controller
                 $destination->thumbnail_image = $image->getClientOriginalName();
 
                }
+               
                if ($request->hasFile('cover_image')) {
 
                 $image = $request->file('cover_image');

@@ -61,6 +61,7 @@ use App\Http\Controllers\ApartmentCategoriesController;
 use App\Http\Controllers\BankDetailsController;
 use App\Http\Controllers\CompanyRepresentativesController;
 use App\Http\Controllers\ContractSeasonTypesController;
+use App\Http\Controllers\PropertyImagesController;
 use App\Http\Controllers\ServiceMastersController;
 use App\Http\Controllers\ServiceModuleMastersController;
 use App\Http\Controllers\SuppliersController;
@@ -191,6 +192,7 @@ Route::get('/dashboard', [DashboardsController::class, 'index'])->name('dashboar
   Route::resource('servicemodulemasters', ServiceModuleMastersController::class);
   Route::resource('villacategories', VillaCategoriesController::class);
   Route::resource('taxaccesstocompanies', TaxAccessToCompaniesController::class);
+  Route::resource('propertyimages', PropertyImagesController::class);
 
   Route::get('/get-states/{countryId}', [StatesController::class, 'getStates']);
   Route::get('/get-cities/{stateId}', [CitiesController::class, 'getCities']);
