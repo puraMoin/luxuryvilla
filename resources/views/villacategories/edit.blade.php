@@ -31,7 +31,7 @@
 
 
                         <div class="col-sm-6">
-                            <label>Active</label><br>
+                            <label>Status</label><br>
                             <label class="radio-inline">
                                 <input type="radio" name="active" class="radio-inline" value="1" {{ $villacategories->active == 1 ? 'checked' : '' }}> Yes
                             </label>

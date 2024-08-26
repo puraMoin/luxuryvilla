@@ -21,11 +21,13 @@ class TaxAccessToCompany extends Model
         'modified_by',
     ];
 
+    protected $table = 'tax_access_to_companies';
+
     public function companymaster(){
-        return $this->belongsTo(CompanyMaster::class,'company_masters_id');
+        return $this->belongsTo(CompanyMaster::class,'company_master_id');
     }
 
     public function taxmaster(){
-        return $this->belongsTo(TaxMaster::class,'tax_masters_id');
+        return $this->belongsTo(TaxMaster::class,'tax_master_id');
     }
 }

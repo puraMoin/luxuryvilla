@@ -31,6 +31,7 @@
             @foreach ($villacategories as $villacategory)
             <tr>
               <td><p>{{ $villacategory->name }}</p></td>
+              
               <td class="text-center">
                 @php
                   if($villacategory->active == '1'){

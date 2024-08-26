@@ -45,38 +45,38 @@
                                     $data = '';
                                 @endphp
 
-                                <tr>
-                                    <td>
-                                        <p>{{ $taxaccesstocompany->taxmaster ? $taxaccesstocompany->taxmaster->name : '---'   }} </p>
-                                    </td>
+                        <tr>
+                            <td>
+                                <p>{{ $taxaccesstocompany->taxmaster ? $taxaccesstocompany->taxmaster->name : '---'}} </p>
+                            </td>
 
-                                    <td>
-                                        <p>{{ $taxaccesstocompany->name ? $taxaccesstocompany->name : '---' }}</p>
-                                    </td>
+                            <td>
+                                <p>{{ $taxaccesstocompany->companymaster ? $taxaccesstocompany->companymaster->name : '---'}}</p>
+                            </td>
 
 
-                                    <td class="text-center">
-                                        @php
-                                          if($taxaccesstocompany->active == '1'){
-                                            $class = 'activelabel';
-                                            $data = 'Yes';
-                                          } else {
-                                            $class = 'inactivelabel';
-                                            $data = 'No';
-                                          }
-                                        @endphp
-                                        <div class="{{ $class }}">{{ $data }}</div>
-                                    </td>
+                            <td class="text-center">
+                                @php
+                                  if($taxaccesstocompany->access_in_transaction == '1'){
+                                    $class = 'activelabel';
+                                    $data = 'Yes';
+                                  } else {
+                                    $class = 'inactivelabel';
+                                    $data = 'No';
+                                  }
+                                @endphp
+                                <div class="{{ $class }}">{{ $data }}</div>
+                            </td>
 
-                                    <td class="text-center">
-                                        <a href="{{ route('taxaccesstocompanies.edit', $taxaccesstocompany->id) }}">
-                                            <i class="lni lni-pencil-alt"></i>
-                                        </a>
-                                        <a href="{{ route('taxaccesstocompanies.show', $taxaccesstocompany->id) }}">
-                                            <i class="lni lni-list"></i>
-                                        </a>
-                                    </td>
-                                </tr>
+                            <td class="text-center">
+                                <a href="{{ route('taxaccesstocompanies.edit', $taxaccesstocompany->id) }}">
+                                    <i class="lni lni-pencil-alt"></i>
+                                </a>
+                                <a href="{{ route('taxaccesstocompanies.show', $taxaccesstocompany->id) }}">
+                                    <i class="lni lni-list"></i>
+                                </a>
+                            </td>
+                        </tr>
                             @endforeach
                         </tbody>
                     </table>

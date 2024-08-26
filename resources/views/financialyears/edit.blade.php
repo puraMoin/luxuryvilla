@@ -28,7 +28,7 @@
                                 <input type="text" id="name" name="name" class="form-control" value="{{ $financialyears->name }}" required>
                             </div>
                         </div>
-                        
+
                         <div class="col-md-2">
                             <div class="input-style-1">
                                 <label for="start_date">Start Date <span class="mandatory"> *</span></label>
@@ -42,9 +42,9 @@
                                 <input type="date" id="end_date" name="end_date" class="form-control" value="{{ $financialyears->end_date }}" required>
                             </div>
                         </div>
-                        
+
                         <div class="col-sm-2">
-                            <label>Is Current Year</label><br> 
+                            <label>Is Current Year</label><br>
                             <label class="radio-inline">
                                 <input type="radio" name="is_current_year" class="radio-inline" value="1" {{ $financialyears->is_current_year == 1 ? 'checked' : '' }}> Yes
                             </label>
@@ -54,7 +54,7 @@
                         </div>
 
                         <div class="col-sm-2">
-                            <label>Active</label><br> 
+                            <label>Active</label><br>
                             <label class="radio-inline">
                                 <input type="radio" name="active" class="radio-inline" value="1" {{ $financialyears->active == 1 ? 'checked' : '' }}> Yes
                             </label>

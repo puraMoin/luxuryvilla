@@ -42,9 +42,11 @@
                             <td>
                                 <p>{{ $bookingstatus->name }}</p>
                             </td>
+
                             <td class="text-center">
                                 <div class="{{ $class }}">{{ $data }}</div>
                             </td>
+                            
                             <td class="text-center">
                                 <a href="{{ route('bookingstatuses.edit', $bookingstatus->id) }}">
                                     <i class="lni lni-pencil-alt"></i>

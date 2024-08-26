@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\CompanyMaster;
-use App\Models\TaxAccessToCompany;
 use App\Models\TaxMaster;
+use App\Models\TaxAccessToCompany;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -22,21 +22,23 @@ class TaxAccessToCompaniesController extends Controller
     public function create()
     {
         $userId = Auth::id();
+        $taxmaster = TaxMaster::all();
+        $companymasters = CompanyMaster::all();
         $pageTitle = 'Create';
-        return view('taxaccesstocompanies.create', compact('userId', 'pageTitle'));
+        return view('taxaccesstocompanies.create', compact('taxmaster','companymasters','userId', 'pageTitle'));
     }
 
 
     public function store(Request $request)
     {
+        // dd($request);
         $request->validate([
-            'tax_master_id' => 'required|string',
-            'company_master_id' => 'required|string',
+            'tax_master_id' => 'required|integer',
+            'company_master_id' => 'required|integer',
             'is_visible_in_company' => 'required|boolean',
             'edit' => 'required|boolean',
             'delete' => 'required|boolean',
-            'access_in_transaction' => 'required|string',
-            'active' => 'required|boolean',
+            'access_in_transaction' => 'required|boolean',
             'created_by' => 'required|integer',
             'modified_by' => 'required|integer',
         ]);
@@ -48,7 +50,6 @@ class TaxAccessToCompaniesController extends Controller
             'edit' => $request->input('edit'),
             'delete' => $request->input('delete'),
             'access_in_transaction' => $request->input('access_in_transaction'),
-            'active' => $request->input('active'),
             'created_by' => $request->input('created_by'),
             'modified_by' => $request->input('modified_by'),
             'created_at' => now(),
@@ -62,23 +63,25 @@ class TaxAccessToCompaniesController extends Controller
     {
         $taxaccesstocompanies = TaxAccessToCompany::findOrFail($id);
         $pageTitle = 'View';
+        $userId = Auth::id();
         return view('taxaccesstocompanies.show', compact('taxaccesstocompanies', 'pageTitle'));
     }
 
 
     public function edit($id)
+
     {
         $taxaccesstocompanies = TaxAccessToCompany::findOrFail($id);
         $userId = Auth::id();
 
-        $companymaster = CompanyMaster::where('id', $taxaccesstocompanies->company_masters_id)->first();
+        $companymaster = CompanyMaster::where('id', $taxaccesstocompanies->company_master_id)->first();
         $companymasters = CompanyMaster::where('id', '!=', $companymaster->id)->get();
 
-        $taxmaster = TaxMaster::where('id', $taxaccesstocompanies->tax_masters_id)->first();
+        $taxmaster = TaxMaster::where('id', $taxaccesstocompanies->tax_master_id)->first();
         $taxmasters = TaxMaster::where('id', '!=', $taxmaster->id)->get();
 
         $pageTitle = "Edit";
-        return view('taxaccesstocompanies.edit', compact('pageTitle', 'taxaccesstocompanies','companymaster','companymasters','taxmaster','taxmasters'));
+        return view('taxaccesstocompanies.edit', compact('userId','pageTitle', 'taxaccesstocompanies','companymaster','companymasters','taxmaster','taxmasters'));
     }
 
 

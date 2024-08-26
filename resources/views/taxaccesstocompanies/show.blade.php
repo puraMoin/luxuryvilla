@@ -28,10 +28,10 @@
                         <tbody>
                             <tr>
                                 <th class='col-md-2'>
-                                    <h6>Tax Master</h6>
+                                    <h6>Tax Masters</h6>
                                 </th>
                                 <td>
-                                    <p> {{ $taxaccesstocompanies->taxmaster ? $taxaccesstocompanies->taxmaster->name : '---'   }} </p>
+                                    <p> {{ $taxaccesstocompanies->taxmaster ? $taxaccesstocompanies->taxmaster->name : '---'}} </p>
                                 </td>
                             </tr>
                             <tr>
@@ -39,7 +39,7 @@
                                     <h6>Company Master</h6>
                                 </th>
                                 <td>
-                                    <p> {{ $taxaccesstocompanies->companymaster ? $taxaccesstocompanies->companymaster->name : '---'   }} </p>
+                                    <p> {{ $taxaccesstocompanies->companymaster ? $taxaccesstocompanies->companymaster->name : '---'}} </p>
                                 </td>
                             </tr>
 
@@ -47,8 +47,8 @@
                                 <th><h6>Is Visible In Company</h6></th>
                                 <td>
                                     @php
-                                        $isvisiableincompanyClass = $taxaccesstocompanies->active ? 'activelabel' : 'inactivelabel';
-                                        $isvisiableincompanyText = $taxaccesstocompanies->active ? 'Yes' : 'No';
+                                        $isvisiableincompanyClass = $taxaccesstocompanies->is_visible_in_company ? 'activelabel' : 'inactivelabel';
+                                        $isvisiableincompanyText = $taxaccesstocompanies->is_visible_in_company ? 'Yes' : 'No';
                                     @endphp
                                     <div class="{{ $isvisiableincompanyClass }}">{{ $isvisiableincompanyText }}</div>
                                 </td>
@@ -58,8 +58,8 @@
                                 <th><h6>Edit</h6></th>
                                 <td>
                                     @php
-                                        $editClass = $taxaccesstocompanies->active ? 'activelabel' : 'inactivelabel';
-                                        $editText = $taxaccesstocompanies->active ? 'Yes' : 'No';
+                                        $editClass = $taxaccesstocompanies->edit ? 'activelabel' : 'inactivelabel';
+                                        $editText = $taxaccesstocompanies->edit ? 'Yes' : 'No';
                                     @endphp
                                     <div class="{{ $editClass }}">{{ $editText }}</div>
                                 </td>
@@ -71,8 +71,8 @@
                                 </th>
                                 <td>
                                     @php
-                                        $deleteClass = $taxaccesstocompanies->active ? 'activelabel' : 'inactivelabel';
-                                        $deleteText = $taxaccesstocompanies->active ? 'Yes' : 'No';
+                                        $deleteClass = $taxaccesstocompanies->delete ? 'activelabel' : 'inactivelabel';
+                                        $deleteText = $taxaccesstocompanies->delete ? 'Yes' : 'No';
                                     @endphp
                                     <div class="{{ $deleteClass }}">{{ $deleteText }}</div>
                                 </td>
@@ -82,8 +82,8 @@
                                 <th><h6>Access in Transcation</h6></th>
                                 <td>
                                     @php
-                                        $AccessintranscationClass = $taxaccesstocompanies->active ? 'activelabel' : 'inactivelabel';
-                                        $AccessintranscationText = $taxaccesstocompanies->active ? 'Yes' : 'No';
+                                        $AccessintranscationClass = $taxaccesstocompanies->access_in_transaction ? 'activelabel' : 'inactivelabel';
+                                        $AccessintranscationText = $taxaccesstocompanies->access_in_transaction ? 'Yes' : 'No';
                                     @endphp
                                     <div class="{{ $AccessintranscationClass }}">{{ $AccessintranscationText }}</div>
                                 </td>
