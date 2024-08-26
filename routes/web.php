@@ -63,6 +63,7 @@ use App\Http\Controllers\CompanyRepresentativesController;
 use App\Http\Controllers\ContractSeasonTypesController;
 use App\Http\Controllers\ServiceMastersController;
 use App\Http\Controllers\ServiceModuleMastersController;
+use App\Http\Controllers\SuppliersController;
 use App\Http\Controllers\TaxAccessToCompaniesController;
 use App\Http\Controllers\VillaCategoriesController;
 use App\Http\Middleware\CheckSession;
@@ -196,7 +197,7 @@ Route::get('/dashboard', [DashboardsController::class, 'index'])->name('dashboar
   Route::get('/get-countrydata/{countryId}', [CountriesController::class, 'getCountryData']);
   Route::resource('rolesrights', RolesRightsController::class);
   Route::resource('companymasters', CompanyMastersController::class);
-
+  Route::resource('suppliers', SuppliersController::class);
 
   /*Setup Route To Image Upload*/
   //Route::post('/posts/image_upload', 'PostController@uploadImage')->name('posts.image.upload');
