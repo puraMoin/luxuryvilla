@@ -13,7 +13,14 @@ class SuppliersController extends Controller
      */
     public function index()
     {
-        //
+        $pageTitle = 'Suppliers List';
+        $parentMenu = 'Suppliers';
+
+        $usersQuery = User::with(['roles','companymaster','country','states','city'])->where('role_id',$conditions);
+
+        $users = $usersQuery->paginate(20);
+
+        return view('users.index',compact('pageTitle','parentMenu','usertype','users'));
     }
 
     /**

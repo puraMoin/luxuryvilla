@@ -14,8 +14,8 @@ class TaxAccessToCompaniesController extends Controller
     public function index()
     {
         $pageTitle = 'Tax Access to Companies';
-        $taxaccestocompanies = TaxAccessToCompany::paginate(20);
-        return view('taxaccestocompanies.index', compact('taxaccestocompanies', 'pageTitle'));
+        $taxaccesstocompanies = TaxAccessToCompany::paginate(20);
+        return view('taxaccesstocompanies.index', compact('taxaccesstocompanies', 'pageTitle'));
     }
 
 
@@ -23,7 +23,7 @@ class TaxAccessToCompaniesController extends Controller
     {
         $userId = Auth::id();
         $pageTitle = 'Create';
-        return view('taxaccestocompanies.create', compact('userId', 'pageTitle'));
+        return view('taxaccesstocompanies.create', compact('userId', 'pageTitle'));
     }
 
 
@@ -41,7 +41,7 @@ class TaxAccessToCompaniesController extends Controller
             'modified_by' => 'required|integer',
         ]);
 
-        $taxaccestocompanies = TaxAccessToCompany::create([
+        $taxaccesstocompanies = TaxAccessToCompany::create([
             'tax_master_id' => $request->input('tax_master_id'),
             'company_master_id' => $request->input('company_master_id'),
             'is_visible_in_company' => $request->input('is_visible_in_company'),
@@ -54,39 +54,39 @@ class TaxAccessToCompaniesController extends Controller
             'created_at' => now(),
             'updated_at' => now(),
         ]);
-        return redirect()->route('taxaccestocompanies.index');
+        return redirect()->route('taxaccesstocompanies.index');
     }
 
 
     public function show($id)
     {
-        $taxaccestocompanies = TaxAccessToCompany::findOrFail($id);
+        $taxaccesstocompanies = TaxAccessToCompany::findOrFail($id);
         $pageTitle = 'View';
-        return view('taxaccestocompanies.show', compact('taxaccestocompanies', 'pageTitle'));
+        return view('taxaccesstocompanies.show', compact('taxaccesstocompanies', 'pageTitle'));
     }
 
 
     public function edit($id)
     {
-        $taxaccestocompanies = TaxAccessToCompany::findOrFail($id);
+        $taxaccesstocompanies = TaxAccessToCompany::findOrFail($id);
         $userId = Auth::id();
 
-        $companymaster = CompanyMaster::where('id', $taxaccestocompanies->company_masters_id)->first();
+        $companymaster = CompanyMaster::where('id', $taxaccesstocompanies->company_masters_id)->first();
         $companymasters = CompanyMaster::where('id', '!=', $companymaster->id)->get();
 
-        $taxmaster = TaxMaster::where('id', $taxaccestocompanies->tax_masters_id)->first();
+        $taxmaster = TaxMaster::where('id', $taxaccesstocompanies->tax_masters_id)->first();
         $taxmasters = TaxMaster::where('id', '!=', $taxmaster->id)->get();
 
         $pageTitle = "Edit";
-        return view('taxaccestocompanies.edit', compact('pageTitle', 'taxaccestocompanies','companymaster','companymasters','taxmaster','taxmasters'));
+        return view('taxaccesstocompanies.edit', compact('pageTitle', 'taxaccesstocompanies','companymaster','companymasters','taxmaster','taxmasters'));
     }
 
 
     public function update(Request $request, $id)
     {
         // dd($request);
-        $taxaccestocompanies = TaxAccessToCompany::findOrFail($id);
-        $taxaccestocompanies->update([
+        $taxaccesstocompanies = TaxAccessToCompany::findOrFail($id);
+        $taxaccesstocompanies->update([
             'tax_master_id' => $request->input('tax_master_id'),
             'company_master_id' => $request->input('company_master_id'),
             'is_visible_in_company' => $request->input('is_visible_in_company'),
@@ -97,7 +97,7 @@ class TaxAccessToCompaniesController extends Controller
             'modified_by' => $request->input('modified_by'),
             'updated_at' => now(),
         ]);
-        return redirect()->route('taxaccestocompanies.index');
+        return redirect()->route('taxaccesstocompanies.index');
     }
 
 
