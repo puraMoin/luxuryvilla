@@ -189,7 +189,7 @@ Route::get('/dashboard', [DashboardsController::class, 'index'])->name('dashboar
   Route::resource('contractseasontypes', ContractSeasonTypesController::class);
   Route::resource('servicemodulemasters', ServiceModuleMastersController::class);
   Route::resource('villacategories', VillaCategoriesController::class);
-  Route::resource('taxaccestocompanies', TaxAccessToCompaniesController::class);
+  Route::resource('taxaccesstocompanies', TaxAccessToCompaniesController::class);
 
   Route::get('/get-states/{countryId}', [StatesController::class, 'getStates']);
   Route::get('/get-cities/{stateId}', [CitiesController::class, 'getCities']);
