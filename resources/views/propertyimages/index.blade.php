@@ -64,8 +64,7 @@
                                     </td>
 
                                     <td class="text-center">
-                                        <img src="{{ $propertyimage->image_file ? asset('images/propertyimages/image_file/' . $propertyimage->id . '/' . $propertyimage->image_file) : asset('images/no-image.png') }}"
-                                        style="height:70px;">
+                                        <img src="{{ $propertyimage->image_file ? asset('images/propertyimages/image_file/' . $propertyimage->id . '/' . $propertyimage->image_file) : asset('images/no-image.png') }}" class="imagefile">
                                     </td>
 
                                     <td class="text-center">
