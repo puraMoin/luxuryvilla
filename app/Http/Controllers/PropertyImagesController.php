@@ -98,7 +98,6 @@ class PropertyImagesController extends Controller
         $folder = 'images/propertyimages/image_file/' . $propertyimages->id;
         $image->move(public_path($folder), $image->getClientOriginalName());
 
-        // Update the image_file field with the image name
         $propertyimages->image_file = $image->getClientOriginalName();
     }
     $propertyimages->save();
