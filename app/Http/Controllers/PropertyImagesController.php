@@ -51,19 +51,12 @@ class PropertyImagesController extends Controller
         ]);
 
         if ($request->hasFile('image_file')) {
-
             $image = $request->file('image_file');
-
-            $folder = 'images/propertyimages/image_file/'.$propertyimages->id;
-
-            // Save the image directly to the public folder
+            $folder = 'images/propertyimages/image_file/' . $propertyimages->id;
             $image->move(public_path($folder), $image->getClientOriginalName());
-            //dd($image1Path);
             $propertyimages->image_file = $image->getClientOriginalName();
-
-           }
-
-           $propertyimages->save();
+        }
+        $propertyimages->save();
 
         return redirect()->route('propertyimages.index');
     }
@@ -102,17 +95,12 @@ class PropertyImagesController extends Controller
         ]);
 
         if ($request->hasFile('image_file')) {
-
             $image = $request->file('image_file');
-
-            $folder = 'images/propertyimages/image_file/'.$propertyimages->id;
-
-            // Save the image directly to the public folder
+            $folder = 'images/propertyimages/image_file/' . $propertyimages->id;
             $image->move(public_path($folder), $image->getClientOriginalName());
-            //dd($image1Path);
             $propertyimages->image_file = $image->getClientOriginalName();
-
-           }
+        }
+        $propertyimages->save();
 
         return redirect()->route('propertyimages.index');
     }

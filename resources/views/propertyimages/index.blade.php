@@ -34,7 +34,7 @@
                                 </th>
 
                                 <th class="text-center">
-                                    <h6>Is Cover Image</h6>
+                                    <h6>Image File</h6>
                                 </th>
 
 
@@ -64,16 +64,8 @@
                                     </td>
 
                                     <td class="text-center">
-                                        @php
-                                          if($propertyimage->is_cover_image == '1'){
-                                            $class = 'activelabel';
-                                            $data = 'Yes';
-                                          } else {
-                                            $class = 'inactivelabel';
-                                            $data = 'No';
-                                          }
-                                        @endphp
-                                        <div class="{{ $class }}">{{ $data }}</div>
+                                        <img src="{{ $propertyimage->image_file ? asset('images/propertyimages/image_file/' . $propertyimage->id . '/' . $propertyimage->image_file) : asset('images/no-image.png') }}"
+                                        style="height:70px;">
                                     </td>
 
                                     <td class="text-center">

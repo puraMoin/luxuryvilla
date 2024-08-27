@@ -75,9 +75,7 @@
                             @endphp
                             <label>Image File <span class="mandatory">*</span></label>
                             <div id="imageBox">
-                                <img id="selectedImage"
-                                    src="{{ $propertyimages->image_file ? $filepath : asset('images/no-image.png') }}"
-                                    alt="Selected Image">
+                                <img id="selectedImage" src="{{ $propertyimages->image_file ? $filepath : asset('images/no-image.png') }}" alt="Selected Image">
                             </div>
                             <input type="file" name="image_file" id="imageInput">
                         </div>

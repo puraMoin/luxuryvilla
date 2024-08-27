@@ -55,11 +55,13 @@
                             </tr>
 
                             <tr>
-                                <th class='col-md-2'>
-                                    <h6>Is Cover Image</h6>
-                                </th>
+                                <th class='col-md-2'><h6>Is Cover Image</h6></th>
                                 <td>
-                                    <p>{{ $propertyimages->is_cover_image ? 'Yes' : 'No' }}</p>
+                                    @php
+                                        $class = $propertyimages->active == '1' ? 'activelabel' : 'inactivelabel';
+                                        $data = $propertyimages->active == '1' ? 'Yes' : 'No';
+                                    @endphp
+                                    <div class="{{ $class }}">{{ $data }}</div>
                                 </td>
                             </tr>
 
