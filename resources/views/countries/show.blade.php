@@ -13,6 +13,12 @@
             </div>
         @endif
 
+        <div class="right-mob-left">
+            <a href="{{ route('countries.index') }}">
+                <button type="button" class="main-btn primary-btn-outline btn-hover btn-xs">Back</button>
+            </a>
+        </div>
+
         <!-- Country Details Section -->
         <div class="card-style mt-20">
             <div class="table-wrapper table-responsive mt-10">
@@ -35,7 +41,7 @@
                             <td>
                                 <p>{{ $countries->segments->name }}</p>
                             </td>
-                        </tr>                        
+                        </tr>
                         <!-- Alpha 2 Code -->
                         <tr>
                             <th class='col-md-2'>

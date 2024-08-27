@@ -5,8 +5,11 @@
     <div class="container-fluid">
         <!-- Breadcrumb -->
         @include('partials.breadcrumb')
-        <!-- ========== Middle Content-wrapper start ========== -->
-        <!-- Edit Form -->
+        <div class="right-mob-left">
+            <a href="{{ route('countries.index') }}">
+                <button type="button" class="main-btn primary-btn-outline btn-hover btn-xs">Back</button>
+            </a>
+        </div>
         <form method="POST" action="{{ route('countries.update', $countries->id) }}" enctype="multipart/form-data">
             @csrf
             @method('PUT')
@@ -14,7 +17,7 @@
                 <!-- Form Start Here -->
                 <div class="row mt-15">
                     <!-- Name -->
-                    <input type="hidden" name="modified_by" class="form-control" value= "{{$userId}}" required>     
+                    <input type="hidden" name="modified_by" class="form-control" value= "{{$userId}}" required>
                     <div class="col-sm-3">
                         <div class="input-style-1">
                             <label>Name <span class="mandatory">*</span></label>
@@ -27,15 +30,15 @@
                         <label>Segments <span class="mandatory"> *</span></label>
                         <div class="select-position select-sm">
                         <select class="jSelectbox" id="actionDropdown" name="segment_id" required>
-                            <option value="{{ $segment->id }}">{{ $segment->name }}</option>  
-                            <?php 
-                                foreach ($othersegments as $othersegment){  ?>  
+                            <option value="{{ $segment->id }}">{{ $segment->name }}</option>
+                            <?php
+                                foreach ($othersegments as $othersegment){  ?>
                             <option value="{{ $othersegment->id }}" >{{ $othersegment->name }}</option>
-                            <?php } ?>   
+                            <?php } ?>
                         </select>
                         </div>
-                        </div>   
-                    </div>                    
+                        </div>
+                    </div>
                     <!-- Alpha 2 Code -->
                     <div class="col-sm-2">
                         <div class="input-style-1">
@@ -120,16 +123,16 @@
                         <div class="input-style-1">
                         <label>Page Url<span class="mandatory">*</span></label>
                         <input type="text"   name="page_url" placeholder="Page Url" value="{{ $countries->page_url }}" required/>
-                        </div>   
+                        </div>
                     </div>
                     <!-- Canonical Url -->
                     <div class="col-sm-6">
                         <div class="input-style-1">
                         <label> Canonical Url <span class="mandatory">*</span></label>
                         <input type="text" name="canonical_url" placeholder="Canonical Url" value="{{ $countries->canonical_url }}" readonly required/>
-                        </div>   
+                        </div>
                     </div>
-                </div> 
+                </div>
                 <hr>
                 <div class="row mt-15">
                     <!-- Country description -->
@@ -219,7 +222,7 @@
                     </div>
                 </div>
             </div>
-            
+
                 <div class="row mt-15">
                     <div class="col-sm-3">
                         <button type="submit" class="main-btn primary-btn btn-hover btn-sm">Save</button>
