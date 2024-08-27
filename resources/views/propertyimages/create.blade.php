@@ -15,7 +15,7 @@
         <div class="container-fluid">
             <div class="card-style mt-20">
 
-                <form action="{{ route('propertyimages.store') }}" method="POST">
+                <form action="{{ route('propertyimages.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <input type="hidden" name="created_by" value="{{ $userId }}">
                     <input type="hidden" name="modified_by" value="{{ $userId }}">

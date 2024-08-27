@@ -27,23 +27,23 @@ class PropertyImagesController extends Controller
 
     public function store(Request $request)
     {
-        // dd($request);
+        // dd($request); // working all files are visible
         $request->validate([
-            // 'property_id' => 'required|integer',
             'name' => 'required|string|max:255',
             'is_cover_image' => 'required|string|max:255',
             'display_order' => 'required|string|max:255',
             'active' => 'boolean',
+            'image_file' => 'nullable|image',
             'created_by'=> 'nullable | integer',
             'modified_by'=> 'nullable | integer',
         ]);
 
         $propertyimages = PropertyImage::create([
-            // 'property_id' => $request->input('property_id'),
             'name' => $request->input('name'),
             'is_cover_image' => $request->input('is_cover_image'),
             'display_order' => $request->input('display_order'),
             'active' => $request->input('active'),
+            'image_file' => $request->input('image_file'),
             'created_by' => $request->input('created_by'),
             'modified_by' => $request->input('modified_by'),
             'created_at' => now(),
@@ -54,6 +54,7 @@ class PropertyImagesController extends Controller
             $image = $request->file('image_file');
             $folder = 'images/propertyimages/image_file/' . $propertyimages->id;
             $image->move(public_path($folder), $image->getClientOriginalName());
+
             $propertyimages->image_file = $image->getClientOriginalName();
         }
         $propertyimages->save();
@@ -83,24 +84,24 @@ class PropertyImagesController extends Controller
     {
         $propertyimages = PropertyImage::findOrFail($id);
         $propertyimages->update([
-            // 'property_id' => $request->input('property_id'),
             'name' => $request->input('name'),
             'is_cover_image' => $request->input('is_cover_image'),
             'display_order' => $request->input('display_order'),
             'active' => $request->input('active'),
-            // 'created_by' => $request->input('created_by'),
             'modified_by' => $request->input('modified_by'),
-            // 'created_at' => now(),
             'updated_at' => now(),
         ]);
 
-        if ($request->hasFile('image_file')) {
-            $image = $request->file('image_file');
-            $folder = 'images/propertyimages/image_file/' . $propertyimages->id;
-            $image->move(public_path($folder), $image->getClientOriginalName());
-            $propertyimages->image_file = $image->getClientOriginalName();
-        }
-        $propertyimages->save();
+    // Handle Image Upload
+    if ($request->hasFile('image_file')) {
+        $image = $request->file('image_file');
+        $folder = 'images/propertyimages/image_file/' . $propertyimages->id;
+        $image->move(public_path($folder), $image->getClientOriginalName());
+
+        // Update the image_file field with the image name
+        $propertyimages->image_file = $image->getClientOriginalName();
+    }
+    $propertyimages->save();
 
         return redirect()->route('propertyimages.index');
     }

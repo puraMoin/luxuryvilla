@@ -9,7 +9,6 @@ class PropertyImage extends Model
 {
     use HasFactory;
     protected $fillable = [
-        // 'property_id',
         'name',
         'image_file',
         'is_cover_image',

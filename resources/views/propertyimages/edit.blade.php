@@ -16,7 +16,7 @@
         <div class="container-fluid">
             <div class="card-style mt-20">
 
-                <form action="{{ route('propertyimages.update', $propertyimages->id) }}" method="POST">
+                <form action="{{ route('propertyimages.update', $propertyimages->id) }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
                     <input type="hidden" name="modified_by" value="{{ $userId }}">
@@ -64,24 +64,17 @@
 
                         <hr>
 
-                        <div class="col-sm-4">
-                            @php
-                                $filepath = asset(
-                                    'images/propertyimages/image_file/' .
-                                        $propertyimages->id .
-                                        '/' .
-                                        $propertyimages->image_file,
-                                );
-                            @endphp
-                            <label>Image File <span class="mandatory">*</span></label>
-                            <div id="imageBox">
-                                <img id="selectedImage" src="{{ $propertyimages->image_file ? $filepath : asset('images/no-image.png') }}" alt="Selected Image">
+                        <div class="col-sm-3">
+                                <label>Image File <span class="mandatory">*</span></label>
+                                <div id="imageBox">
+                                    <img id="selectedImage" src="{{ $propertyimages->image_file ? asset('images/propertyimages/image_file/' . $propertyimages->id . '/' . $propertyimages->image_file) : asset('images/no-image.png') }}" alt="Selected Image">
+                                </div>
+                                <input type="file" name="image_file" id="imageInput" onchange="displayImage(this)">
                             </div>
-                            <input type="file" name="image_file" id="imageInput">
                         </div>
                     </div>
-            </div>
-            <div>
+
+
                 <br>
                 <div class="row">
                     <div class="col-md-6">
@@ -89,9 +82,8 @@
                         <button type="reset" class="main-btn primary-btn-outline btn-hover btn-sm">Reset</button>
                     </div>
                 </div>
-                </form>
-
             </div>
+            </form>
         </div>
     </section>
 @endsection
