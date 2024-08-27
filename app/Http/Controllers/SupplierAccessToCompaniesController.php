@@ -13,7 +13,7 @@ class SupplierAccessToCompaniesController extends Controller
 
     public function index()
     {
-        $pageTitle = 'Supplier Payment Policies';
+        $pageTitle = 'Supplier Access to Companies';
         $supplieraccesstocompanies = SupplierAccessToCompany::paginate(20);
         return view('supplieraccesstocompanies.index',compact('pageTitle','supplieraccesstocompanies'));
     }
@@ -75,7 +75,7 @@ class SupplierAccessToCompaniesController extends Controller
         $companymasters = CompanyMaster::where('id', '!=', $companymaster->id)->get();
 
         $pageTitle = "Edit";
-        return view('supplierpaymentpolicies.edit', compact('pageTitle', 'supplieraccesstocompanies','companymaster','companymasters','supplier','suppliers', 'userId'));
+        return view('supplieraccesstocompanies.edit', compact('pageTitle', 'supplieraccesstocompanies','companymaster','companymasters','supplier','suppliers', 'userId'));
     }
 
 
@@ -91,7 +91,7 @@ class SupplierAccessToCompaniesController extends Controller
             'access_in_transaction' => $request->input('access_in_transaction'),
             'updated_at' => now(),
         ]);
-            return redirect()->route('supplierpaymentpolicies.index');
+            return redirect()->route('supplieraccesstocompanies.index');
     }
 
 
