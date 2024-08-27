@@ -14,7 +14,7 @@ class SupplierCancellationPoliciesController extends Controller
     {
         $pageTitle = 'Supplier Access to Companies';
         $suppliercancellationpolicy = SupplierCancellationPolicy::paginate(20);
-        return view('suppliercancelationpolicies.index',compact('pageTitle','suppliercancellationpolicy'));
+        return view('suppliercancellationpolicies.index',compact('pageTitle','suppliercancellationpolicy'));
     }
 
 
@@ -23,7 +23,7 @@ class SupplierCancellationPoliciesController extends Controller
         $pageTitle = 'Create';
         $userId = Auth::id();
         $supplier = Supplier::all();
-        return view('suppliercancelationpolicies.create', compact('pageTitle','userId','supplier'));
+        return view('suppliercancellationpolicies.create', compact('pageTitle','userId','supplier'));
     }
 
 
@@ -51,7 +51,7 @@ class SupplierCancellationPoliciesController extends Controller
             'updated_at' => now(),
         ]);
 
-        return redirect()->route('suppliercancelationpolicies.index');
+        return redirect()->route('suppliercancellationpolicies.index');
     }
 
 
@@ -59,7 +59,7 @@ class SupplierCancellationPoliciesController extends Controller
     {
         $suppliercancellationpolicy = SupplierCancellationPolicy::findOrFail($id);
         $pageTitle = 'View';
-        return view('suppliercancelationpolicies.show', compact('suppliercancellationpolicy', 'pageTitle'));
+        return view('suppliercancellationpolicies.show', compact('suppliercancellationpolicy', 'pageTitle'));
     }
 
 
@@ -72,7 +72,7 @@ class SupplierCancellationPoliciesController extends Controller
         $suppliers = Supplier::where('id', '!=', $supplier->id)->get();
 
         $pageTitle = "Edit";
-        return view('suppliercancelationpolicies.edit', compact('pageTitle', 'suppliercancellationpolicy','supplier','suppliers', 'userId'));
+        return view('suppliercancellationpolicies.edit', compact('pageTitle', 'suppliercancellationpolicy','supplier','suppliers', 'userId'));
     }
 
 
@@ -88,7 +88,7 @@ class SupplierCancellationPoliciesController extends Controller
             'modified_by' => $request->input('modified_by'),
             'updated_at' => now(),
         ]);
-            return redirect()->route('suppliercancelationpolicies.index');
+            return redirect()->route('suppliercancellationpolicies.index');
     }
 
     public function destroy($id)

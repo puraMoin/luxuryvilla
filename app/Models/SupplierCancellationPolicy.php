@@ -20,6 +20,8 @@ class SupplierCancellationPolicy extends Model
         'modified_by',
         ];
 
+        protected $table = 'supplier_cancelation_policies';
+
     public function supplier(){
         return $this->belongsTo(Supplier::class,'supplier_id');
     }
