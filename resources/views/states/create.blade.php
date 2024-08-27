@@ -6,11 +6,14 @@
 	<div class="container-fluid">
 		 <!-- BreathCrum -->
      @include('partials.breadcrumb')
-     <!-- ========== Middle Content-wrapper start ========== -->    
-     <!-- Add New Button -->
+     <div class="right-mob-left">
+        <a href="{{ route('states.index') }}">
+            <button type="button" class="main-btn primary-btn-outline btn-hover btn-xs">Back</button>
+        </a>
+    </div>
 
     <!-- For Start Here -->
-   <form method="POST" action="{{ route('states.store') }}" enctype="multipart/form-data">  
+   <form method="POST" action="{{ route('states.store') }}" enctype="multipart/form-data">
   <div class="card-style mt-20">
       <!-- <div class="create_update">Created: <span>Andria Dsouza On 09/05/2023</span>   |   Last updated: <span>Andria Dsouza On 09/05/2023</span></div> -->
       <!-- Form Start Here -->
@@ -24,7 +27,7 @@
                <label>Country</label>
                <div class="select-position select-sm">
                <select class="jSelectbox" id="actionDropdown" name="country_id" required>
-                  <option value="">Select</option>  
+                  <option value="">Select</option>
                       @foreach ($countries as $country)
                      <option value="{{ $country->name }}">{{ $country->name }}</option>
                       @endforeach
@@ -37,14 +40,14 @@
             <div class="input-style-1">
             <label>Name<span class="mandatory">*</span></label>
             <input type="text"  name="name" placeholder="State Name"  />
-            </div>   
+            </div>
          </div>
           <!-- State Code -->
           <div class="col-sm-4">
             <div class="input-style-1">
             <label>State Code<span class="mandatory">*</span></label>
             <input type="text"  name="state_code" placeholder="State Code"  />
-            </div>   
+            </div>
          </div>
       </div>
       <hr>
@@ -53,15 +56,15 @@
                <div class="input-style-1">
                <label>Page Url<span class="mandatory">*</span></label>
                <input type="text"  name="page_url" placeholder="Page Url"  />
-               </div>   
+               </div>
          </div>
          <div class="col-sm-6">
                <div class="input-style-1">
                <label>Canonical Url<span class="mandatory">*</span></label>
                <input type="text" name="canonical_url" readonly placeholder="Canonical Url" />
-               </div>   
+               </div>
          </div>
-      </div>   
+      </div>
       <hr>
       <div class="row mt-15">
           <!-- Latitude -->
@@ -69,18 +72,18 @@
             <div class="input-style-1">
             <label>Latitude<span class="mandatory">*</span></label>
             <input type="text"  name="latitude" placeholder="Latitude"  />
-            </div>   
+            </div>
          </div>
           <!-- Longitude -->
           <div class="col-sm-3">
             <div class="input-style-1">
             <label>Longitude<span class="mandatory">*</span></label>
             <input type="text"  name="longitude" placeholder="Longitude" />
-            </div>   
-         </div>         
-         <!-- Publish on Website -->       
+            </div>
+         </div>
+         <!-- Publish on Website -->
          <div class="col-sm-3">
-             <label>Publish on Website</label><br> 
+             <label>Publish on Website</label><br>
              <label class="radio-inline">
              <input type="radio" name="is_publish_on_website" class="radio-inline" value="1"> Yes
              </label>
@@ -88,9 +91,9 @@
             <input type="radio" name="is_publish_on_website" class="radio-inline" value="0" checked> No
             </label>
          </div>
-        <!-- Active Code -->         
+        <!-- Active Code -->
          <div class="col-sm-3">
-             <label>Active</label><br> 
+             <label>Active</label><br>
              <label class="radio-inline">
              <input type="radio" name="active" class="radio-inline" value="1"> Yes
              </label>
@@ -98,35 +101,35 @@
             <input type="radio" name="active" class="radio-inline" value="0" checked> No
             </label>
          </div>
-      </div> 
+      </div>
       <hr>
       <div class="row mt-15">
          <!--Small Description -->
          <div class="col-sm-6">
             <div class="input-style-1">
-            <label>Small description <span class="mandatory">*</span></label> 
+            <label>Small description <span class="mandatory">*</span></label>
              <textarea name="small_description" class="rich-editor" placeholder="Small description"  rows="3"></textarea>
-            </div>   
+            </div>
          </div>
          <!-- Description -->
          <div class="col-sm-6">
             <div class="input-style-1">
-            <label>Description<span class="mandatory">*</span></label> 
+            <label>Description<span class="mandatory">*</span></label>
              <textarea name="description" class="rich-editor" placeholder="Description"   rows="3"></textarea>
-            </div>   
+            </div>
          </div>
-      </div>      
+      </div>
    </div>
-   <div> 
+   <div>
       <div class="row mt-15">
-       <div class="col-sm-3">  
+       <div class="col-sm-3">
          <button type="submit" class="main-btn primary-btn btn-hover btn-sm mt-3">Save</button>
          <button type="reset" class="main-btn primary-btn-outline btn-hover btn-sm mt-3" >Reset</button>
         </div>
-      </div>  
+      </div>
 
 	</div>
 </form>
-</section>	
+</section>
 @endsection
 
