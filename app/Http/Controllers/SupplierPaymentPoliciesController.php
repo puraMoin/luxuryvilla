@@ -34,6 +34,7 @@ class SupplierPaymentPoliciesController extends Controller
             'payment_policy'=> 'required|integer',
             'payment_days'=> 'required|string',
             'payment_percent'=> 'required|string',
+            'description'=> 'required|string',
             'is_before_service'=> 'required|boolean',
             'active'=> 'required|boolean',
             'created_by'=> 'required|integer',
@@ -45,6 +46,7 @@ class SupplierPaymentPoliciesController extends Controller
             'payment_policy' => $request->input('payment_policy'),
             'payment_days' => $request->input('payment_days'),
             'payment_percent' => $request->input('payment_percent'),
+            'description' => $request->input('description'),
             'is_before_service' => $request->input('is_before_service'),
             'active' => $request->input('active'),
             'created_by' => $request->input('created_by'),
@@ -69,8 +71,12 @@ class SupplierPaymentPoliciesController extends Controller
     {
         $supplierpaymentpolicy = SupplierPaymentPolicy::findOrFail($id);
         $userId = Auth::id();
+
+        $supplier = Supplier::where('id', $supplierpaymentpolicy->supplier_id)->first();
+        $suppliers = Supplier::where('id', '!=', $supplier->id)->get();
+
         $pageTitle = "Edit";
-        return view('supplierpaymentpolicies.edit', compact('pageTitle', 'supplierpaymentpolicy', 'userId'));
+        return view('supplierpaymentpolicies.edit', compact('pageTitle', 'supplierpaymentpolicy','supplier','suppliers', 'userId'));
     }
 
 
