@@ -26,11 +26,11 @@
                                 </th> --}}
 
                                 <th class="text-center">
-                                    <h6>Name</h6>
+                                    <h6>Display Order</h6>
                                 </th>
 
                                 <th class="text-center">
-                                    <h6>Display Order</h6>
+                                    <h6>Name</h6>
                                 </th>
 
                                 <th class="text-center">
@@ -56,11 +56,11 @@
 
                                 <tr>
                                     <td class="text-center">
-                                        <p>{{ $propertyimage->name }}</p>
+                                        <p>{{ $propertyimage->display_order }}</p>
                                     </td>
 
                                     <td class="text-center">
-                                        <p>{{ $propertyimage->display_order }}</p>
+                                        <p>{{ $propertyimage->name }}</p>
                                     </td>
 
                                     <td class="text-center">

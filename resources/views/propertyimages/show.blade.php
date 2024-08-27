@@ -59,7 +59,7 @@
                                     <h6>Is Cover Image</h6>
                                 </th>
                                 <td>
-                                    <p>{{ $propertyimages->is_cover_image }}</p>
+                                    <p>{{ $propertyimages->is_cover_image ? 'Yes' : 'No' }}</p>
                                 </td>
                             </tr>
 

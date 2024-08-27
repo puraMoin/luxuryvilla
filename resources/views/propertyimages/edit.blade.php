@@ -73,7 +73,7 @@
                                         $propertyimages->image_file,
                                 );
                             @endphp
-                            <label>Image File<span class="mandatory">*</span></label>
+                            <label>Image File <span class="mandatory">*</span></label>
                             <div id="imageBox">
                                 <img id="selectedImage"
                                     src="{{ $propertyimages->image_file ? $filepath : asset('images/no-image.png') }}"
