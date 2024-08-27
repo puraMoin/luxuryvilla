@@ -18,8 +18,6 @@ class SupplierRegionTypesController extends Controller
         $parentMenu = 'Super Master';
         // $supplierregion = SupplierRegionType::all();
         $supplierregion = SupplierRegionType::paginate(20);
-
-
         return view('supplierregiontypes.index',compact('parentMenu','pageTitle','supplierregion'));
     }
 
