@@ -38,21 +38,21 @@
                         <div class="col-sm-3">
                             <div class="input-style-1">
                                 <label>Payment Policy <span class="mandatory">*</span></label>
-                                <input type="text" name="payment_policy" placeholder="Enter Payment Policy" required="true" />
+                                <input type="text" name="payment_policy" placeholder="Enter Payment Policy"  required="true" />
                             </div>
                         </div>
 
                         <div class="col-sm-3">
                             <div class="input-style-1">
                                 <label>Payment Days <span class="mandatory">*</span></label>
-                                <input type="text" name="payment_days" placeholder="Enter Payment Day" required="true" />
+                                <input type="text" name="payment_days" placeholder="Enter Payment Day" class="numeric"  required="true" />
                             </div>
                         </div>
 
                         <div class="col-sm-3">
                             <div class="input-style-1">
                                 <label>Payment Percent <span class="mandatory">*</span></label>
-                                <input type="text" name="payment_percent" placeholder="Enter a Percent" required="true" />
+                                <input type="text" name="payment_percent" placeholder="Enter a Percent"  class="numeric" required="true" />
                             </div>
                         </div>
                         <hr>

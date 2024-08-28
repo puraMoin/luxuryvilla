@@ -31,14 +31,14 @@ class SupplierPaymentPoliciesController extends Controller
     {
         $request->validate([
             'supplier_id' => 'required|integer',
-            'payment_policy'=> 'required|integer',
-            'payment_days'=> 'required|string',
-            'payment_percent'=> 'required|string',
-            'description'=> 'required|string',
-            'is_before_service'=> 'required|boolean',
-            'active'=> 'required|boolean',
-            'created_by'=> 'required|integer',
-            'modified_by'=> 'required|integer',
+            'payment_policy' => 'required|string',
+            'payment_days' => 'required|numeric',
+            'payment_percent' => 'required|numeric',
+            'description' => 'required|string',
+            'is_before_service' => 'required|boolean',
+            'active' => 'required|boolean',
+            'created_by' => 'required|integer',
+            'modified_by' => 'required|integer',
         ]);
 
         $supplierpaymentpolicy = SupplierPaymentPolicy::create([

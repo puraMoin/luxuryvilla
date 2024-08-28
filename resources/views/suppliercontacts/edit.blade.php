@@ -45,7 +45,7 @@
                             <div class="input-style-1">
                                 <label for="designation">Designation <span class="mandatory">*</span></label>
                                 <input type="text" id="designation" name="designation"
-                                    class="form-control numeric" value="{{ $suppliercontact->designation }}"
+                                    class="form-control" value="{{ $suppliercontact->designation }}"
                                     required>
                             </div>
                         </div>
@@ -53,8 +53,8 @@
                         <div class="col-md-3">
                             <div class="input-style-1">
                                 <label for="email">Email <span class="mandatory">*</span></label>
-                                <input type="text" id="email" name="email"
-                                    class="form-control numeric" value="{{ $suppliercontact->email }}"
+                                <input type="email" id="email" name="email"
+                                    class="form-control " value="{{ $suppliercontact->email }}"
                                     required>
                             </div>
                         </div>

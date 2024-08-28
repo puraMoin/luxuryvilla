@@ -59,7 +59,7 @@
                             <div class="input-style-1">
                                 <label for="branch">Branch <span class="mandatory">*</span></label>
                                 <input type="text" id="branch" name="branch"
-                                    class="form-control numeric" value="{{ $supplierbank->branch }}"
+                                    class="form-control" value="{{ $supplierbank->branch }}"
                                     required>
                             </div>
                         </div>
@@ -70,7 +70,7 @@
                             <div class="input-style-1">
                                 <label for="location">Location <span class="mandatory">*</span></label>
                                 <input type="text" id="location" name="location"
-                                    class="form-control numeric" value="{{ $supplierbank->location }}"
+                                    class="form-control" value="{{ $supplierbank->location }}"
                                     required>
                             </div>
                         </div>
@@ -129,7 +129,7 @@
                             <div class="input-style-1">
                                 <label for="account_type">Account Type <span class="mandatory">*</span></label>
                                 <input type="text" id="account_type" name="account_type"
-                                    class="form-control numeric" value="{{ $supplierbank->account_type }}"
+                                    class="form-control" value="{{ $supplierbank->account_type }}"
                                     required>
                             </div>
                         </div>
@@ -167,7 +167,7 @@
                             <div class="input-style-1">
                                 <label for="email">Email <span class="mandatory">*</span></label>
                                 <input type="text" id="email" name="email"
-                                    class="form-control numeric" value="{{ $supplierbank->email }}"
+                                    class="form-control" value="{{ $supplierbank->email }}"
                                     required>
                             </div>
                         </div>
