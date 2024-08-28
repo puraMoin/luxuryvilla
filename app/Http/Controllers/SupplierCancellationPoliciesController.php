@@ -12,7 +12,7 @@ class SupplierCancellationPoliciesController extends Controller
 
     public function index()
     {
-        $pageTitle = 'Supplier Access to Companies';
+        $pageTitle = 'Supplier Cancellation Policies';
         $suppliercancellationpolicy = SupplierCancellationPolicy::paginate(20);
         return view('suppliercancellationpolicies.index',compact('pageTitle','suppliercancellationpolicy'));
     }
@@ -31,12 +31,12 @@ class SupplierCancellationPoliciesController extends Controller
     {
         $request->validate([
             'supplier_id' => 'required|integer',
-            'cancelation_policy'=> 'required|integer',
+            'cancelation_policy'=> 'required|string',
             'payment_days'=> 'required|string',
             'payment_percent'=> 'required|string',
             'active'=> 'required|boolean',
             'created_by' => 'nullable|integer',
-            'modified_by' => 'nullable integer',
+            'modified_by' => 'nullable|integer',
         ]);
 
         $suppliercancellationpolicy = SupplierCancellationPolicy::create([
