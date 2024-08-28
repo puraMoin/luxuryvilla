@@ -66,6 +66,7 @@ use App\Http\Controllers\ServiceMastersController;
 use App\Http\Controllers\ServiceModuleMastersController;
 use App\Http\Controllers\SupplierAccessToCompaniesController;
 use App\Http\Controllers\SupplierCancellationPoliciesController;
+use App\Http\Controllers\SupplierContactsController;
 use App\Http\Controllers\SupplierPaymentPoliciesController;
 use App\Http\Controllers\SuppliersController;
 use App\Http\Controllers\TaxAccessToCompaniesController;
@@ -200,6 +201,7 @@ Route::get('/dashboard', [DashboardsController::class, 'index'])->name('dashboar
   Route::resource('supplierpaymentpolicies', SupplierPaymentPoliciesController::class);
   Route::resource('supplieraccesstocompanies', SupplierAccessToCompaniesController::class);
   Route::resource('suppliercancellationpolicies', SupplierCancellationPoliciesController::class);
+  Route::resource('suppliercontacts', SupplierContactsController::class);
 
   Route::get('/get-states/{countryId}', [StatesController::class, 'getStates']);
   Route::get('/get-cities/{stateId}', [CitiesController::class, 'getCities']);
