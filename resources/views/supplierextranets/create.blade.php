@@ -63,19 +63,19 @@
                         <div class="col-md-3">
                             <div class="input-style-1">
                                 <label for="email">Email <span class="mandatory">*</span></label>
-                                <input type="text" id="email" name="email" class="form-control" value="" required>
+                                <input type="email" id="email" name="email" class="form-control" value="" required>
                             </div>
                         </div>
 
                         <div class="col-md-3">
                             <div class="input-style-1">
                                 <label for="mobile">Mobile <span class="mandatory">*</span></label>
-                                <input type="text" id="mobile" name="mobile" class="form-control" value="" required>
+                                <input type="text" id="mobile" name="mobile" class="form-control numeric" value="" required>
                             </div>
                         </div>
 
                         <div class="col-sm-3">
-                            <label>Status</label><br>
+                            <label>Active</label><br>
                             <label class="radio-inline">
                                 <input type="radio" name="active" class="radio-inline" value="1" checked> Yes
                             </label>
