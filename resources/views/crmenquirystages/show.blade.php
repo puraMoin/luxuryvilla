@@ -65,7 +65,7 @@
                             </tr>
                             <tr>
                                 <th class='col-md-2'>
-                                    <h6>Upldated At</h6>
+                                    <h6>Updated At</h6>
                                 </th>
                                 <td>
                                     <p>{{ $crmenquirystage->updated_at }}</p>

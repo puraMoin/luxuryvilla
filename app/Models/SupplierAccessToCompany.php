@@ -12,12 +12,11 @@ class SupplierAccessToCompany extends Model
         'supplier_id',
         'company_master_id',
         'is_visible_in_company',
-        'edit',
-        'delete',
         'access_in_transaction',
-        'created_at',
-        'updated_at',
+        'created_at','updated_at'
     ];
+
+    protected $table = 'supplier_access_to_companies';
 
     public function supplier(){
         return $this->belongsTo(Supplier::class,'supplier_id');

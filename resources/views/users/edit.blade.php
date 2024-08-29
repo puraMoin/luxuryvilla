@@ -247,6 +247,37 @@
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
+   $(document).ready(function () {
+       // Change event for the country dropdown
+       $('#StateactionDropdown').on('change', function () {
+           var stateId = $(this).val();
+           var baseUrl = "{{ url('/') }}";
+           if (stateId) {
+               // Make an AJAX request to get the states based on the selected country
+               $.ajax({
+                   type: 'GET',
+                   datatype : 'json',
+                   url: baseUrl + '/get-cities/' + stateId, // Replace with the actual route to get states
+                   success: function (data) {
+                       // Clear the current options in the state dropdown
+                       $('#cityDropdown').empty();
+                       // Add the defualt select box
+                       $('#cityDropdown').append('<option value="">Select</option>');
+                       // Add the new options based on the response
+                       $.each(data, function (key, value) {
+
+                           $('#cityDropdown').append('<option value="' + value.id + '">' + value.name + '</option>');
+                       });
+                   }
+               });
+            } else {
+               // If no country is selected, clear the state dropdown
+               $('#cityDropdown').empty();
+           }
+       });
+   });
+</script>
+<script>
    $(document).ready(function() {
       $('.changePassword').click(function(){
          $('#psw').prop('disabled',false);
