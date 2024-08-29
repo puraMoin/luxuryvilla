@@ -331,7 +331,7 @@ class UsersController extends Controller
          // Handle image uploads
          if ($request->hasFile('image_file')) {
 
-
+            $image = $request->file('image');
             $image = $request->file('image_file');
 
             $folder = 'images/users/image_file/'.$user->id;
@@ -339,6 +339,8 @@ class UsersController extends Controller
             // Save the image directly to the public folder
             $image->move(public_path($folder), $image->getClientOriginalName());
             //dd($image1Path);
+
+            $user->image = $image->getClientOriginalName();
 
             $user->image_file = $image->getClientOriginalName();
            }
