@@ -7,7 +7,7 @@
     @include('partials.breadcrumb')
     <!-- Add New Button -->
     <div class="right-mob-left">
-      <a href="{{ route('villacategories.create') }}">
+      <a href="{{ route('propertycategories.create') }}">
         <button type="button" class="main-btn primary-btn btn-hover btn-xs">Create</button>
       </a>
     </div>
@@ -28,13 +28,13 @@
           <tbody>
             @php $class = ''; $data = ''; @endphp
 
-            @foreach ($villacategories as $villacategory)
+            @foreach ($propertycategory as $propertycategories)
             <tr>
-              <td><p>{{ $villacategory->name }}</p></td>
-              
+              <td><p>{{ $propertycategories->name }}</p></td>
+
               <td class="text-center">
                 @php
-                  if($villacategory->active == '1'){
+                  if($propertycategories->active == '1'){
                     $class = 'activelabel';
                     $data = 'Active';
                   } else {
@@ -45,10 +45,10 @@
                 <div class="{{ $class }}">{{ $data }}</div>
               </td>
               <td class="text-center">
-                <a href="{{ route('villacategories.edit', $villacategory->id) }}">
+                <a href="{{ route('villacategories.edit', $propertycategories->id) }}">
                   <i class="lni lni-pencil-alt"></i>
                 </a>
-                <a href="{{ route('villacategories.show', $villacategory->id) }}">
+                <a href="{{ route('villacategories.show', $propertycategories->id) }}">
                   <i class="lni lni-list"></i>
                 </a>
               </td>
@@ -58,7 +58,7 @@
         </table>
       </div>
     </div>
-    @include('partials.pagination', ['items' => $villacategories])
+    @include('partials.pagination', ['items' => $propertycategory])
   </div>
 </section>
 @endsection

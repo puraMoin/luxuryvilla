@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class VillaCategory extends Model
+class PropertyCategory extends Model
 {
     use HasFactory;
     protected $fillable = [
@@ -16,4 +16,5 @@ class VillaCategory extends Model
         'created_by',
         'modified_by'
     ];
+    protected $table = 'property_categories';
 }

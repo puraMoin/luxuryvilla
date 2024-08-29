@@ -13,7 +13,7 @@
             </div>
         @endif
         <div class="right-mob-left">
-            <a href="{{ route('villacategories.index') }}">
+            <a href="{{ route('propertycategories.index') }}">
               <button type="button" class="main-btn primary-btn-outline btn-hover btn-xs">Back</button>
             </a>
           </div>
@@ -25,7 +25,7 @@
                         <tr>
                             <th class='col-md-2'><h6>Name</h6></th>
                             <td>
-                                <p>{{ $villacategories->name }}</p>
+                                <p>{{ $propertycategory->name }}</p>
                             </td>
                         </tr>
                         <tr>
@@ -34,8 +34,8 @@
                             <th><h6>Status</h6></th>
                             <td>
                                 @php
-                                    $statusClass = $villacategories->active ? 'activelabel' : 'inactivelabel';
-                                    $statusText = $villacategories->active ? 'Active' : 'Inactive';
+                                    $statusClass = $propertycategory->active ? 'activelabel' : 'inactivelabel';
+                                    $statusText = $propertycategory->active ? 'Active' : 'Inactive';
                                 @endphp
                                 <div class="{{ $statusClass }}">{{ $statusText }}</div>
                             </td>
@@ -44,14 +44,14 @@
                         <tr>
                             <th><h6>Created At</h6></th>
                             <td>
-                               <p>{{ $villacategories->created_at }}</p>
+                               <p>{{ $propertycategory->created_at }}</p>
                             </td>
                         </tr>
 
                         <tr>
                             <th><h6>Updated At</h6></th>
                             <td>
-                               <p>{{ $villacategories->updated_at }}</p>
+                               <p>{{ $propertycategory->updated_at }}</p>
                             </td>
                         </tr>
 

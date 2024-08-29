@@ -2,18 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\VillaCategory;
+use App\Models\PropertyCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class VillaCategoriesController extends Controller
+class PropertyCategoriesController extends Controller
 {
 
     public function index()
     {
-        $pageTitle = 'Villa Categories';
-        $villacategories = VillaCategory::paginate(20);
-        return view('villacategories.index', compact('villacategories', 'pageTitle'));
+        $pageTitle = 'Property Categories';
+        $propertycategory = PropertyCategory::paginate(20);
+        return view('propertycategories.index', compact('propertycategory', 'pageTitle'));
     }
 
 
@@ -21,7 +21,7 @@ class VillaCategoriesController extends Controller
     {
         $userId = Auth::id();
         $pageTitle = 'Create';
-        return view('villacategories.create', compact('userId', 'pageTitle'));
+        return view('propertycategories.create', compact('userId', 'pageTitle'));
     }
 
 
@@ -34,7 +34,7 @@ class VillaCategoriesController extends Controller
             'modified_by' => 'required|integer',
         ]);
 
-        $villacategories = VillaCategory::create([
+        $propertycategory = PropertyCategory::create([
             'name' => $request->input('name'),
             'active' => $request->input('active'),
             'created_by' => $request->input('created_by'),
@@ -43,31 +43,31 @@ class VillaCategoriesController extends Controller
             'updated_at' => now(),
         ]);
 
-        return redirect()->route('villacategories.index');
+        return redirect()->route('propertycategories.index');
     }
 
 
     public function show($id)
     {
-        $villacategories = VillaCategory::findOrFail($id);
+        $propertycategory = PropertyCategory::findOrFail($id);
         $pageTitle = 'View';
-        return view('villacategories.show', compact('villacategories', 'pageTitle'));
+        return view('propertycategories.show', compact('propertycategory', 'pageTitle'));
     }
 
 
     public function edit($id)
     {
-        $villacategories = VillaCategory::findOrFail($id);
+        $propertycategory = PropertyCategory::findOrFail($id);
         $pageTitle = 'Edit';
         $userId = Auth::id();
-        return view('villacategories.edit', compact('villacategories', 'pageTitle', 'userId'));
+        return view('propertycategories.edit', compact('propertycategory', 'pageTitle', 'userId'));
     }
 
 
     public function update(Request $request, $id)
     {
-        $villacategories = VillaCategory::findOrFail($id);
-        $villacategories->update([
+        $propertycategory = PropertyCategory::findOrFail($id);
+        $propertycategory->update([
             'name' => $request->input('name'),
             'active' => $request->input('active'),
             'created_at' => now(),
@@ -76,7 +76,7 @@ class VillaCategoriesController extends Controller
             'modified_by' => $request->input('modified_by'),
         ]);
 
-        return redirect()->route('villacategories.index');
+        return redirect()->route('propertycategories.index');
     }
 
 
