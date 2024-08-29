@@ -45,10 +45,10 @@
                 <div class="{{ $class }}">{{ $data }}</div>
               </td>
               <td class="text-center">
-                <a href="{{ route('villacategories.edit', $propertycategories->id) }}">
+                <a href="{{ route('propertycategories.edit', $propertycategories->id) }}">
                   <i class="lni lni-pencil-alt"></i>
                 </a>
-                <a href="{{ route('villacategories.show', $propertycategories->id) }}">
+                <a href="{{ route('propertycategories.show', $propertycategories->id) }}">
                   <i class="lni lni-list"></i>
                 </a>
               </td>
