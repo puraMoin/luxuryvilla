@@ -217,6 +217,8 @@ class SuppliersController extends Controller
     {
         $supplier = Supplier::find($id);
 
+        //dd($supplier->onlinesuppliers);
+
         //dd($user);
 
         if (!$supplier) {
@@ -295,7 +297,7 @@ class SuppliersController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //dump($request);
+        dump($request);
         $newPassword = ($request->input('password'));
         $supplier = Supplier::findOrFail($id);
 
@@ -335,7 +337,7 @@ class SuppliersController extends Controller
             'updated_at'=> now(),
         ]);
 
-        //dump($supplier);
+        dump($supplier);
         
         if($newPassword != null){
             $supplier->update([
@@ -347,6 +349,8 @@ class SuppliersController extends Controller
         if ($request->hasFile('image_file')) {
 
             $image = $request->file('image_file');
+
+            //dd($image);
 
             $folder = 'images/supplier/image_file/'.$supplier->id;
 
@@ -370,7 +374,7 @@ class SuppliersController extends Controller
             //dd($isVisibleInCompany);
             // Retrieve company_master_id from input
             $companyMasterId = isset($supplierAccess['company_master_id']) ? $supplierAccess['company_master_id'] : '';
-        
+            //dd($companyMasterId);
             // Update or create the record
             SupplierAccessToCompany::updateOrCreate(
                 [
