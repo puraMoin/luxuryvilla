@@ -58,13 +58,13 @@
                         <tr>
                             <th><h6>Created By</h6></th>
                             <td>
-                                <p>{{ $propertytypes->created_by }}</p>
+                                <p>{{Auth::user()->name }}</p>
                             </td>
                         </tr>
                         <tr>
                             <th><h6>Modified By</h6></th>
                             <td>
-                                <p>{{ $propertytypes->modified_by }}</p>
+                                <p>{{Auth::user()->name }}</p>
                             </td>
                         </tr>
                         </tr>

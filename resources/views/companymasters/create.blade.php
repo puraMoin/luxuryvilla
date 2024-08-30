@@ -39,14 +39,14 @@
                         <div class="col-sm-3">
                             <div class="input-style-1">
                                 <label>Regsitration No<span class="mandatory">*</span></label>
-                                <input type="text" name="registration_no" placeholder="Enter Regsitration No" />
+                                <input type="text"  name="registration_no" placeholder="Enter Regsitration No" />
                             </div>
                         </div>
                         <!-- Vat No  -->
                         <div class="col-sm-3">
                             <div class="input-style-1">
                                 <label>Vat No<span class="mandatory">*</span></label>
-                                <input type="text" name="vat_no" placeholder="Enter Vat No" />
+                                <input type="text" name="vat_no"  placeholder="Enter Vat No" />
                             </div>
                         </div>
                         <hr>
@@ -156,7 +156,7 @@
                             <div class="col-sm-3">
                                 <div class="input-style-1">
                                     <label>Zip Code <span class="mandatory">*</span></label>
-                                    <input type="text" name="zipcode" placeholder="Enter Zip Code" />
+                                    <input type="text" name="zipcode" class="numeric" placeholder="Enter Zip Code" />
                                 </div>
                             </div>
 
@@ -172,7 +172,7 @@
                             <div class="col-sm-3">
                                 <div class="input-style-1">
                                     <label>Phone Calling Code 1 <span class="mandatory">*</span></label>
-                                    <input type="text" name="phone_calling_code_1" placeholder="Enter Phone Calling Code 1" />
+                                    <input type="text" name="phone_calling_code_1"  class="numeric" placeholder="Enter Phone Calling Code 1" />
                                 </div>
                             </div>
 
@@ -180,7 +180,7 @@
                             <div class="col-sm-3">
                                 <div class="input-style-1">
                                     <label>Contact No 1 <span class="mandatory">*</span></label>
-                                    <input type="text" name="contact_no_1" placeholder="Enter Contact No 1" />
+                                    <input type="text" name="contact_no_1" class="numeric" placeholder="Enter Contact No 1" />
                                 </div>
                             </div>
 
@@ -192,14 +192,14 @@
                             <div class="col-sm-3">
                                 <div class="input-style-1">
                                     <label>Phone Calling Code 2 <span class="mandatory">*</span></label>
-                                    <input type="text" name="phone_calling_code_2" placeholder="Enter Phone Calling Code 2" />
+                                    <input type="text" name="phone_calling_code_2" class="numeric" placeholder="Enter Phone Calling Code 2" />
                                 </div>
                             </div>
                             <!--Contact no 2  -->
                             <div class="col-sm-3">
                                 <div class="input-style-1">
                                     <label>Contact no 2 <span class="mandatory">*</span></label>
-                                    <input type="text" name="contact_no_2" placeholder="Enter Contact no 2" />
+                                    <input type="text" name="contact_no_2" class="numeric" placeholder="Enter Contact no 2" />
                                 </div>
                             </div>
                              <!-- Email  -->

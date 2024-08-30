@@ -22,7 +22,7 @@
                             <td class=''>
                                 <p>{{ $supplier->supplier_code }}</p>
                             </td>
-                    </tr>                        
+                    </tr>
                     <tr>
                         <th class='col-md-2'><h6>Supplier Type</h6></th>
                         <td class=''>
@@ -56,7 +56,7 @@
                     <tr>
                         <th class='col-md-2'><h6>Gst No</h6></th>
                         <td class=''>
-                            <p>{{ $supplier->gst_no }}</p>
+                            <p>{{ $supplier->gst_no ? $supplier->gst_no : '---'}}</p>
                         </td>
                     </tr>
                     <tr>
@@ -64,43 +64,43 @@
                         <td class=''>
                             <p>{{ $supplier->company_address }}</p>
                         </td>
-                    </tr>       
+                    </tr>
                     <tr>
                         <th class='col-md-2'><h6>Country</h6></th>
                         <td class=''>
                             <p>{{ $supplier->country ? $supplier->country->name : '---' }}</p>
                         </td>
-                    </tr>   
+                    </tr>
                     <tr>
                         <th class='col-md-2'><h6>State</h6></th>
                         <td class=''>
                             <p>{{ $supplier->state ? $supplier->state->name : '---' }}</p>
                         </td>
-                    </tr>     
+                    </tr>
                     <tr>
                         <th class='col-md-2'><h6>City</h6></th>
                         <td class=''>
                             <p>{{ $supplier->city ? $supplier->city->name : '---' }}</p>
                         </td>
-                    </tr>    
+                    </tr>
                     <tr>
                         <th class='col-md-2'><h6>ZipCode</h6></th>
                         <td class=''>
                             <p>{{ $supplier->zipcode }}</p>
                         </td>
-                    </tr>        
+                    </tr>
                     <tr>
                         <th class='col-md-2'><h6>Area</h6></th>
                         <td class=''>
                             <p>{{ $supplier->area }}</p>
                         </td>
-                    </tr> 
+                    </tr>
                     <tr>
                         <th class='col-md-2'><h6>Area</h6></th>
                         <td class=''>
                             <p>{{ $supplier->area }}</p>
                         </td>
-                    </tr> 
+                    </tr>
                     <tr>
                         <th><h6>Is Online Supplier</h6></th>
                         <td>
@@ -126,13 +126,13 @@
                         <td class=''>
                             <p>{{ $supplier->contact_no_2 }}</p>
                         </td>
-                    </tr>   
+                    </tr>
                     <tr>
                         <th class='col-md-2'><h6>Area</h6></th>
                         <td class=''>
                             <p>{{ $supplier->area }}</p>
                         </td>
-                    </tr>                                      
+                    </tr>
                     <tr>
                         <th class='col-md-2'><h6>Fax</h6></th>
                         <td class=''>
@@ -250,8 +250,8 @@
                             } @endphp
                             <div class="{{ $class; }}">{{ $data }}</div>
                         </td>
-                    </tr>  
-                   
+                    </tr>
+
                     <tr>
                         <th><h6>Is Code Setup Used</h6></th>
                         <td>
@@ -265,7 +265,7 @@
                             } @endphp
                             <div class="{{ $class; }}">{{ $data }}</div>
                         </td>
-                    </tr> 
+                    </tr>
 
                     <tr>
                         <th class='col-md-2'><h6>Date of Birth</h6></th>
@@ -279,14 +279,14 @@
                         <td class=''>
                             <p>{{ Auth::user()->name }}</p>
                         </td>
-                    </tr> 
+                    </tr>
 
                     <tr>
                         <th class='col-md-2'><h6>Modified By</h6></th>
                         <td class=''>
                             <p>{{ Auth::user()->name }}</p>
                         </td>
-                    </tr> 
+                    </tr>
                     </tbody>
                 </table>
             </div>

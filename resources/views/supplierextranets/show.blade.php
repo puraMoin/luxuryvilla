@@ -68,7 +68,7 @@
                                     <h6>Email</h6>
                                 </th>
                                 <td>
-                                    <p> {{ $supplierextranet->emmail}} </p>
+                                    <p> {{ $supplierextranet->email}} </p>
                                 </td>
                             </tr>
 
