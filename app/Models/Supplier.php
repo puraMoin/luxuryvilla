@@ -40,7 +40,7 @@ class Supplier extends Model
     public function city()
     {
         return $this->belongsTo(City::class, 'city_id', 'id');
-    }   
+    }
 
     public function onlinesuppliers()
     {

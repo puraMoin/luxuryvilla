@@ -95,16 +95,17 @@
                             <p>{{ $supplier->area }}</p>
                         </td>
                     </tr>
-                    <tr>
+                    {{-- <tr>
                         <th class='col-md-2'><h6>Area</h6></th>
                         <td class=''>
                             <p>{{ $supplier->area }}</p>
                         </td>
-                    </tr>
+                    </tr> --}}
+
                     <tr>
-                        <th><h6>Is Online Supplier</h6></th>
+                        <th><h6>Is Default Supplier</h6></th>
                         <td>
-                          @php if($supplier->is_online_supplier == '1'){
+                          @php if($supplier->is_default_supplier == '1'){
                             $class = 'activelabel';
                             $data = 'Yes';
                             }
@@ -115,6 +116,7 @@
                             <div class="{{ $class; }}">{{ $data }}</div>
                         </td>
                     </tr>
+
                     <tr>
                         <th class='col-md-2'><h6>Contact 1</h6></th>
                         <td class=''>
@@ -163,18 +165,21 @@
                             <p>{{ $supplier->vat_ref_number }}</p>
                         </td>
                     </tr>
+
                     <tr>
-                        <th><h6>Is Online Supplier</h6></th>
+                        <th class='col-md-2'><h6>Is Online Supplier</h6></th>
                         <td>
-                          @php if($supplier->is_default_supplier == '1'){
-                            $class = 'activelabel';
-                            $data = 'Yes';
-                            }
-                            else{
-                            $class = 'inactivelabel';
-                            $data = 'No';
-                            } @endphp
-                            <div class="{{ $class; }}">{{ $data }}</div>
+                            @if($supplier->is_online_supplier == '1')
+                                @if ($supplier->onlineSuppliers && $supplier->onlineSuppliers->isNotEmpty())
+                                    <p>
+                                        @foreach ($supplier->onlineSuppliers as $onlineSupplier)
+                                            {{ $onlineSupplier->name }}@if(!$loop->last), @endif
+                                        @endforeach
+                                    </p>
+                                @else
+                                @endif
+                            @else
+                            @endif
                         </td>
                     </tr>
 
