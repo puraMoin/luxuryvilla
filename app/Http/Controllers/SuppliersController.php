@@ -168,16 +168,23 @@ class SuppliersController extends Controller
 
        $supplier->save();
 
+       $onlineSuppliers = $request->input('onlinesuppliers');
 
-       foreach ($request->input('onlinesuppliers') as $onlineSuppliersId) {
-        $supplieronlinesupplier = SupplierOnlineSupplier::create([
-            'supplier_id' => $supplier->id, // Assuming 'id' is the primary key of Supplier table
-            'online_supplier_id' => $onlineSuppliersId,
-            'created_at'=>now(),
-            'updated_at'=>now(),
-        ]);
-    }
+       if(!empty($onlineSuppliers)){
+        foreach ($request->input('onlinesuppliers') as $onlineSuppliersId) {
+            $supplieronlinesupplier = SupplierOnlineSupplier::create([
+                'supplier_id' => $supplier->id, // Assuming 'id' is the primary key of Supplier table
+                'online_supplier_id' => $onlineSuppliersId,
+                'created_at'=>now(),
+                'updated_at'=>now(),
+            ]);
+        }
+       }
 
+
+       $supplierAccess = $request->input('SupplierAccessToCompany');
+
+       if(!empty($supplierAccess)){
         foreach($request->input('SupplierAccessToCompany') as $supplierAccess){
             //dd($supplierAccess['access_in_transaction']);
             $accessInTransaction = isset($supplierAccess['access_in_transaction']) && $supplierAccess['access_in_transaction'] === 'on' ? 1 : 0;
@@ -195,8 +202,9 @@ class SuppliersController extends Controller
             ];
             SupplierAccessToCompany::create($dataToSave);
         }
+       }
 
-      return redirect()->route('suppliers.index');
+        return redirect()->route('suppliers.edit', ['supplier' => $supplier->id]);
     }
 
     /**
@@ -243,7 +251,6 @@ class SuppliersController extends Controller
 
         $supplierregionType = SupplierRegionType::where('id', $supplier->supplier_region_type_id)->first();
         $supplierregionTypes = SupplierRegionType::where('id', '!=', $supplierregionType->id)->get();
-
 
         /*For Multiple Online Suppliers Start*/
         $selectedonlineSupplier = $supplier->onlinesuppliers;

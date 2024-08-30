@@ -276,7 +276,18 @@ class CitiesController extends Controller
             $cities = City::where('state_id',$stateId)->get();
         }
 
-        return response()->json($cities);
+        //dd($cities);
+        //return response()->json($cities);
+
+        $CityArray = [];
+		if(!empty($cities)){
+			// echo "<option> Select</option>";
+			$CityArray[] = "<option> Select City </option>";
+			foreach ($cities as $key => $value) {
+				$CityArray[]= "<option value=".$value['id'].">".$value['name']."</option>";
+			}
+		}
+		return response()->json($CityArray);
 
     }
 }

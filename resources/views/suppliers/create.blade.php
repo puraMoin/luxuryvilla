@@ -205,11 +205,11 @@
                </div>
             <!-- City Name -->
             <div class="col-sm-3">
-               <div class="select-style-1">
+               <div class="select-style-1" id="CityDiv">
                   <label>City</label>
                   <div class="select-position select-sm">
-                     <select class="jSelectbox" id="citysDropdown"  name="city_id" required>
-                      <option value="">Select</option>
+                     <select id="cityDropdown" class="jSelectbox" name="city_id" required>
+                        <option value="">Select</option>
                    </select>
                    </div>
                </div>
@@ -327,6 +327,41 @@
 </div>
 </section>
 @endsection
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script>
+   $(document).ready(function () {
+       // Change event for the country dropdown
+       $('#StateactionDropdown').on('change', function () {
+           var stateId = $(this).val();
+           var baseUrl = "{{ url('/') }}";
+           if (stateId) {
+               // Make an AJAX request to get the states based on the selected country
+               $.ajax({
+                   type: 'GET',
+                   datatype : 'json',
+                   url: baseUrl + '/get-cities/' + stateId, // Replace with the actual route to get states
+                   success: function (data) {
+                       //console.log(data);
+                       // Clear the current options in the state dropdown
+                       $('#cityDropdown').closest('.select-position').replaceWith(`
+                           <div class="select-position select-sm">
+                              <select id="cityDropdown" class="jSelectbox" name="city_id" required>
+                                    <option value="">Select</option>
+                              </select>
+                           </div>
+                        `);
+
+                       $('#cityDropdown').html(data);
+
+                   }
+               });
+            } else {
+               // If no country is selected, clear the state dropdown
+               $('#cityDropdown').empty();
+           }
+       });
+   });
+</script>
 <script>
     function displayImage(input) {
         if (input.files && input.files[0]) {
@@ -338,7 +373,6 @@
         }
     }
 </script>
-<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script>
         $(document).ready(function() {
          $('.onlinesupplier').hide();
@@ -352,34 +386,5 @@
             });
         });
 </script>   
-<script>
-    $(document).ready(function () {
-        // Change event for the country dropdown
-        $('#StateactionDropdown').on('change', function () {
-            var stateId = $(this).val();
-            var baseUrl = "{{ url('/') }}";
-            if (stateId) {
-                // Make an AJAX request to get the states based on the selected country
-                $.ajax({
-                    type: 'GET',
-                    datatype : 'json',
-                    url: baseUrl + '/get-cities/' + stateId, // Replace with the actual route to get states
-                    success: function (data) {
-                        // Clear the current options in the state dropdown
-                        $('#citysDropdown').empty();
-                        // Add the defualt select box
-                        $('#citysDropdown').append('<option value="">Select</option>');
-                        // Add the new options based on the response
-                        $.each(data, function (key, value) {
-                            $('#citysDropdown').append('<option value="' + value.id + '">' + value.name + '</option>');
-                        });
-                    }
-                });
-             } else {
-                // If no country is selected, clear the state dropdown
-                $('#citysDropdown').empty();
-            }
-        });
-    });
-</script>
+
 
