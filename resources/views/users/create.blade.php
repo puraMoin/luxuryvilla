@@ -238,15 +238,16 @@
                     datatype : 'json',
                     url: baseUrl + '/get-cities/' + stateId, // Replace with the actual route to get states
                     success: function (data) {
-                        // Clear the current options in the state dropdown
-                        $('#cityDropdown').empty();
-                        // Add the defualt select box
-                        $('#cityDropdown').append('<option value="">Select</option>');
-                        // Add the new options based on the response
-                        $.each(data, function (key, value) {
-
-                            $('#cityDropdown').append('<option value="' + value.id + '">' + value.name + '</option>');
-                        });
+                       // Clear the current options in the state dropdown
+                       $('#cityDropdown').closest('.select-position').replaceWith(`
+                           <div class="select-position select-sm">
+                              <select id="cityDropdown" class="jSelectbox" name="city_id" required>
+                                    <option value="">Select</option>
+                              </select>
+                           </div>
+                        `);
+                       // Adding New Data to the Dropdown      
+                       $('#cityDropdown').html(data);
                     }
                 });
              } else {
