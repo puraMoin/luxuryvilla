@@ -7,7 +7,7 @@
      @include('partials.breadcrumb')
 
      <div class="right-mob-left">
-        <a href="{{ route('users.index') }}">
+        <a href="{{ route('suppliers.index') }}">
           <button type="button" class="main-btn primary-btn-outline btn-hover btn-xs">Back</button>
         </a>
       </div>
