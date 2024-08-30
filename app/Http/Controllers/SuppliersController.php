@@ -217,10 +217,6 @@ class SuppliersController extends Controller
     {
         $supplier = Supplier::find($id);
 
-        //dd($supplier->onlinesuppliers);
-
-        //dd($user);
-
         if (!$supplier) {
             return redirect()->route('suppliers.index')->with('error', 'Supplier not found.');
         }
