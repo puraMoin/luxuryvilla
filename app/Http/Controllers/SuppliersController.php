@@ -51,11 +51,11 @@ class SuppliersController extends Controller
         $supplierregionTypes = SupplierRegionType::all();
 
         $country = Country::where('id', '101')->first();
-        $countryId = $country->id;        
+        $countryId = $country->id;
         $states = State::where('country_id', '101')->get();
 
         /*For Online Supplier Multiple Dropdown Start*/
-        
+
         $onlineSuppliers = OnlineSupplier::all()->where('active',true);
 
         /*For Online Supplier Multiple Dropdown End*/
@@ -259,9 +259,9 @@ class SuppliersController extends Controller
 
         $selectedIds = $selectedonlineSupplier->pluck('id')->toArray();
 
-        $onlineSuppliers = OnlineSupplier::whereNotIn('id', $selectedIds)->get(); 
+        $onlineSuppliers = OnlineSupplier::whereNotIn('id', $selectedIds)->get();
         /*For Multiple Online Suppliers End*/
-        
+
         $countryId = $supplier->country_id;
         $country = Country::where('id', $countryId)->first();
 
@@ -283,9 +283,9 @@ class SuppliersController extends Controller
 
         // Debug output
         //dd($supplierAccesstoCompany, $companies);
- 
+
         /*For Supplier Access to Company Table End*/
-        return view('suppliers.edit', compact('supplier','pageTitle','parentMenu','userId','supplierType','supplierTypes','supplierregionType','supplierregionTypes','selectedonlineSupplier','onlineSuppliers','country','state','otherstates','city','othercities','companies','supplierAccesstoCompany'));          
+        return view('suppliers.edit', compact('supplier','pageTitle','parentMenu','userId','supplierType','supplierTypes','supplierregionType','supplierregionTypes','selectedonlineSupplier','onlineSuppliers','country','state','otherstates','city','othercities','companies','supplierAccesstoCompany'));
     }
 
     /**
@@ -338,7 +338,7 @@ class SuppliersController extends Controller
         ]);
 
         dump($supplier);
-        
+
         if($newPassword != null){
             $supplier->update([
                 'password' => bcrypt($request->input('password'))
@@ -363,8 +363,8 @@ class SuppliersController extends Controller
 
         $supplier->save();
         // Sync the associated Online Suppliers
-	    $supplier->onlinesuppliers()->sync($request->input('onlinesuppliers')); 
-        
+	    $supplier->onlinesuppliers()->sync($request->input('onlinesuppliers'));
+
         foreach ($request->input('SupplierAccessToCompany') as $supplierAccess) {
             //dump($supplierAccess);
             // Convert checkbox values to 1 or 0
