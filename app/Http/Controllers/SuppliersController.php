@@ -297,7 +297,7 @@ class SuppliersController extends Controller
      */
     public function update(Request $request, $id)
     {
-        dump($request);
+
         $newPassword = ($request->input('password'));
         $supplier = Supplier::findOrFail($id);
 
@@ -337,7 +337,6 @@ class SuppliersController extends Controller
             'updated_at'=> now(),
         ]);
 
-        dump($supplier);
         
         if($newPassword != null){
             $supplier->update([
@@ -350,7 +349,6 @@ class SuppliersController extends Controller
 
             $image = $request->file('image_file');
 
-            //dd($image);
 
             $folder = 'images/supplier/image_file/'.$supplier->id;
 

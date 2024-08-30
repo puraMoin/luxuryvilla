@@ -341,7 +341,7 @@
                    datatype : 'json',
                    url: baseUrl + '/get-cities/' + stateId, // Replace with the actual route to get states
                    success: function (data) {
-                       //console.log(data);
+                       
                        // Clear the current options in the state dropdown
                        $('#cityDropdown').closest('.select-position').replaceWith(`
                            <div class="select-position select-sm">
@@ -350,7 +350,7 @@
                               </select>
                            </div>
                         `);
-
+                       // Adding New Data to the Dropdown      
                        $('#cityDropdown').html(data);
 
                    }
