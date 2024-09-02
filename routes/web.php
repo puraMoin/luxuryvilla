@@ -63,6 +63,7 @@ use App\Http\Controllers\CompanyRepresentativesController;
 use App\Http\Controllers\ContractSeasonTypesController;
 use App\Http\Controllers\PropertyCategoriesController;
 use App\Http\Controllers\PropertyImagesController;
+use App\Http\Controllers\PropertySeoTagsController;
 use App\Http\Controllers\ServiceMastersController;
 use App\Http\Controllers\ServiceModuleMastersController;
 use App\Http\Controllers\SupplierAccessToCompaniesController;
@@ -209,6 +210,7 @@ Route::get('/dashboard', [DashboardsController::class, 'index'])->name('dashboar
   Route::resource('suppliercontacts', SupplierContactsController::class);
   Route::resource('supplierbanks', SupplierBanksController::class);
   Route::resource('supplierextranets', SupplierExtranetsController::class);
+  Route::resource('propertyseotags', PropertySeoTagsController::class);
 
   Route::get('/get-states/{countryId}', [StatesController::class, 'getStates']);
   Route::get('/get-cities/{stateId}', [CitiesController::class, 'getCities']);
