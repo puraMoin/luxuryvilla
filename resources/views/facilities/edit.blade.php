@@ -47,7 +47,9 @@
                         <div class="col-sm-4">
                             <label>Icon Image</label>
                             <div id="imageBox">
-                                <img id="selectedImage" src="{{ $facility->icon_image ? asset('images/facility/icon_image/' . $facility->id . '/' . $facility->icon_image) : asset('images/no-image.png') }}" alt="Selected Image">
+                                <img id="selectedImage"
+                                    src="{{ $facility->icon_image ? asset('images/facility/icon_image/' . $facility->id . '/' . $facility->icon_image) : asset('images/no-image.png') }}"
+                                    alt="Selected Image">
                             </div>
                             <input type="file" name="icon_image" id="imageInput" onchange="displayImage(this)">
                         </div>
