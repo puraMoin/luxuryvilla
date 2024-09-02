@@ -25,10 +25,10 @@
                                 <input type="text" id="name" name="name" class="form-control" required>
                             </div>
                         </div>
-                       
+
                         <div class="col-sm-4">
-                            <!-- Active Code --> 
-                             <label>Active</label><br> 
+                            <!-- Active Code -->
+                             <label>Active</label><br>
                              <label class="radio-inline">
                              <input type="radio" name="active" class="radio-inline" value="1"> Yes
                              </label>
@@ -54,9 +54,9 @@
                                <textarea name="description" class="form-control rich-editor" ></textarea>
                             </div>
                         </div>
-                    </div>     
+                    </div>
                 </div>
-                <br>                  
+                <br>
                     <div class="row">
                         <div class="col-12">
                             <button type="submit" class="main-btn primary-btn btn-hover btn-sm">Save</button>

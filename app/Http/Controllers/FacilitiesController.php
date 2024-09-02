@@ -43,7 +43,7 @@ class FacilitiesController extends Controller
      */
     public function store(Request $request)
     {
-  
+
         $request->validate([
             'name' => 'required|string|max:255',
             'description'=>'required',
@@ -60,7 +60,7 @@ class FacilitiesController extends Controller
             'updated_at'=>now(),
         ]);
 
-        
+
         if ($request->hasFile('icon_image')) {
 
             $image = $request->file('icon_image');
@@ -125,7 +125,7 @@ class FacilitiesController extends Controller
             'updated_at'=>now(),
         ]);
 
-                
+
         if ($request->hasFile('icon_image')) {
 
             $image = $request->file('icon_image');
