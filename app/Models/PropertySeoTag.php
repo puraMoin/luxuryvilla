@@ -14,13 +14,15 @@ class PropertySeoTag extends Model
         'description',
         'keywords',
         'active',
-        'created_at',
-        'updated_at',
         'created_by',
         'modified_by',
+        'created_at',
+        'updated_at',
     ];
 
+    protected $table = 'property_seo_tags';
+
     public function property(){
-        return $this->belongsTo(Property::class);
+        return $this->belongsTo(Property::class, 'property_id');
     }
 }

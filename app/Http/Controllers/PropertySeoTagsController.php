@@ -23,27 +23,26 @@ class PropertySeoTagsController extends Controller
         $userId = Auth::id();
         $pageTitle = 'Create';
         $property = Property::all();
-        return view('propertyseotags.create', compact('userId', 'pageTitle','property'));
+        return view('propertyseotags.create', compact('userId', 'pageTitle', 'property'));
     }
-
 
     public function store(Request $request)
     {
         $request->validate([
             'property_id' => 'required|integer',
-            'name'=> 'required|string',
-            'description'=> 'required|string',
-            'keywords'=> 'required|string',
-            'active'=> 'required|boolean',
-            'created_by'=> 'nullable|integer',
-            'modified_by'=> 'nullable|integer',
+            'name' => 'required|string',
+            'keywords' => 'required|string',
+            'description' => 'required|string',
+            'active' => 'boolean',
+            'created_by' => 'nullable|integer',
+            'modified_by' => 'nullable|integer',
         ]);
 
         $propertyseotag = PropertySeoTag::create([
             'property_id' => $request->input('property_id'),
             'name' => $request->input('name'),
-            'description' => $request->input('description'),
             'keywords' => $request->input('keywords'),
+            'description' => $request->input('description'),
             'active' => $request->input('active'),
             'created_by' => $request->input('created_by'),
             'modified_by' => $request->input('modified_by'),
@@ -68,17 +67,17 @@ class PropertySeoTagsController extends Controller
         $propertyseotag = PropertySeoTag::findOrFail($id);
         $userId = Auth::id();
 
-        $property = Property::where('id', $propertyseotag->supplier_id)->first();
+        $property = Property::where('id', $propertyseotag->property_id)->first();
         $properties = Property::where('id', '!=', $property->id)->get();
 
         $pageTitle = "Edit";
-        return view('propertyseotags.edit', compact('pageTitle','property','properties','propertyseotag','supplier','suppliers', 'userId'));
+        return view('propertyseotags.edit', compact('pageTitle', 'property', 'properties', 'propertyseotag', 'userId'));
     }
 
 
     public function update(Request $request, $id)
     {
-        $propertyseotag = Property::findOrFail($id);
+        $propertyseotag = PropertySeoTag::findOrFail($id);
         $propertyseotag->update([
             'property_id' => $request->input('property_id'),
             'name' => $request->input('name'),
@@ -88,7 +87,7 @@ class PropertySeoTagsController extends Controller
             'modified_by' => $request->input('modified_by'),
             'updated_at' => now(),
         ]);
-            return redirect()->route('propertyseotags.index');
+        return redirect()->route('propertyseotags.index');
     }
 
 
