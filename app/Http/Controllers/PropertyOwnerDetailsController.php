@@ -21,7 +21,7 @@ class PropertyOwnerDetailsController extends Controller
 
         $propertyOwnerDetails = $propertyOwnerDetailQuery->paginate(20);
 
-        return view('suppliers.index',compact('pageTitle','parentMenu','suppliers'));
+        return view('propertyownerdetails.index',compact('pageTitle','parentMenu','propertyOwnerDetails'));
     }
 
     /**
@@ -31,7 +31,8 @@ class PropertyOwnerDetailsController extends Controller
      */
     public function create()
     {
-        //
+
+
     }
 
     /**

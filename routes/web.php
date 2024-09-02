@@ -61,8 +61,10 @@ use App\Http\Controllers\ApartmentCategoriesController;
 use App\Http\Controllers\BankDetailsController;
 use App\Http\Controllers\CompanyRepresentativesController;
 use App\Http\Controllers\ContractSeasonTypesController;
+use App\Http\Controllers\FacilitiesController;
 use App\Http\Controllers\PropertyCategoriesController;
 use App\Http\Controllers\PropertyImagesController;
+use App\Http\Controllers\PropertyOwnerDetailsController;
 use App\Http\Controllers\PropertySeoTagsController;
 use App\Http\Controllers\ServiceMastersController;
 use App\Http\Controllers\ServiceModuleMastersController;
@@ -81,7 +83,7 @@ use App\Models\Country;
 use App\Models\Currency;
 use App\Models\Designation;
 use App\Models\OnlineSupplier;
-use App\Models\PropertyOwnerDetail;
+
 use App\Models\SupplierBank;
 use App\Models\SupplierCancellationPolicy;
 
@@ -218,7 +220,9 @@ Route::get('/dashboard', [DashboardsController::class, 'index'])->name('dashboar
   Route::resource('rolesrights', RolesRightsController::class);
   Route::resource('companymasters', CompanyMastersController::class);
   Route::resource('suppliers', SuppliersController::class);
-  Route::resource('propertyownerdetails', PropertyOwnerDetail::class);
+  Route::resource('propertyownerdetails', PropertyOwnerDetailsController::class);
+  Route::resource('facilities', FacilitiesController::class);
+
 
   /*Setup Route To Image Upload*/
   //Route::post('/posts/image_upload', 'PostController@uploadImage')->name('posts.image.upload');
