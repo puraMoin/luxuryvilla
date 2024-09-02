@@ -80,6 +80,7 @@ use App\Models\Country;
 use App\Models\Currency;
 use App\Models\Designation;
 use App\Models\OnlineSupplier;
+use App\Models\PropertyOwnerDetail;
 use App\Models\SupplierBank;
 use App\Models\SupplierCancellationPolicy;
 
@@ -215,6 +216,7 @@ Route::get('/dashboard', [DashboardsController::class, 'index'])->name('dashboar
   Route::resource('rolesrights', RolesRightsController::class);
   Route::resource('companymasters', CompanyMastersController::class);
   Route::resource('suppliers', SuppliersController::class);
+  Route::resource('propertyownerdetails', PropertyOwnerDetail::class);
 
   /*Setup Route To Image Upload*/
   //Route::post('/posts/image_upload', 'PostController@uploadImage')->name('posts.image.upload');
