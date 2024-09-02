@@ -14,12 +14,12 @@ class FacilitiesController extends Controller
      */
     public function index()
     {
-        $pageTitle = 'Suppliers List';
+        $pageTitle = 'Facility List';
         $parentMenu = 'Suppliers';
 
-        $facilites = Facility::paginate(20);
+        $facilities = Facility::paginate(20);
 
-        return view('facilites.index',compact('pageTitle','parentMenu','facilites'));
+        return view('facilities.index',compact('pageTitle','parentMenu','facilities'));
     }
 
     /**
@@ -32,7 +32,7 @@ class FacilitiesController extends Controller
         $parentMenu = 'Other Modules';
         $pageTitle = "Add";
 
-        return view ('facilites.create',compact('pageTitle','parentMenu'));
+        return view ('facilities.create',compact('pageTitle','parentMenu'));
     }
 
     /**
@@ -43,6 +43,7 @@ class FacilitiesController extends Controller
      */
     public function store(Request $request)
     {
+  
         $request->validate([
             'name' => 'required|string|max:255',
             'description'=>'required',
@@ -75,7 +76,7 @@ class FacilitiesController extends Controller
 
            $facility->save();
 
-        return redirect()->route('facilites.index');
+        return redirect()->route('facilities.index');
     }
 
     /**
@@ -89,7 +90,7 @@ class FacilitiesController extends Controller
         $facility = Facility::findOrfail($id);
         $pageTitle = "Show";
 
-        return view('facilites.show',compact('department','pageTitle'));
+        return view('facilities.show',compact('facility','pageTitle'));
     }
 
     /**
@@ -102,7 +103,7 @@ class FacilitiesController extends Controller
     {
         $facility = Facility::find($id);
         $pageTitle = "Edit";
-        return view('facilites.edit',compact('department','pageTitle'));
+        return view('facilities.edit',compact('facility','pageTitle'));
     }
 
     /**
@@ -140,7 +141,7 @@ class FacilitiesController extends Controller
 
            $facility->save();
 
-        return redirect()->route('facilites.index');
+        return redirect()->route('facilities.index');
     }
 
     /**
