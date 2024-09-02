@@ -8,9 +8,9 @@
      <!-- ========== Middle Content-wrapper start ========== -->
      <!-- Add New Button -->
      <div class="right-mob-left">
-      <a href="{{ route('menulink.masterlinks') }}"><button type="button" class="main-btn primary-btn-outline btn-hover btn-xs">Masters</button></a> 
+      <a href="{{ route('menulink.masterlinks') }}"><button type="button" class="main-btn primary-btn-outline btn-hover btn-xs">Masters</button></a>
       <a href="{{ route('menulink.add') }}"><button type="button" class="main-btn primary-btn btn-hover btn-xs">Create</button></a></div>
-       
+
 	</div>
    <div class="container-fluid">
       <div class="card-style mt-20">

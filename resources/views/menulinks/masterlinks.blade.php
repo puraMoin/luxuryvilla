@@ -133,25 +133,25 @@ line-height: 1.5;
             <table cellpadding="0" cellspacing="0" class="table table-bordered table-condensed">
                <tbody>
                      <tr>
-                        <td width="25%" class=""><a href=""
+                        <td width="25%" class=""><a href="{{ route('companymasters.index') }}"
                                  type="button">Company</a>&nbsp;</td>
-                        <td width="25%" class=""><a href=""
+                        <td width="25%" class=""><a href="{{ route('employeelists.index') }}"
                                  type="button">Employee</a>&nbsp;</td>
-                        <td width="25%"><a href="" type="button">Company Website</a>&nbsp;
+                        <td width="25%"><a href="{{ route('companywebsites.index') }}" type="button">Company Website</a>&nbsp;
                         </td>
-                        <td width="25%"><a href="" type="button">Financial Year</a>&nbsp;
+                        <td width="25%"><a href="{{ route('financialyears.index') }}" type="button">Financial Year</a>&nbsp;
                         </td>
                      </tr>
                      <tr>
                         <td width="25%"><a href="" type="button">ROE Setup</a>&nbsp;</td>
                         <td width="25%"><a href="" type="button">Exchange Rate
                                  Markup</a>&nbsp;</td>
-                        <td width="25%"><a href="" type="button">Designation</a>&nbsp;</td>
-                        <td width="25%"><a href="" type="button">Department</a>&nbsp;</td>
+                        <td width="25%"><a href="{{ route('designations.index') }}" type="button">Designation</a>&nbsp;</td>
+                        <td width="25%"><a href="{{ route('departments.index') }}" type="button">Department</a>&nbsp;</td>
                      </tr>
                      <tr>
                         <td width="25%"><a href="" type="button">Tax Setup</a>&nbsp;</td>
-                        <td width="25%"><a href="" type="button">Tax Type</a>&nbsp;</td>
+                        <td width="25%"><a href="{{ route('taxtypes.index') }}" type="button">Tax Type</a>&nbsp;</td>
                         <td width="25%"><a href="" type="button">Tax Service</a>&nbsp;</td>
                         <td width="25%"><a href="" type="button">Tax Tour Service
                                  Type</a>&nbsp;</td>
@@ -161,13 +161,13 @@ line-height: 1.5;
                                  Setup</a>&nbsp;</td>
                         <td width="25%"><a href="" type="button">Company Text
                                  Setup</a>&nbsp;</td>
-                        <td width="25%"><a href="" type="button">Company Code
+                        <td width="25%"><a href="{{ route('companycodecategories.index') }}" type="button">Company Code
                                  Category</a>&nbsp;</td>
-                        <td width="25%"><a href="" type="button">Company Code
+                        <td width="25%"><a href="{{ route('companycodemodules.index') }}" type="button">Company Code
                                  Module</a>&nbsp;</td>
                      </tr>
                      <tr>
-                        <td width="25%"><a href="" type="button">Roles &amp;
+                        <td width="25%"><a href="{{ route('rolesrights.index') }}" type="button">Roles &amp;
                                  Rights</a>&nbsp;</td>
                         <td width="25%"><a href="" type="button">Permissions
                                  Setup</a>&nbsp;</td>
@@ -192,10 +192,10 @@ line-height: 1.5;
                            <td width="25%"><a href="" type="button">Agent</a></td>
                            <td width="25%"><a href="" type="button">Agent Type</a>&nbsp;
                            </td>
-                           <td width="25%"><a href="" type="button">Agent Credit
+                           <td width="25%"><a href="{{ route('agentcredittypes.index') }}" type="button">Agent Credit
                                     Type</a>&nbsp;</td>
-                           <td width="25%"><a href="" type="button">Agent Credit Limit
-                                    For</a>&nbsp;</td>
+                           <td width="25%"><a href="{{ route('agentcreditlimitformasters.index') }}" type="button">Agent Credit Limit
+                                    For Master</a>&nbsp;</td>
                         </tr>
                      </tbody>
                </table>
@@ -228,13 +228,13 @@ line-height: 1.5;
                            </td>
                         </tr>
                         <tr>
-                           <td width="25%"><a href="" type="button">Supplier</a>&nbsp;
+                           <td width="25%"><a href="{{ route('suppliers.index') }}" type="button">Supplier</a>&nbsp;
                            </td>
-                           <td width="25%"><a href="" type="button">Supplier
+                           <td width="25%"><a href="{{ route('suppliertypes.index') }}" type="button">Supplier
                                     Type</a>&nbsp;</td>
-                           <td width="25%"><a href="" type="button">Supplier Region
+                           <td width="25%"><a href="{{ route('supplierregiontypes.index') }}" type="button">Supplier Region
                                     Type</a>&nbsp;</td>
-                           <td width="25%"><a href="" type="button">Online
+                           <td width="25%"><a href="{{ route('onlinesuppliers.index') }}" type="button">Online
                                     Supplier</a>&nbsp;</td>
                         </tr>
                      </tbody>
@@ -397,16 +397,16 @@ line-height: 1.5;
                <tbody>
                      <tr>
                         <td width="25%" class="">
-                           <a href="#" type="button">Segment</a>&nbsp;
+                           <a href="{{ route('segments.index') }}" type="button">Segment</a>&nbsp;
                         </td>
                         <td width="25%" class="">
-                           <a href="#" type="button">Country</a>&nbsp;
+                           <a href="{{ route('countries.index') }}" type="button">Country</a>&nbsp;
                         </td>
                         <td width="25%">
-                           <a href="#" type="button">State</a>&nbsp;
+                           <a href="{{ route('states.index') }}" type="button">State</a>&nbsp;
                         </td>
                         <td width="25%">
-                           <a href="#" type="button">City</a>&nbsp;
+                           <a href="{{ route('cities.index') }}" type="button">City</a>&nbsp;
                         </td>
                      </tr>
                      <tr>
@@ -587,11 +587,11 @@ line-height: 1.5;
                         <tr>
                            <td width="25%"><a href="#" type="button">Property</a>&nbsp;
                            </td>
-                           <td width="25%"><a href="#" type="button">Property
+                           <td width="25%"><a href="{{ route('propertycategories.index') }}" type="button">Property
                                     Category</a>&nbsp;</td>
-                           <td width="25%"><a href="#" type="button">Bed Type</a>&nbsp;
+                           <td width="25%"><a href="{{ route('bedtypes.index') }}" type="button">Bed Type</a>&nbsp;
                            </td>
-                           <td width="25%"><a href="#" type="button">Bathroom
+                           <td width="25%"><a href="{{ route('bathroomtypes.index') }}" type="button">Bathroom
                                     Type</a>&nbsp;</td>
                         </tr>
                         <tr>
@@ -817,7 +817,7 @@ line-height: 1.5;
                               <a href="#" type="button">Relationship</a>&nbsp;
                            </td>
                            <td width="25%">
-                              <a href="#" type="button">Currency</a>&nbsp;
+                              <a href="{{ route('currency.index') }}" type="button">Currency</a>&nbsp;
                            </td>
                            <td width="25%">
                               <a href="#" type="button">Passenger Type</a>&nbsp;
@@ -833,7 +833,7 @@ line-height: 1.5;
                            <td width="25%">
                               <a href="#" type="button">Leave Type</a>&nbsp;
                            </td>
-                           <td width="25%">                             
+                           <td width="25%">
                               <a href="#" type="button">Distance Unit</a>&nbsp;
                            </td>
                            <td width="25%">
@@ -862,26 +862,26 @@ line-height: 1.5;
                            </td>
                         </tr>
                         <tr>
-                           <td width="25%"><a href="#" type="button">Assigned
+                           <td width="25%"><a href="{{ route('assigneddashboards.index') }}" type="button">Assigned
                                     Dashboard</a>&nbsp;</td>
                            <td width="25%"><a href="#" type="button">Module</a>&nbsp;</td>
                            <td width="25%"><a href="#" type="button">Facility</a>&nbsp;
                            </td>
-                           <td width="25%"><a href="#" type="button">Property
+                           <td width="25%"><a href="{{ route('propertytypes.index') }}" type="button">Property
                                     Type</a>&nbsp;</td>
                         </tr>
                         <tr>
-                           <td width="25%"><a href="#" type="button">Area Unit</a>&nbsp;
+                           <td width="25%"><a href="{{ route('areaunits.index') }}" type="button">Area Unit</a>&nbsp;
                            </td>
                            <td width="25%"><a href="#" type="button">Weekday</a>&nbsp;
                            </td>
                            <td width="25%"><a href="#" type="button">Enquiry Source</a>
                            </td>
-                           <td width="25%"><a href="#" type="button">Menu Links</a></td>
+                           <td width="25%"><a href="{{ route('menulink.index') }}" type="button">Menu Links</a></td>
                            <td width="25%">&nbsp;</td>
                         </tr>
                         <tr>
-                           <td width="25%"><a href="#" type="button">Cost Type</a></td>
+                           <td width="25%"><a href="{{ route('costtypes.index') }}" type="button">Cost Type</a></td>
                            <td width="25%"><a href="#" type="button">Contract Session</a>
                            </td>
                            <td width="25%"><a href="#" type="button">NearBy
@@ -893,7 +893,7 @@ line-height: 1.5;
          </div>
          <!-- Tab 7 End -->
          <!-- Tab 8 Start -->
-      <div id="tab8" class="tab-pane fade">         
+      <div id="tab8" class="tab-pane fade">
          <div class="table-responsive">
             <table cellpadding="0" cellspacing="0" class="table table-bordered table-condensed">
                 <tbody>
@@ -930,7 +930,7 @@ line-height: 1.5;
                     </tr>
                     <tr><td colspan="4"><h6>Homepage Related Masters</h6></td></tr>
                     <tr>
-                        <td width="25%"><a href="#" type="button">Website Type</a>&nbsp;</td>
+                        <td width="25%"><a href="{{ route('websitetypes.index') }}" type="button">Website Type</a>&nbsp;</td>
                         <td width="25%"><a href="#" type="button">Destination Tag</a>&nbsp;</td>
                         <td width="25%"><a href="#" type="button">Robot Meta Tag</a>&nbsp;</td>
                         <td width="25%"><a href="#" type="button">Hidden Tag</a>&nbsp;</td>
@@ -955,18 +955,18 @@ line-height: 1.5;
                     </tr>
                 </tbody>
             </table>
-        </div>      
-      </div>    
-        <!-- Tab 8 End --> 
-        <!-- Tab 9 Start --> 
-      <div id="tab9" class="tab-pane fade">          
+        </div>
+      </div>
+        <!-- Tab 8 End -->
+        <!-- Tab 9 Start -->
+      <div id="tab9" class="tab-pane fade">
         <div class="table-responsive">
          <table cellpadding="0" cellspacing="0" class="table table-bordered table-condensed">
              <tbody>
                  <tr><td colspan="4"><h6>C R M</h6></td></tr>
                  <tr>
-                     <td width="25%"><a href="#" type="button">Enquiry Stage</a>&nbsp;</td>
-                     <td width="25%"><a href="#" type="button">Enquiry Status</a>&nbsp;</td>
+                     <td width="25%"><a href="{{ route('crmenquirystages.index') }}" type="button">Enquiry Stage</a>&nbsp;</td>
+                     <td width="25%"><a href="{{ route('crmenquirystatuses.index') }}" type="button">Enquiry Status</a>&nbsp;</td>
                      <td width="25%"><a href="#" type="button">CRM Region</a>&nbsp;</td>
                      <td width="25%"><a href="#" type="button">User Level</a>&nbsp;</td>
                  </tr>
@@ -1012,9 +1012,9 @@ line-height: 1.5;
                  </tr>
                </tbody>
          </table>
-         </div> 
-      </div>    
-     <!-- Tab 9 End -->        
+         </div>
+      </div>
+     <!-- Tab 9 End -->
    </div>
 </div>
 
