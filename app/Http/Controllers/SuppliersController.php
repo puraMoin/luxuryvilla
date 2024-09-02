@@ -332,13 +332,7 @@ class SuppliersController extends Controller
             'created_at'=> now(),
             'updated_at'=> now(),
         ]);
-
-<<<<<<< HEAD
-        dump($supplier);
-
-=======
-        
->>>>>>> 5453ea9bd791cdcc7d8422b2e60ebf38e4ebd176
+       
         if($newPassword != null){
             $supplier->update([
                 'password' => bcrypt($request->input('password'))
