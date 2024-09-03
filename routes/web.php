@@ -60,6 +60,8 @@ use App\Http\Controllers\AccomodationTypesController;
 use App\Http\Controllers\ApartmentCategoriesController;
 use App\Http\Controllers\BankDetailsController;
 use App\Http\Controllers\CompanyRepresentativesController;
+use App\Http\Controllers\ContractsController;
+use App\Http\Controllers\ContractSeasonsController;
 use App\Http\Controllers\ContractSeasonTypesController;
 use App\Http\Controllers\FacilitiesController;
 use App\Http\Controllers\PropertyCategoriesController;
@@ -213,6 +215,9 @@ Route::get('/dashboard', [DashboardsController::class, 'index'])->name('dashboar
   Route::resource('supplierbanks', SupplierBanksController::class);
   Route::resource('supplierextranets', SupplierExtranetsController::class);
   Route::resource('propertyseotags', PropertySeoTagsController::class);
+  Route::resource('contracts', ContractsController::class);
+  Route::resource('contractseasons', ContractSeasonsController::class);
+
 
   Route::get('/get-states/{countryId}', [StatesController::class, 'getStates']);
   Route::get('/get-cities/{stateId}', [CitiesController::class, 'getCities']);
