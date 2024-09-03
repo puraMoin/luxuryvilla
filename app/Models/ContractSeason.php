@@ -37,4 +37,26 @@ class ContractSeason extends Model
         'final_date_of_payment',
         'amount_days',
     ];
+
+    protected $table = 'contract_seasons';
+
+    public function property()
+    {
+        return $this->belongsTo(Property::class, 'property_id');
+    }
+
+    public function costtype()
+    {
+        return $this->belongsTo(CostType::class, 'cost_type_id');
+    }
+
+    public function contract()
+    {
+        return $this->belongsTo(Contract::class, 'contract_id');
+    }
+
+    public function contractseasontype()
+    {
+        return $this->belongsTo(ContractSeasonType::class, 'contract_season_type_id');
+    }
 }
