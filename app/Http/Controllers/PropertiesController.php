@@ -3,6 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\Models\Property;
+use App\Models\Supplier;
+use App\Models\Country;
+use App\Models\State;
 
 class PropertiesController extends Controller
 {
@@ -13,7 +18,18 @@ class PropertiesController extends Controller
      */
     public function index()
     {
-        //
+        $pageTitle = 'Property List';
+        $parentMenu = 'Property';
+
+        $userName = Auth::user()->name;
+
+        $userName = $userName ? $userName : '---';
+
+        $propertyQuery = Property::with(['suppliers','country','states','destinations']);
+
+        $properties = $propertyQuery->paginate(20);
+
+        return view('properties.index',compact('pageTitle','parentMenu','properties','userName'));
     }
 
     /**
