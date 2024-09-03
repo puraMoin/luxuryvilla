@@ -126,7 +126,7 @@ class FacilitiesController extends Controller
         ]);
 
 
-        if ($request->hasFile('icon_image')) {
+         if ($request->hasFile('icon_image')) {
 
             $image = $request->file('icon_image');
 

@@ -17,4 +17,6 @@ class PropertyCategory extends Model
         'modified_by'
     ];
     protected $table = 'property_categories';
+
+    
 }

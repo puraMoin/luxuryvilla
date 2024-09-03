@@ -19,13 +19,13 @@
 		 <!-- BreathCrum -->
      @include('partials.breadcrumb')
      <div class="right-mob-left">
-        <a href="{{ route('suppliers.index') }}">
+        <a href="{{ route('propertyownerdetails.index') }}">
           <button type="button" class="main-btn primary-btn-outline btn-hover btn-xs">Back</button>
         </a>
       </div>
 
     <!-- For Start Here -->
-   <form method="POST" action="{{ route('suppliers.store') }}" enctype="multipart/form-data">
+   <form method="POST" action="{{ route('propertyownerdetails.store') }}" enctype="multipart/form-data">
   <div class="card-style mt-20">
       <!-- Form Start Here -->
        @csrf

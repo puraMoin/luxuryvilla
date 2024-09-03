@@ -64,6 +64,7 @@ use App\Http\Controllers\ContractsController;
 use App\Http\Controllers\ContractSeasonsController;
 use App\Http\Controllers\ContractSeasonTypesController;
 use App\Http\Controllers\FacilitiesController;
+use App\Http\Controllers\PropertiesController;
 use App\Http\Controllers\PropertyCategoriesController;
 use App\Http\Controllers\PropertyImagesController;
 use App\Http\Controllers\PropertyOwnerDetailsController;
@@ -227,6 +228,7 @@ Route::get('/dashboard', [DashboardsController::class, 'index'])->name('dashboar
   Route::resource('suppliers', SuppliersController::class);
   Route::resource('propertyownerdetails', PropertyOwnerDetailsController::class);
   Route::resource('facilities', FacilitiesController::class);
+  Route::resource('properties', PropertiesController::class);
 
 
   /*Setup Route To Image Upload*/

@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\PropertyOwnerDetail;
+use Illuminate\Support\Facades\Auth;
+use App\Models\Property;
+use App\Models\Country;
+use App\Models\State;
 
 class PropertyOwnerDetailsController extends Controller
 {
@@ -31,7 +35,15 @@ class PropertyOwnerDetailsController extends Controller
      */
     public function create()
     {
+        $pageTitle = 'Add';
+        $userId = Auth::id();
+        $properties = Property::all();
 
+        $country = Country::where('id', '101')->first();
+        $countryId = $country->id;
+        $states = State::where('country_id', '101')->get();
+
+       return view('propertyownerdetails.create',compact('pageTitle','properties','country','states','userId'));
 
     }
 
@@ -54,7 +66,17 @@ class PropertyOwnerDetailsController extends Controller
      */
     public function show($id)
     {
-        //
+        $propertyOwnerDetail = PropertyOwnerDetail::find($id);
+
+        if (!$propertyOwnerDetail) {
+            return redirect()->route('propertyownerdetails.index')->with('error', 'propertyOwnerDetail not found.');
+        }
+        // Retrieve additional details if needed
+        $pageTitle = 'Show';
+        $parentMenu = 'Property';
+
+        return view('propertyownerdetails.show', compact('propertyOwnerDetail','pageTitle','parentMenu'));
+        // You can pass the data to a view and display it
     }
 
     /**
