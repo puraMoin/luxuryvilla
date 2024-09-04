@@ -10,7 +10,7 @@
                   <button type="button" class="main-btn primary-btn-outline btn-hover btn-xs">Back</button>
                 </a>
               </div>
-           
+
 
             <!-- For Start Here -->
             <form method="POST" action="{{ route('companymasters.update', $companymaster->id) }}"
@@ -382,7 +382,7 @@
                               </select>
                            </div>
                         `);
-                       // Adding New Data to the Dropdown      
+                       // Adding New Data to the Dropdown
                        $('#cityDropdown').html(data);
                     }
                 });

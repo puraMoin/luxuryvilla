@@ -331,7 +331,7 @@
                               </select>
                            </div>
                         `);
-                       // Adding New Data to the Dropdown      
+                       // Adding New Data to the Dropdown
                        $('#cityDropdown').html(data);
                     }
                 });

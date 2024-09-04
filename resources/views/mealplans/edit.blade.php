@@ -37,7 +37,7 @@
                         </div>
 
                         <div class="col-sm-4">
-                            <label>Active</label><br> 
+                            <label>Active</label><br>
                             <label class="radio-inline">
                                 <input type="radio" name="active" class="radio-inline" value="1" {{ old('active', $meal->active) == 1 ? 'checked' : '' }}> Yes
                             </label>
@@ -46,11 +46,11 @@
                             </label>
                         </div>
 
-                        
+
                     </div>
                     </div>
                     <br>
-                    
+
                     <div class="row">
                         <div class="col-md-6">
                             <button type="submit" class="main-btn primary-btn btn-sm btn-hover">Save</button>
@@ -59,7 +59,7 @@
                     </div>
                 </form>
 
-            
+
         </div>
     </section>
 @endsection
